@@ -1,0 +1,22 @@
+/* App.css */
+.layout-menu {
+  transition: transform 1s ease-in-out;
+}
+
+.layout-menu.visible {
+  transform: translateX(0);
+}
+
+.layout-overlay {
+  display: none;
+}
+
+.layout-overlay.visible {
+  display: block;
+}
+
+@media (max-width: 1199px) {
+  .layout-menu {
+    transform: translateX(-100%);
+  }
+}
