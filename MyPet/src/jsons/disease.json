@@ -1,0 +1,212 @@
+[
+  {
+      "name": "Canine Parvovirus",
+      "species": "dog",
+      "description": "Canine Parvovirus is a highly contagious virus that primarily affects the gastrointestinal tract of dogs, especially puppies.",
+      "causes": [
+          "Contact with infected feces or contaminated objects",
+          "Exposure to contaminated environments"
+      ],
+      "symptoms": [
+          "Severe vomiting",
+          "Bloody diarrhea",
+          "Lethargy",
+          "Fever",
+          "Dehydration"
+      ],
+      "treatment": {
+          "1. Supportive Care": [
+              "Intravenous fluids to prevent dehydration",
+              "Medications to control vomiting and diarrhea"
+          ],
+          "2. Isolation": "To prevent the spread of the virus to other dogs.",
+          "3. Vaccination": "Preventative vaccination is essential to protect against parvovirus."
+      }
+  },
+  {
+      "name": "Heartworm Disease",
+      "species": "dog",
+      "description": "Heartworm Disease is caused by parasitic worms transmitted through mosquito bites, affecting the heart, lungs, and blood vessels of dogs.",
+      "causes": [
+          "Mosquito bites that transmit heartworm larvae",
+          "Living in areas with a high mosquito population"
+      ],
+      "symptoms": [
+          "Coughing",
+          "Fatigue after mild exercise",
+          "Weight loss",
+          "Difficulty breathing",
+          "Swollen belly due to fluid buildup"
+      ],
+      "treatment": {
+          "1. Medications": [
+              "Adulticide therapy to kill adult heartworms",
+              "Microfilaricide therapy to kill juvenile heartworms"
+          ],
+          "2. Rest": "Strict exercise restriction during treatment to prevent complications.",
+          "3. Preventative Medication": "Monthly heartworm preventatives to avoid future infections."
+      }
+  },
+  {
+      "name": "Hip Dysplasia",
+      "species": "dog",
+      "description": "Hip Dysplasia is a genetic condition where the hip joint develops abnormally, leading to arthritis and mobility issues in dogs.",
+      "causes": [
+          "Genetic predisposition",
+          "Rapid growth and weight gain",
+          "Environmental factors such as overexertion in young dogs"
+      ],
+      "symptoms": [
+          "Difficulty rising or climbing stairs",
+          "Limping or lameness",
+          "Decreased activity or reluctance to run or jump",
+          "Pain or stiffness in the hip joint"
+      ],
+      "treatment": {
+          "1. Weight Management": "Maintaining an ideal body weight to reduce stress on the hips.",
+          "2. Physical Therapy": "Exercises to strengthen the muscles and improve joint mobility.",
+          "3. Medications": [
+              "Non-steroidal anti-inflammatory drugs (NSAIDs) for pain relief",
+              "Joint supplements such as glucosamine and chondroitin"
+          ],
+          "4. Surgery": [
+              "Femoral head ostectomy (FHO)",
+              "Total hip replacement for severe cases"
+          ]
+      }
+  },
+  {
+      "name": "Epilepsy",
+      "species": "dog",
+      "description": "Epilepsy is a neurological disorder characterized by recurrent seizures in dogs, caused by abnormal electrical activity in the brain.",
+      "causes": [
+          "Genetic factors",
+          "Brain injury or trauma",
+          "Brain tumors or infections"
+      ],
+      "symptoms": [
+          "Seizures, which may involve collapsing, jerking, or loss of consciousness",
+          "Confusion or disorientation after seizures",
+          "Unusual behavior before a seizure, such as restlessness or anxiety"
+      ],
+      "treatment": {
+          "1. Anti-Seizure Medications": [
+              "Phenobarbital",
+              "Potassium bromide",
+              "Levetiracetam"
+          ],
+          "2. Monitoring": "Regular check-ups with a veterinarian to adjust medication as needed.",
+          "3. Lifestyle Management": "Creating a safe environment to minimize injury during seizures."
+      }
+  },
+  {
+      "name": "Gastric Dilatation-Volvulus (Bloat)",
+      "species": "dog",
+      "description": "Gastric Dilatation-Volvulus, commonly known as bloat, is a life-threatening condition in which a dog's stomach twists and fills with gas, cutting off blood flow.",
+      "causes": [
+          "Eating too quickly",
+          "Drinking large amounts of water after eating",
+          "Exercise immediately after eating"
+      ],
+      "symptoms": [
+          "Distended abdomen",
+          "Unproductive retching",
+          "Restlessness",
+          "Rapid breathing",
+          "Weakness or collapse"
+      ],
+      "treatment": {
+          "1. Emergency Surgery": "To untwist the stomach and remove gas.",
+          "2. Decompression": "A tube or needle may be used to relieve pressure in the stomach.",
+          "3. Preventative Surgery": "Gastropexy, a procedure to prevent the stomach from twisting in the future."
+      }
+  },
+  {
+      "name": "Diabetes Mellitus",
+      "species": "dog",
+      "description": "Diabetes Mellitus is a condition in dogs characterized by high blood sugar levels due to insufficient insulin production or insulin resistance.",
+      "causes": [
+          "Genetic predisposition",
+          "Obesity",
+          "Chronic pancreatitis"
+      ],
+      "symptoms": [
+          "Increased thirst and urination",
+          "Weight loss despite increased appetite",
+          "Lethargy",
+          "Cataracts"
+      ],
+      "treatment": {
+          "1. Insulin Therapy": "Daily insulin injections to regulate blood sugar levels.",
+          "2. Diet Management": "A low-carbohydrate, high-protein diet to manage blood sugar levels.",
+          "3. Regular Monitoring": "Frequent blood glucose testing to adjust insulin doses as needed."
+      }
+  },
+  {
+      "name": "Arthritis",
+      "species": "dog",
+      "description": "Arthritis is a condition characterized by inflammation of the joints, causing pain, stiffness, and reduced mobility in dogs.",
+      "causes": [
+          "Aging and wear and tear on the joints",
+          "Joint injuries",
+          "Genetic predisposition"
+      ],
+      "symptoms": [
+          "Limping or lameness",
+          "Difficulty rising or climbing stairs",
+          "Decreased activity or reluctance to exercise",
+          "Swollen or painful joints"
+      ],
+      "treatment": {
+          "1. Weight Management": "Maintaining an ideal body weight to reduce stress on the joints.",
+          "2. Medications": [
+              "Non-steroidal anti-inflammatory drugs (NSAIDs) for pain relief",
+              "Joint supplements such as glucosamine and chondroitin"
+          ],
+          "3. Physical Therapy": "Exercises and therapies to improve joint function and reduce pain.",
+          "4. Surgery": "In severe cases, surgical intervention such as joint replacement may be necessary."
+      }
+  },
+  {
+      "name": "Mast Cell Tumors",
+      "species": "dog",
+      "description": "Mast Cell Tumors are a common type of skin tumor in dogs, which can be benign or malignant, and require treatment based on their severity.",
+      "causes": [
+          "Genetic predisposition",
+          "Environmental factors",
+          "Mutations in mast cells"
+      ],
+      "symptoms": [
+          "Lumps or bumps on the skin, often red or swollen",
+          "Itching or irritation around the tumor",
+          "Vomiting, diarrhea, or other gastrointestinal symptoms in severe cases"
+      ],
+      "treatment": {
+          "1. Surgery": "Removal of the tumor is often the first line of treatment.",
+          "2. Chemotherapy": "For more aggressive or widespread tumors.",
+          "3. Radiation Therapy": "In cases where surgery is not possible or to reduce the size of the tumor before surgery."
+      }
+  },
+  {
+      "name": "Cataracts",
+      "species": "dog",
+      "description": "Cataracts cause clouding of the lens in a dog's eye, leading to vision impairment or blindness.",
+      "causes": [
+          "Aging",
+          "Genetic predisposition",
+          "Diabetes",
+          "Eye injuries or inflammation"
+      ],
+      "symptoms": [
+          "Cloudy or white appearance of the eye",
+          "Difficulty seeing in low light",
+          "Bumping into objects or hesitating before moving",
+          "Behavioral changes due to vision loss"
+      ],
+      "treatment": {
+          "1. Surgery": "Cataract removal and lens replacement to restore vision.",
+          "2. Monitoring": "Regular eye exams to monitor the progression of cataracts.",
+          "3. Managing Underlying Conditions": "Controlling diabetes or inflammation to prevent further cataract development."
+      }
+  }
+]

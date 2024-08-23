@@ -12,6 +12,8 @@ import EstablishmentsPage from './pages/EstablishmentsPage';
 import SocialForumsPage from './pages/SocialForumsPage';
 import UserPage from './pages/UserPage';
 import ProfilePage from './pages/ProfilePage';
+import HandlingGuide from './pages/HandlingGuide';
+import PetProfile from './pages/PetProfile'; // Import the PetProfile component
 import { AuthProvider } from './authProvider'; // Ensure the correct path
 
 const router = createBrowserRouter(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
         <Route path="SocialForumsPage" element={<SocialForumsPage />} />
         <Route path="UserPage" element={<UserPage />} />
         <Route path="ProfilePage" element={<ProfilePage />} />
+        <Route path="HandlingGuide/:breed" element={<HandlingGuide />} />
+        <Route path="PetProfile/:petId" element={<PetProfile />} /> {/* New Route for PetProfile */}
       </Route>
     </>
   )

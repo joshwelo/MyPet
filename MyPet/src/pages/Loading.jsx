@@ -15,7 +15,6 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh', // Full viewport height
   },
   image: {
     width: '100px', // Adjust the size as needed

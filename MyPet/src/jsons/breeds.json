@@ -1,0 +1,277 @@
+{
+    "dogs": [
+      {
+        "breed": "Great Dane",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "diet": {
+          "description": "High-quality large breed formulas with glucosamine and chondroitin for joints.",
+          "notes": "Controlled portions to avoid bloat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Regular brushing."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate to high"
+        }
+      },
+      {
+        "breed": "Saint Bernard",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "diet": {
+          "description": "Large breed formulas with joint support supplements.",
+          "notes": "Avoid overeating to prevent bloat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Regular brushing, shedding."
+        },
+        "environment": {
+          "living_space": "Large spaces, cooler climates",
+          "exercise_needs": "Moderate"
+        }
+      },
+      {
+        "breed": "Chihuahua",
+        "cluster": "Small and Toy Breeds",
+        "health_concerns": ["Dental issues", "Obesity", "Patellar luxation", "Fragile bones"],
+        "diet": {
+          "description": "Specialized small breed formulas with controlled portions.",
+          "notes": "Ensure dental health supplements."
+        },
+        "grooming": {
+          "frequency": "Frequent",
+          "requirements": "Teeth brushing, nail trimming."
+        },
+        "environment": {
+          "living_space": "Apartment friendly",
+          "exercise_needs": "Moderate"
+        }
+      },
+      {
+        "breed": "Pomeranian",
+        "cluster": "Small and Toy Breeds",
+        "health_concerns": ["Dental issues", "Obesity", "Patellar luxation"],
+        "diet": {
+          "description": "High-quality small breed formulas.",
+          "notes": "Monitor portion sizes."
+        },
+        "grooming": {
+          "frequency": "High",
+          "requirements": "Daily brushing, regular trims."
+        },
+        "environment": {
+          "living_space": "Apartment friendly",
+          "exercise_needs": "Low to moderate"
+        }
+      },
+      {
+        "breed": "Labrador Retriever",
+        "cluster": "Active Working and Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Joint issues", "Skin allergies", "Bloat"],
+        "diet": {
+          "description": "High-protein diet with joint and allergy support.",
+          "notes": "Monitor weight to avoid bloat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Regular brushing, ear care."
+        },
+        "environment": {
+          "living_space": "Ample outdoor space",
+          "exercise_needs": "High"
+        }
+      },
+      {
+        "breed": "Golden Retriever",
+        "cluster": "Active Working and Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Cancer", "Bloat"],
+        "diet": {
+          "description": "Balanced diet with joint and immune support.",
+          "notes": "Regular meal times to avoid bloat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Brushing, ear cleaning."
+        },
+        "environment": {
+          "living_space": "Moderate to large space",
+          "exercise_needs": "High"
+        }
+      },
+      {
+        "breed": "Bulldog",
+        "cluster": "Brachycephalic Breeds",
+        "health_concerns": ["Respiratory issues", "Obesity", "Hip dysplasia"],
+        "diet": {
+          "description": "Weight management formulas.",
+          "notes": "Prevent obesity for better respiratory function."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Facial fold cleaning."
+        },
+        "environment": {
+          "living_space": "Indoor, climate-controlled",
+          "exercise_needs": "Low"
+        }
+      },
+      {
+        "breed": "Pug",
+        "cluster": "Brachycephalic Breeds",
+        "health_concerns": ["Respiratory issues", "Eye problems", "Obesity"],
+        "diet": {
+          "description": "Portion-controlled diet with weight management.",
+          "notes": "Avoid overfeeding."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Facial fold cleaning, regular grooming."
+        },
+        "environment": {
+          "living_space": "Apartment friendly",
+          "exercise_needs": "Low"
+        }
+      },
+      {
+        "breed": "Poodle",
+        "cluster": "Breeds with Extensive Grooming",
+        "health_concerns": ["Skin infections", "Eye issues", "Ear infections"],
+        "diet": {
+          "description": "Omega-3-rich diet for skin and coat health.",
+          "notes": "Weight management as they age."
+        },
+        "grooming": {
+          "frequency": "High",
+          "requirements": "Professional grooming, daily brushing."
+        },
+        "environment": {
+          "living_space": "Adaptable to various environments",
+          "exercise_needs": "Moderate"
+        }
+      },
+      {
+        "breed": "Bichon Frise",
+        "cluster": "Breeds with Extensive Grooming",
+        "health_concerns": ["Allergies", "Ear infections"],
+        "diet": {
+          "description": "Hypoallergenic diet to prevent allergies.",
+          "notes": "Omega-3 for coat health."
+        },
+        "grooming": {
+          "frequency": "High",
+          "requirements": "Daily brushing, regular trimming."
+        },
+        "environment": {
+          "living_space": "Apartment friendly",
+          "exercise_needs": "Moderate"
+        }
+      },
+      {
+        "breed": "Siberian Husky",
+        "cluster": "Cold Climate Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye conditions"],
+        "diet": {
+          "description": "Nutrient-dense food to maintain energy and coat health.",
+          "notes": "Joint supplements recommended."
+        },
+        "grooming": {
+          "frequency": "Heavy shedding",
+          "requirements": "Regular brushing."
+        },
+        "environment": {
+          "living_space": "Cold climate, large outdoor spaces",
+          "exercise_needs": "High"
+        }
+      },
+      {
+        "breed": "Alaskan Malamute",
+        "cluster": "Cold Climate Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Eye conditions"],
+        "diet": {
+          "description": "High-protein, nutrient-dense diet.",
+          "notes": "Avoid overfeeding to prevent bloat."
+        },
+        "grooming": {
+          "frequency": "Heavy seasonal shedding",
+          "requirements": "Regular brushing."
+        },
+        "environment": {
+          "living_space": "Cold climate, requires large outdoor space",
+          "exercise_needs": "High"
+        }
+      },
+      {
+        "breed": "Beagle",
+        "cluster": "Scent Hounds and Hounds",
+        "health_concerns": ["Ear infections", "Hip dysplasia", "Obesity"],
+        "diet": {
+          "description": "Balanced diet with moderate fat and protein.",
+          "notes": "Monitor weight to prevent joint stress."
+        },
+        "grooming": {
+          "frequency": "Minimal",
+          "requirements": "Regular ear cleaning."
+        },
+        "environment": {
+          "living_space": "Outdoor activity preferred",
+          "exercise_needs": "Moderate to high"
+        }
+      },
+      {
+        "breed": "Basset Hound",
+        "cluster": "Scent Hounds and Hounds",
+        "health_concerns": ["Ear infections", "Obesity", "Joint issues"],
+        "diet": {
+          "description": "Low-calorie diet to manage weight.",
+          "notes": "Monitor ear hygiene regularly."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Regular ear cleaning."
+        },
+        "environment": {
+          "living_space": "Indoor with access to outdoor spaces",
+          "exercise_needs": "Moderate"
+        }
+      },
+      {
+        "breed": "Doberman Pinscher",
+        "cluster": "Guard and Protection Breeds",
+        "health_concerns": ["Hip dysplasia", "Heart disease", "Bloat"],
+        "diet": {
+          "description": "High-protein diet with joint support.",
+          "notes": "Controlled feeding to avoid bloat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Weekly brushing."
+        },
+        "environment": {
+          "living_space": "Large yards, secure outdoor spaces",
+          "exercise_needs": "High"
+        }
+      },
+      {
+        "breed": "Rottweiler",
+        "cluster": "Guard and Protection Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Heart issues"],
+        "diet": {
+          "description": "Large breed diet with joint support.",
+          "notes": "Avoid overfeeding to prevent weight-related issues."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "requirements": "Weekly brushing."
+        },
+        "environment": {
+          "living_space": "Large, secured outdoor spaces",
+          "exercise_needs": "High"
+        }
+      }
+    ]
+  }
+  
