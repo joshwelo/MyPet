@@ -1,0 +1,30 @@
+/* CalendarPage.css */
+
+.calendar-container {
+    height: 80vh;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .pet-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .pet-image-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .pet-display {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  

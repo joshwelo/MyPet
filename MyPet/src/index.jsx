@@ -13,8 +13,8 @@ import SocialForumsPage from './pages/SocialForumsPage';
 import UserPage from './pages/UserPage';
 import ProfilePage from './pages/ProfilePage';
 import HandlingGuide from './pages/HandlingGuide';
-import PetProfile from './pages/PetProfile'; // Import the PetProfile component
-import { AuthProvider } from './authProvider'; // Ensure the correct path
+import PetProfile from './pages/PetProfile';
+import { AuthProvider } from './authProvider';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
