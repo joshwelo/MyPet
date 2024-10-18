@@ -1,277 +1,2517 @@
 {
     "dogs": [
       {
-        "breed": "Great Dane",
-        "cluster": "Large and Giant Breeds",
-        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "breed": "Affenpinscher",
+        "description": "The Affenpinscher is a small, spunky dog with a playful personality and a mischievous charm that never fails to bring smiles.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Patellar luxation", "Hip dysplasia", "Heart murmurs", "Eye issues"],
         "diet": {
-          "description": "High-quality large breed formulas with glucosamine and chondroitin for joints.",
-          "notes": "Controlled portions to avoid bloat."
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality dry kibble, complemented by occasional treats or wet food to keep this little adventurer energized!"
         },
         "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Regular brushing."
+          "frequency": "Regular",
+          "description": "With their wiry coats, Affenpinschers benefit from weekly brushing to prevent matting and occasional trimming to keep their fur looking tidy and fabulous."
         },
         "environment": {
-          "living_space": "Large spaces",
-          "exercise_needs": "Moderate to high"
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Affenpinschers are well-suited to apartment living but enjoy short, playful walks or games to burn off their boundless energy."
         }
-      },
+      },      
       {
-        "breed": "Saint Bernard",
-        "cluster": "Large and Giant Breeds",
-        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "breed": "Afghan Hound",
+        "description": "The Afghan Hound is a stunning and graceful dog with flowing locks and an independent spirit that captures hearts wherever they go.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Hypothyroidism", "Cataracts", "Allergies"],
         "diet": {
-          "description": "Large breed formulas with joint support supplements.",
-          "notes": "Avoid overeating to prevent bloat."
-        },
-        "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Regular brushing, shedding."
-        },
-        "environment": {
-          "living_space": "Large spaces, cooler climates",
-          "exercise_needs": "Moderate"
-        }
-      },
-      {
-        "breed": "Chihuahua",
-        "cluster": "Small and Toy Breeds",
-        "health_concerns": ["Dental issues", "Obesity", "Patellar luxation", "Fragile bones"],
-        "diet": {
-          "description": "Specialized small breed formulas with controlled portions.",
-          "notes": "Ensure dental health supplements."
+          "frequency": "Twice a day",
+          "description": "A nutritious diet with high-quality dog food, rich in protein, will keep the Afghan Hound's sleek physique and luxurious coat in top shape."
         },
         "grooming": {
           "frequency": "Frequent",
-          "requirements": "Teeth brushing, nail trimming."
+          "description": "Regular grooming is a must for their long, silky coat, requiring daily brushing and occasional baths to keep them looking glamorous and tangle-free."
         },
         "environment": {
-          "living_space": "Apartment friendly",
-          "exercise_needs": "Moderate"
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Afghan Hounds love to run and thrive in homes with access to open spaces or large yards where they can stretch their legs."
         }
       },
       {
-        "breed": "Pomeranian",
-        "cluster": "Small and Toy Breeds",
-        "health_concerns": ["Dental issues", "Obesity", "Patellar luxation"],
+        "breed": "Airedale Terrier",
+        "description": "The Airedale Terrier, known as the 'King of Terriers,' is a bold, clever, and lively companion with a big heart and an even bigger personality.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Hypothyroidism", "Allergies", "Eye issues"],
         "diet": {
-          "description": "High-quality small breed formulas.",
-          "notes": "Monitor portion sizes."
-        },
-        "grooming": {
-          "frequency": "High",
-          "requirements": "Daily brushing, regular trims."
-        },
-        "environment": {
-          "living_space": "Apartment friendly",
-          "exercise_needs": "Low to moderate"
-        }
-      },
-      {
-        "breed": "Labrador Retriever",
-        "cluster": "Active Working and Sporting Breeds",
-        "health_concerns": ["Hip dysplasia", "Joint issues", "Skin allergies", "Bloat"],
-        "diet": {
-          "description": "High-protein diet with joint and allergy support.",
-          "notes": "Monitor weight to avoid bloat."
+          "frequency": "Twice a day",
+          "description": "A high-quality, protein-rich diet supports the Airedale's active lifestyle and helps maintain their sturdy build."
         },
         "grooming": {
           "frequency": "Moderate",
-          "requirements": "Regular brushing, ear care."
+          "description": "Weekly brushing and periodic hand-stripping of their wiry coat will keep this terrier looking sharp and feeling comfortable."
         },
         "environment": {
-          "living_space": "Ample outdoor space",
-          "exercise_needs": "High"
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Airedales need plenty of exercise and mental stimulation, making them happiest in homes with space to roam and opportunities for active play."
         }
       },
       {
-        "breed": "Golden Retriever",
-        "cluster": "Active Working and Sporting Breeds",
-        "health_concerns": ["Hip dysplasia", "Cancer", "Bloat"],
+        "breed": "Akita",
+        "description": "The Akita is a powerful, dignified, and loyal companion, known for their bravery and unwavering devotion to their family.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Autoimmune disorders", "Progressive retinal atrophy", "Bloat"],
         "diet": {
-          "description": "Balanced diet with joint and immune support.",
-          "notes": "Regular meal times to avoid bloat."
+          "frequency": "Twice a day",
+          "description": "A diet rich in high-quality protein and balanced nutrients helps maintain the Akita's strong physique and energy levels."
         },
         "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Brushing, ear cleaning."
+          "frequency": "Moderate to high",
+          "description": "Akitas have a dense double coat that requires regular brushing, especially during shedding seasons, to keep their fur in top condition."
         },
         "environment": {
-          "living_space": "Moderate to large space",
-          "exercise_needs": "High"
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Akitas do best in homes with ample space to move around and enjoy daily exercise, whether through walks or play."
         }
-      },
-      {
-        "breed": "Bulldog",
-        "cluster": "Brachycephalic Breeds",
-        "health_concerns": ["Respiratory issues", "Obesity", "Hip dysplasia"],
-        "diet": {
-          "description": "Weight management formulas.",
-          "notes": "Prevent obesity for better respiratory function."
-        },
-        "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Facial fold cleaning."
-        },
-        "environment": {
-          "living_space": "Indoor, climate-controlled",
-          "exercise_needs": "Low"
-        }
-      },
-      {
-        "breed": "Pug",
-        "cluster": "Brachycephalic Breeds",
-        "health_concerns": ["Respiratory issues", "Eye problems", "Obesity"],
-        "diet": {
-          "description": "Portion-controlled diet with weight management.",
-          "notes": "Avoid overfeeding."
-        },
-        "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Facial fold cleaning, regular grooming."
-        },
-        "environment": {
-          "living_space": "Apartment friendly",
-          "exercise_needs": "Low"
-        }
-      },
-      {
-        "breed": "Poodle",
-        "cluster": "Breeds with Extensive Grooming",
-        "health_concerns": ["Skin infections", "Eye issues", "Ear infections"],
-        "diet": {
-          "description": "Omega-3-rich diet for skin and coat health.",
-          "notes": "Weight management as they age."
-        },
-        "grooming": {
-          "frequency": "High",
-          "requirements": "Professional grooming, daily brushing."
-        },
-        "environment": {
-          "living_space": "Adaptable to various environments",
-          "exercise_needs": "Moderate"
-        }
-      },
-      {
-        "breed": "Bichon Frise",
-        "cluster": "Breeds with Extensive Grooming",
-        "health_concerns": ["Allergies", "Ear infections"],
-        "diet": {
-          "description": "Hypoallergenic diet to prevent allergies.",
-          "notes": "Omega-3 for coat health."
-        },
-        "grooming": {
-          "frequency": "High",
-          "requirements": "Daily brushing, regular trimming."
-        },
-        "environment": {
-          "living_space": "Apartment friendly",
-          "exercise_needs": "Moderate"
-        }
-      },
-      {
-        "breed": "Siberian Husky",
-        "cluster": "Cold Climate Breeds",
-        "health_concerns": ["Hip dysplasia", "Eye conditions"],
-        "diet": {
-          "description": "Nutrient-dense food to maintain energy and coat health.",
-          "notes": "Joint supplements recommended."
-        },
-        "grooming": {
-          "frequency": "Heavy shedding",
-          "requirements": "Regular brushing."
-        },
-        "environment": {
-          "living_space": "Cold climate, large outdoor spaces",
-          "exercise_needs": "High"
-        }
-      },
+      }
+      ,
       {
         "breed": "Alaskan Malamute",
-        "cluster": "Cold Climate Breeds",
-        "health_concerns": ["Hip dysplasia", "Bloat", "Eye conditions"],
+        "description": "The Alaskan Malamute is a strong, majestic, and friendly dog, built for endurance and known for their playful spirit and love of adventure.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Hypothyroidism", "Cataracts", "Bloat"],
         "diet": {
-          "description": "High-protein, nutrient-dense diet.",
-          "notes": "Avoid overfeeding to prevent bloat."
+          "frequency": "Twice a day",
+          "description": "A nutrient-rich, high-protein diet is essential for fueling the Alaskan Malamute's strength and energy, especially given their active lifestyle."
         },
         "grooming": {
-          "frequency": "Heavy seasonal shedding",
-          "requirements": "Regular brushing."
+          "frequency": "High",
+          "description": "With their thick double coat, regular brushing is a must, particularly during shedding seasons, to keep their fur healthy and reduce matting."
         },
         "environment": {
-          "living_space": "Cold climate, requires large outdoor space",
-          "exercise_needs": "High"
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Alaskan Malamutes thrive in large spaces where they can run and play, and they love outdoor activities that challenge their physical strength."
+        }
+      }
+      ,
+      {
+        "breed": "American Bully",
+        "description": "The American Bully is a confident and loving companion, known for their muscular build and gentle temperament, making them both strong and affectionate.",
+        "cluster": "Companion Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Allergies", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in protein and healthy fats supports the American Bully’s muscular physique and active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "With their short coat, American Bullies require minimal grooming, just occasional brushing to keep their skin and coat healthy and shiny."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "American Bullies are adaptable and can thrive in smaller homes, but they enjoy daily walks and playtime to stay fit and happy."
+        }
+      }
+      ,
+      {
+        "breed": "American Cocker Spaniel",
+        "description": "The American Cocker Spaniel is a sweet, cheerful dog with expressive eyes and a lively spirit, always ready to bring joy and affection to their family.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Progressive retinal atrophy", "Ear infections", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A diet rich in high-quality protein and essential fats helps maintain the American Cocker Spaniel’s energy and promotes a healthy, shiny coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "With their luxurious, silky coat, daily brushing and regular trims are key to preventing tangles and keeping this Spaniel looking their best."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Cocker Spaniels are adaptable and do well in smaller homes, but they need regular walks and playtime to keep their playful energy in check."
+        }
+      }
+      ,
+      {
+        "breed": "American Pitbull Terrier",
+        "description": "The American Pitbull Terrier is a strong, energetic, and affectionate dog, known for their loyalty and love for family, always eager to play and protect.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Skin allergies", "Hypothyroidism", "Heart disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality protein and healthy fats is essential to support the American Pitbull Terrier’s muscular build and active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "With their short coat, Pitbulls require minimal grooming—just occasional brushing and regular skin checks to maintain their overall health."
+        },
+        "environment": {
+          "living_space": "Moderate spaces",
+          "exercise_needs": "High",
+          "description": "American Pitbull Terriers thrive in homes with space to move and love daily exercise, whether it's long walks, runs, or playtime."
+        }
+      }
+      ,
+      {
+        "breed": "Aspin",
+        "description": "The Aspin, a beloved native dog of the Philippines, is known for their resilience, loyalty, and adaptability, making them wonderful companions full of love and character.",
+        "cluster": "Mixed Breeds",
+        "health_concerns": ["Parasitic infections", "Skin issues", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "Aspin dogs thrive on a balanced diet of high-quality dry food or a mix of rice, meat, and vegetables, supporting their active and healthy lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "With their short coat, Aspins require minimal grooming, just occasional brushing and regular baths to keep them clean and comfortable."
+        },
+        "environment": {
+          "living_space": "Small to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Adaptable and versatile, Aspins are happy in a variety of environments, but they enjoy daily walks and outdoor play to stay fit and happy."
+        }
+      }
+      ,
+      {
+        "breed": "Australian Cattle Dog",
+        "description": "The Australian Cattle Dog is an intelligent, energetic, and hardworking breed, known for their unmatched loyalty and drive, always ready for a challenge and an adventure.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Progressive retinal atrophy", "Deafness", "Elbow dysplasia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A diet rich in protein and essential nutrients helps fuel the Australian Cattle Dog's boundless energy and supports their active, muscular physique."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short, weather-resistant coat requires minimal grooming, with occasional brushing to remove loose hairs and keep them looking sleek."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Australian Cattle Dogs thrive in homes with plenty of space and enjoy high levels of daily exercise, including running, playing, and working tasks."
+        }
+      }
+      ,
+      {
+        "breed": "Australian Kelpie",
+        "description": "The Australian Kelpie is a highly intelligent and agile dog, known for their exceptional herding skills and boundless energy, making them enthusiastic companions and workers.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Progressive retinal atrophy", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein and nutrients supports the active lifestyle of the Kelpie and helps maintain their strong, agile build."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "With their short, dense coat, Kelpies require minimal grooming; a weekly brush is usually sufficient to keep their coat healthy and free of debris."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Australian Kelpies thrive in homes with plenty of room to run and play, and they need daily exercise to keep their minds and bodies stimulated."
+        }
+      }
+      ,
+      {
+        "breed": "Australian Shepherd",
+        "description": "The Australian Shepherd is a vibrant, intelligent, and energetic dog, renowned for their herding abilities and friendly nature, making them a beloved family companion and working dog.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Progressive retinal atrophy", "Epilepsy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein and essential fatty acids supports the active lifestyle of the Australian Shepherd and promotes a healthy, shiny coat."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to manage their medium-length coat, especially during shedding seasons, to keep their fur looking its best and to reduce tangles."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Australian Shepherds thrive in homes with ample space to roam and play, and they require daily exercise to satisfy their energetic and intelligent nature."
+        }
+      }
+      ,
+      {
+        "breed": "Australian Silky Terrier",
+        "description": "The Australian Silky Terrier is a charming and elegant breed known for their long, silky coat and playful personality, making them delightful companions full of spunk.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Patellar luxation", "Hip dysplasia", "Dental issues", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein and nutrients helps maintain the Silky Terrier's energy and promotes a healthy, beautiful coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Regular grooming is essential for their long coat, requiring daily brushing and occasional trims to keep them looking fabulous and free of tangles."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Australian Silky Terriers are well-suited to apartment living but enjoy regular walks and playtime to keep them happy and healthy."
         }
       },
       {
-        "breed": "Beagle",
-        "cluster": "Scent Hounds and Hounds",
-        "health_concerns": ["Ear infections", "Hip dysplasia", "Obesity"],
+        "breed": "Australian Stumpy Tail Cattle Dog",
+        "description": "The Australian Stumpy Tail Cattle Dog is a strong, loyal, and hardworking breed, known for their unique stumpy tail and herding prowess, making them excellent companions and workers.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Progressive retinal atrophy"],
         "diet": {
-          "description": "Balanced diet with moderate fat and protein.",
-          "notes": "Monitor weight to prevent joint stress."
+          "frequency": "Twice a day",
+          "description": "A high-quality, protein-rich diet supports their active lifestyle and helps maintain their muscular build."
         },
         "grooming": {
-          "frequency": "Minimal",
-          "requirements": "Regular ear cleaning."
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, with occasional brushing to remove loose hair and keep them clean."
         },
         "environment": {
-          "living_space": "Outdoor activity preferred",
-          "exercise_needs": "Moderate to high"
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Australian Stumpy Tail Cattle Dogs thrive in homes with ample space and enjoy regular exercise, whether it's working tasks or playtime."
+        }
+      },
+      {
+        "breed": "Australian Terrier",
+        "description": "The Australian Terrier is a small but sturdy dog with a spirited personality, known for their affectionate nature and alertness, making them excellent companions.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Patellar luxation", "Allergies", "Skin issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality food helps maintain the Australian Terrier's health and energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their rough, weather-resistant coat requires regular brushing and occasional trims to keep them looking tidy."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Australian Terriers are adaptable and thrive in various living environments, enjoying daily walks and playtime."
+        }
+      },
+      {
+        "breed": "Basenji",
+        "description": "The Basenji is a unique and intelligent breed, known for their distinct yodel-like bark and independent nature, often referred to as the 'barkless dog'!",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Fanconi syndrome", "Hip dysplasia", "Progressive retinal atrophy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Basenji’s active lifestyle and helps maintain their lean physique."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "With their short coat, Basenjis require minimal grooming; a weekly brush is enough to keep them clean and healthy."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Basenjis thrive in homes with access to a secure yard and need daily exercise to satisfy their energetic and curious nature."
+        }
+      }
+      ,
+      {
+        "breed": "Basset Fauve de Bretagne",
+        "description": "The Basset Fauve de Bretagne is a charming and energetic breed known for their distinctive long body and short legs, always ready for a good adventure and a cuddle!",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Obesity", "Eye issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality protein helps maintain the Basset Fauve's energy levels and supports their playful nature."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming; regular brushing helps keep them clean and reduces shedding."
+        },
+        "environment": {
+          "living_space": "Moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Basset Fauves enjoy a comfortable home with enough space to move around and benefit from regular walks and playtime."
         }
       },
       {
         "breed": "Basset Hound",
-        "cluster": "Scent Hounds and Hounds",
-        "health_concerns": ["Ear infections", "Obesity", "Joint issues"],
+        "description": "The Basset Hound is a lovable and laid-back breed, known for their droopy ears and soulful eyes, making them both adorable and great companions for any family.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Obesity", "Eye problems"],
         "diet": {
-          "description": "Low-calorie diet to manage weight.",
-          "notes": "Monitor ear hygiene regularly."
+          "frequency": "Twice a day",
+          "description": "A high-quality diet helps keep Basset Hounds healthy and supports their gentle and easygoing nature."
         },
         "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Regular ear cleaning."
+          "frequency": "Low",
+          "description": "With their short coat, Basset Hounds require minimal grooming, but regular ear cleaning is important to prevent infections."
         },
         "environment": {
-          "living_space": "Indoor with access to outdoor spaces",
-          "exercise_needs": "Moderate"
+          "living_space": "Moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Basset Hounds are adaptable to various living situations and enjoy leisurely walks, making them perfect for both apartments and houses."
         }
       },
       {
-        "breed": "Doberman Pinscher",
-        "cluster": "Guard and Protection Breeds",
-        "health_concerns": ["Hip dysplasia", "Heart disease", "Bloat"],
+        "breed": "Beagle",
+        "description": "The Beagle is a cheerful and curious breed, known for their friendly disposition and keen sense of smell, always eager to explore and make new friends!",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Obesity", "Ear infections", "Hip dysplasia", "Eye problems"],
         "diet": {
-          "description": "High-protein diet with joint support.",
-          "notes": "Controlled feeding to avoid bloat."
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality ingredients helps maintain the Beagle's energy and keeps them healthy and happy."
         },
         "grooming": {
-          "frequency": "Moderate",
-          "requirements": "Weekly brushing."
+          "frequency": "Low",
+          "description": "Their short, dense coat requires minimal grooming, with occasional brushing to reduce shedding and maintain cleanliness."
         },
         "environment": {
-          "living_space": "Large yards, secure outdoor spaces",
-          "exercise_needs": "High"
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Beagles thrive in homes with enough space to roam and require regular exercise to keep their energetic spirits high."
         }
       },
       {
+        "breed": "Bearded Collie",
+        "description": "The Bearded Collie is an affectionate and energetic breed known for their distinctive shaggy coat and playful personality, making them wonderful family companions.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Progressive retinal atrophy", "Allergies", "Autoimmune disorders"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein and healthy fats supports the Bearded Collie's active lifestyle and maintains their beautiful coat."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Regular brushing is essential to keep their long, flowing coat free from tangles and mats, with occasional grooming needed for a polished look."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Bearded Collies thrive in homes with plenty of space to run and play, requiring daily exercise to keep their minds and bodies engaged."
+        }
+      },
+      {
+        "breed": "Bedlington Terrier",
+        "description": "The Bedlington Terrier is a unique and charming breed, known for their distinctive lamb-like appearance and lively personality, always ready for a good romp and a cuddle.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Kidney issues", "Hip dysplasia", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Bedlington Terrier's energy levels and maintains their healthy coat."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Regular grooming is essential to keep their unique coat in good shape, requiring trimming and brushing to prevent matting."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Bedlington Terriers adapt well to various living situations but enjoy regular walks and playtime to keep them stimulated."
+        }
+      },
+      {
+        "breed": "Belgian Malinois",
+        "description": "The Belgian Malinois is a highly intelligent and energetic breed, known for their versatility and work ethic, making them exceptional companions for active individuals and families.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Progressive retinal atrophy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein and nutrients supports the Belgian Malinois’s active lifestyle and helps maintain their muscular build."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "With their short coat, Belgian Malinois require minimal grooming, with occasional brushing to remove loose hair and keep their coat healthy."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Belgian Malinois thrive in homes with ample space to run and play, needing daily exercise to channel their energy and intelligence."
+        }
+      },
+      {
+        "breed": "Belgian Shepherd",
+        "description": "The Belgian Shepherd is a versatile and loyal breed, known for their intelligence and affectionate nature, making them great companions for active families.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Progressive retinal atrophy", "Epilepsy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein helps maintain the Belgian Shepherd's energy levels and overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Regular grooming is important to manage their thick coat, especially during shedding seasons, requiring brushing to prevent tangles."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Belgian Shepherds require plenty of space and daily exercise to keep their minds and bodies active, thriving in active households."
+        }
+      },
+      {
+        "breed": "Bernese Mountain Dog",
+        "description": "The Bernese Mountain Dog is a gentle giant, known for their striking tri-color coat and friendly disposition, making them perfect family companions who love to be involved in all activities.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Bloat", "Cancer"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in nutrients helps maintain the Bernese Mountain Dog's health and supports their large, sturdy frame."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is necessary to keep their thick, long coat healthy and to manage shedding, especially during seasonal changes."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Bernese Mountain Dogs thrive in homes with ample space to roam, enjoying daily walks and family activities to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Bichon Frise",
+        "description": "The Bichon Frise is a cheerful and playful breed, known for their fluffy white coat and affectionate nature, always ready to bring joy and laughter to any household.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Allergies", "Dental issues", "Ear infections", "Hip dysplasia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Bichon Frise's lively personality and helps maintain their beautiful coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Regular grooming is essential to keep their curly coat healthy and prevent matting, requiring frequent brushing and professional grooming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Bichon Frises are adaptable and do well in apartments, but they still enjoy regular walks and playtime to stay happy and fit."
+        }
+      },
+      {
+        "breed": "Bloodhound",
+        "description": "The Bloodhound is a gentle giant with an incredible sense of smell, known for their tracking abilities and sweet, friendly nature, making them both excellent companions and working dogs.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Bloat", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein supports the Bloodhound's health and helps maintain their strong, athletic build."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular ear cleaning is important to prevent infections due to their droopy ears."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Bloodhounds thrive in homes with plenty of space to roam and enjoy regular exercise, including walks and playtime."
+        }
+      },
+      {
+        "breed": "Border Collie",
+        "description": "The Border Collie is an exceptionally intelligent and energetic breed, known for their herding skills and strong work ethic, making them one of the most trainable and active dog breeds.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Collie eye anomaly", "Epilepsy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality, protein-rich diet helps fuel the Border Collie's energy levels and supports their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to manage their medium-length coat, especially during shedding seasons, to keep it healthy and tangle-free."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Border Collies require plenty of space to run and play, and they thrive with daily exercise and mental stimulation."
+        }
+      },
+      {
+        "breed": "Border Terrier",
+        "description": "The Border Terrier is a small but spirited breed, known for their affectionate nature and determination, making them delightful companions with a playful attitude.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Patellar luxation", "Skin issues", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet with high-quality food helps maintain the Border Terrier's health and energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to keep their wiry coat in good condition and to reduce shedding, along with occasional grooming to maintain their shape."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Border Terriers adapt well to various living situations and enjoy regular walks and playtime to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Borzoi",
+        "description": "The Borzoi is a graceful and elegant breed known for their stunning appearance and gentle demeanor, making them majestic companions that thrive on affection and exercise.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Thyroid issues", "Heart problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein supports the Borzoi's athletic build and provides the energy they need for their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their long, silky coat requires regular brushing to prevent tangles and mats, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Borzoi thrive in homes with ample space to roam and enjoy daily exercise, such as runs or long walks to keep them healthy and happy."
+        }
+      },
+      {
+        "breed": "Boston Terrier",
+        "description": "The Boston Terrier is a lively and affectionate breed known for their friendly demeanor and distinctive tuxedo-like coat, making them charming companions full of personality.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Brachycephalic airway syndrome", "Patellar luxation", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality ingredients helps maintain the Boston Terrier's energy levels and overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of their facial wrinkles is important to prevent irritation."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Boston Terriers adapt well to apartment living and enjoy daily walks and playtime, making them great companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Bouvier des Flandres",
+        "description": "The Bouvier des Flandres is a robust and versatile breed, known for their strength and intelligence, making them exceptional working dogs and loyal family companions.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Bloat", "Eye issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Bouvier's active lifestyle and helps maintain their muscular build."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick, double coat requires regular brushing to prevent mats and tangles, along with occasional grooming to keep them looking their best."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Bouviers thrive in homes with plenty of space and need regular exercise to channel their energy and keep them engaged."
+        }
+      },
+      {
+        "breed": "Boxer",
+        "description": "The Boxer is a playful and energetic breed known for their strong build and affectionate nature, making them loyal companions that love to be part of family activities.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Heart issues", "Bloat", "Cancer"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet high in protein helps maintain the Boxer's strength and energy levels, supporting their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, with occasional brushing needed to reduce shedding and keep their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Boxers thrive in homes with plenty of space to play and enjoy daily exercise to keep their minds and bodies stimulated."
+        }
+      },  {
+        "breed": "Briard",
+        "description": "The Briard is a loyal and intelligent breed known for their distinctive long, flowing coat and gentle demeanor, making them wonderful companions for active families.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye disorders", "Ear infections", "Autoimmune disorders"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein and nutrients supports the Briard’s active lifestyle and maintains their beautiful coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Regular grooming is essential to prevent matting and keep their long coat healthy, requiring frequent brushing and occasional professional grooming."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Briards thrive in homes with ample space to roam and require daily exercise to keep them physically and mentally stimulated."
+        }
+      },
+      {
+        "breed": "British Bulldog",
+        "description": "The British Bulldog is a gentle and affectionate breed known for their distinctive wrinkled face and stocky build, making them lovable companions who enjoy a relaxed lifestyle.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Brachycephalic airway syndrome", "Hip dysplasia", "Skin conditions", "Joint issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality ingredients helps maintain the British Bulldog’s health and supports their calm demeanor."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of their facial wrinkles is essential to prevent skin infections."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "British Bulldogs are adaptable to apartment living and enjoy leisurely walks, making them great companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Brittany",
+        "description": "The Brittany is an energetic and affectionate breed known for their athleticism and eagerness to please, making them fantastic companions for active families and outdoor enthusiasts.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Allergies", "Epilepsy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Brittany's active lifestyle and maintains their overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to manage their medium-length coat and reduce shedding, especially during seasonal changes."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Brittanys thrive in homes with plenty of space to run and play, requiring daily exercise to keep their energetic spirits high."
+        }
+      },
+      {
+        "breed": "Bull Terrier",
+        "description": "The Bull Terrier is a spirited and playful breed known for their unique egg-shaped head and affectionate personality, making them lively companions that love to be part of the family.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Skin conditions", "Heart issues", "Kidney problems", "Hearing loss"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet with high-quality ingredients helps maintain the Bull Terrier’s energy levels and supports their strong, muscular build."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, with occasional brushing to reduce shedding and maintain healthy skin."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Bull Terriers thrive in homes with plenty of space to play and require regular exercise to keep their minds and bodies active."
+        }
+      },{
+        "breed": "Bullmastiff",
+        "description": "The Bullmastiff is a gentle giant known for their imposing stature and loyal nature, making them excellent guardians and affectionate family companions.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Bloat", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Bullmastiff's muscular build and overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps reduce shedding and keep their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Bullmastiffs adapt well to various living situations but enjoy regular walks and playtime to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Cairn Terrier",
+        "description": "The Cairn Terrier is a spirited and affectionate breed known for their lively personality and wiry coat, making them charming companions full of energy and fun.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Patellar luxation", "Skin allergies", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet with high-quality ingredients supports the Cairn Terrier's energetic lifestyle and maintains their health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is essential to manage their wiry coat and reduce shedding, requiring brushing and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Cairn Terriers adapt well to apartments but enjoy daily walks and playtime to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Cavalier King Charles Spaniel",
+        "description": "The Cavalier King Charles Spaniel is a sweet and affectionate breed known for their friendly demeanor and beautiful silky coat, making them wonderful companions for all ages.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Mitral valve disease", "Hip dysplasia", "Ear infections", "Eye issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality ingredients supports the Cavalier's health and maintains their playful energy."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to keep their long, silky coat healthy and prevent tangles, especially around the ears."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Cavaliers adapt well to apartment living and enjoy daily walks and playtime, making them perfect companions for families."
+        }
+      },
+      {
+        "breed": "Chesapeake Bay Retriever",
+        "description": "The Chesapeake Bay Retriever is a strong and intelligent breed known for their versatility and love of water, making them exceptional companions for outdoor enthusiasts and families.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Progressive retinal atrophy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality, protein-rich diet supports the Chesapeake’s energy levels and overall health, especially for their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Their water-resistant coat requires minimal grooming, but regular brushing helps reduce shedding and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Chesapeake Bay Retrievers thrive in homes with plenty of space and require regular exercise, including swimming and retrieving activities."
+        }
+      }, {
+        "breed": "Chihuahua",
+        "description": "The Chihuahua is a tiny yet bold breed known for their vibrant personalities and loyalty, making them delightful companions who pack a big punch in a small package.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Patellar luxation", "Heart problems", "Hypoglycemia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their small size supports the Chihuahua's health and energy levels, ensuring they stay vibrant and lively."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Chihuahuas require minimal grooming, but regular dental care is essential to prevent dental issues common in the breed."
+        },
+        "environment": {
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Chihuahuas adapt well to apartment living and enjoy short walks and playtime, making them ideal companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Chinese Crested Dog",
+        "description": "The Chinese Crested Dog is a unique and playful breed known for their hairless appearance and affectionate nature, bringing joy and charm to any home.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Skin issues", "Dental problems", "Allergies", "Hip dysplasia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Chinese Crested's overall health and helps maintain their lively spirit."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their grooming needs vary; the hairless variety requires skin care and sunscreen, while the powderpuff variety needs regular brushing to prevent mats."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Chinese Cresteds thrive in apartments and enjoy daily walks and playtime, making them great companions for those with a cozy lifestyle."
+        }
+      },
+      {
+        "breed": "Chow Chow",
+        "description": "The Chow Chow is a distinctive breed known for their lion-like mane and independent spirit, making them both fascinating and loyal companions.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Eye problems", "Skin issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Chow Chow's strong build and helps maintain their unique coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Regular grooming is essential to manage their thick double coat, requiring frequent brushing to prevent matting and keep their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Chow Chows can adapt to various living situations but need daily walks and playtime to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Clumber Spaniel",
+        "description": "The Clumber Spaniel is a gentle and affectionate breed known for their calm demeanor and lovable nature, making them wonderful family pets who enjoy companionship.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Ear infections", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Clumber Spaniel’s health and energy levels, supporting their active lifestyle and love for play."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to manage their thick coat and reduce shedding, along with occasional grooming to keep them looking tidy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Clumber Spaniels thrive in homes with enough space for them to explore, enjoying regular walks and playtime with their families."
+        }
+      },{
+        "breed": "Cocker Spaniel",
+        "description": "The Cocker Spaniel is a cheerful and affectionate breed known for their expressive eyes and beautiful, flowing coat, making them loving companions that thrive on human interaction.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Ear infections", "Hip dysplasia", "Eye problems", "Skin issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein helps maintain the Cocker Spaniel's energy levels and supports their lively nature."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Regular grooming is essential to keep their long ears and coat free from mats and tangles, requiring frequent brushing and occasional trims."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Cocker Spaniels enjoy homes with plenty of space to play and require daily exercise to keep their spirits high and energy balanced."
+        }
+      },
+      {
+        "breed": "Collie",
+        "description": "The Collie is a loyal and intelligent breed known for their graceful appearance and gentle nature, making them beloved family pets and outstanding working dogs.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Progressive retinal atrophy", "Bloat", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Collie's strong build and supports their active lifestyle, ensuring they stay fit and healthy."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their thick double coat requires regular brushing to prevent matting and reduce shedding, especially during seasonal changes."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Collies thrive in homes with plenty of space to roam and need regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Curly Coated Retriever",
+        "description": "The Curly Coated Retriever is a unique and energetic breed known for their distinctive curly coat and friendly disposition, making them excellent companions for active families.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Ear infections", "Skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in protein supports the Curly Coated Retriever's high energy levels and keeps their coat healthy and shiny."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Their curly coat requires minimal grooming, but regular brushing helps remove dirt and debris, keeping their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Curly Coated Retrievers thrive in homes with ample space and require plenty of exercise, including swimming and retrieving activities."
+        }
+      },
+      {
+        "breed": "Dachshund",
+        "description": "The Dachshund is a playful and spirited breed known for their long body and short legs, making them charming companions full of personality and curiosity.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Intervertebral disc disease", "Obesity", "Dental issues", "Hip dysplasia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their size helps maintain the Dachshund's health and supports their playful nature."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Grooming needs vary by coat type; smooth-coated Dachshunds require minimal grooming, while long-haired ones need regular brushing to prevent mats."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Dachshunds adapt well to apartment living and enjoy daily walks and playtime, making them perfect companions for smaller homes."
+        }
+      },  {
+        "breed": "Dalmatian",
+        "description": "The Dalmatian is a striking breed known for their distinctive black or liver-spotted coat and spirited personality, making them energetic companions that capture the hearts of many.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Hearing loss", "Skin allergies", "Urinary stones"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality protein supports the Dalmatian's active lifestyle and helps maintain their unique coat."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keep their skin healthy."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Dalmatians thrive in homes with plenty of space and require regular exercise, including walks and playtime, to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Dandie Dinmont Terrier",
+        "description": "The Dandie Dinmont Terrier is a charming breed known for their distinctive topknot and playful demeanor, making them delightful companions with a unique personality.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Intervertebral disc disease", "Patellar luxation", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Dandie Dinmont's lively nature and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is needed to maintain their unique coat and reduce shedding, requiring brushing and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Dandie Dinmont Terriers adapt well to smaller homes and enjoy daily walks and playtime to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Deerhound",
+        "description": "The Deerhound is a noble and gentle breed known for their elegant appearance and sweet temperament, making them devoted companions and excellent family pets.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Heart issues", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Deerhound’s large frame and helps maintain their health."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Their wiry coat requires minimal grooming but benefits from occasional brushing to remove dead hair and keep it healthy."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Deerhounds thrive in homes with plenty of space to run and require regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Dobermann",
+        "description": "The Dobermann is a sleek and powerful breed known for their intelligence and loyalty, making them outstanding companions and excellent protectors of their families.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Dilated cardiomyopathy", "Hip dysplasia", "Von Willebrand's disease", "Hypothyroidism"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet supports the Dobermann’s muscular build and energy levels, helping them maintain their health and vitality."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and maintain skin health."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Dobermanns thrive in homes with plenty of space to exercise and require regular physical activity to keep their minds and bodies engaged."
+        }
+      },{
+        "breed": "Dogue De Bordeaux",
+        "description": "The Dogue De Bordeaux is a powerful and affectionate breed known for their impressive strength and loving nature, making them loyal guardians and gentle family companions.",
+        "cluster": "Mastiff Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality protein supports the Dogue De Bordeaux's muscular build and overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of facial folds is necessary to prevent irritation and infections."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Dogue De Bordeauxes thrive in homes with enough space to move around and enjoy daily walks and playtime to keep them happy."
+        }
+      },
+      {
+        "breed": "English Setter",
+        "description": "The English Setter is an elegant and friendly breed known for their striking appearance and gentle temperament, making them delightful companions for families and outdoor enthusiasts alike.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Progressive retinal atrophy", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein supports the English Setter’s active lifestyle and helps maintain their health and energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is needed to manage their long, flowing coat, requiring brushing to prevent mats and tangles."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "English Setters thrive in homes with plenty of room to roam and require regular exercise, including long walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "English Springer Spaniel",
+        "description": "The English Springer Spaniel is a cheerful and energetic breed known for their friendly demeanor and love for play, making them wonderful family pets and enthusiastic companions for outdoor adventures.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Ear infections", "Hip dysplasia", "Eye problems", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the English Springer Spaniel’s active lifestyle and helps maintain their vitality."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is essential to keep their long ears and coat healthy, requiring brushing to prevent matting and reduce shedding."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "English Springer Spaniels thrive in homes with ample space and need regular exercise, including walks and playtime, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "English Toy Terrier",
+        "description": "The English Toy Terrier is a small and spirited breed known for their playful personality and sleek appearance, making them charming companions that love to be part of the family.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Patellar luxation", "Legg-Calve-Perthes disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their small size helps maintain the English Toy Terrier’s health and energy levels."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular dental care is essential to prevent dental problems common in small breeds."
+        },
+        "environment": {
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "English Toy Terriers adapt well to apartment living and enjoy short walks and playtime, making them ideal companions for city dwellers."
+        }
+      },{
+        "breed": "Field Spaniel",
+        "description": "The Field Spaniel is a charming and friendly breed known for their expressive eyes and gentle disposition, making them delightful companions and skilled working dogs.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Eye problems", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Field Spaniel’s active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is essential to keep their long coat healthy, requiring brushing to prevent mats and tangles."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Field Spaniels thrive in homes with enough space to play and require regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Finnish Spitz",
+        "description": "The Finnish Spitz is a lively and playful breed known for their fox-like appearance and joyful demeanor, making them affectionate companions who bring happiness to any home.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Thyroid issues", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet supports the Finnish Spitz’s energetic nature and helps maintain their health and vitality."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their double coat requires regular brushing, especially during shedding seasons, to keep it healthy and reduce loose hair."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Finnish Spitz thrive in homes with plenty of space to run and play and require regular exercise to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Flat Coated Retriever",
+        "description": "The Flat Coated Retriever is a cheerful and friendly breed known for their glossy black or liver coat and playful personality, making them wonderful companions for families and outdoor lovers.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cancer", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Flat Coated Retriever’s active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to keep their beautiful coat healthy and free from mats, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Flat Coated Retrievers thrive in homes with ample space and require regular exercise, including walks and playtime, to stay happy and engaged."
+        }
+      },
+      {
+        "breed": "Fox Terrier",
+        "description": "The Fox Terrier is an energetic and spirited breed known for their playful attitude and intelligence, making them delightful companions full of enthusiasm and charm.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Dental issues", "Skin allergies", "Patellar luxation"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their size helps maintain the Fox Terrier's health and supports their lively nature."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Grooming needs vary by coat type; smooth-coated Fox Terriers require minimal grooming, while wire-haired ones need regular brushing and stripping."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Fox Terriers adapt well to various living situations and enjoy daily walks and playtime to keep their spirits high and energy balanced."
+        }
+      },{
+        "breed": "Foxhound",
+        "description": "The Foxhound is a friendly and energetic breed known for their excellent scenting abilities and love for outdoor activities, making them both skilled hunters and loyal companions.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Obesity", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein supports the Foxhound’s active lifestyle and helps maintain their overall health and stamina."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Foxhounds thrive in homes with ample space to run and require regular exercise, including walks and playtime, to keep their energy levels balanced."
+        }
+      },
+      {
+        "breed": "French Bulldog",
+        "description": "The French Bulldog is a charming and affectionate breed known for their bat-like ears and playful personality, making them delightful companions for families and individuals alike.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Brachycephalic airway syndrome", "Hip dysplasia", "Skin allergies", "Intervertebral disc disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their needs helps maintain the French Bulldog’s health and energy, keeping them happy and playful."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of facial folds is necessary to prevent irritation and infections."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "French Bulldogs adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "German Shepherd",
+        "description": "The German Shepherd is a highly intelligent and versatile breed known for their loyalty and protective instincts, making them excellent working dogs and devoted family companions.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Degenerative myelopathy", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the German Shepherd’s active lifestyle and helps maintain their strength and vitality."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is essential to manage their thick double coat and reduce shedding, especially during seasonal changes."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "German Shepherds thrive in homes with plenty of space and require regular exercise, including walks, training, and playtime, to stay mentally and physically stimulated."
+        }
+      },
+      {
+        "breed": "German Short-Haired Pointer",
+        "description": "The German Short-Haired Pointer is an energetic and versatile breed known for their exceptional hunting skills and friendly disposition, making them great companions for active families.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Bloat", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the German Short-Haired Pointer’s active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "German Short-Haired Pointers thrive in homes with ample space and require regular exercise, including running, fetching, and exploring, to stay happy."
+        }
+      },{
+        "breed": "German Wirehaired Pointer",
+        "description": "The German Wirehaired Pointer is an enthusiastic and versatile breed known for their rugged appearance and friendly demeanor, making them excellent companions for active families and skilled hunting partners.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Bloat", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the German Wirehaired Pointer’s active lifestyle and helps maintain their health and stamina."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is needed to manage their wiry coat, especially during shedding seasons, to prevent mats and keep their coat healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "German Wirehaired Pointers thrive in homes with ample space to run and play and require regular exercise to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Golden Retriever",
+        "description": "The Golden Retriever is a friendly and intelligent breed known for their beautiful golden coat and cheerful disposition, making them one of the most beloved family pets around.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Heart problems", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Golden Retriever’s active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is essential to keep their long coat healthy and free from mats, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Golden Retrievers thrive in homes with plenty of space and require daily exercise, including walks and playtime, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Gordon Setter",
+        "description": "The Gordon Setter is a beautiful and devoted breed known for their striking black and tan coat and gentle temperament, making them excellent companions for active families and hunters.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Eye problems", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet helps maintain the Gordon Setter's health and energy levels, supporting their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to keep their long, flowing coat healthy and free from tangles, requiring brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Gordon Setters thrive in homes with ample space to play and need regular exercise, including long walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Great Dane",
+        "description": "The Great Dane is a majestic and gentle giant known for their impressive size and friendly nature, making them loving companions and excellent guardians of their families.",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Cardiac issues", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality protein supports the Great Dane’s large frame and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keep their skin healthy."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Great Danes thrive in homes with plenty of room to move around and enjoy daily walks and playtime to keep them happy and healthy."
+        }
+      },{
+        "breed": "Greyhound",
+        "description": "The Greyhound is a graceful and gentle breed known for their remarkable speed and calm demeanor, making them wonderful companions who are as relaxed as they are athletic.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Heart issues", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Greyhound's muscular build and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but occasional brushing helps keep their skin healthy and removes loose hair."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Greyhounds enjoy a comfortable living space and require regular exercise, including daily walks and opportunities to sprint, to keep them happy."
+        }
+      },
+      {
+        "breed": "Griffon Bruxellois",
+        "description": "The Griffon Bruxellois is a charming and affectionate breed known for their unique appearance and lively personality, making them delightful companions full of character.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Brachycephalic airway syndrome", "Dental issues", "Eye problems", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their small size helps maintain the Griffon Bruxellois's health and supports their playful nature."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their long, wiry coat requires regular grooming to prevent mats and tangles, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Griffon Bruxellois adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Hungarian Vizsla",
+        "description": "The Hungarian Vizsla is a loyal and energetic breed known for their striking golden rust coat and affectionate nature, making them wonderful companions and exceptional hunting partners.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Eye problems", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Hungarian Vizsla’s active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Hungarian Vizslas thrive in homes with ample space and require regular exercise, including running and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Irish Setter",
+        "description": "The Irish Setter is a lively and affectionate breed known for their stunning red coat and playful personality, making them delightful companions and excellent family pets.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Bloat", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Irish Setter’s active lifestyle and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to keep their long, flowing coat healthy and free from mats, requiring brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Irish Setters thrive in homes with plenty of space to run and require regular exercise, including long walks and playtime, to keep their spirits high."
+        }
+      }, {
+        "breed": "Irish Terrier",
+        "description": "The Irish Terrier is a spirited and loyal breed known for their distinctive red coat and bold personality, making them both protective companions and playful family members.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Skin allergies", "Ear infections", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Irish Terrier's health and energy levels, helping them stay active and playful."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is essential to maintain their wiry coat, which requires brushing and occasional hand-stripping to keep it healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Irish Terriers thrive in homes with enough space to run and enjoy daily exercise, including walks and playtime, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Irish Water Spaniel",
+        "description": "The Irish Water Spaniel is an intelligent and playful breed known for their curly coat and love for water, making them fantastic companions for active families who enjoy outdoor adventures.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Skin issues", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in protein helps maintain the Irish Water Spaniel’s health and energy, supporting their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their curly coat requires regular grooming to prevent mats and tangles, needing brushing and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Irish Water Spaniels thrive in homes with ample space and need regular exercise, including swimming and playtime, to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Irish Wolfhound",
+        "description": "The Irish Wolfhound is a noble and gentle giant known for their impressive stature and affectionate nature, making them loving companions and excellent guardians.",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Heart issues", "Certain cancers"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality protein supports the Irish Wolfhound’s large frame and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Their rough coat requires minimal grooming, but regular brushing helps keep it clean and free from mats."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Irish Wolfhounds thrive in homes with plenty of room to move around and enjoy daily walks and playtime to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Italian Greyhound",
+        "description": "The Italian Greyhound is a graceful and affectionate breed known for their slender build and playful spirit, making them delightful companions who love to snuggle and play.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Hip dysplasia", "Dental issues", "Certain cancers", "Skin problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet tailored to their small size helps maintain the Italian Greyhound’s health and supports their playful nature."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of their skin folds and occasional brushing keeps them looking their best."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Italian Greyhounds adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },{
+        "breed": "Jack Russell Terrier",
+        "description": "The Jack Russell Terrier is an energetic and intelligent breed known for their spirited personality and strong hunting instincts, making them playful companions and eager participants in any activity.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Patellar luxation", "Hip dysplasia", "Deafness", "Certain eye conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein helps maintain the Jack Russell's energy levels and overall health, supporting their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Jack Russell Terriers thrive in homes with enough room to run and need plenty of exercise, including walks and playtime, to keep them happy."
+        }
+      },
+      {
+        "breed": "Japanese Chin",
+        "description": "The Japanese Chin is a charming and elegant breed known for their playful personality and affectionate nature, making them delightful companions who love to be pampered.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Brachycephalic airway syndrome", "Dental issues", "Eye problems", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet tailored to their small size helps maintain the Japanese Chin’s health and supports their lively spirit."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to keep their long, flowing coat healthy and free from tangles, requiring brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Japanese Chins adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Japanese Spitz",
+        "description": "The Japanese Spitz is a cheerful and friendly breed known for their fluffy white coat and playful demeanor, making them loving companions for families and individuals alike.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Patellar luxation", "Certain skin conditions", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Japanese Spitz's health and energy, helping them stay active and happy."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular brushing is essential to maintain their thick double coat and prevent mats, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Japanese Spitz thrive in homes with enough space to play and enjoy regular exercise, including walks and playtime, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Keeshond",
+        "description": "The Keeshond is a friendly and alert breed known for their distinctive mask and lively personality, making them excellent family pets and watchdogs.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Keeshond's health and energy, keeping them playful and alert."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick double coat requires regular grooming to prevent mats and reduce shedding, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Keeshonds enjoy a comfortable living space and require regular exercise, including walks and playtime, to stay happy and healthy."
+        }
+      },{
+        "breed": "King Charles Spaniel",
+        "description": "The King Charles Spaniel is an affectionate and playful breed known for their charming personality and elegant appearance, making them delightful companions who love to snuggle and play.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Heart problems", "Ear infections", "Eye issues", "Brachycephalic airway syndrome"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet tailored to their small size supports the King Charles Spaniel’s health and keeps them playful and energetic."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to keep their long, silky coat healthy and free from tangles, requiring brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "King Charles Spaniels adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Labrador",
+        "description": "The Labrador is an energetic and friendly breed known for their loving nature and intelligence, making them one of the most popular family pets and excellent working dogs.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Obesity", "Certain eye conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Labrador's active lifestyle and helps maintain their overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps remove loose hair and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Labradors thrive in homes with plenty of room to run and require regular exercise, including walks, playtime, and swimming, to keep them happy."
+        }
+      },
+      {
+        "breed": "Labrador Retriever",
+        "description": "The Labrador Retriever is a friendly and outgoing breed known for their playful nature and eagerness to please, making them fantastic family pets and versatile working dogs.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Obesity", "Certain eye conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Labrador Retriever's health and energy levels, ensuring they remain active and happy."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps control shedding and maintain healthy skin."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Labrador Retrievers thrive in homes with ample space and require regular exercise, including walks, playtime, and swimming, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Lakeland Terrier",
+        "description": "The Lakeland Terrier is a spirited and confident breed known for their distinctive wiry coat and playful personality, making them charming companions who love to explore.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet helps maintain the Lakeland Terrier’s energy levels and overall health, supporting their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to keep their wiry coat healthy, requiring brushing and occasional hand-stripping."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Lakeland Terriers thrive in homes with enough space to run and play and enjoy regular exercise, including walks and playtime, to stay happy."
+        }
+      },{
+        "breed": "Lhasa Apso",
+        "description": "The Lhasa Apso is a charming and affectionate breed known for their long, flowing coat and confident personality, making them devoted companions and alert watchdogs.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Skin allergies", "Kidney issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet supports the Lhasa Apso's health and helps maintain their playful energy and beautiful coat."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their luxurious coat requires regular grooming to prevent tangles and mats, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Lhasa Apsos adapt well to apartment living and enjoy short walks and playtime, making them excellent companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Lowchen",
+        "description": "The Lowchen is a lively and affectionate breed known for their distinctive lion-like haircut and playful nature, making them delightful companions who love to be pampered.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Dental issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Lowchen’s health and keeps them playful and energetic."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Regular grooming is necessary to maintain their coat and prevent mats, requiring brushing and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Lowchens adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for families and individuals."
+        }
+      },
+      {
+        "breed": "Maltese",
+        "description": "The Maltese is a gentle and playful breed known for their long, silky white coat and affectionate nature, making them delightful companions who thrive on love and attention.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Patellar luxation", "Eye problems", "Skin allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet tailored to their small size helps maintain the Maltese's health and supports their lively spirit."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their long coat requires regular grooming to keep it healthy and free from tangles, needing brushing every few days."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Maltese adapt well to apartment living and enjoy short walks and indoor play, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Maremma Sheepdog",
+        "description": "The Maremma Sheepdog is a strong and protective breed known for their impressive guarding abilities and gentle nature, making them excellent companions for families and livestock.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Certain skin conditions", "Eye issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Maremma Sheepdog’s strength and energy levels, ensuring they remain active and healthy."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick double coat requires regular brushing to keep it clean and healthy, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Maremma Sheepdogs thrive in homes with ample space to roam and require regular exercise, including walks and playtime, to keep their spirits high."
+        }
+      },{
+        "breed": "Mastiff",
+        "description": "The Mastiff is a gentle giant known for their impressive size and loyal nature, making them both protective guardians and loving companions for families.",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Bloat", "Certain heart conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Mastiff’s health and helps maintain their large frame."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps control shedding and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Mastiffs thrive in homes with plenty of room to move around and enjoy regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Miniature Pinscher",
+        "description": "The Miniature Pinscher is an energetic and spirited breed known for their confident personality and playful nature, making them lively companions who love to be active.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Patellar luxation", "Hip dysplasia", "Certain eye conditions", "Dental issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet tailored to their small size helps maintain the Miniature Pinscher’s energy levels and overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Miniature Pinschers thrive in homes with enough space to run and play, requiring daily exercise to keep them happy and healthy."
+        }
+      },
+      {
+        "breed": "Munsterlander",
+        "description": "The Munsterlander is a versatile and intelligent breed known for their strong work ethic and friendly nature, making them excellent hunting companions and family pets.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Eye problems", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Munsterlander's active lifestyle and overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their medium-length coat requires regular grooming to prevent mats and reduce shedding, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Munsterlanders thrive in homes with ample space and require regular exercise, including walks, playtime, and outdoor activities, to stay happy."
+        }
+      },
+      {
+        "breed": "Newfoundland",
+        "description": "The Newfoundland is a gentle and loving breed known for their impressive size and swimming ability, making them excellent companions and life-saving water rescues.",
+        "cluster": "Large and Giant Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Heart issues", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Newfoundland's health and energy, ensuring they remain active and healthy."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick double coat requires regular grooming to prevent mats and reduce shedding, especially during the warmer months."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Newfoundlands thrive in homes with plenty of room and require regular exercise, including walks and swimming, to keep their spirits high."
+        }
+      },{
+        "breed": "Norfolk Terrier",
+        "description": "The Norfolk Terrier is a friendly and spirited breed known for their affectionate nature and playful personality, making them delightful companions who thrive on interaction.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Patellar luxation", "Certain skin conditions", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Norfolk Terrier's energy levels and overall health, ensuring they remain lively and active."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their wiry coat requires regular grooming to prevent mats and maintain its texture, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Norfolk Terriers adapt well to apartment living and enjoy daily walks and playtime, making them excellent companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Norwich Terrier",
+        "description": "The Norwich Terrier is a cheerful and adventurous breed known for their bold personality and affectionate nature, making them spirited companions who love to explore.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Patellar luxation", "Certain skin conditions", "Dental issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Norwich Terrier's health and energy levels, keeping them playful and spirited."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their wiry coat requires regular grooming to keep it looking its best, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Norwich Terriers thrive in homes with enough space for them to run and play, enjoying daily walks and active playtime."
+        }
+      },
+      {
+        "breed": "Nova Scotia Duck Tolling Retriever",
+        "description": "The Nova Scotia Duck Tolling Retriever is an intelligent and energetic breed known for their playful nature and strong retrieving instincts, making them fantastic companions for active families.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Nova Scotia Duck Tolling Retriever's active lifestyle and overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their medium-length coat requires regular grooming to prevent mats and reduce shedding, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Nova Scotia Duck Tolling Retrievers thrive in homes with ample space and require regular exercise, including walks, playtime, and swimming, to keep them happy."
+        }
+      },
+      {
+        "breed": "Old English Sheepdog",
+        "description": "The Old English Sheepdog is a lovable and gentle breed known for their shaggy coat and playful personality, making them excellent family pets and devoted companions.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A well-balanced diet rich in high-quality ingredients supports the Old English Sheepdog's health and energy levels, keeping them active and happy."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their thick, shaggy coat requires regular grooming to prevent mats and maintain its appearance, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Old English Sheepdogs thrive in homes with plenty of room to roam and enjoy regular exercise, including walks and playtime, to stay healthy."
+        }
+      },{
+        "breed": "Papillon",
+        "description": "The Papillon is an affectionate and lively breed known for their large, butterfly-like ears and playful spirit, making them delightful companions who thrive on love and attention.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Patellar luxation", "Ear problems", "Certain eye conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients helps maintain the Papillon's health and keeps their energy levels high."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their long, flowing coat requires regular grooming to prevent mats and tangles, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Papillons adapt well to apartment living and enjoy daily walks and playtime, making them excellent companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Pekingese",
+        "description": "The Pekingese is a regal and affectionate breed known for their distinctive lion-like appearance and charming personality, making them loyal companions who thrive on affection.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Respiratory issues", "Eye problems", "Dental issues", "Hip dysplasia"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Pekingese's health and energy, supporting their playful nature."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their long, luxurious coat requires regular grooming to prevent mats and keep it healthy, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Pekingese adapt well to apartment living and enjoy short walks and indoor play, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Petit Basset Griffon Vendéen",
+        "description": "The Petit Basset Griffon Vendéen is an energetic and friendly breed known for their playful nature and distinctive scruffy coat, making them charming companions who love to explore.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Eye problems", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Petit Basset Griffon Vendéen's active lifestyle and overall health."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their scruffy coat requires regular grooming to maintain its texture and prevent mats, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Petit Basset Griffon Vendéens thrive in homes with ample space and require regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Pharaoh Hound",
+        "description": "The Pharaoh Hound is an elegant and athletic breed known for their striking appearance and friendly demeanor, making them excellent companions for active families.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Pharaoh Hound's energy levels and overall health, ensuring they remain active."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Pharaoh Hounds thrive in homes with plenty of room to run and play and require regular exercise, including walks and outdoor activities, to keep their spirits high."
+        }
+      },{
+        "breed": "Pointer",
+        "description": "The Pointer is an energetic and intelligent breed known for their athletic build and friendly demeanor, making them excellent hunting companions and family pets.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Ear infections", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Pointer's active lifestyle and keeps their energy levels high."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Pointers thrive in homes with ample space to run and play, requiring regular exercise, including long walks and outdoor activities, to stay happy."
+        }
+      },
+      {
+        "breed": "Pomeranian",
+        "description": "The Pomeranian is a lively and playful breed known for their fluffy coat and vibrant personality, making them charming companions who love to entertain.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Obesity", "Tracheal collapse", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Pomeranian's health and energy levels, supporting their playful and spirited nature."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick double coat requires regular grooming to prevent mats and keep it looking its best, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Pomeranians adapt well to apartment living and enjoy short walks and playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Poodle",
+        "description": "The Poodle is an intelligent and elegant breed known for their hypoallergenic coat and friendly disposition, making them versatile companions who excel in various activities.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Ear infections", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality ingredients supports the Poodle’s health and keeps their energy levels high, whether they are Standard, Miniature, or Toy."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their curly coat requires regular grooming to prevent mats and tangles, needing brushing several times a week and regular professional grooming."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Poodles thrive in homes with ample space and enjoy regular exercise, including walks, playtime, and mental stimulation, to keep their minds sharp."
+        }
+      },
+      {
+        "breed": "Portuguese Water Dog",
+        "description": "The Portuguese Water Dog is an energetic and intelligent breed known for their swimming ability and friendly nature, making them excellent companions for active families who enjoy water activities.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Addison's disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Portuguese Water Dog's active lifestyle and keeps their energy levels high."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their curly or wavy coat requires regular grooming to prevent mats and reduce shedding, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Portuguese Water Dogs thrive in homes with ample space and require regular exercise, including swimming, walks, and playtime, to stay happy."
+        }
+      },{
+        "breed": "Pug",
+        "description": "The Pug is a charming and affectionate breed known for their wrinkled face and playful nature, making them delightful companions who love to be around people.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Respiratory issues", "Obesity", "Eye problems", "Skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Pug's health and energy levels, keeping them lively and playful."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps control shedding and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Pugs adapt well to apartment living and enjoy short walks and indoor playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Puli",
+        "description": "The Puli is a unique and energetic breed known for their distinctive corded coat and herding instincts, making them agile and intelligent companions.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Ear infections"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Puli's active lifestyle, helping them maintain their strength and agility."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their corded coat requires regular grooming to prevent mats and keep it healthy, needing thorough brushing and maintenance."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Pulis thrive in homes with plenty of room to run and play, requiring regular exercise and mental stimulation to stay happy."
+        }
+      },
+      {
+        "breed": "Pyrenean Mountain Dog",
+        "description": "The Pyrenean Mountain Dog, or Great Pyrenees, is a gentle giant known for their fluffy white coat and calm demeanor, making them loving companions and excellent guardians.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Certain heart issues", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Pyrenean Mountain Dog's health and helps maintain their large frame."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their thick double coat requires regular grooming to prevent mats and reduce shedding, especially during seasonal changes."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Pyrenean Mountain Dogs thrive in homes with ample outdoor space and enjoy regular exercise, including walks and playtime, to stay happy."
+        }
+      },
+      {
+        "breed": "Rhodesian Ridgeback",
+        "description": "The Rhodesian Ridgeback is a strong and loyal breed known for their distinctive ridge of hair along their back and friendly nature, making them excellent family companions and protectors.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Rhodesian Ridgeback's active lifestyle and overall health."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Rhodesian Ridgebacks thrive in homes with ample room to run and play and require regular exercise, including long walks and outdoor activities, to keep their spirits high."
+        }
+      },{
         "breed": "Rottweiler",
-        "cluster": "Guard and Protection Breeds",
-        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Heart issues"],
+        "description": "The Rottweiler is a strong and confident breed known for their loyalty and protective nature, making them excellent guardians and loving companions for active families.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Heart issues", "Certain skin conditions"],
         "diet": {
-          "description": "Large breed diet with joint support.",
-          "notes": "Avoid overfeeding to prevent weight-related issues."
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Rottweiler's muscle development and energy levels, keeping them strong and healthy."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps reduce shedding and keeps their skin healthy."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Rottweilers thrive in homes with ample space to run and play, requiring regular exercise and mental stimulation to stay happy and balanced."
+        }
+      },
+      {
+        "breed": "Saint Bernard",
+        "description": "The Saint Bernard is a gentle giant known for their friendly demeanor and impressive size, making them loving companions and fantastic family pets.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Elbow dysplasia", "Certain heart issues", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Saint Bernard's health and supports their large frame, ensuring they remain energetic and happy."
         },
         "grooming": {
           "frequency": "Moderate",
-          "requirements": "Weekly brushing."
+          "description": "Their thick, double coat requires regular grooming to prevent mats and reduce shedding, needing brushing a few times a week."
         },
         "environment": {
-          "living_space": "Large, secured outdoor spaces",
-          "exercise_needs": "High"
+          "living_space": "Large spaces",
+          "exercise_needs": "Moderate",
+          "description": "Saint Bernards thrive in homes with plenty of room to roam and enjoy regular exercise, including walks and gentle play, to keep them healthy."
         }
-      }
+      },
+      {
+        "breed": "Saluki",
+        "description": "The Saluki is an elegant and agile breed known for their incredible speed and gentle nature, making them graceful companions who love to run and explore.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Certain eye conditions", "Skin issues", "Bloat"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet rich in high-quality protein supports the Saluki's active lifestyle and helps maintain their lean physique."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Salukis thrive in homes with ample outdoor space and require regular exercise, including long walks and opportunities to run, to stay happy."
+        }
+      },
+      {
+        "breed": "Samoyed",
+        "description": "The Samoyed is a friendly and gentle breed known for their fluffy white coat and joyful personality, making them loving companions who thrive on family interaction.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Samoyed's energy levels and helps maintain their beautiful coat."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their thick double coat requires regular grooming to prevent mats and reduce shedding, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Samoyeds thrive in homes with ample space for play and exercise, requiring regular outdoor activity to keep them happy and healthy."
+        }
+      },{
+        "breed": "Schipperke",
+        "description": "The Schipperke is a lively and curious breed known for their fox-like appearance and energetic personality, making them playful companions who love to explore.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Epilepsy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients helps maintain the Schipperke's energy levels and supports their active lifestyle."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their double coat requires regular grooming to prevent mats and control shedding, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Schipperkes adapt well to apartment living but enjoy daily walks and playtime, making them excellent companions for active families."
+        }
+      },
+      {
+        "breed": "Schnauzer",
+        "description": "The Schnauzer is a spirited and intelligent breed known for their distinctive beard and eyebrows, making them charming companions who are both playful and loyal.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Pancreatitis"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Schnauzer's active lifestyle and helps maintain their energetic spirit, keeping them fit and healthy."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their wiry coat requires regular grooming to prevent mats and maintain its texture, needing professional grooming every few months."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Schnauzers thrive in homes with ample space and enjoy regular exercise, including walks, playtime, and mental challenges to keep them stimulated."
+        }
+      },
+      {
+        "breed": "Scottish Terrier",
+        "description": "The Scottish Terrier, or Scottie, is a spirited and confident breed known for their distinctive beard and tough demeanor, making them loyal companions with a charming personality.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Certain skin conditions", "Von Willebrand disease", "Bladder stones"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Scottish Terrier's health and energy levels, ensuring they remain lively and engaged."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their wiry coat requires regular grooming to prevent mats and maintain its characteristic look, needing brushing and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Scottish Terriers adapt well to apartment living and enjoy regular walks and playtime, making them great companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Sealyham Terrier",
+        "description": "The Sealyham Terrier is a charming and affectionate breed known for their distinctive appearance and playful nature, making them delightful companions who thrive on attention.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Certain skin conditions", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Sealyham Terrier's health and energy, helping to keep them playful and spirited."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their wiry coat requires regular grooming to prevent mats and keep it looking its best, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Sealyham Terriers adapt well to apartment living and enjoy regular walks and playtime, making them excellent companions for city dwellers."
+        }
+      },{
+        "breed": "Shar Pei",
+        "description": "The Shar Pei is a unique and loyal breed known for their distinctive wrinkled skin and calm demeanor, making them devoted companions with a strong protective instinct.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Skin issues", "Entropion", "Certain respiratory problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Shar Pei's health and helps maintain their unique skin structure."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular cleaning of their skin folds is essential to prevent infections."
+        },
+        "environment": {
+          "living_space": "Moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Shar Peis adapt well to various living situations and enjoy leisurely walks and playtime, making them great companions for quieter households."
+        }
+      },
+      {
+        "breed": "Shetland Sheepdog",
+        "description": "The Shetland Sheepdog, or Sheltie, is a smart and energetic breed known for their herding instincts and friendly nature, making them affectionate family pets who thrive on companionship.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Thyroid issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Sheltie's active lifestyle and helps maintain their overall health and well-being."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their double coat requires regular grooming to prevent mats and reduce shedding, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Shetland Sheepdogs thrive in homes with ample space and enjoy regular exercise, including walks, playtime, and mental challenges to keep them engaged."
+        }
+      },
+      {
+        "breed": "Shih Tzu",
+        "description": "The Shih Tzu is a charming and affectionate breed known for their luxurious coat and playful personality, making them delightful companions who love being around people.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Eye problems", "Certain skin conditions", "Respiratory issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Shih Tzu's health and energy levels, ensuring they remain lively and happy."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their long coat requires regular grooming to prevent mats and keep it looking its best, needing daily brushing and occasional professional grooming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Shih Tzus adapt well to apartment living and enjoy short walks and indoor playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Siberian Husky",
+        "description": "The Siberian Husky is a strong and energetic breed known for their striking blue or multicolored eyes and friendly demeanor, making them adventurous companions who love to explore.",
+        "cluster": "Working Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Thyroid issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Siberian Husky's active lifestyle and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their thick double coat requires regular grooming to reduce shedding, especially during seasonal changes, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Siberian Huskies thrive in homes with ample outdoor space and require regular exercise, including long walks and playtime, to keep their spirits high."
+        }
+      },{
+        "breed": "Skye Terrier",
+        "description": "The Skye Terrier is a charming and loyal breed known for their long, flowing coat and distinctively sweet personality, making them affectionate companions who thrive on love and attention.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Intervertebral disc disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Skye Terrier's health and energy, ensuring they stay vibrant and happy."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their long coat requires regular grooming to prevent mats and keep it looking its best, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Skye Terriers adapt well to various living situations and enjoy daily walks and playtime, making them great companions for families."
+        }
+      },
+      {
+        "breed": "Soft Coated Wheaten Terrier",
+        "description": "The Soft Coated Wheaten Terrier is a friendly and playful breed known for their soft, silky coat and affectionate nature, making them delightful family pets who love to be involved in all activities.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Certain skin conditions", "Protein-losing enteropathy", "Allergies"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Soft Coated Wheaten Terrier's health and energy, helping them stay playful and active."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their soft coat requires regular grooming to prevent mats and maintain its lovely texture, needing brushing several times a week."
+        },
+        "environment": {
+          "living_space": "Moderate spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Soft Coated Wheaten Terriers thrive in homes with ample space and enjoy regular exercise, including walks, playtime, and mental stimulation."
+        }
+      },
+      {
+        "breed": "Staffordshire Bull Terrier",
+        "description": "The Staffordshire Bull Terrier is a strong and affectionate breed known for their muscular build and playful nature, making them loving companions who are great with families.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Hip dysplasia", "Certain skin conditions", "Heart issues", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality protein supports the Staffordshire Bull Terrier's health and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Staffordshire Bull Terriers thrive in homes with ample space and enjoy regular exercise, including walks and playtime, to stay happy and healthy."
+        }
+      },
+      {
+        "breed": "Sussex Spaniel",
+        "description": "The Sussex Spaniel is a friendly and cheerful breed known for their golden, wavy coat and gentle demeanor, making them wonderful companions who love being part of the family.",
+        "cluster": "Spaniel Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Certain skin conditions", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Sussex Spaniel's health and energy, ensuring they remain playful and vibrant."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their wavy coat requires regular grooming to prevent mats and reduce shedding, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Sussex Spaniels thrive in homes with ample space for play and enjoy regular exercise, including walks and outdoor activities, to keep their spirits high."
+        }
+      },{
+        "breed": "Swedish Vallhund",
+        "description": "The Swedish Vallhund is a lively and intelligent breed known for their wolf-like appearance and playful personality, making them energetic companions who thrive on activity and companionship.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Degenerative myelopathy"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in high-quality ingredients supports the Swedish Vallhund's active lifestyle and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Low to moderate",
+          "description": "Their double coat requires minimal grooming, but regular brushing during shedding seasons helps control loose hair."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Swedish Vallhunds thrive in homes with ample space and enjoy regular exercise, including walks, playtime, and mental challenges to keep them stimulated."
+        }
+      },
+      {
+        "breed": "Tibetan Spaniel",
+        "description": "The Tibetan Spaniel is a charming and alert breed known for their compact size and affectionate nature, making them delightful companions who love to be involved in family activities.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Eye problems", "Certain skin conditions", "Patellar luxation"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Tibetan Spaniel's health and energy levels, ensuring they remain lively and happy."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their medium-length coat requires regular grooming to prevent mats and keep it looking its best, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Tibetan Spaniels adapt well to apartment living and enjoy short walks and indoor playtime, making them perfect companions for city dwellers."
+        }
+      },
+      {
+        "breed": "Tibetan Terrier",
+        "description": "The Tibetan Terrier is a joyful and loving breed known for their long, flowing coat and playful demeanor, making them affectionate companions who thrive on human interaction.",
+        "cluster": "Non-Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Certain skin conditions", "Hearing issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet supports the Tibetan Terrier's health and helps maintain their energy levels, keeping them active and cheerful."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their long coat requires regular grooming to prevent mats and tangles, needing daily brushing and occasional professional grooming."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Tibetan Terriers thrive in homes with ample space for play and enjoy regular exercise, including walks and playtime to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Weimaraner",
+        "description": "The Weimaraner is an elegant and energetic breed known for their striking gray coat and friendly personality, making them loyal companions who love outdoor activities and family time.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Bloat", "Certain skin conditions", "Heart issues"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-quality diet rich in protein supports the Weimaraner's active lifestyle and helps maintain their energy levels."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Large spaces",
+          "exercise_needs": "High",
+          "description": "Weimaraners thrive in homes with ample outdoor space and require regular exercise, including long walks and playtime, to keep them happy and healthy."
+        }
+      },{
+        "breed": "Welsh Corgi",
+        "description": "The Welsh Corgi is a playful and intelligent breed known for their short legs and long body, making them delightful companions who bring joy and laughter to any home.",
+        "cluster": "Herding Breeds",
+        "health_concerns": ["Hip dysplasia", "Eye problems", "Obesity", "Certain skin conditions"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet helps maintain the Welsh Corgi's health and energy, ensuring they remain active and lively."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their double coat requires regular grooming to manage shedding, especially during seasonal changes, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Welsh Corgis adapt well to various living situations and enjoy daily walks and playtime, making them wonderful companions for families."
+        }
+      },
+      {
+        "breed": "Welsh Springer Spaniel",
+        "description": "The Welsh Springer Spaniel is a cheerful and friendly breed known for their beautiful red and white coat and loving personality, making them excellent family pets who thrive on companionship.",
+        "cluster": "Sporting Breeds",
+        "health_concerns": ["Hip dysplasia", "Ear infections", "Certain eye conditions", "Obesity"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet supports the Welsh Springer Spaniel's active lifestyle and helps maintain their health and energy levels."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their medium-length coat requires regular grooming to prevent mats and reduce shedding, needing brushing a few times a week."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Welsh Springer Spaniels thrive in homes with ample space for play and enjoy regular exercise, including walks and outdoor activities, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "West Highland White Terrier",
+        "description": "The West Highland White Terrier, or Westie, is a charming and spirited breed known for their fluffy white coat and playful nature, making them delightful companions full of energy and love.",
+        "cluster": "Terrier Breeds",
+        "health_concerns": ["Skin allergies", "Hip dysplasia", "Ear infections", "Certain eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in quality ingredients supports the Westie's health and helps maintain their lively personality."
+        },
+        "grooming": {
+          "frequency": "Moderate to high",
+          "description": "Their double coat requires regular grooming to prevent mats and keep it looking its best, needing brushing several times a week and occasional trimming."
+        },
+        "environment": {
+          "living_space": "Small to moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "Westies adapt well to various living situations and enjoy daily walks and playtime, making them perfect companions for families and individuals alike."
+        }
+      },
+      {
+        "breed": "Whippet",
+        "description": "The Whippet is a graceful and agile breed known for their sleek body and affectionate demeanor, making them gentle companions who love to cuddle and play.",
+        "cluster": "Hound Breeds",
+        "health_concerns": ["Hip dysplasia", "Certain heart conditions", "Bloat", "Eye problems"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A nutritious diet helps maintain the Whippet's health and energy levels, ensuring they remain happy and active."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "Their short coat requires minimal grooming, but regular brushing helps keep their skin healthy and free from debris."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "Moderate to high",
+          "description": "Whippets thrive in homes with ample space for running and enjoy regular exercise, including walks and playtime, to keep their spirits high."
+        }
+      },
+      {
+        "breed": "Yorkshire Terrier",
+        "description": "The Yorkshire Terrier is a small and spirited breed known for their long, luxurious coat and bold personality, making them affectionate companions who love to be the center of attention.",
+        "cluster": "Toy Breeds",
+        "health_concerns": ["Dental issues", "Hypoglycemia", "Certain eye problems", "Tracheal collapse"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet supports the Yorkshire Terrier's health and helps maintain their energy levels, keeping them lively and playful."
+        },
+        "grooming": {
+          "frequency": "High",
+          "description": "Their long coat requires regular grooming to prevent mats and tangles, needing daily brushing and occasional professional grooming."
+        },
+        "environment": {
+          "living_space": "Small spaces",
+          "exercise_needs": "Low to moderate",
+          "description": "Yorkshire Terriers adapt well to apartment living and enjoy short walks and indoor playtime, making them perfect companions for city dwellers."
+        }
+      }    
     ]
   }
   

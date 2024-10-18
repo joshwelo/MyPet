@@ -73,10 +73,10 @@ const Home = () => {
             <li className="menu-header small text-uppercase">
               <span className="menu-header-text">Social and Establishments</span>
             </li>
-            <li className={`menu-item ${activeMenu === 'SocialForumsPage' ? 'active' : ''}`} role="menuitem" aria-controls="forums" aria-selected={activeMenu === 'SocialForumsPage'}>
-              <Link to="SocialForumsPage" className="menu-link" onClick={() => handleMenuClick('SocialForumsPage')}>
+            <li className={`menu-item ${activeMenu === 'AIChat' ? 'active' : ''}`} role="menuitem" aria-controls="forums" aria-selected={activeMenu === 'AIChat'}>
+              <Link to="AIChat" className="menu-link" onClick={() => handleMenuClick('AIChat')}>
                 <i className="menu-icon tf-icons bx bxs-user-pin"></i>
-                <div data-i18n="Basic">Forums</div>
+                <div data-i18n="Basic">AI Chat</div>
               </Link>
             </li>
             <li className={`menu-item ${activeMenu === 'EstablishmentsPage' ? 'active' : ''}`} role="menuitem" aria-controls="establishments" aria-selected={activeMenu === 'EstablishmentsPage'}>

@@ -1,19 +1,29 @@
-.iframe-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
-  }
-  
-  .iframe-container > * {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
-  
+.user-location {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-location h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.user-location p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+.map-container {
+  height: 500px; /* Set your desired height */
+  width: 100%; /* Full width */
+}
+
+.establishments-page {
+  padding: 20px; /* Add some padding */
+}
+
+.user-location {
+  margin-top: 20px; /* Space above user location display */
+}

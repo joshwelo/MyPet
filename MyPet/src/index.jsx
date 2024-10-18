@@ -9,7 +9,7 @@ import BlogsPage from './pages/BlogsPage';
 import CalendarEventsPage from './pages/CalendarEventsPage';
 import DiagnosePage from './pages/DiagnosePage';
 import EstablishmentsPage from './pages/EstablishmentsPage';
-import SocialForumsPage from './pages/SocialForumsPage';
+import AIChat from './pages/AIChat';
 import UserPage from './pages/UserPage';
 import ProfilePage from './pages/ProfilePage';
 import HandlingGuide from './pages/HandlingGuide';
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
         <Route path="CalendarEventsPage" element={<CalendarEventsPage />} />
         <Route path="DiagnosePage" element={<DiagnosePage />} />
         <Route path="EstablishmentsPage" element={<EstablishmentsPage />} />
-        <Route path="SocialForumsPage" element={<SocialForumsPage />} />
+        <Route path="AIChat" element={<AIChat />} />
         <Route path="UserPage" element={<UserPage />} />
         <Route path="ProfilePage" element={<ProfilePage />} />
         <Route path="HandlingGuide/:breed" element={<HandlingGuide />} />
