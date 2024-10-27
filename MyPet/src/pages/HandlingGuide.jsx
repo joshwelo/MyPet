@@ -5,8 +5,10 @@ import breedsData from '../jsons/breeds.json'; // Adjust the path to your JSON f
 const HandlingGuide = () => {
   const { breed } = useParams();
 
-  // Find the breed data from the JSON file
-  const breedData = breedsData.dogs.find(dog => dog.breed.toLowerCase() === breed.toLowerCase());
+  // Search for the breed in both dogs and cats arrays
+  const breedData = 
+    breedsData.dogs.find(dog => dog.breed.toLowerCase() === breed.toLowerCase()) ||
+    breedsData.cats.find(cat => cat.breed.toLowerCase() === breed.toLowerCase());
 
   // Handle case where breed is not found
   if (!breedData) {
@@ -24,6 +26,8 @@ const HandlingGuide = () => {
             <div className="card-body">
               <div className="col-xl-12">
                 <h3 className="text-muted">{breedData.breed}</h3>
+                <p className="text-secondary">{breedData.description}</p> {/* Breed description */}
+                
                 <div className="nav-align-top mb-4">
                   <ul className="nav nav-pills mb-3 nav-fill" role="tablist">
                     <li className="nav-item">
@@ -78,42 +82,35 @@ const HandlingGuide = () => {
                         <i className="bx bxs-leaf"></i> Environment
                       </button>
                     </li>
-                    <li className="nav-item">
-                      <button
-                        type="button"
-                        className="nav-link"
-                        role="tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#navs-pills-justified-train"
-                        aria-controls="navs-pills-justified-train"
-                        aria-selected="false"
-                      >
-                        <i className="bx bx-dumbbell"></i> Training
-                      </button>
-                    </li>
                   </ul>
                   <div className="tab-content">
+                    {/* Health Concerns Section */}
                     <div className="tab-pane fade show active" id="navs-pills-justified-health" role="tabpanel">
+                      <p className="text-muted"><strong>Health Concerns:</strong> {breedData.health_concerns_description}</p>
                       <ul>
                         {breedData.health_concerns.map((concern, index) => (
                           <li key={index}>{concern}</li>
                         ))}
                       </ul>
                     </div>
+
+                    {/* Diet Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-diet" role="tabpanel">
-                      <p>{breedData.diet.description}</p>
-                      <p><strong>Notes:</strong> {breedData.diet.notes}</p>
+                      <p className="text-muted"><strong>Diet:</strong> {breedData.diet.description}</p>
+                      <p><strong>Frequency:</strong>{breedData.diet.frequency}</p>
                     </div>
+
+                    {/* Grooming Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-groom" role="tabpanel">
-                      <p><strong>Frequency:</strong> {breedData.grooming.frequency}</p>
-                      <p>{breedData.grooming.requirements}</p>
+                      <p className="text-muted"><strong>Grooming Frequency:</strong> {breedData.grooming.frequency}</p>
+                      <p>{breedData.grooming.description}</p>
                     </div>
+
+                    {/* Environment Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-nature" role="tabpanel">
-                      <p><strong>Living Space:</strong> {breedData.environment.living_space}</p>
+                      <p className="text-muted"><strong>Living Space:</strong> {breedData.environment.living_space}</p>
                       <p><strong>Exercise Needs:</strong> {breedData.environment.exercise_needs}</p>
-                    </div>
-                    <div className="tab-pane fade" id="navs-pills-justified-train" role="tabpanel">
-                      <p>Training information coming soon.</p> {/* Update with actual data when available */}
+                      <p>{breedData.environment.description}</p>
                     </div>
                   </div>
                 </div>

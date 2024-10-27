@@ -2512,6 +2512,865 @@
           "description": "Yorkshire Terriers adapt well to apartment living and enjoy short walks and indoor playtime, making them perfect companions for city dwellers."
         }
       }    
+    ],
+    "cats":[
+      {
+        "breed": "Abyssinian",
+        "description": "The Abyssinian cat is an elegant and playful breed known for its sleek, muscular build and striking ticked coat. They are lively companions who love to explore and interact with their environment.",
+        "cluster": "Short-Haired Breeds",
+        "health_concerns": ["Gingivitis", "Kidney issues", "Progressive retinal atrophy", "Patellar luxation"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A high-protein, well-balanced diet keeps the Abyssinian healthy and supports their active lifestyle. Include wet food to help with hydration."
+        },
+        "grooming": {
+          "frequency": "Low",
+          "description": "The Abyssinian's short coat requires minimal grooming, with occasional brushing to remove loose hairs and maintain their glossy appearance."
+        },
+        "environment": {
+          "living_space": "Moderate to large spaces",
+          "exercise_needs": "High",
+          "description": "Abyssinians thrive in homes where they have space to run, climb, and explore. They love interactive toys and benefit from mental stimulation."
+        }
+      },
+      {
+        "breed": "American Bobtail",
+        "description": "The American Bobtail is a playful and affectionate breed known for their short, distinctive tail and rugged, wild appearance. They are loving companions who form strong bonds with their families.",
+        "cluster": "Short-Haired and Long-Haired Breeds",
+        "health_concerns": ["Hip dysplasia", "Spinal issues", "Obesity", "Heart disease"],
+        "diet": {
+          "frequency": "Twice a day",
+          "description": "A balanced diet rich in protein helps maintain the American Bobtail's muscular build and supports their playful energy. Wet food is beneficial for hydration."
+        },
+        "grooming": {
+          "frequency": "Moderate",
+          "description": "Their coat, whether short or long, benefits from weekly brushing to prevent matting and keep it healthy and shiny, especially during shedding seasons."
+        },
+        "environment": {
+          "living_space": "Moderate spaces",
+          "exercise_needs": "Moderate",
+          "description": "American Bobtails are adaptable and enjoy both indoor and outdoor environments. They love interactive play and benefit from climbing trees or cat towers."
+        }
+      },
+        {
+          "breed": "American Curl",
+          "description": "The American Curl is known for its unique, curled-back ears and friendly, playful personality. These affectionate cats are always up for a cuddle and love interacting with their families.",
+          "cluster": "Short-Haired and Long-Haired Breeds",
+          "health_concerns": ["Ear infections", "Obesity", "Eye issues"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A protein-rich, balanced diet helps maintain the American Curl’s energy and overall health, with wet food beneficial for hydration."
+          },
+          "grooming": {
+            "frequency": "Low to moderate",
+            "description": "The American Curl's coat requires minimal grooming, with occasional brushing to remove loose hairs and keep it sleek, especially in long-haired varieties."
+          },
+          "environment": {
+            "living_space": "Small to moderate spaces",
+            "exercise_needs": "Moderate",
+            "description": "American Curls adapt well to various living environments, enjoying active play and social interaction, making them great companions in any home."
+          }
+        },
+        {
+          "breed": "American Shorthair",
+          "description": "The American Shorthair is a robust and friendly breed known for its easygoing nature and striking coat patterns. They are wonderful family pets with a playful yet calm demeanor.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Obesity", "Heart disease", "Hip dysplasia"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A well-balanced diet with lean proteins helps maintain their muscular build and supports their active, playful lifestyle."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their short coat requires minimal grooming, with occasional brushing to keep it shiny and free of loose hairs."
+          },
+          "environment": {
+            "living_space": "Small to large spaces",
+            "exercise_needs": "Moderate",
+            "description": "American Shorthairs thrive in various living environments, enjoying playtime and interactive toys, while also being content to relax at home."
+          }
+        },
+        {
+          "breed": "American Wirehair",
+          "description": "The American Wirehair is a curious and resilient breed, easily recognized by their unique, crinkly coat. These playful and affectionate cats enjoy a good adventure and love being part of family life.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Skin conditions", "Obesity", "Dental issues"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A high-protein diet supports the American Wirehair's active lifestyle, with wet food to help with hydration."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their unique wiry coat requires little grooming, though occasional brushing helps maintain its texture and health."
+          },
+          "environment": {
+            "living_space": "Moderate spaces",
+            "exercise_needs": "Moderate",
+            "description": "American Wirehairs enjoy playful environments with plenty of toys and space to explore. They adapt well to both indoor and outdoor settings."
+          }
+        },
+        {
+          "breed": "Balinese-Javanese",
+          "description": "The Balinese-Javanese is a graceful and elegant breed, often described as the long-haired cousin of the Siamese. Known for their silky coat and affectionate nature, they love to chat and be part of every family activity.",
+          "cluster": "Long-Haired Breeds",
+          "health_concerns": ["Respiratory issues", "Progressive retinal atrophy", "Heart disease"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A diet rich in high-quality proteins keeps the Balinese-Javanese healthy and supports their sleek build and playful energy."
+          },
+          "grooming": {
+            "frequency": "Moderate",
+            "description": "Their long, silky coat requires regular brushing to prevent tangles and keep it looking smooth and shiny."
+          },
+          "environment": {
+            "living_space": "Moderate to large spaces",
+            "exercise_needs": "High",
+            "description": "Balinese-Javanese cats thrive in environments with lots of mental and physical stimulation. They love climbing and playing, and enjoy interactive activities."
+          }
+        },
+        {
+          "breed": "Bengal",
+          "description": "The Bengal cat is a wild-looking, energetic breed known for its beautifully spotted or marbled coat and lively personality. These cats are adventurous and thrive on physical and mental stimulation.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Heart disease", "Hip dysplasia", "Progressive retinal atrophy"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A high-protein diet supports the Bengal's active lifestyle and helps maintain their muscular physique and vibrant energy."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their sleek coat requires minimal grooming, with occasional brushing to maintain its luxurious shine and softness."
+          },
+          "environment": {
+            "living_space": "Large spaces",
+            "exercise_needs": "High",
+            "description": "Bengals need plenty of space to run, jump, and climb, as well as interactive toys to keep them mentally engaged and happy."
+          }
+        },
+        {
+          "breed": "Birman",
+          "description": "The Birman is a beautiful, gentle breed known for its striking blue eyes and silky coat. They are affectionate and enjoy being close to their human companions, making them ideal lap cats.",
+          "cluster": "Long-Haired Breeds",
+          "health_concerns": ["Heart disease", "Kidney issues", "Obesity"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A balanced diet rich in lean proteins keeps the Birman healthy and helps maintain their luxurious coat and calm demeanor."
+          },
+          "grooming": {
+            "frequency": "Moderate",
+            "description": "Their silky coat requires regular brushing to prevent tangles and maintain its smooth texture."
+          },
+          "environment": {
+            "living_space": "Small to moderate spaces",
+            "exercise_needs": "Low to moderate",
+            "description": "Birmans are adaptable to various living environments, enjoying cozy indoor spaces where they can relax and spend time with their families."
+          }
+        },
+        {
+          "breed": "Bombay",
+          "description": "The Bombay cat is sleek and shiny, with a striking black coat and golden eyes. They are affectionate and enjoy being close to their family, with a playful and curious nature that keeps them active.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Respiratory issues", "Heart disease", "Obesity"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A protein-rich diet supports the Bombay's sleek, muscular build and helps maintain their glossy coat."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their short coat requires minimal grooming, with occasional brushing to keep it smooth and free from loose hair."
+          },
+          "environment": {
+            "living_space": "Small to moderate spaces",
+            "exercise_needs": "Moderate",
+            "description": "Bombays adapt well to indoor living, enjoying playtime with their family and the occasional exploration of their environment."
+          }
+        },
+        {
+          "breed": "British Shorthair",
+          "description": "The British Shorthair is a sturdy and laid-back breed, known for its round face and dense, plush coat. These cats are calm, independent, and make excellent companions for quieter homes.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Obesity", "Heart disease", "Joint issues"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A balanced diet helps the British Shorthair maintain their robust physique and supports their moderate activity levels."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their plush coat requires minimal grooming, with weekly brushing to remove loose hair and maintain its softness."
+          },
+          "environment": {
+            "living_space": "Small to moderate spaces",
+            "exercise_needs": "Low to moderate",
+            "description": "British Shorthairs are content in smaller living spaces and enjoy relaxing indoors, with occasional playtime to keep them healthy."
+          }
+        },
+        {
+          "breed": "Burmese",
+          "description": "The Burmese is a sleek and muscular breed, known for their friendly and outgoing personality. They love being the center of attention and form strong bonds with their families.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Obesity", "Diabetes", "Respiratory issues"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A high-protein diet supports the Burmese's muscular build and keeps them energetic and healthy."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their short coat requires minimal grooming, with occasional brushing to keep it smooth and shiny."
+          },
+          "environment": {
+            "living_space": "Moderate spaces",
+            "exercise_needs": "Moderate",
+            "description": "Burmese cats are playful and active, enjoying a stimulating environment with plenty of toys and interaction with their family."
+          }
+        },
+        {
+          "breed": "Chartreux",
+          "description": "The Chartreux is a quiet and gentle breed, known for its plush blue-gray coat and golden eyes. These cats are calm, affectionate, and enjoy a peaceful home environment where they can relax with their family.",
+          "cluster": "Short-Haired Breeds",
+          "health_concerns": ["Obesity", "Joint issues", "Respiratory problems"],
+          "diet": {
+            "frequency": "Twice a day",
+            "description": "A well-balanced diet supports the Chartreux's stocky build and keeps them in good health without gaining excessive weight."
+          },
+          "grooming": {
+            "frequency": "Low",
+            "description": "Their dense coat requires minimal grooming, with occasional brushing to keep it plush and free of loose hair."
+          },
+          "environment": {
+            "living_space": "Small to moderate spaces",
+            "exercise_needs": "Low to moderate",
+            "description": "Chartreux cats enjoy cozy indoor environments and are content with occasional playtime and plenty of quiet moments with their family."
+          }
+        },
+          {
+            "breed": "Cornish Rex",
+            "description": "The Cornish Rex is a fun-loving and agile breed, known for its soft, curly coat and elegant, sleek body. These cats are always up for a game and love to interact with their families.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Respiratory issues", "Heart problems", "Skin conditions"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A balanced diet rich in proteins and fats helps maintain the Cornish Rex's active and playful lifestyle."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their curly coat requires minimal grooming, with occasional brushing to keep their skin healthy and free of loose hair."
+            },
+            "environment": {
+              "living_space": "Moderate spaces",
+              "exercise_needs": "High",
+              "description": "Cornish Rex cats love environments that offer plenty of opportunities for climbing and playing, as they enjoy being active and adventurous."
+            }
+          },
+          {
+            "breed": "Devon Rex",
+            "description": "The Devon Rex is a mischievous and affectionate breed, recognized for its big ears, wavy coat, and playful demeanor. These cats love being around people and are always ready for a cuddle or a game.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Hip dysplasia", "Heart issues", "Skin allergies"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A diet high in protein and moisture content is essential for keeping the Devon Rex healthy and full of energy."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short, soft coat requires minimal grooming, though occasional baths may help manage oil buildup on the skin."
+            },
+            "environment": {
+              "living_space": "Small to moderate spaces",
+              "exercise_needs": "Moderate to high",
+              "description": "Devon Rex cats enjoy a lively home environment where they can explore and engage in fun activities, making them ideal for families with kids or other pets."
+            }
+          },
+          {
+            "breed": "Egyptian Mau",
+            "description": "The Egyptian Mau is a graceful and athletic breed, known for its stunning spotted coat and vibrant green eyes. These cats are loyal, affectionate, and enjoy being involved in everything their humans do.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Heart disease", "Allergies", "Obesity"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A protein-rich diet supports their muscular build and energetic nature, with wet food to promote hydration."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their sleek, short coat requires minimal grooming, with occasional brushing to maintain its shine and softness."
+            },
+            "environment": {
+              "living_space": "Moderate to large spaces",
+              "exercise_needs": "High",
+              "description": "Egyptian Maus thrive in homes with lots of room to run, climb, and play, making interactive toys and exercise essential to keep them happy."
+            }
+          },
+          {
+            "breed": "European Burmese",
+            "description": "The European Burmese is a sweet and affectionate breed, known for its sleek coat and expressive eyes. These cats are very sociable, often following their humans around the house and enjoying lap time.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Diabetes", "Obesity", "Respiratory problems"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A balanced diet with high-quality proteins and limited carbs helps maintain the Burmese's sleek figure and overall health."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short, fine coat requires minimal grooming, with occasional brushing to keep it smooth and reduce shedding."
+            },
+            "environment": {
+              "living_space": "Small to moderate spaces",
+              "exercise_needs": "Moderate",
+              "description": "European Burmese cats are adaptable and thrive in cozy indoor environments where they can enjoy playtime and relaxation with their families."
+            }
+          },
+          {
+            "breed": "Exotic Shorthair",
+            "description": "The Exotic Shorthair is a laid-back and loving breed, often described as a short-haired Persian. With their round faces and plush coats, these cats are perfect for families who enjoy a calm and affectionate companion.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Respiratory issues", "Dental problems", "Obesity"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A diet rich in high-quality proteins helps maintain their stocky build, with wet food beneficial for hydration and dental health."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their dense coat requires occasional brushing to prevent matting and keep it clean, especially around their face."
+            },
+            "environment": {
+              "living_space": "Small to moderate spaces",
+              "exercise_needs": "Low",
+              "description": "Exotic Shorthairs are content with cozy, indoor environments where they can relax and enjoy quiet moments with their humans."
+            }
+          },
+          {
+            "breed": "Havana Brown",
+            "description": "The Havana Brown is an elegant and striking breed, with its rich chocolate-colored coat and bright green eyes. These cats are friendly, curious, and love being the center of attention in their family.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Obesity", "Respiratory issues", "Dental problems"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A protein-rich diet supports their muscular build and keeps their coat shiny and healthy."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short, sleek coat requires minimal grooming, with occasional brushing to maintain its shine and softness."
+            },
+            "environment": {
+              "living_space": "Moderate spaces",
+              "exercise_needs": "Moderate",
+              "description": "Havana Browns enjoy environments where they can explore and play, while also relaxing with their human companions."
+            }
+          },
+          {
+            "breed": "Himalayan",
+            "description": "The Himalayan is a calm and affectionate breed, known for its luxurious coat and striking blue eyes. They are gentle lap cats that enjoy quiet environments and love being pampered by their families.",
+            "cluster": "Long-Haired Breeds",
+            "health_concerns": ["Respiratory issues", "Eye problems", "Kidney disease"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A balanced diet with proteins and omega-3 fatty acids helps maintain their luxurious coat and overall health."
+            },
+            "grooming": {
+              "frequency": "High",
+              "description": "Their long, thick coat requires daily grooming to prevent tangles and matting, keeping it soft and beautiful."
+            },
+            "environment": {
+              "living_space": "Small to moderate spaces",
+              "exercise_needs": "Low",
+              "description": "Himalayans thrive in peaceful indoor environments where they can relax and enjoy quality time with their families."
+            }
+          },
+          {
+            "breed": "Japanese Bobtail",
+            "description": "The Japanese Bobtail is a lively and playful breed, known for its unique short tail and curious personality. These cats are full of energy and love to explore, making them great companions for active households.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Obesity", "Respiratory problems", "Joint issues"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A protein-rich diet helps fuel their high energy levels and keeps them in good physical condition."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short coat requires minimal grooming, with occasional brushing to keep it sleek and healthy."
+            },
+            "environment": {
+              "living_space": "Moderate to large spaces",
+              "exercise_needs": "High",
+              "description": "Japanese Bobtails need lots of space and stimulating activities to keep them entertained and engaged."
+            }
+          },
+          {
+            "breed": "Korat",
+            "description": "The Korat is a loyal and intelligent breed, easily recognized by its sleek silver-blue coat and bright green eyes. These cats form strong bonds with their families and enjoy being in a calm, loving environment.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Obesity", "Heart disease", "Respiratory issues"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A balanced diet with lean proteins supports the Korat’s muscular build and helps maintain their health and vitality."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short, glossy coat requires minimal grooming, with an occasional brush to remove loose hair."
+            },
+            "environment": {
+              "living_space": "Small to moderate spaces",
+              "exercise_needs": "Moderate",
+              "description": "Korats enjoy a calm indoor environment where they can relax, but they also appreciate occasional playtime and mental stimulation."
+            }
+          },
+          {
+            "breed": "LaPerm",
+            "description": "The LaPerm is a friendly and affectionate breed, known for its unique curly coat and inquisitive personality. These cats are social and enjoy spending time with their human companions, making them a wonderful addition to any home.",
+            "cluster": "Curly-Coated Breeds",
+            "health_concerns": ["Allergies", "Obesity", "Joint issues"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A protein-rich diet helps support their playful nature and keeps their coat healthy and curly."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their curly coat requires occasional grooming to maintain its texture and prevent matting."
+            },
+            "environment": {
+              "living_space": "Moderate spaces",
+              "exercise_needs": "Moderate",
+              "description": "LaPerms thrive in a loving, interactive environment where they can enjoy both playtime and cuddle sessions with their families."
+            }
+          },
+          {
+            "breed": "Maine Coon",
+            "description": "The Maine Coon is a majestic and friendly breed, often described as a gentle giant due to its large size and sociable nature. These cats are known for their long, fluffy coats and tufted ears, making them a favorite in many households.",
+            "cluster": "Long-Haired Breeds",
+            "health_concerns": ["Hip dysplasia", "Heart disease", "Obesity"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A protein-rich diet with plenty of healthy fats helps maintain their muscular build and keeps their coat glossy."
+            },
+            "grooming": {
+              "frequency": "Moderate to high",
+              "description": "Their thick coat requires regular brushing to prevent tangles and keep it looking pristine."
+            },
+            "environment": {
+              "living_space": "Large spaces",
+              "exercise_needs": "Moderate",
+              "description": "Maine Coons enjoy spacious environments where they can explore and play, making them ideal for homes with plenty of room."
+            }
+          },
+          {
+            "breed": "Manx",
+            "description": "The Manx is a distinctive and playful breed, known for its unique taillessness and strong, rounded build. These cats are highly intelligent and enjoy interactive play with their humans, making them great companions for families.",
+            "cluster": "Short-Haired Breeds",
+            "health_concerns": ["Spinal issues", "Digestive problems", "Obesity"],
+            "diet": {
+              "frequency": "Twice a day",
+              "description": "A balanced diet rich in proteins helps support their muscular build and active lifestyle."
+            },
+            "grooming": {
+              "frequency": "Low",
+              "description": "Their short coat requires minimal grooming, though regular brushing can help keep it sleek and free of loose hair."
+            },
+            "environment": {
+              "living_space": "Moderate spaces",
+              "exercise_needs": "Moderate to high",
+              "description": "Manx cats thrive in environments where they can run, jump, and play, making them a great fit for active households."
+            }
+          },
+            {
+              "breed": "Munchkin",
+              "description": "The Munchkin is a playful and outgoing breed, known for its short legs and compact body. These cats are energetic, affectionate, and love to chase toys despite their small stature.",
+              "cluster": "Short-Legged Breeds",
+              "health_concerns": ["Joint issues", "Spinal problems", "Obesity"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A diet rich in protein and healthy fats helps support their muscular build and prevent weight gain."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short or medium-length coat requires minimal grooming, though occasional brushing helps maintain its shine."
+              },
+              "environment": {
+                "living_space": "Small to moderate spaces",
+                "exercise_needs": "Moderate",
+                "description": "Munchkin cats adapt well to indoor environments and enjoy active playtime with interactive toys."
+              }
+            },
+            {
+              "breed": "Norwegian Forest Cat",
+              "description": "The Norwegian Forest Cat is a large, sturdy breed with a thick, water-resistant coat. These cats are independent, intelligent, and enjoy both indoor and outdoor environments.",
+              "cluster": "Long-Haired Breeds",
+              "health_concerns": ["Heart disease", "Hip dysplasia", "Obesity"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A balanced diet with proteins and omega-3 fatty acids supports their large size and maintains a healthy coat."
+              },
+              "grooming": {
+                "frequency": "Moderate",
+                "description": "Regular brushing is necessary to prevent matting, especially during seasonal shedding periods."
+              },
+              "environment": {
+                "living_space": "Large spaces",
+                "exercise_needs": "High",
+                "description": "Norwegian Forest Cats need plenty of space to climb and explore, making them suited for homes with large areas or outdoor access."
+              }
+            },
+            {
+              "breed": "Ocicat",
+              "description": "The Ocicat is a spotted, athletic breed that resembles a wild cat but has a friendly and affectionate personality. These cats are confident, playful, and enjoy being active.",
+              "cluster": "Spotted Breeds",
+              "health_concerns": ["Heart disease", "Kidney issues", "Obesity"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A diet high in protein supports their active lifestyle and maintains muscle tone."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short coat requires minimal grooming, with occasional brushing to remove loose hair and maintain its sheen."
+              },
+              "environment": {
+                "living_space": "Moderate to large spaces",
+                "exercise_needs": "High",
+                "description": "Ocicats thrive in environments that offer plenty of room to run, climb, and explore."
+              }
+            },
+            {
+              "breed": "Oriental",
+              "description": "The Oriental cat is known for its slender build and large, expressive ears. These cats are highly active, social, and thrive in busy, interactive environments where they can engage with their humans.",
+              "cluster": "Short-Haired Breeds",
+              "health_concerns": ["Respiratory issues", "Dental problems", "Obesity"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A balanced diet with high-quality protein helps maintain their sleek, lean physique."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short, fine coat requires little grooming, with occasional brushing to keep it in good condition."
+              },
+              "environment": {
+                "living_space": "Small to moderate spaces",
+                "exercise_needs": "High",
+                "description": "Orientals love interactive play and thrive in homes that provide mental and physical stimulation."
+              }
+            },
+            {
+              "breed": "Peterbald",
+              "description": "The Peterbald is a distinctive, hairless or semi-hairless breed, known for its slender, elegant body. These cats are affectionate, curious, and enjoy being close to their families.",
+              "cluster": "Hairless Breeds",
+              "health_concerns": ["Skin issues", "Respiratory problems", "Cold sensitivity"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A protein-rich diet supports their high metabolism and helps maintain muscle mass."
+              },
+              "grooming": {
+                "frequency": "Moderate",
+                "description": "Regular bathing is necessary to keep their skin healthy and free of oils, as they have no coat to absorb them."
+              },
+              "environment": {
+                "living_space": "Small to moderate spaces",
+                "exercise_needs": "Moderate",
+                "description": "Peterbald cats prefer warm indoor environments and enjoy interactive play and cuddling with their humans."
+              }
+            },
+            {
+              "breed": "Pixiebob",
+              "description": "The Pixiebob is a muscular and playful breed, often resembling a wild bobcat. These cats are loyal, affectionate, and enjoy being with their families, making them great companions.",
+              "cluster": "Bobtail Breeds",
+              "health_concerns": ["Joint issues", "Obesity", "Digestive problems"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A diet rich in proteins and fiber helps support their muscular build and digestive health."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short or medium-length coat requires minimal grooming, with occasional brushing to remove loose hair."
+              },
+              "environment": {
+                "living_space": "Moderate spaces",
+                "exercise_needs": "Moderate",
+                "description": "Pixiebobs enjoy environments with room to explore and plenty of interactive play with their families."
+              }
+            },
+            {
+              "breed": "Ragamuffin",
+              "description": "The Ragamuffin is a large, fluffy breed known for its gentle and affectionate nature. These cats love being held and are excellent lap companions, making them great for families.",
+              "cluster": "Long-Haired Breeds",
+              "health_concerns": ["Obesity", "Heart disease", "Joint issues"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A balanced diet with high-quality proteins helps maintain their large size and luxurious coat."
+              },
+              "grooming": {
+                "frequency": "Moderate",
+                "description": "Regular brushing is required to prevent matting and keep their thick coat in good condition."
+              },
+              "environment": {
+                "living_space": "Moderate spaces",
+                "exercise_needs": "Low to moderate",
+                "description": "Ragamuffins enjoy a calm indoor environment where they can relax and receive plenty of attention from their families."
+              }
+            },
+            {
+              "breed": "Ragdoll",
+              "description": "The Ragdoll is a large, laid-back breed known for its blue eyes and plush coat. These cats are very affectionate and enjoy being held, often going limp when picked up, hence the name 'Ragdoll'.",
+              "cluster": "Long-Haired Breeds",
+              "health_concerns": ["Heart disease", "Obesity", "Urinary issues"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A protein-rich diet helps maintain their muscular build and prevent obesity."
+              },
+              "grooming": {
+                "frequency": "Moderate",
+                "description": "Their long, silky coat requires regular brushing to prevent matting and tangles."
+              },
+              "environment": {
+                "living_space": "Moderate spaces",
+                "exercise_needs": "Low to moderate",
+                "description": "Ragdolls prefer calm, indoor environments where they can enjoy quiet time with their humans."
+              }
+            },
+            {
+              "breed": "Russian Blue",
+              "description": "The Russian Blue is a graceful and elegant breed, known for its dense, silvery-blue coat and striking green eyes. These cats are reserved but loyal, forming strong bonds with their families.",
+              "cluster": "Short-Haired Breeds",
+              "health_concerns": ["Obesity", "Respiratory issues", "Kidney problems"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A diet rich in lean proteins helps maintain their sleek physique and overall health."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short, dense coat requires minimal grooming, with occasional brushing to keep it in good condition."
+              },
+              "environment": {
+                "living_space": "Small to moderate spaces",
+                "exercise_needs": "Moderate",
+                "description": "Russian Blues prefer quiet, indoor environments where they can relax and occasionally play."
+              }
+            },
+            {
+              "breed": "Savannah",
+              "description": "The Savannah is a striking and energetic breed, known for its wild appearance, long legs, and large ears. These cats are highly active and intelligent, making them a good fit for experienced cat owners.",
+              "cluster": "Spotted Breeds",
+              "health_concerns": ["Heart issues", "Obesity", "Joint problems"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A high-protein diet helps support their active lifestyle and muscular build."
+              },
+              "grooming": {
+                "frequency": "Low",
+                "description": "Their short coat requires little grooming, with occasional brushing to keep it shiny and smooth."
+              },
+              "environment": {
+                "living_space": "Large spaces",
+                "exercise_needs": "High",
+                "description": "Savannah cats need plenty of room to run, jump, and explore, making them better suited for homes with ample space or outdoor access."
+              }
+            },
+            {
+              "breed": "Scottish Fold",
+              "description": "The Scottish Fold is a unique breed, known for its folded ears and round face. These cats are affectionate, calm, and enjoy spending time with their families in quiet environments.",
+              "cluster": "Folded-Ear Breeds",
+              "health_concerns": ["Joint issues", "Obesity", "Ear infections"],
+              "diet": {
+                "frequency": "Twice a day",
+                "description": "A balanced diet with high-quality proteins helps maintain their health and prevents weight gain."
+              },
+              "grooming": {
+                "frequency": "Low to moderate",
+                "description": "Their short or medium-length coat requires occasional brushing, and their ears should be checked regularly for infections."
+              },
+              "environment": {
+                "living_space": "Small to moderate spaces",
+                "exercise_needs": "Low to moderate",
+                "description": "Scottish Folds enjoy a calm, indoor environment where they can relax and engage in light play."
+              }
+            },    
+              {
+                "breed": "Selkirk Rex",
+                "description": "The Selkirk Rex is known for its curly, plush coat and relaxed demeanor. These cats are affectionate, gentle, and have a playful but calm personality.",
+                "cluster": "Curly-Coated Breeds",
+                "health_concerns": ["Obesity", "Heart disease", "Eye issues"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A balanced diet with lean protein supports their muscular build and helps maintain coat quality."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Regular brushing is recommended to prevent matting and maintain the softness of their curly coat."
+                },
+                "environment": {
+                  "living_space": "Moderate spaces",
+                  "exercise_needs": "Low to moderate",
+                  "description": "Selkirk Rex cats enjoy cozy indoor environments and relaxed playtime."
+                }
+              },
+              {
+                "breed": "Siamese",
+                "description": "The Siamese cat is a social, vocal breed known for its sleek body and striking blue eyes. Siamese cats are highly intelligent, affectionate, and bond closely with their human families.",
+                "cluster": "Short-Haired Breeds",
+                "health_concerns": ["Respiratory issues", "Kidney disease", "Obesity"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A protein-rich diet helps maintain their lean physique and high energy levels."
+                },
+                "grooming": {
+                  "frequency": "Low",
+                  "description": "Their short, smooth coat requires minimal grooming, with occasional brushing to keep it in good condition."
+                },
+                "environment": {
+                  "living_space": "Small to moderate spaces",
+                  "exercise_needs": "High",
+                  "description": "Siamese cats thrive in interactive environments with plenty of social interaction and mental stimulation."
+                }
+              },
+              {
+                "breed": "Siberian",
+                "description": "The Siberian is a robust, fluffy breed with a dense, water-resistant coat. These cats are agile, affectionate, and adapt well to cold climates.",
+                "cluster": "Long-Haired Breeds",
+                "health_concerns": ["Heart disease", "Hip dysplasia", "Obesity"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A balanced diet with high-quality proteins supports their large frame and active lifestyle."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Their thick coat requires regular brushing, especially during seasonal shedding."
+                },
+                "environment": {
+                  "living_space": "Large spaces",
+                  "exercise_needs": "High",
+                  "description": "Siberians enjoy environments with plenty of space to explore and exercise."
+                }
+              },
+              {
+                "breed": "Singapura",
+                "description": "The Singapura is one of the smallest cat breeds, known for its large eyes and ears. These cats are curious, playful, and enjoy being close to their families.",
+                "cluster": "Short-Haired Breeds",
+                "health_concerns": ["Kidney disease", "Eye problems", "Obesity"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A diet with lean protein helps support their active lifestyle and small frame."
+                },
+                "grooming": {
+                  "frequency": "Low",
+                  "description": "Their short coat requires minimal grooming, with occasional brushing to remove loose hairs."
+                },
+                "environment": {
+                  "living_space": "Small to moderate spaces",
+                  "exercise_needs": "Moderate",
+                  "description": "Singapura cats thrive in cozy indoor environments with access to interactive toys and playtime."
+                }
+              },
+              {
+                "breed": "Somali",
+                "description": "The Somali is a lively, elegant breed with a bushy tail and a playful demeanor. These cats are intelligent, curious, and enjoy interactive play with their humans.",
+                "cluster": "Long-Haired Breeds",
+                "health_concerns": ["Dental issues", "Obesity", "Heart disease"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A protein-rich diet supports their active lifestyle and lean physique."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Regular brushing is recommended to prevent matting and keep their coat shiny and smooth."
+                },
+                "environment": {
+                  "living_space": "Moderate spaces",
+                  "exercise_needs": "High",
+                  "description": "Somalis enjoy an environment that offers room to climb and explore, with plenty of playtime."
+                }
+              },
+              {
+                "breed": "Sphynx",
+                "description": "The Sphynx is a unique, hairless breed known for its warm, suede-like skin. These cats are sociable, affectionate, and enjoy being the center of attention.",
+                "cluster": "Hairless Breeds",
+                "health_concerns": ["Skin issues", "Respiratory problems", "Cold sensitivity"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A diet with high protein supports their high metabolism and muscular build."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Regular bathing is necessary to remove oils from their skin, as they lack fur to absorb them."
+                },
+                "environment": {
+                  "living_space": "Small to moderate spaces",
+                  "exercise_needs": "Moderate",
+                  "description": "Sphynx cats thrive in warm indoor environments and enjoy interactive play with their humans."
+                }
+              },
+              {
+                "breed": "Tonkinese",
+                "description": "The Tonkinese is a friendly and vocal breed with a sleek coat and lively personality. These cats enjoy human company, playfulness, and form close bonds with their families.",
+                "cluster": "Short-Haired Breeds",
+                "health_concerns": ["Respiratory issues", "Obesity", "Kidney disease"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A balanced diet with lean protein supports their active lifestyle and lean physique."
+                },
+                "grooming": {
+                  "frequency": "Low",
+                  "description": "Their short coat requires minimal grooming, with occasional brushing to keep it sleek and shiny."
+                },
+                "environment": {
+                  "living_space": "Small to moderate spaces",
+                  "exercise_needs": "High",
+                  "description": "Tonkinese cats thrive in environments with plenty of interactive play and social interaction."
+                }
+              },
+              {
+                "breed": "Toyger",
+                "description": "The Toyger is a striking breed with tiger-like markings and an athletic build. These cats are playful, intelligent, and enjoy active environments.",
+                "cluster": "Spotted and Striped Breeds",
+                "health_concerns": ["Heart disease", "Joint issues", "Obesity"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A diet rich in protein helps maintain their muscular build and high energy levels."
+                },
+                "grooming": {
+                  "frequency": "Low",
+                  "description": "Their short coat requires minimal grooming, with occasional brushing to maintain its glossy appearance."
+                },
+                "environment": {
+                  "living_space": "Moderate to large spaces",
+                  "exercise_needs": "High",
+                  "description": "Toygers enjoy environments with room to explore, climb, and engage in active play."
+                }
+              },
+              {
+                "breed": "Turkish Angora",
+                "description": "The Turkish Angora is a graceful breed with a silky, semi-long coat. These cats are active, social, and enjoy interactive play and human companionship.",
+                "cluster": "Long-Haired Breeds",
+                "health_concerns": ["Heart issues", "Obesity", "Respiratory issues"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A balanced diet with quality protein supports their lean build and active lifestyle."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Regular brushing helps prevent matting and maintains the shine of their soft, long coat."
+                },
+                "environment": {
+                  "living_space": "Moderate spaces",
+                  "exercise_needs": "High",
+                  "description": "Turkish Angoras thrive in active environments with plenty of toys and space to roam."
+                }
+              },
+              {
+                "breed": "Turkish Van",
+                "description": "The Turkish Van is a rare, semi-long-haired breed known for its love of water and playful nature. These cats are energetic, independent, and enjoy interactive environments.",
+                "cluster": "Long-Haired Breeds",
+                "health_concerns": ["Heart disease", "Obesity", "Joint issues"],
+                "diet": {
+                  "frequency": "Twice a day",
+                  "description": "A diet with high protein and balanced nutrients helps maintain their strong build and activity levels."
+                },
+                "grooming": {
+                  "frequency": "Moderate",
+                  "description": "Regular brushing is needed to prevent matting and keep their coat soft and smooth."
+                },
+                "environment": {
+                  "living_space": "Large spaces",
+                  "exercise_needs": "High",
+                  "description": "Turkish Vans enjoy spacious environments with access to water and areas to explore and play."
+                }
+              }
+            
+                                  
     ]
   }
   

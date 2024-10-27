@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { db, storage } from '../firebaseConfig'; // Import storage from firebaseConfig
+import Select from "react-select";
+import { db, storage } from '../firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Import required functions from firebase/storage
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import petBreedsData from '../jsons/breeds.json';
 
 const AddPetModal = ({ show, handleClose, userId }) => {
   const [petData, setPetData] = useState({
@@ -15,9 +17,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     medicalHistory: ""
   });
 
-  const breeds = {
-    cat: ["Siamese", "British Shorthair", "Persian"],
-    dog: ["Askal", "Beagle", "Bulldog"]
+  // Filter and map breeds based on selected species
+  const getBreedsBySpecies = (species) => {
+    if (!species) return []; // Return empty if species is not set
+    return petBreedsData[species]?.map((breed) => ({
+      value: breed.breed,
+      label: breed.breed
+    })) || [];
   };
 
   const vaccines = {
@@ -34,31 +40,33 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     }
   };
 
+  const handleBreedChange = (selectedOption) => {
+    setPetData({ ...petData, breed: selectedOption ? selectedOption.value : "" });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userId) {
       console.error("User ID is not defined");
       return;
     }
-  
+
     let imageUrl = "";
     if (petData.imageFile) {
       const imageRef = ref(storage, `pets/${userId}/${petData.imageFile.name}`);
       await uploadBytes(imageRef, petData.imageFile);
       imageUrl = await getDownloadURL(imageRef);
     }
-  
+
     const petDataToSave = {
       ...petData,
       image: imageUrl,
-      userId // Save userId with the pet data to associate pet with the user
+      userId 
     };
-  
-    // Remove the imageFile field before saving to Firestore
+
     delete petDataToSave.imageFile;
-  
+
     try {
-      // Use the correct path for adding pets to a separate collection
       const petsCollectionRef = collection(db, 'pets'); 
       await addDoc(petsCollectionRef, petDataToSave);
       handleClose();
@@ -95,22 +103,26 @@ const AddPetModal = ({ show, handleClose, userId }) => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Species</Form.Label>
-            <Form.Select name="species" value={petData.species} onChange={handleChange} required>
+            <Form.Select
+              name="species"
+              value={petData.species}
+              onChange={handleChange}
+              required
+              defaultValue=""
+            >
               <option value="">Select species</option>
-              <option value="cat">Cat</option>
-              <option value="dog">Dog</option>
+              <option value="cats">Cat</option>
+              <option value="dogs">Dog</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Breed</Form.Label>
-            <Form.Select name="breed" value={petData.breed} onChange={handleChange} required>
-              <option value="">Select breed</option>
-              {(breeds[petData.species] || []).map((breed, index) => (
-                <option key={index} value={breed}>
-                  {breed}
-                </option>
-              ))}
-            </Form.Select>
+            <Select
+              options={getBreedsBySpecies(petData.species)}
+              onChange={handleBreedChange}
+              isClearable
+              placeholder="Select breed"
+            />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Birthday</Form.Label>

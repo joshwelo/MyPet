@@ -4,6 +4,8 @@ import { doc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Button, Modal, Form } from 'react-bootstrap';
+import breedsData from '../jsons/breeds.json';
+import Select from 'react-select';
 
 const PetProfile = () => {
   const { petId } = useParams();
@@ -25,7 +27,6 @@ const PetProfile = () => {
     if (petDoc.exists()) {
       const petData = petDoc.data();
 
-      // Ensure vaccinationHistory and medicalHistory are arrays
       const vaccinationHistory = Array.isArray(petData.vaccinationHistory)
         ? petData.vaccinationHistory
         : petData.vaccinationHistory
@@ -58,23 +59,21 @@ const PetProfile = () => {
   const handleCheckboxChange = (field, value) => {
     setEditData((prevState) => {
       const updatedArray = prevState[field]?.includes(value)
-        ? prevState[field].filter((item) => item !== value) // Deselect checkbox
-        : [...(prevState[field] || []), value]; // Select checkbox
+        ? prevState[field].filter((item) => item !== value)
+        : [...(prevState[field] || []), value];
       return { ...prevState, [field]: updatedArray };
     });
   };
 
   const handleSaveChanges = async () => {
-    let imageUrl = pet.image; // Default to existing image if no new upload
+    let imageUrl = pet.image;
 
-    // Upload image if a new one is selected
     if (imageFile) {
       const storageRef = ref(storage, `pets/${petId}/${imageFile.name}`);
       await uploadBytes(storageRef, imageFile);
       imageUrl = await getDownloadURL(storageRef);
     }
 
-    // Update pet data with new image URL and other fields
     const updatedData = {
       ...editData,
       image: imageUrl,
@@ -82,7 +81,7 @@ const PetProfile = () => {
 
     await updateDoc(doc(db, 'pets', petId), updatedData);
     setShowEditModal(false);
-    fetchPet(); // Refresh pet data
+    fetchPet();
   };
 
   const handleDelete = async () => {
@@ -90,6 +89,33 @@ const PetProfile = () => {
     navigate('/Home/ProfilePage');
   };
 
+  const speciesOptions = [
+    { value: 'cat', label: 'Cat' },
+    { value: 'dog', label: 'Dog' }
+  ];
+
+  const getBreedsBySpecies = (species) => {
+    if (!species) return [];
+    const breedsList = breedsData[species] || [];
+    return breedsList.map(breed => ({
+      value: breed.breed,
+      label: breed.breed
+    }));
+  };
+  
+  const handleSpeciesChange = (e) => {
+    setEditData({ ...editData, species: e.target.value, breed: '' });
+  };
+
+  const handleBreedChange = (selectedOption) => {
+    setEditData({ ...editData, breed: selectedOption ? selectedOption.value : '' });
+  };
+  const calculateAge = (birthday) => {
+    const birthDate = new Date(birthday);
+    const ageDiff = Date.now() - birthDate.getTime();
+    const ageDate = new Date(ageDiff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  };
   return pet ? (
     <div className="content-wrapper">
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -124,6 +150,13 @@ const PetProfile = () => {
                   onClick={() => setShowEditModal(true)}
                 >
                   Edit
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger ms-2"
+                  onClick={() => setShowDeleteModal(true)}
+                >
+                  Delete
                 </button>
               </div>
             </div>
@@ -165,43 +198,34 @@ const PetProfile = () => {
                   </div>
                 </div>
                 <div className="row mb-3">
-                  <label className="col-sm-2 col-form-label">
-                    Vaccine History
-                  </label>
+                  <label className="col-sm-2 col-form-label">Vaccine History</label>
                   <div className="col-sm-10">
-                    {pet.vaccinationHistory &&
-                      pet.vaccinationHistory.map((vaccine, index) => (
-                        <button
-                          key={index}
-                          type="button"
-                          className="btn btn-outline-primary m-1"
-                        >
-                          {vaccine}
-                        </button>
-                      ))}
+                    {pet.vaccinationHistory && pet.vaccinationHistory.map((vaccine, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        className="btn btn-outline-primary m-1"
+                      >
+                        {vaccine}
+                      </button>
+                    ))}
                   </div>
                 </div>
                 <div className="row mb-3">
-                  <label className="col-sm-2 col-form-label">
-                    Medical History
-                  </label>
+                  <label className="col-sm-2 col-form-label">Medical History</label>
                   <div className="col-sm-10">
-                    {pet.medicalHistory &&
-                      pet.medicalHistory.map((condition, index) => (
-                        <button
-                          key={index}
-                          type="button"
-                          className="btn btn-outline-primary m-1"
-                        >
-                          {condition}
-                        </button>
-                      ))}
+                    {pet.medicalHistory && pet.medicalHistory.map((condition, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        className="btn btn-outline-primary m-1"
+                      >
+                        {condition}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <div
-                  className="d-grid gap-2 col-lg-6 mx-auto"
-                  style={{ paddingTop: '10px', paddingBottom: '10px' }}
-                >
+                <div className="d-grid gap-2 col-lg-6 mx-auto" style={{ paddingTop: '10px', paddingBottom: '10px' }}>
                   <button
                     className="btn btn-primary btn-lg"
                     onClick={() => navigate(`/Home/HandlingGuide/${pet.breed}`)}
@@ -222,80 +246,72 @@ const PetProfile = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formPetName">
+            {/* Image Upload */}
+            <Form.Group className="mb-3">
+              <Form.Label>Image File</Form.Label>
+              <Form.Control type="file" name="imageFile" onChange={handleImageUpload} />
+            </Form.Group>
+
+            {/* Name */}
+            <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
                 name="name"
                 value={editData.name || ''}
                 onChange={handleEditChange}
+                required
               />
             </Form.Group>
 
-            <Form.Group controlId="formPetBirthday" className="mt-3">
-              <Form.Label>Birthday</Form.Label>
-              <Form.Control
-                type="date"
-                name="birthday"
-                value={editData.birthday || ''}
-                onChange={handleEditChange}
-              />
+            {/* Species Dropdown */}
+            <Form.Group className="mb-3">
+              <Form.Label>Species</Form.Label>
+              <Form.Select name="species" value={editData.species || ''} onChange={handleSpeciesChange} required>
+                <option value="">Select Species</option>
+                {speciesOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </Form.Select>
             </Form.Group>
 
-            <Form.Group controlId="formPetBreed" className="mt-3">
+            {/* Breed Dropdown */}
+            <Form.Group className="mb-3">
               <Form.Label>Breed</Form.Label>
+              <Select
+                options={getBreedsBySpecies(editData.species)}
+                onChange={handleBreedChange}
+                value={editData.breed ? { value: editData.breed, label: editData.breed } : null}
+                isClearable
+              />
+            </Form.Group>
+
+            {/* Vaccination History */}
+            <Form.Group className="mb-3">
+              <Form.Label>Vaccination History</Form.Label>
               <Form.Control
                 type="text"
-                name="breed"
-                value={editData.breed || ''}
-                onChange={handleEditChange}
+                value={editData.vaccinationHistory.join(', ') || ''}
+                onChange={(e) => handleCheckboxChange('vaccinationHistory', e.target.value)}
               />
             </Form.Group>
 
-            {/* Vaccination History Checkboxes */}
-            <Form.Group controlId="formPetVaccinationHistory" className="mt-3">
-              <Form.Label>Vaccination History</Form.Label>
-              {['Rabies', 'FeLV', 'Calicivirus', 'Feline Herpesvirus'].map((vaccine) => (
-                <Form.Check
-                  type="checkbox"
-                  label={vaccine}
-                  name="vaccinationHistory"
-                  key={vaccine}
-                  checked={editData.vaccinationHistory?.includes(vaccine) || false}
-                  onChange={() => handleCheckboxChange('vaccinationHistory', vaccine)}
-                />
-              ))}
-            </Form.Group>
-
-            {/* Medical History Checkboxes */}
-            <Form.Group controlId="formPetMedicalHistory" className="mt-3">
+            {/* Medical History */}
+            <Form.Group className="mb-3">
               <Form.Label>Medical History</Form.Label>
-              {['Allergy', 'High-rise Syndrome', 'Diabetes'].map((condition) => (
-                <Form.Check
-                  type="checkbox"
-                  label={condition}
-                  name="medicalHistory"
-                  key={condition}
-                  checked={editData.medicalHistory?.includes(condition) || false}
-                  onChange={() => handleCheckboxChange('medicalHistory', condition)}
-                />
-              ))}
-            </Form.Group>
-
-            {/* File Upload for Image */}
-            <Form.Group controlId="formPetImage" className="mt-3">
-              <Form.Label>Upload Image</Form.Label>
               <Form.Control
-                type="file"
-                name="image"
-                onChange={handleImageUpload}
+                type="text"
+                value={editData.medicalHistory.join(', ') || ''}
+                onChange={(e) => handleCheckboxChange('medicalHistory', e.target.value)}
               />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowEditModal(false)}>
-            Cancel
+            Close
           </Button>
           <Button variant="primary" onClick={handleSaveChanges}>
             Save Changes
@@ -306,11 +322,9 @@ const PetProfile = () => {
       {/* Delete Modal */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Confirm Delete</Modal.Title>
+          <Modal.Title>Delete Pet</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Are you sure you want to delete this pet profile?
-        </Modal.Body>
+        <Modal.Body>Are you sure you want to delete this pet profile?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Cancel
@@ -324,14 +338,6 @@ const PetProfile = () => {
   ) : (
     <div>Loading...</div>
   );
-};
-
-// Helper function to calculate age from birthday
-const calculateAge = (birthday) => {
-  const birthDate = new Date(birthday);
-  const ageDifMs = Date.now() - birthDate.getTime();
-  const ageDate = new Date(ageDifMs);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
 };
 
 export default PetProfile;
