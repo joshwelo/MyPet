@@ -1,0 +1,16 @@
+pet profile
+1. add pet
+    a. add pet information
+    b. allow the user to select the breed and display the information properly
+    c. show the user infromation about handling, and medical 
+    /d. add breed ai
+2. pet diagnosis
+    a. select symptoms
+    c. customize diagnosis based on the pet
+3. Pet calendar
+    a. allow user to create monthly planner
+    b. be able to select the pet to have plan
+4. Pet place map
+    a. locate all establishments
+    b. locate the user
+    c. locate nearest establishments
