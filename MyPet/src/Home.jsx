@@ -164,6 +164,7 @@ const Home = () => {
       </div>
       <div className={`layout-overlay layout-menu-toggle ${sidebarVisible ? 'visible' : ''}`} onClick={closeSidebar}></div>
     </div>
+    
   );
 };
 
