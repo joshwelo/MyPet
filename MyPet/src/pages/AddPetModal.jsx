@@ -5,6 +5,8 @@ import { db, storage } from '../firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import petBreedsData from '../jsons/breeds.json';
+import petVaccinationData from '../jsons/vaccines.json';
+import { Link } from 'react-router-dom';
 
 const AddPetModal = ({ show, handleClose, userId }) => {
   const [petData, setPetData] = useState({
@@ -13,8 +15,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     species: "",
     breed: "",
     birthday: "",
-    vaccinationHistory: "",
+    vaccinationHistory: [],
     medicalHistory: ""
+  });
+  const [errors, setErrors] = useState({
+    name: false,
+    species: false,
+    breed: false
   });
 
   // Filter and map breeds based on selected species
@@ -26,9 +33,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     })) || [];
   };
 
-  const vaccines = {
-    cat: ["Rabies", "FVRCP", "FeLV"],
-    dog: ["Rabies", "Distemper", "Parvovirus"]
+  // Filter and map vaccines based on species
+  const getVaccinesBySpecies = (species) => {
+    if (!species) return [];
+    return petVaccinationData[species]?.map((vaccine) => ({
+      value: vaccine.name,
+      label: vaccine.name
+    })) || [];
   };
 
   const handleChange = (e) => {
@@ -44,8 +55,41 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     setPetData({ ...petData, breed: selectedOption ? selectedOption.value : "" });
   };
 
+  const handleVaccinationChange = (selectedOptions) => {
+    setPetData({ ...petData, vaccinationHistory: selectedOptions.map(option => option.value) });
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { name: false, species: false, breed: false };
+
+    if (!petData.name) {
+      newErrors.name = true;
+      isValid = false;
+    }
+
+    if (!petData.species) {
+      newErrors.species = true;
+      isValid = false;
+    }
+
+    if (!petData.breed) {
+      newErrors.breed = true;
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate form before submitting
+    if (!validateForm()) {
+      return;
+    }
+
     if (!userId) {
       console.error("User ID is not defined");
       return;
@@ -61,13 +105,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     const petDataToSave = {
       ...petData,
       image: imageUrl,
-      userId 
+      userId
     };
 
     delete petDataToSave.imageFile;
 
     try {
-      const petsCollectionRef = collection(db, 'pets'); 
+      const petsCollectionRef = collection(db, 'pets');
       await addDoc(petsCollectionRef, petDataToSave);
       handleClose();
     } catch (error) {
@@ -88,7 +132,6 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               type="file"
               name="imageFile"
               onChange={handleChange}
-              required
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -98,8 +141,10 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               name="name"
               value={petData.name}
               onChange={handleChange}
+              isInvalid={errors.name}
               required
             />
+            {errors.name && <Form.Control.Feedback type="invalid">Name is required</Form.Control.Feedback>}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Species</Form.Label>
@@ -107,13 +152,14 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               name="species"
               value={petData.species}
               onChange={handleChange}
+              isInvalid={errors.species}
               required
-              defaultValue=""
             >
               <option value="">Select species</option>
               <option value="cats">Cat</option>
               <option value="dogs">Dog</option>
             </Form.Select>
+            {errors.species && <Form.Control.Feedback type="invalid">Species is required</Form.Control.Feedback>}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Breed</Form.Label>
@@ -122,33 +168,36 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               onChange={handleBreedChange}
               isClearable
               placeholder="Select breed"
+              isInvalid={errors.breed}
             />
+            {errors.breed && <div className="text-danger">Breed is required</div>}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Birthday</Form.Label>
-            <Form.Control type="date" name="birthday" value={petData.birthday} onChange={handleChange} />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Vaccination History</Form.Label>
-            <Form.Select name="vaccinationHistory" value={petData.vaccinationHistory} onChange={handleChange}>
-              <option value="">Select vaccination</option>
-              {(vaccines[petData.species] || []).map((vaccine, index) => (
-                <option key={index} value={vaccine}>
-                  {vaccine}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Medical History</Form.Label>
             <Form.Control
-              as="textarea"
-              name="medicalHistory"
-              value={petData.medicalHistory}
+              type="date"
+              name="birthday"
+              value={petData.birthday}
               onChange={handleChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Form.Group className="mb-3">
+            <Form.Label>Vaccination History</Form.Label>
+            <Select
+              isMulti
+              options={getVaccinesBySpecies(petData.species)}
+              onChange={handleVaccinationChange}
+              placeholder="Select vaccinations"
+            />
+          </Form.Group>
+          <Link
+            to="/Home/AiBreed"
+            className="btn btn-secondary mt-3"
+            style={{ display: 'block', textAlign: 'center' }}
+          >
+            Not sure about the breed? Go to AiBreed
+          </Link>
+          <Button variant="primary" className="mt-3" type="submit">
             Save Pet
           </Button>
         </Form>

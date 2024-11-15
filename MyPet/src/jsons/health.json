@@ -1,0 +1,207 @@
+[
+    {
+      "health_concern": "Patellar Luxation",
+      "description": "A condition where the kneecap dislocates or moves out of its normal position, causing pain and mobility issues.",
+      "prevention_minimization": "Maintain a healthy weight and avoid activities that could lead to joint injuries. Regular vet check-ups help monitor joint health.",
+      "image_source": "https://www.pdsa.org.uk/media/10082/luxating-patella-clikc-to-expand-min.png"
+    },
+    {
+      "health_concern": "Hip Dysplasia",
+      "description": "A genetic condition where the hip joint does not fit properly into the hip socket, leading to pain and arthritis over time.",
+      "prevention_minimization": "Choose breeders who perform hip screenings, provide low-impact exercise, and maintain a balanced diet.",
+      "image_source": "https://downingcenter.com/files/2011/05/HipDysplasia.jpg"
+    },
+    {
+      "health_concern": "Heart Murmurs",
+      "description": "Unusual sounds heard during a heartbeat, indicating a potential issue with heart function or blood flow.",
+      "prevention_minimization": "Regular vet check-ups, a heart-healthy diet, and moderate exercise can promote cardiovascular health.",
+      "image_source": "https://myvetanimalhospital.com.au/wp-content/uploads/2019/11/unnamed-7.png"
+    },
+    {
+      "health_concern": "Eye Problems",
+      "description": "Includes cataracts, glaucoma, or retinal diseases that impair vision or cause blindness.",
+      "prevention_minimization": "Routine eye exams and avoiding trauma or irritants help maintain eye health.",
+      "image_source": "https://www.shutterstock.com/image-vector/symptoms-dog-eye-infection-injury-600nw-2445643881.jpg"
+    },
+    {
+      "health_concern": "Hypothyroidism",
+      "description": "A condition where the thyroid gland underproduces hormones, causing lethargy, weight gain, and skin problems.",
+      "prevention_minimization": "Regular blood tests and monitoring help detect thyroid imbalances early for effective treatment.",
+      "image_source": "https://example.com/images/hypothyroidism.jpg"
+    },
+    {
+      "health_concern": "Cataracts",
+      "description": "Clouding of the eye lens, leading to blurred vision and potentially blindness.",
+      "prevention_minimization": "Protect eyes from injuries and limit UV exposure. Regular check-ups can identify early signs.",
+      "image_source": "https://example.com/images/cataracts.jpg"
+    },
+    {
+      "health_concern": "Allergies",
+      "description": "Adverse reactions to certain environmental factors, foods, or substances causing skin irritations or digestive issues.",
+      "prevention_minimization": "Use hypoallergenic products, maintain hygiene, and avoid known allergens.",
+      "image_source": "https://example.com/images/allergies.jpg"
+    },
+    {
+      "health_concern": "Autoimmune Disorders",
+      "description": "Conditions where the immune system attacks the body's own tissues, causing chronic inflammation and organ damage.",
+      "prevention_minimization": "Minimize stress, avoid excessive vaccinations, and maintain a balanced diet.",
+      "image_source": "https://example.com/images/autoimmune_disorders.jpg"
+    },
+    {
+      "health_concern": "Progressive Retinal Atrophy (PRA)",
+      "description": "A degenerative eye disorder leading to gradual vision loss and blindness.",
+      "prevention_minimization": "Select breeders who screen for PRA and maintain annual eye exams.",
+      "image_source": "https://example.com/images/pra.jpg"
+    },
+    {
+      "health_concern": "Bloat (Gastric Dilatation-Volvulus)",
+      "description": "A life-threatening condition where the stomach fills with gas and twists, restricting blood flow.",
+      "prevention_minimization": "Feed smaller meals, avoid exercise after meals, and use slow-feeder bowls.",
+      "image_source": "https://example.com/images/bloat.jpg"
+    },
+    {
+      "health_concern": "Elbow Dysplasia",
+      "description": "A joint condition involving abnormal development of the elbow, leading to pain, lameness, and arthritis.",
+      "prevention_minimization": "Provide joint-supporting nutrients, low-impact exercise, and maintain regular vet check-ups.",
+      "image_source": "https://example.com/images/elbow_dysplasia.jpg"
+    },
+    {
+      "health_concern": "Skin Issues",
+      "description": "Problems like dermatitis or parasitic infestations that affect the skin’s health and appearance.",
+      "prevention_minimization": "Regular grooming and parasite prevention, along with quality diet and hygiene practices.",
+      "image_source": "https://example.com/images/skin_issues.jpg"
+    },
+    {
+      "health_concern": "Ear Infections",
+      "description": "Inflammation and infection in the ear canal, common in breeds with floppy ears or prone to allergies.",
+      "prevention_minimization": "Regular ear cleaning, keeping ears dry, and monitoring for signs of infection.",
+      "image_source": "https://example.com/images/ear_infections.jpg"
+    },
+    {
+      "health_concern": "Deafness",
+      "description": "Partial or complete loss of hearing, either congenital or acquired.",
+      "prevention_minimization": "Prevent ear infections, protect ears from loud noises, and ensure regular ear checks.",
+      "image_source": "https://example.com/images/deafness.jpg"
+    },
+    {
+      "health_concern": "Obesity",
+      "description": "Excess body fat that can contribute to joint problems, heart disease, and decreased lifespan.",
+      "prevention_minimization": "Maintain a balanced diet, avoid overfeeding, and ensure regular exercise.",
+      "image_source": "https://example.com/images/obesity.jpg"
+    },
+    {
+      "health_concern": "Epilepsy",
+      "description": "A neurological disorder characterized by recurring seizures.",
+      "prevention_minimization": "Although genetic, reducing stress and following vet-recommended treatment can help manage symptoms.",
+      "image_source": "https://example.com/images/epilepsy.jpg"
+    },
+    {
+      "health_concern": "Dental Issues",
+      "description": "Includes tooth decay, gum disease, and tartar buildup leading to pain and tooth loss.",
+      "prevention_minimization": "Regular tooth brushing, dental chews, and annual dental vet visits.",
+      "image_source": "https://example.com/images/dental_issues.jpg"
+    },
+    {
+      "health_concern": "Heart Disease",
+      "description": "Cardiovascular conditions impairing heart function, such as valve defects and cardiomyopathy.",
+      "prevention_minimization": "Feed a heart-friendly diet, maintain a healthy weight, and follow vet recommendations.",
+      "image_source": "https://example.com/images/heart_disease.jpg"
+    },
+    {
+      "health_concern": "Parasitic Infections",
+      "description": "Infestations by parasites like fleas, ticks, or worms causing various health issues.",
+      "prevention_minimization": "Use regular parasite preventatives, practice hygiene, and check for parasites frequently.",
+      "image_source": "https://example.com/images/parasitic_infections.jpg"
+    },
+    {
+      "health_concern": "Collie Eye Anomaly",
+      "description": "A congenital eye condition causing vision impairment or blindness.",
+      "prevention_minimization": "Select breeders that screen for this condition and regular eye exams.",
+      "image_source": "https://example.com/images/collie_eye_anomaly.jpg"
+    },
+    {
+      "health_concern": "Fanconi Syndrome",
+      "description": "A rare kidney disorder affecting reabsorption, leading to excessive urination and dehydration.",
+      "prevention_minimization": "Avoid toxins and maintain regular vet check-ups to detect early signs.",
+      "image_source": "https://example.com/images/fanconi_syndrome.jpg"
+    },
+    {
+      "health_concern": "Kidney Issues",
+      "description": "Problems affecting kidney function, causing increased thirst and urination or severe kidney failure.",
+      "prevention_minimization": "Ensure hydration, feed a kidney-friendly diet, and conduct regular vet visits.",
+      "image_source": "https://example.com/images/kidney_issues.jpg"
+    },
+    {
+      "health_concern": "Hearing Loss",
+      "description": "Partial or complete inability to hear, which may be congenital or acquired.",
+      "prevention_minimization": "Protect ears from infections and trauma, and monitor ear health.",
+      "image_source": "https://example.com/images/hearing_loss.jpg"
+    },
+    {
+      "health_concern": "Legg-Calve-Perthes Disease",
+      "description": "Degeneration of the femoral head, leading to joint pain and lameness.",
+      "prevention_minimization": "Choose breeders who test for it, and maintain moderate activity to avoid stress on joints.",
+      "image_source": "https://example.com/images/legg_calve_perthes.jpg"
+    },
+    {
+      "health_concern": "Thyroid Issues",
+      "description": "Imbalances in thyroid hormone production affecting metabolism and energy levels.",
+      "prevention_minimization": "Regular vet checks and prompt treatment help manage thyroid health.",
+      "image_source": "https://example.com/images/thyroid_issues.jpg"
+    },
+    {
+      "health_concern": "Intervertebral Disc Disease (IVDD)",
+      "description": "Condition where spinal discs rupture or bulge, causing pain or paralysis.",
+      "prevention_minimization": "Avoid activities that strain the spine, and maintain healthy body weight.",
+      "image_source": "https://example.com/images/ivdd.jpg"
+    },
+    {
+      "health_concern": "Cancer",
+      "description": "Various types of malignant growths affecting different organs or tissues.",
+      "prevention_minimization": "Regular vet check-ups and minimizing exposure to known carcinogens.",
+      "image_source": "https://example.com/images/cancer.jpg"
+    },
+    {
+      "health_concern": "Certain Cancers",
+      "description": "Specific cancers more common in some breeds, such as lymphoma and bone cancer.",
+      "prevention_minimization": "Early detection through routine vet exams and health monitoring.",
+      "image_source": "https://example.com/images/certain_cancers.jpg"
+    },
+    {
+      "health_concern": "Von Willebrand's Disease",
+      "description": "A hereditary bleeding disorder preventing proper blood clotting.",
+      "prevention_minimization": "Choose breeders who screen for the condition, and avoid activities that may cause injuries.",
+      "image_source": "https://example.com/images/von_willebrand.jpg"
+    },
+    {
+      "health_concern": "Joint Issues",
+      "description": "Problems such as arthritis or dysplasia causing pain and reduced mobility.",
+      "prevention_minimization": "Maintain a healthy weight, provide joint supplements, and moderate activity.",
+      "image_source": "https://example.com/images/joint_issues.jpg"
+    },
+    {
+      "health_concern": "Skin Conditions",
+      "description": "Includes dermatitis, mange, and eczema, causing itching and redness.",
+      "prevention_minimization": "Regular grooming, high-quality diet, and immediate treatment of irritants or infections.",
+      "image_source": "https://example.com/images/skin_conditions.jpg"
+    },
+    {
+      "health_concern": "Mitral Valve Disease",
+      "description": "A heart condition where the mitral valve deteriorates, impacting blood flow.",
+      "prevention_minimization": "A diet low in sodium, regular vet check-ups, and proper exercise.",
+      "image_source": "https://example.com/images/mitral_valve_disease.jpg"
+    },
+    {
+      "health_concern": "Cardiac Issues",
+      "description": "Various heart-related problems such as congenital defects or cardiomyopathy.",
+      "prevention_minimization": "Maintain a healthy weight, provide a balanced diet, and conduct regular check-ups.",
+      "image_source": "https://example.com/images/cardiac_issues.jpg"
+    },
+    {
+      "health_concern": "Brachycephalic Airway Syndrome",
+      "description": "Seen in flat-faced breeds, causing breathing difficulties due to narrow airways.",
+      "prevention_minimization": "Maintain healthy weight, avoid excessive heat and exercise, and use harnesses instead of collars.",
+      "image_source": "https://example.com/images/brachycephalic_airway.jpg"
+    }
+  ]
+  

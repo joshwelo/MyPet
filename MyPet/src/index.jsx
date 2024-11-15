@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import Home from './Home';
 import SignIn from './SignIn';
 import Register from './Register';
@@ -9,26 +15,46 @@ import BlogsPage from './pages/BlogsPage';
 import CalendarEventsPage from './pages/CalendarEventsPage';
 import DiagnosePage from './pages/DiagnosePage';
 import EstablishmentsPage from './pages/EstablishmentsPage';
-import AIChat from './pages/AIChat';
+import AiBreed from './pages/AiBreed';
 import UserPage from './pages/UserPage';
 import ProfilePage from './pages/ProfilePage';
 import HandlingGuide from './pages/HandlingGuide';
 import PetProfile from './pages/PetProfile';
-import { AuthProvider } from './authProvider';
+import { AuthProvider, useAuth } from './authProvider';
+
+// Protected route to check if user is verified
+function ProtectedRoute({ children }) {
+  const { currentUser, loading } = useAuth();
+
+  if (loading) return <p>Loading...</p>;
+
+  if (!currentUser) {
+    // If not logged in, redirect to SignIn
+    return <Navigate to="/" replace />;
+  }
+
+  if (!currentUser.emailVerified) {
+    // If logged in but email is not verified, show a message or redirect
+    alert("Please verify your email before accessing this page.");
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+}
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<SignIn />} />
       <Route path="/Register" element={<Register />} />
-      <Route path="/Home" element={<Home />}>
+      <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>}>
         <Route index element={<HomePage />} />
         <Route path="HomePage" element={<HomePage />} />
         <Route path="BlogsPage" element={<BlogsPage />} />
         <Route path="CalendarEventsPage" element={<CalendarEventsPage />} />
         <Route path="DiagnosePage" element={<DiagnosePage />} />
         <Route path="EstablishmentsPage" element={<EstablishmentsPage />} />
-        <Route path="AIChat" element={<AIChat />} />
+        <Route path="AiBreed" element={<AiBreed />} />
         <Route path="UserPage" element={<UserPage />} />
         <Route path="ProfilePage" element={<ProfilePage />} />
         <Route path="HandlingGuide/:breed" element={<HandlingGuide />} />
@@ -37,6 +63,7 @@ const router = createBrowserRouter(
     </>
   )
 );
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/firebase-messaging-sw.js")

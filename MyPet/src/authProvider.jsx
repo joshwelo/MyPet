@@ -1,10 +1,16 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
 import { auth, db } from './firebaseConfig'; 
 import { doc, setDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import React, { useContext, useState, useEffect } from 'react';
+ 
 export const registerUser = async (email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
+
+    // Send email verification
+    await sendEmailVerification(user);
 
     // Create a user profile in Firestore
     await setDoc(doc(db, 'users', user.uid), {
@@ -14,14 +20,13 @@ export const registerUser = async (email, password) => {
       useremail: email
     });
 
-    return { message: 'User registered successfully!' };
+    return { message: 'User registered successfully! Please check your email to verify your account.' };
   } catch (error) {
     return { message: error.message };
   }
 };
 
-import React, { useContext, useState, useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
+
 
 const AuthContext = React.createContext();
 
@@ -29,7 +34,7 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider({ children, onUserVerifiedNavigate }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -41,8 +46,15 @@ export function AuthProvider({ children }) {
 
   async function initializeUser(user) {
     if (user) {
-      setCurrentUser({ ...user });
-      setUserLoggedIn(true);
+      if (user.emailVerified) {
+        setCurrentUser({ ...user });
+        setUserLoggedIn(true);
+        if (onUserVerifiedNavigate) onUserVerifiedNavigate('/'); // Use callback
+      } else {
+        setCurrentUser(null);
+        setUserLoggedIn(false);
+        alert("Please verify your email before logging in.");
+      }
     } else {
       setCurrentUser(null);
       setUserLoggedIn(false);

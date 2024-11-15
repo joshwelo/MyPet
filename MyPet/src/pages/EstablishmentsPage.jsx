@@ -5,9 +5,9 @@ import establishmentData from '../jsons/establishments.json';
 import dayjs from 'dayjs';
 import L from 'leaflet';
 import './Establishments.css';
-import { getDistance, findNearest } from 'geolib'; // For calculating distances
+import { getDistance } from 'geolib'; // For calculating distances
 
-// Import the marker images
+// Import marker images
 import markerIconUrl from 'leaflet/dist/images/marker-icon.png';
 import markerShadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
@@ -18,16 +18,18 @@ const defaultIcon = L.icon({
 
 const EstablishmentsPage = () => {
   const DEFAULT_LOCATION = { latitude: 13.9516, longitude: 121.0677 };
-  
+
   const [userLocation, setUserLocation] = useState(DEFAULT_LOCATION);
-  const [typeFilter, setTypeFilter] = useState(''); // store or grooming
-  const [dayFilter, setDayFilter] = useState(''); // For day of the week
+  const [locationError, setLocationError] = useState(false);
+  const [typeFilter, setTypeFilter] = useState('');
+  const [dayFilter, setDayFilter] = useState('');
   const [filteredEstablishments, setFilteredEstablishments] = useState([]);
   const [address, setAddress] = useState('Fetching address...');
   const [nearestPetSupply, setNearestPetSupply] = useState(null);
   const [nearestGroomingService, setNearestGroomingService] = useState(null);
+  const [retry, setRetry] = useState(false);
 
-  // Reverse Geocode to fetch human-readable address from coordinates
+  // Reverse geocoding to fetch address
   const fetchAddress = async (latitude, longitude) => {
     try {
       const response = await fetch(
@@ -41,7 +43,7 @@ const EstablishmentsPage = () => {
     }
   };
 
-  // Calculate nearest pet supply store and grooming service
+  // Calculate nearest establishments
   const calculateNearestEstablishments = () => {
     const petSupplyStores = establishmentData.pet_supplies_stores.map(store => ({
       ...store,
@@ -60,8 +62,8 @@ const EstablishmentsPage = () => {
     setNearestGroomingService(nearestGroomingService);
   };
 
-  // Use the browser's geolocation API to get user's location
-  useEffect(() => {
+  // Fetch user location
+  const fetchUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -69,16 +71,27 @@ const EstablishmentsPage = () => {
           setUserLocation({ latitude, longitude });
           fetchAddress(latitude, longitude);
           calculateNearestEstablishments();
+          setLocationError(false);
         },
         (error) => {
           console.error("Error fetching location", error);
+          setLocationError(true);
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
       );
     }
-  }, [userLocation]);
+  };
 
-  // Filter establishments based on type and day filter
+  useEffect(() => {
+    fetchUserLocation();
+  }, [retry]);
+
+  // Retry button handler
+  const handleRetry = () => {
+    setRetry((prev) => !prev);
+  };
+
+  // Filter establishments based on type and day
   const filterEstablishments = () => {
     let establishmentsToDisplay = [];
 
@@ -100,6 +113,12 @@ const EstablishmentsPage = () => {
 
   return (
     <div className="establishments-page container mt-4">
+      {locationError && (
+        <div className="alert alert-danger">
+          Unable to fetch location. <button className="btn btn-secondary" onClick={handleRetry}>Retry</button>
+        </div>
+      )}
+
       <div className="filter-section mb-3">
         <div className="row">
           <div className="col-md-4 mb-2">
@@ -146,7 +165,7 @@ const EstablishmentsPage = () => {
         {filteredEstablishments.map((establishment, index) => (
           <Marker
             key={index}
-            position={[establishment.lat || userLocation.latitude, establishment.lng || userLocation.longitude]}
+            position={[establishment.lat, establishment.lng]}
             icon={defaultIcon}
           >
             <Popup>
@@ -158,7 +177,6 @@ const EstablishmentsPage = () => {
         ))}
       </MapContainer>
 
-      {/* Display User Location and Nearest Establishments */}
       <div className="user-location">
         <h3>Your Current Location:</h3>
         <p>{address}</p>

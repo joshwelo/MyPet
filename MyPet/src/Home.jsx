@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from './authProvider';  // Import the useAuth hook
 import logo from './assets/mypetlogo.png';
-import userPicture from './assets/1.png';
 import './Home.css';  // Import your CSS file for additional styles
 
 const Home = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [activeMenu, setActiveMenu] = useState('HomePage');
   const { currentUser } = useAuth();  // Get current user from context
-
-  console.log("useAuth: ", useAuth());
-  console.log("currentUser: ", currentUser);
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -73,10 +69,10 @@ const Home = () => {
             <li className="menu-header small text-uppercase">
               <span className="menu-header-text">Social and Establishments</span>
             </li>
-            <li className={`menu-item ${activeMenu === 'AIChat' ? 'active' : ''}`} role="menuitem" aria-controls="forums" aria-selected={activeMenu === 'AIChat'}>
-              <Link to="AIChat" className="menu-link" onClick={() => handleMenuClick('AIChat')}>
+            <li className={`menu-item ${activeMenu === 'AiBreed' ? 'active' : ''}`} role="menuitem" aria-controls="forums" aria-selected={activeMenu === 'AIChat'}>
+              <Link to="AiBreed" className="menu-link" onClick={() => handleMenuClick('AiBreed')}>
                 <i className="menu-icon tf-icons bx bxs-user-pin"></i>
-                <div data-i18n="Basic">AI Chat</div>
+                <div data-i18n="Basic">AI Breed Scanner</div>
               </Link>
             </li>
             <li className={`menu-item ${activeMenu === 'EstablishmentsPage' ? 'active' : ''}`} role="menuitem" aria-controls="establishments" aria-selected={activeMenu === 'EstablishmentsPage'}>
@@ -97,6 +93,7 @@ const Home = () => {
           </ul>
         </aside>
         {/* /Side bar */}
+
         {/* Navbar */}
         <div className="layout-page">
           <nav className="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
@@ -110,17 +107,17 @@ const Home = () => {
               <ul className="navbar-nav flex-row align-items-center ms-auto">
                 <li className="nav-item navbar-dropdown dropdown-user dropdown">
                   <a className="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div className="avatar avatar-online">
-                      <img src={userPicture} alt="" className="w-px-40 h-auto rounded-circle" />
-                    </div>
+                    {/* BoxIcon user circle */}
+                    <i className='bx bxs-user-circle' style={{ fontSize: '2rem' }}></i>
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
                       <Link className="dropdown-item" to="UserPage">
                         <div className="d-flex">
                           <div className="flex-shrink-0 me-3">
-                            <div className="avatar avatar-online">
-                              <img src={userPicture} alt="" className="w-px-40 h-auto rounded-circle" />
+                            <div className="avatar">
+                              {/* BoxIcon user circle as fallback avatar */}
+                              <i className='bx bxs-user-circle' style={{ fontSize: '2rem' }}></i>
                             </div>
                           </div>
                           <div className="flex-grow-1">
@@ -128,21 +125,6 @@ const Home = () => {
                             <small className="text-muted">User</small>
                           </div>
                         </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <div className="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="UserPage">
-                        <i className="bx bx-user me-2"></i>
-                        <span className="align-middle">My Profile</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="#">
-                        <i className="bx bx-cog me-2"></i>
-                        <span className="align-middle">Settings</span>
                       </Link>
                     </li>
                     <li>
@@ -164,7 +146,6 @@ const Home = () => {
       </div>
       <div className={`layout-overlay layout-menu-toggle ${sidebarVisible ? 'visible' : ''}`} onClick={closeSidebar}></div>
     </div>
-    
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import breedsData from '../jsons/breeds.json'; // Adjust the path to your JSON file
+import breedsData from '../jsons/breeds.json';
+import healthData from '../jsons/health.json';
 
 const HandlingGuide = () => {
   const { breed } = useParams();
@@ -14,6 +15,22 @@ const HandlingGuide = () => {
   if (!breedData) {
     return <p>No handling guide found for {breed}. Please check the breed name.</p>;
   }
+
+  // Map health concerns from breed data to health.json entries
+  const healthDetails = breedData.health_concerns.map(concern => {
+    const healthEntry = healthData.find(h => h.health_concern.toLowerCase() === concern.toLowerCase());
+    return healthEntry ? (
+      <li key={concern}>
+        <strong>{concern}:</strong> {healthEntry.description}
+        <br />
+        <em>Prevention/Minimization:</em> {healthEntry.prevention_minimization}
+      </li>
+    ) : (
+      <li key={concern}>
+        <strong>{concern}:</strong> No detailed information available.
+      </li>
+    );
+  });
 
   return (
     <div className="content-wrapper">
@@ -86,18 +103,14 @@ const HandlingGuide = () => {
                   <div className="tab-content">
                     {/* Health Concerns Section */}
                     <div className="tab-pane fade show active" id="navs-pills-justified-health" role="tabpanel">
-                      <p className="text-muted"><strong>Health Concerns:</strong> {breedData.health_concerns_description}</p>
-                      <ul>
-                        {breedData.health_concerns.map((concern, index) => (
-                          <li key={index}>{concern}</li>
-                        ))}
-                      </ul>
+                      <p className="text-muted"><strong>Health Concerns:</strong></p>
+                      <ul>{healthDetails}</ul>
                     </div>
 
                     {/* Diet Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-diet" role="tabpanel">
                       <p className="text-muted"><strong>Diet:</strong> {breedData.diet.description}</p>
-                      <p><strong>Frequency:</strong>{breedData.diet.frequency}</p>
+                      <p><strong>Frequency:</strong> {breedData.diet.frequency}</p>
                     </div>
 
                     {/* Grooming Section */}

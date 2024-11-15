@@ -1,0 +1,126 @@
+{
+    "dogs": [
+      {
+        "type": "Core",
+        "name": "Rabies Vaccine",
+        "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law."
+      },
+      {
+        "type": "Core",
+        "name": "Distemper Vaccine",
+        "description": "Protects against the canine distemper virus, a serious disease affecting the respiratory, gastrointestinal, and nervous systems."
+      },
+      {
+        "type": "Core",
+        "name": "Adenovirus Type 1 (CAV-1)",
+        "description": "Protects against canine hepatitis, which affects the liver."
+      },
+      {
+        "type": "Core",
+        "name": "Adenovirus Type 2 (CAV-2)",
+        "description": "Often combined with CAV-1 to provide protection against respiratory infections."
+      },
+      {
+        "type": "Core",
+        "name": "Parvovirus Vaccine",
+        "description": "Protects against canine parvovirus, a highly contagious and potentially deadly gastrointestinal disease."
+      },
+      {
+        "type": "Core",
+        "name": "Parainfluenza Virus",
+        "description": "Usually included in combination vaccines; protects against a respiratory virus causing kennel cough."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Leptospirosis Vaccine",
+        "description": "Protects against Leptospira bacteria, which can cause liver and kidney damage and can be transmitted to humans."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Bordetella Bronchiseptica Vaccine",
+        "description": "Commonly recommended for dogs frequently in contact with other dogs (e.g., boarding, dog parks); helps prevent kennel cough."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Lyme Disease Vaccine",
+        "description": "Protects against Borrelia burgdorferi, transmitted by ticks; recommended for dogs in high-risk areas."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Canine Influenza Vaccine",
+        "description": "Protects against strains of canine flu that cause respiratory illness."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Coronavirus Vaccine",
+        "description": "Protects against canine coronavirus (different from COVID-19); typically less recommended due to low severity."
+      },
+      {
+        "type": "Non-Core",
+        "name": "Canine Herpesvirus Vaccine",
+        "description": "Used in specific breeding scenarios to prevent neonatal death."
+      },
+      {
+        "type": "Combination",
+        "name": "DHPP/DAPP",
+        "description": "A common combination vaccine that covers Distemper, Hepatitis, Parvovirus, and Parainfluenza."
+      },
+      {
+        "type": "Combination",
+        "name": "DA2PP",
+        "description": "Another typical combination vaccine covering Distemper, Adenovirus Type 2, Parvovirus, and Parainfluenza."
+      }
+    ],
+    "cats": [
+        {
+        "type": "Core",
+        "name": "Rabies Vaccine",
+        "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law."
+        },
+        {
+        "type": "Core",
+        "name": "Feline Herpesvirus (FHV-1) Vaccine",
+        "description": "Protects against feline viral rhinotracheitis, a major cause of upper respiratory infections."
+        },
+        {
+        "type": "Core",
+        "name": "Feline Calicivirus (FCV) Vaccine",
+        "description": "Protects against calicivirus, which causes respiratory illness and oral disease."
+        },
+        {
+        "type": "Core",
+        "name": "Feline Panleukopenia Virus (FPV) Vaccine",
+        "description": "Also known as the feline distemper vaccine; protects against a highly contagious and potentially fatal disease affecting the immune system and gastrointestinal tract."
+        },
+        {
+        "type": "Non-Core",
+        "name": "Feline Leukemia Virus (FeLV) Vaccine",
+        "description": "Recommended for cats that go outdoors or live with other cats; protects against a virus that can cause immunosuppression and cancer."
+        },
+        {
+        "type": "Non-Core",
+        "name": "Feline Immunodeficiency Virus (FIV) Vaccine",
+        "description": "Protects against FIV, which causes immunosuppression; typically recommended for cats with a higher risk of exposure."
+        },
+        {
+        "type": "Non-Core",
+        "name": "Chlamydia Felis Vaccine",
+        "description": "Protects against Chlamydia felis, which can cause conjunctivitis and respiratory issues."
+        },
+        {
+        "type": "Non-Core",
+        "name": "Bordetella Bronchiseptica Vaccine",
+        "description": "Recommended for cats in multi-cat environments or those frequently exposed to other cats; helps prevent respiratory infection."
+        },
+        {
+        "type": "Non-Core",
+        "name": "Feline Infectious Peritonitis (FIP) Vaccine",
+        "description": "Controversial and less commonly administered; protects against a virus that can cause a fatal immune response in cats."
+        },
+        {
+        "type": "Combination",
+        "name": "FVRCP",
+        "description": "A common combination vaccine that covers Feline Viral Rhinotracheitis, Calicivirus, and Panleukopenia."
+        }
+    ]
+}      

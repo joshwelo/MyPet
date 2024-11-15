@@ -1,13 +1,16 @@
-// src/SignIn.jsx
 import React, { useState } from 'react';
 import logo from './sneatbootstrap/MyPetLogoFull.png';
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from './firebaseConfig';  // Ensure this path matches your file structure
+import { Modal, Form, Button } from 'react-bootstrap';
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [resetMessage, setResetMessage] = useState('');
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -20,11 +23,18 @@ function SignIn() {
       // Signed in successfully, redirect to home page
       window.location.href = '/Home';
     } catch (error) {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(`Error [${errorCode}]: ${errorMessage}`);
-      alert(errorMessage);
+      console.error(`Error [${error.code}]: ${error.message}`);
+      alert(error.message);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, forgotEmail);
+      setResetMessage('Password reset email sent! Please check your inbox.');
+      setForgotEmail('');
+    } catch (error) {
+      setResetMessage(`Error: ${error.message}`);
     }
   };
 
@@ -57,7 +67,7 @@ function SignIn() {
                 <div className="mb-3 form-password-toggle">
                   <div className="d-flex justify-content-between">
                     <label className="form-label" htmlFor="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
+                    <a href="#!" onClick={() => setShowModal(true)}>
                       <small>Forgot Password?</small>
                     </a>
                   </div>
@@ -97,6 +107,32 @@ function SignIn() {
           </div>
         </div>
       </div>
+
+      {/* Forgot Password Modal */}
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Forgot Password</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Enter your email to receive a password reset link.</p>
+          <Form.Control
+            type="email"
+            placeholder="Your email"
+            value={forgotEmail}
+            onChange={(e) => setForgotEmail(e.target.value)}
+            className="mb-3"
+          />
+          {resetMessage && <p className="text-success">{resetMessage}</p>}
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+          <button className="primary" onClick={handleForgotPassword}>
+            Send Reset Email
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
