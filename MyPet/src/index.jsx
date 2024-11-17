@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
@@ -7,20 +7,22 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import Home from './Home';
-import SignIn from './SignIn';
-import Register from './Register';
-import HomePage from './pages/HomePage';
-import BlogsPage from './pages/BlogsPage';
-import CalendarEventsPage from './pages/CalendarEventsPage';
-import DiagnosePage from './pages/DiagnosePage';
-import EstablishmentsPage from './pages/EstablishmentsPage';
-import AiBreed from './pages/AiBreed';
-import UserPage from './pages/UserPage';
-import ProfilePage from './pages/ProfilePage';
-import HandlingGuide from './pages/HandlingGuide';
-import PetProfile from './pages/PetProfile';
 import { AuthProvider, useAuth } from './authProvider';
+
+// Lazy-loaded components for dynamic imports
+const Home = React.lazy(() => import('./Home'));
+const SignIn = React.lazy(() => import('./SignIn'));
+const Register = React.lazy(() => import('./Register'));
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const BlogsPage = React.lazy(() => import('./pages/BlogsPage'));
+const CalendarEventsPage = React.lazy(() => import('./pages/CalendarEventsPage'));
+const DiagnosePage = React.lazy(() => import('./pages/DiagnosePage'));
+const EstablishmentsPage = React.lazy(() => import('./pages/EstablishmentsPage'));
+const AiBreed = React.lazy(() => import('./pages/AiBreed'));
+const UserPage = React.lazy(() => import('./pages/UserPage'));
+const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
+const HandlingGuide = React.lazy(() => import('./pages/HandlingGuide'));
+const PetProfile = React.lazy(() => import('./pages/PetProfile'));
 
 // Protected route to check if user is verified
 function ProtectedRoute({ children }) {
@@ -42,27 +44,87 @@ function ProtectedRoute({ children }) {
   return children;
 }
 
+// Router configuration
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<SignIn />} />
-      <Route path="/Register" element={<Register />} />
-      <Route path="/Home" element={<ProtectedRoute><Home /></ProtectedRoute>}>
-        <Route index element={<HomePage />} />
-        <Route path="HomePage" element={<HomePage />} />
-        <Route path="BlogsPage" element={<BlogsPage />} />
-        <Route path="CalendarEventsPage" element={<CalendarEventsPage />} />
-        <Route path="DiagnosePage" element={<DiagnosePage />} />
-        <Route path="EstablishmentsPage" element={<EstablishmentsPage />} />
-        <Route path="AiBreed" element={<AiBreed />} />
-        <Route path="UserPage" element={<UserPage />} />
-        <Route path="ProfilePage" element={<ProfilePage />} />
-        <Route path="HandlingGuide/:breed" element={<HandlingGuide />} />
-        <Route path="PetProfile/:petId" element={<PetProfile />} /> {/* New Route for PetProfile */}
+      <Route path="/" element={
+        <Suspense fallback={<div>Loading...</div>}>
+          <SignIn />
+        </Suspense>
+      } />
+      <Route path="/Register" element={
+        <Suspense fallback={<div>Loading...</div>}>
+          <Register />
+        </Suspense>
+      } />
+      <Route path="/Home" element={
+        <ProtectedRoute>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        </ProtectedRoute>
+      }>
+        <Route index element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <HomePage />
+          </Suspense>
+        } />
+        <Route path="HomePage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <HomePage />
+          </Suspense>
+        } />
+        <Route path="BlogsPage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <BlogsPage />
+          </Suspense>
+        } />
+        <Route path="CalendarEventsPage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <CalendarEventsPage />
+          </Suspense>
+        } />
+        <Route path="DiagnosePage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <DiagnosePage />
+          </Suspense>
+        } />
+        <Route path="EstablishmentsPage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <EstablishmentsPage />
+          </Suspense>
+        } />
+        <Route path="AiBreed" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <AiBreed />
+          </Suspense>
+        } />
+        <Route path="UserPage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <UserPage />
+          </Suspense>
+        } />
+        <Route path="ProfilePage" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProfilePage />
+          </Suspense>
+        } />
+        <Route path="HandlingGuide/:breed" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <HandlingGuide />
+          </Suspense>
+        } />
+        <Route path="PetProfile/:petId" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <PetProfile />
+          </Suspense>
+        } />
       </Route>
     </>
   )
 );
+
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
@@ -75,6 +137,7 @@ if ("serviceWorker" in navigator) {
     });
 }
 
+// App rendering
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
