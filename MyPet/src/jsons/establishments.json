@@ -1,677 +1,1267 @@
 {
-    "veterinary_clinics":[
+  "veterinary_clinics": [
       {
-        "name": "Abys",
-        "address": "W5W8+RCQ, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "15:00",
-        "lat": 13.950581805839118,  
-        "lng": 121.16672747982423
+          "name": "Abys",
+          "address": "W5W8+RCQ, Lipa, Batangas",
+    "contact" : "09228746960",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "15:00",
+          "lat": 13.950581805839118,
+          "lng": 121.16672747982423
       },
       {
-        "name": "Abys Petcare and Pet Grooming Cente",
-        "address": "2.W4RV+66F, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.941941869330847,
-        "lng": 121.14424268465987
+          "name": "Abys Petcare and Pet Grooming Cente",
+          "address": "2.W4RV+66F, President Jose P. Laurel Hwy, Lipa, Batangas",
+          "contact" : "09228746960",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.941941869330847,
+          "lng": 121.14424268465987
       },
       {
-        "name": "Batangas Animal Bite Center",
-        "address": "4.1st Floor, JR Building, JP Laurel St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Sunday"],
-        "time_open": "01:00",
-        "time_close": "14:30",
-        "lat": 13.934799281139016,  
-        "lng": 121.15866007783748
+          "name": "Batangas Animal Bite Center",
+          "address": "4.1st Floor, JR Building, JP Laurel St, Lipa, 4217 Batangas",
+    "contact" : "0905 413 4414",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Sunday"
+          ],
+          "time_open": "01:00",
+          "time_close": "14:30",
+          "lat": 13.934799281139016,
+          "lng": 121.15866007783748
       },
       {
-        "name": "Batangas Dog and Cat Bite Treatment Center",
-        "address": "W4RV+GRP, JR Business Complex, J.P. Laurel Highway, Mataas na Lupa, Lipa City, Batangas, Lipa",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.941574480647052, 
-        "lng": 121.14446997822186
+          "name": "Batangas Dog and Cat Bite Treatment Center",
+          "address": "W4RV+GRP, JR Business Complex, J.P. Laurel Highway, Mataas na Lupa, Lipa City, Batangas, Lipa",
+    "contact" : "0905 413 4414",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.941574480647052,
+          "lng": 121.14446997822186
       },
       {
-        "name": "Dimaculangan Veterinary Clinic ",
-        "address": "6.1st Floor, JR Building, JP Laurel St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.934494314229218,  
-        "lng": 121.15911128375745
+          "name": "Dimaculangan Veterinary Clinic ",
+          "address": "6.1st Floor, JR Building, JP Laurel St, Lipa, 4217 Batangas",
+    "contact" : "+63 43 312 5695",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.934494314229218,
+          "lng": 121.15911128375745
       },
       {
-        "name": "EMG Animal Clinic & Veterinary Supply",
-        "address": "P. Torres Street, Brgy. 6, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 113.938875496367467,  
-        "lng": 121.16326878006707
+          "name": "EMG Animal Clinic & Veterinary Supply",
+          "address": "P. Torres Street, Brgy. 6, Lipa, 4217 Batangas",
+    "contact" : "0917 881 2642",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 113.93887549636747,
+          "lng": 121.16326878006707
       },
       {
-        "name": "Elite Enterprises",
-        "address": "C.M. Recto Avenue, Lipa City, 4217, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "15:00",
-        "lat": 13.94047655956502,  
-        "lng": 121.16051502806532
+          "name": "Elite Enterprises",
+          "address": "C.M. Recto Avenue, Lipa City, 4217, Batangas",
+    "contact" : "(043) 756 4315",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "15:00",
+          "lat": 13.94047655956502,
+          "lng": 121.16051502806532
       },
       {
-        "name": "Elite Enterprises 2",
-        "address": "C.M. Recto Avenue, Lipa City, 4217, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "08:00",
-        "time_close": "15:00",
-        "lat": 13.93969069310077,    
-        "lng": 121.15669135744325
+          "name": "Elite Enterprises 2",
+          "address": "C.M. Recto Avenue, Lipa City, 4217, Batangas",
+    "contact" :"(043) 756 4315",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:00",
+          "time_close": "15:00",
+          "lat": 13.93969069310077,
+          "lng": 121.15669135744325
       },
       {
-        "name": "Green Thumb Animal Clinic",
-        "address": "20, Morada Avenue, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.941693118897035,  
-        "lng": 121.15600931074748
+          "name": "Green Thumb Animal Clinic",
+          "address": "20, Morada Avenue, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.941693118897035,
+          "lng": 121.15600931074748
       },
       {
-        "name": "Happy Hayop Animal Clinic",
-        "address": "General Luna, A. Bonifacio St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.94284064111846,  
-        "lng": 121.16691799725268
+          "name": "Happy Hayop Animal Clinic",
+          "address": "General Luna, A. Bonifacio St, Lipa, 4217 Batangas",
+    "contact" : "0917 504 7449",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.94284064111846,
+          "lng": 121.16691799725268
       },
       {
-        "name": "Jurisvet Pet Emergency Hospital",
-        "address": "13.X528+989, Gen. Luna St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.955846071928164,  
-        "lng": 121.1650570219928
+          "name": "Jurisvet Pet Emergency Hospital",
+          "address": "13.X528+989, Gen. Luna St, Lipa, 4217 Batangas",
+    "contact" : "(043) 404 7524",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.955846071928164,
+          "lng": 121.1650570219928
       },
       {
-        "name": "Lajarca Poultry Supply and Veterinary Clinic",
-        "address": "14.W5R6+HMF, Esteban Mayo Street, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.941668354967591,  
-        "lng": 121.16180234142767
+          "name": "Lajarca Poultry Supply and Veterinary Clinic",
+          "address": "14.W5R6+HMF, Esteban Mayo Street, Lipa, 4217 Batangas",
+    "contact" : "(043) 756 6198",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.941668354967591,
+          "lng": 121.16180234142767
       },
       {
-        "name": "Lipa Pet Hub Grooming Center",
-        "address": "15.W5M3+52C, Katipunan Rd, Lipa, 4218 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.933196728867834,  
-        "lng": 121.15242529356183
+          "name": "Lipa Pet Hub Grooming Center",
+          "address": "15.W5M3+52C, Katipunan Rd, Lipa, 4218 Batangas",
+    "contact" : "0917 886 2674",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.933196728867834,
+          "lng": 121.15242529356183
       },
       {
-        "name": "Lipa Vet Care",
-        "address": "16.W4QC+7M6, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.938468361495913,  
-        "lng": 121.1216890395824
+          "name": "Lipa Vet Care",
+          "address": "16.W4QC+7M6, President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "(043) 404 7524",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.938468361495913,
+          "lng": 121.1216890395824
       },
       {
-        "name": "Pet Care Veterinary Clinic",
-        "address": "17.2nd Floor JR Building, Pres. J.P. Laurel Highway, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.941378419266483,  
-        "lng": 121.14272782055188
+          "name": "Pet Care Veterinary Clinic",
+          "address": "17.2nd Floor JR Building, Pres. J.P. Laurel Highway, Lipa, 4217 Batangas",
+    "contact" : "(043) 455 3211",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.941378419266483,
+          "lng": 121.14272782055188
       },
       {
-        "name": "SASH Veterinary Clinic",
-        "address": "Altamirano, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.939290547518306,  
-        "lng": 121.15382325307742
+          "name": "SASH Veterinary Clinic",
+          "address": "Altamirano, Lipa, Batangas",
+    "contact" : "0936 154 2912",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.939290547518306,
+          "lng": 121.15382325307742
       },
       {
-        "name": "Serbisyo Beterinaryo Animal Hospital 24 Hrs Emergency Vet",
-        "address": "19.R Square Bldg, Gen. Luna St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "00:00",
-        "time_close": "00:00",
-        "lat": 13.954569712325371,  
-        "lng": 121.1666512632133
+          "name": "Serbisyo Beterinaryo Animal Hospital 24 Hrs Emergency Vet",
+          "address": "19.R Square Bldg, Gen. Luna St, Lipa, 4217 Batangas",
+    "contact" : "(+63) 917 102 1591",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "00:00",
+          "time_close": "00:00",
+          "lat": 13.954569712325371,
+          "lng": 121.1666512632133
       },
       {
-        "name": "Tail buddy Animal Clinic And Grooming Station",
-        "address": "20.W4G5+C8P, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.926401090767438,
-        "lng": 121.10834915307706
+          "name": "Tail buddy Animal Clinic And Grooming Station",
+          "address": "20.W4G5+C8P, President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0956 163 6078",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.926401090767438,
+          "lng": 121.10834915307706
       },
       {
-        "name": "VET DADDY ANIMAL CLINIC",
-        "address": "21.247 F. Manalo Street, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.93820535825123,  
-        "lng": 121.16330246657213
+          "name": "VET DADDY ANIMAL CLINIC",
+          "address": "21.247 F. Manalo Street, Lipa, 4217 Batangas",
+    "contact" : "0917 574 8335",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.93820535825123,
+          "lng": 121.16330246657213
       },
       {
-        "name": "Veterinarius Animal Clinic",
-        "address": "22.Sambat, Lipa-Rosario Road, Padre Garcia, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.876458879571803,  
-        "lng": 121.21099983773605
+          "name": "Veterinarius Animal Clinic",
+          "address": "22.Sambat, Lipa-Rosario Road, Padre Garcia, Batangas",
+    "contact" : "0938 874 8464",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.876458879571803,
+          "lng": 121.21099983773605
       }
-    ],
-    "pet_supplies_stores": [
+  ],
+  "pet_supplies_stores": [
       {
-        "name": "A.B.S. Agrivet & Pet Supplies",
-        "address": "Unit 4 H.L.A. Building Pres. J.P. Laurel, Tambo, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.941941869330847,
-        "lng": 121.14424268465987
+          "name": "A.B.S. Agrivet & Pet Supplies",
+          "address": "Unit 4 H.L.A. Building Pres. J.P. Laurel, Tambo, Lipa, 4217 Batangas",
+    "contact" : "0917 771 7728",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.941941869330847,
+          "lng": 121.14424268465987
       },
       {
-        "name": "Akiku & Friends Pet Shop",
-        "address": "0693 Zone 5, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "time_open": "09:00",
-        "time_close": "17:30",
-        "lat": 13.937716771683403,
-        "lng": 121.12001528006704
+          "name": "Akiku & Friends Pet Shop",
+          "address": "0693 Zone 5, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+          ],
+          "time_open": "09:00",
+          "time_close": "17:30",
+          "lat": 13.937716771683403,
+          "lng": 121.12001528006704
       },
       {
-        "name": "Batangas Pet Republic",
-        "address": "237 Obispo Obviar Street, Brgy.6, Lipa, Batangas",
-        "days_open": ["Monday", "Wednesday", "Friday", "Saturday"],
-        "time_open": "08:30",
-        "time_close": "19:00",
-        "lat": 13.939186247650122,
-        "lng": 121.16305498191238
+          "name": "Batangas Pet Republic",
+          "address": "237 Obispo Obviar Street, Brgy.6, Lipa, Batangas",
+    "contact" : "0917 730 7668",
+          "days_open": [
+              "Monday",
+              "Wednesday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:30",
+          "time_close": "19:00",
+          "lat": 13.939186247650122,
+          "lng": 121.16305498191238
       },
       {
-        "name": "BJC Aqua Pets and Residence",
-        "address": "Purok 6, Lipa, 4217 Batangas",
-        "days_open": [ "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "07:30",
-        "time_close": "17:00",
-        "lat": 13.985127935345933,
-        "lng": 121.2000523665732
+          "name": "BJC Aqua Pets and Residence",
+          "address": "Purok 6, Lipa, 4217 Batangas",
+          "days_open": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "07:30",
+          "time_close": "17:00",
+          "lat": 13.985127935345933,
+          "lng": 121.2000523665732
       },
       {
-        "name": "Boots the Cat",
-        "address": "136B Villa Rosa, Subdivision, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "0:00",
-        "time_close": "0:00",
-        "lat": 13.937701230376192,  
-        "lng": 121.16765958465987
+          "name": "Boots the Cat",
+          "address": "136B Villa Rosa, Subdivision, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "0:00",
+          "time_close": "0:00",
+          "lat": 13.937701230376192,
+          "lng": 121.16765958465987
       },
       {
-        "name": "BreedSmart Pet Nutrition Lipa",
-        "address": "Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Wednesday", "Friday"],
-        "time_open": "09:00",
-        "time_close": "17:00",
-        "lat": 13.930894465180776,
-        "lng": 121.09938086657212
+          "name": "BreedSmart Pet Nutrition Lipa",
+          "address": "Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Wednesday",
+              "Friday"
+          ],
+          "time_open": "09:00",
+          "time_close": "17:00",
+          "lat": 13.930894465180776,
+          "lng": 121.09938086657212
       },
       {
-        "name": "C A S E Y Paws Petshop",
-        "address": "Villa De Lipa II Phase 3 Block 8 Lot 56, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.963058141110233, 
-        "lng": 121.16150284142816
+          "name": "C A S E Y Paws Petshop",
+          "address": "Villa De Lipa II Phase 3 Block 8 Lot 56, Lipa, 4217 Batangas",
+    "contact" : "0991 620 9329",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.963058141110233,
+          "lng": 121.16150284142816
       },
       {
-        "name": "Castillo Agricultural and Poultry Supply P. Torres Branch",
-        "address": "P. Torres Street, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday","Sunday"],
-        "time_open": "07:00",
-        "time_close": "19:00",
-        "lat": 13.93661769055766,  
-        "lng": 121.16427129356182
+          "name": "Castillo Agricultural and Poultry Supply P. Torres Branch",
+          "address": "P. Torres Street, Lipa, 4217 Batangas",
+    "contact" : "0917 887 7300",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "07:00",
+          "time_close": "19:00",
+          "lat": 13.93661769055766,
+          "lng": 121.16427129356182
       },
       {
-        "name": "CDR POULTRY SUPPLY",
-        "address": "W5R6+GM6, E Mayo St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "07:00",
-        "time_close": "18:30",
-        "lat": 13.941481016750457, 
-        "lng": 121.16159680890215
+          "name": "CDR POULTRY SUPPLY",
+          "address": "W5R6+GM6, E Mayo St, Lipa, Batangas",
+    "contact" : "(043) 756 1238",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "07:00",
+          "time_close": "18:30",
+          "lat": 13.941481016750457,
+          "lng": 121.16159680890215
       },
       {
-        "name": "DJS Pet & Poultry Supply",
-        "address": "Block 6 Lot 9, Bon Giorno Homes, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:30",
-        "time_close": "17:00",
-        "lat": 13.953917304540951,
-        "lng": 121.1818378837578
+          "name": "DJS Pet & Poultry Supply",
+          "address": "Block 6 Lot 9, Bon Giorno Homes, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:30",
+          "time_close": "17:00",
+          "lat": 13.953917304540951,
+          "lng": 121.1818378837578
       },
       {
-        "name": "Dougtella South",
-        "address": "41, Purok 4, President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "00:00",
-        "time_close": "00:00",
-        "lat": 13.941462116775785,  
-        "lng": 121.1468752353005
+          "name": "Dougtella South",
+          "address": "41, Purok 4, President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "00:00",
+          "time_close": "00:00",
+          "lat": 13.941462116775785,
+          "lng": 121.1468752353005
       },
       {
-        "name": "Elite Enterprises Veterinary Supplies 2",
-        "address": "W5Q4+RM7, MK Lina St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.939846872578078,  
-        "lng": 121.15657333530037 
+          "name": "Elite Enterprises Veterinary Supplies 2",
+          "address": "W5Q4+RM7, MK Lina St, Lipa, 4217 Batangas",
+    "contact" : "+63 43 784 1563",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.939846872578078,
+          "lng": 121.15657333530037
       },
       {
-        "name": "First Pick Pet Shop Downtown Lipa ",
-        "address": "195 P. Torres Street, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.938004236195134,   
-        "lng": 121.16390783898962
+          "name": "First Pick Pet Shop Downtown Lipa ",
+          "address": "195 P. Torres Street, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.938004236195134,
+          "lng": 121.16390783898962
       },
       {
-        "name": "Fluffypaws Shampoo ",
-        "address": "South Valley subdivision, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.943147944397039,    
-        "lng": 121.16462659611935
+          "name": "Fluffypaws Shampoo ",
+          "address": "South Valley subdivision, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.943147944397039,
+          "lng": 121.16462659611935
       },
       {
-        "name": "Furrytail Pet Supplies ",
-        "address": "116 Guadalupe Subd, Brgy 1, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.939293503295273,     
-        "lng": 121.15679453666039
+          "name": "Furrytail Pet Supplies ",
+          "address": "116 Guadalupe Subd, Brgy 1, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.939293503295273,
+          "lng": 121.15679453666039
       },
       {
-        "name": "Gelo's Petshop Lipa Branch",
-        "address": "W5Q4+P97, MK Lina St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.9395560214155,      
-        "lng": 121.1558491641353
+          "name": "Gelo's Petshop Lipa Branch",
+          "address": "W5Q4+P97, MK Lina St, Lipa, Batangas",
+    "contact" : "0966 257 1150",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.9395560214155,
+          "lng": 121.1558491641353
       },
       {
-        "name": "Good PAWrents ",
-        "address": "A. Bonifacio St, Poblacion, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:30",
-        "time_close": "18:30",
-        "lat": 13.943220926323976,       
-        "lng": 121.16771596598018
+          "name": "Good PAWrents ",
+          "address": "A. Bonifacio St, Poblacion, Lipa, 4217 Batangas",
+    "contact" : "0906 623 5593",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:30",
+          "time_close": "18:30",
+          "lat": 13.943220926323976,
+          "lng": 121.16771596598018
       },
       {
-        "name": "Goodboyz Petshop ",
-        "address": "President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:00",
-        "lat": 13.944830814036877,        
-        "lng": 121.15442645432948
+          "name": "Goodboyz Petshop ",
+          "address": "President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0917 506 4577", 
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:00",
+          "lat": 13.944830814036877,
+          "lng": 121.15442645432948
       },
       {
-        "name": "Grannde's Petshop and Poultry Supply ",
-        "address": "105 Morada Ave, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "18:00",
-        "lat": 13.94119536823825,        
-        "lng": 121.1529243678247 
+          "name": "Grannde's Petshop and Poultry Supply ",
+          "address": "105 Morada Ave, Lipa, Batangas",
+    "contact" : "0917 771 7728",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "18:00",
+          "lat": 13.94119536823825,
+          "lng": 121.1529243678247
       },
       {
-        "name": "H&G Pet Shop ",
-        "address": "1W5R7+QQM, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "18:00",
-        "lat": 13.942271821665777,         
-        "lng": 121.1644553529951
+          "name": "H&G Pet Shop ",
+          "address": "1W5R7+QQM, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "18:00",
+          "lat": 13.942271821665777,
+          "lng": 121.1644553529951
       },
       {
-        "name": "Happy Pet Care- Lipa Branch ",
-        "address": "555 MK Lina St, Brgy. San Sebastian, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "7:00",
-        "time_close": "20:00",
-        "lat": 13.937262624107113,          
-        "lng": 121.15077801015465
+          "name": "Happy Pet Care- Lipa Branch ",
+          "address": "555 MK Lina St, Brgy. San Sebastian, Lipa, 4217 Batangas",
+    "contact" : "0917 504 7449",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "7:00",
+          "time_close": "20:00",
+          "lat": 13.937262624107113,
+          "lng": 121.15077801015465
       },
       {
-        "name": "Happy Pet Care- Mataas na Kahoy Branch  ",
-        "address": "F. Silva, Brgy. 4, Mataas Na Kahoy, 4223 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "7:00",
-        "time_close": "20:00",
-        "lat": 13.958080935816461,          
-        "lng": 1121.1154512948152 
+          "name": "Happy Pet Care- Mataas na Kahoy Branch  ",
+          "address": "F. Silva, Brgy. 4, Mataas Na Kahoy, 4223 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "7:00",
+          "time_close": "20:00",
+          "lat": 13.958080935816461,
+          "lng": 1121.115451294815
       },
       {
-        "name": "Husky•Tales",
-        "address": "381, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "7:00",
-        "time_close": "20:00",
-        "lat": 13.985441867629843,           
-        "lng": 121.16823812601069 
+          "name": "Husky•Tales",
+          "address": "381, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "7:00",
+          "time_close": "20:00",
+          "lat": 13.985441867629843,
+          "lng": 121.16823812601069
       },
       {
-        "name": "Kings AgriVet and Pet Supplies ",
-        "address": "JM Katigbak Street, Bulacnin, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.949852709952612,            
-        "lng": 121.15084968132001 
+          "name": "Kings AgriVet and Pet Supplies ",
+          "address": "JM Katigbak Street, Bulacnin, Lipa, 4217 Batangas",
+    "contact" : "0919 005 3654",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.949852709952612,
+          "lng": 121.15084968132001
       },
       {
-        "name": "Lajarca Poultry Supply and Veterinary Clinic ",
-        "address": "W5R6+HMF, Esteban Mayo Street, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.941689180537951,             
-        "lng": 121.16164140831003 
+          "name": "Lajarca Poultry Supply and Veterinary Clinic ",
+          "address": "W5R6+HMF, Esteban Mayo Street, Lipa, 4217 Batangas",
+    "contact" : "(043) 756 6198",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.941689180537951,
+          "lng": 121.16164140831003
       },
       {
-        "name": "Lipa Pet Hub ",
-        "address": "W5R6+55F, MK Lina St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.941083582102593,             
-        "lng": 121.16026199532052 
+          "name": "Lipa Pet Hub ",
+          "address": "W5R6+55F, MK Lina St, Lipa, Batangas",
+    "contact" : "0917 886 2674",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.941083582102593,
+          "lng": 121.16026199532052
+      },
+      {
+          "name": "Lyndel Pets & Veterinary Supply ",
+          "address": "W5Q3+GXJ, MK Lina St, Lipa, Batangas",
+    "contact" : "0916 388 1713",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "17:30",
+          "lat": 13.93903221875103,
+          "lng": 121.15492991015469
+      },
+      {
+          "name": "Marsha's pet supply  ",
+          "address": "52 Pusil Rd, Lipa, Batangas",
+    "contact" : "0915 622 7863",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.980498562928476,
+          "lng": 121.15396229666011
+      },
+      {
+          "name": "Makoy’s Petshop  ",
+          "address": "Ground Floor, Brgy, MCS Building, P. Torres Street, Lipa, 4217 Batangas",
+    "contact" : "0917 877 7338",
+          "days_open": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "18:00",
+          "lat": 13.936838159557361,
+          "lng": 121.16452587947506
+      },
+      {
+          "name": "Mr. Nice Guy Dog Food Co. Ltd.  ",
+          "address": "Narding Reyes St, Lipa, 4217 Batangas",
+    "contact" : "0917 889 9911",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.935930277881106,
+          "lng": 121.11255372364987
+      },
+      {
+          "name": "Mr. PetHauz Pet Supplies and Accessories Shop ",
+          "address": "Purok 1 Barangay San Carlos - Lipa City Rd, Bulacnin, Lipa, 4217 Batangas",
+    "contact" : "0991 487 1844",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "19:30",
+          "lat": 13.948266723683883,
+          "lng": 121.15170112549468
+      },
+      {
+          "name": "Namm Pet Shop  ",
+          "address": "202A Katipunan Rd, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.931326313937157,
+          "lng": 121.14925900789503
+      },
+      {
+          "name": "Nicky Jane pet supplies ",
+          "address": "W4QC+9JQ, President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0945 501 6334",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.938982515711324,
+          "lng": 121.1216523799992
+      },
+      {
+          "name": "Pampered Paws Pet Grooming & Supplies ",
+          "address": "208 MK Lina St, Lipa, Batangas",
+    "contact" : "0961 539 9091",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "20:00",
+          "lat": 13.918669288837002,
+          "lng": 121.12508574127396
+      },
+      {
+          "name": "Paws 'N JAM Pet Supplies Shop and Grooming ",
+          "address": "Purok4, Lipa, 4217 Batangas",
+    "contact" : "0977 794 4962",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "18:00",
+          "lat": 13.986248688110658,
+          "lng": 121.16832720147265
+      },
+      {
+          "name": "Paw's Kitchen ",
+          "address": "1st Floor, Jumel Bldg, J.P Laurel, Lipa, 4217 Batangas",
+    "contact" : "0915 798 0473",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "6:00",
+          "time_close": "19:00",
+          "lat": 13.952032381229394,
+          "lng": 121.1602777612497
+      },
+      {
+          "name": "PERIDOT Gems Kennel ",
+          "address": "317 MK Lina St, Lipa, 4217 Batangas",
+    "contact" : "0926 541 5632",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "0:00",
+          "time_close": "0:00",
+          "lat": 13.939190245319862,
+          "lng": 121.1548195489464
+      },
+      {
+          "name": "PETSMARTLIPA",
+          "address": "P D.P. Laygo St, Lipa, 4217 Batangas",
+    "contact" : "0936 764 3680",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "20:00",
+          "lat": 13.94825793719199,
+          "lng": 121.1731414296352
+      },
+      {
+          "name": "Pawrific Buddies Pet Supplies And Grooming ",
+          "address": "W4RV+FPQ, Lipa, Batangas",
+    "contact" : "(043) 726 1801",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "19:00",
+          "lat": 13.941789699264831,
+          "lng": 121.14430985628093
+      },
+      {
+          "name": "RA.Doggies Pet and Supplies Bugtong Na Pulo Lipa ",
+          "address": "Purok 4, Bugtong na Pulo, 271 / 272, Lipa, 4217 Batangas",
+    "contact" : "0956 015 3014",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "8:00",
+          "time_close": "19:00",
+          "lat": 13.940892091862167,
+          "lng": 121.12435286798699
+      },
+      {
+          "name": "Rtm Petshop ",
+          "address": "W4VJ+VP6, President Jose P. Laurel Hwy, Lipa, Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "20:00",
+          "lat": 13.945081816599819,
+          "lng": 121.13175523075581
+      },
+      {
+          "name": "Summer Pet Accessories ",
+          "address": "St. Dominic Savio Villa Adelina Homes, Barangay San Carlos - Lipa City Rd, Lipa, 4217 Batangas",
+    "contact" : "0995 260 5670",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "20:00",
+          "lat": 13.95012684186832,
+          "lng": 121.14538768162811
+      },
+      {
+          "name": "The Pet Depot Lipa ",
+          "address": "Gen. Luna St, Lipa, Batangas",
+    "contact" : "(043) 404 6473",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+          ],
+          "time_open": "9:00",
+          "time_close": "20:00",
+          "lat": 13.944263755569324,
+          "lng": 121.16667908298216
       }
-      ,
+  ],
+  "grooming_services": [
       {
-        "name": "Lyndel Pets & Veterinary Supply ",
-        "address": "W5Q3+GXJ, MK Lina St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "17:30",
-        "lat": 13.93903221875103,             
-        "lng": 121.15492991015469 
+          "name": "Abys Petcare and Pet Grooming Center",
+          "address": "W4RV+66F, President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0922 874 6960",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.940829707080082,
+          "lng": 121.14314358375772
       },
       {
-        "name": "Marsha's pet supply  ",
-        "address": "52 Pusil Rd, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.980498562928476,              
-        "lng": 121.15396229666011
+          "name": "Barks N' Purrs Pet Care Services & Café",
+          "address": "President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
+          "days_open": [
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "9:00",
+          "time_close": "21:00",
+          "lat": 13.983474713397719,
+          "lng": 121.16816018191322
       },
       {
-        "name": "Makoy’s Petshop  ",
-        "address": "Ground Floor, Brgy, MCS Building, P. Torres Street, Lipa, 4217 Batangas",
-        "days_open": ["Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "18:00",
-        "lat": 13.936838159557361,             
-        "lng": 121.16452587947506 
+          "name": "Doggy and Kitten Pet Grooming Services",
+          "address": "Purok 1, Brgy, Blk 15 Lot 12 Villa Africa Subd, Katipunan Rd, Lipa, 4217 Batangas",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:30",
+          "lat": 13.93921394336523,
+          "lng": 121.15242644929103
       },
       {
-        "name": "Mr. Nice Guy Dog Food Co. Ltd.  ",
-        "address": "Narding Reyes St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.935930277881106,              
-        "lng": 121.11255372364987
+          "name": "Goodboyz Petshop",
+          "address": "President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0917 506 4577",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.944851639301906,
+          "lng": 121.15423333589214
       },
       {
-        "name": "Mr. PetHauz Pet Supplies and Accessories Shop ",
-        "address": "Purok 1 Barangay San Carlos - Lipa City Rd, Bulacnin, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "19:30",
-        "lat": 13.948266723683883,              
-        "lng": 121.15170112549468 
+          "name": "PETNESS FURS",
+          "address": "550 President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0916 483 3633",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.959835868706078,
+          "lng": 121.14278178134121
       },
       {
-        "name": "Namm Pet Shop  ",
-        "address": "202A Katipunan Rd, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.931326313937157,             
-        "lng": 121.14925900789503  
+          "name": "Animalandia Pet Grooming & Supplies Shop",
+          "address": "W4VM+GC7, President Jose P. Laurel Hwy, Lipa, Batangas",
+    "contact" : "0917 329 3354",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 13.952365195515677,
+          "lng": 121.13533660492456
       },
       {
-        "name": "Nicky Jane pet supplies ",
-        "address": "W4QC+9JQ, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.938982515711324,              
-        "lng": 121.1216523799992 
+          "name": "Pets & Co., Lipa ",
+          "address": "Unit 3, AMC Commercial Center, President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
+    "contact" : "0917 847 8316",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "09:00",
+          "time_close": "16:00",
+          "lat": 13.941909217224064,
+          "lng": 121.14670173081711
       },
       {
-        "name": "Pampered Paws Pet Grooming & Supplies ",
-        "address": "208 MK Lina St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "20:00",
-        "lat": 13.918669288837002,             
-        "lng": 121.12508574127396  
+          "name": "Pawrific Buddies Pet Supplies And Grooming ",
+          "address": "W4RV+FPQ, Lipa, Batangas",
+    "contact" : "(043) 726 1801",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "19:00",
+          "lat": 13.941695993534466,
+          "lng": 121.1444297703144
       },
       {
-        "name": "Paws 'N JAM Pet Supplies Shop and Grooming ",
-        "address": "Purok4, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "18:00",
-        "lat": 13.986248688110658,              
-        "lng": 121.16832720147265
+          "name": "PAWS 'N JAM Pet Supplies Shop and Grooming ",
+          "address": "Purok4, Lipa, 4217 Batangas",
+    "contact" : "0977 794 4962",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "09:00",
+          "time_close": "18:00",
+          "lat": 13.986299069130569,
+          "lng": 121.16813777134632
       },
       {
-        "name": "Paw's Kitchen ",
-        "address": "1st Floor, Jumel Bldg, J.P Laurel, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "6:00",
-        "time_close": "19:00",
-        "lat": 13.952032381229394,             
-        "lng": 121.1602777612497  
+          "name": "PurrfectTails Café ",
+          "address": "255C+682 The Outlets, LIMA Technology Center, Lipa, Batangas",
+    "contact" : "0951 392 8355",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "17:00",
+          "lat": 14.008616209725679,
+          "lng": 121.1708380977071
       },
       {
-        "name": "PERIDOT Gems Kennel ",
-        "address": "317 MK Lina St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "0:00",
-        "time_close": "0:00",
-        "lat": 13.939190245319862,              
-        "lng": 121.1548195489464
-      },
-      {
-        "name": "PETSMARTLIPA",
-        "address": "P D.P. Laygo St, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "20:00",
-        "lat": 13.94825793719199,              
-        "lng": 121.1731414296352
-      },
-      {
-        "name": "Pawrific Buddies Pet Supplies And Grooming ",
-        "address": "W4RV+FPQ, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "19:00",
-        "lat": 13.941789699264831,                
-        "lng": 121.14430985628093
-      },
-      {
-        "name": "RA.Doggies Pet and Supplies Bugtong Na Pulo Lipa ",
-        "address": "Purok 4, Bugtong na Pulo, 271 / 272, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "8:00",
-        "time_close": "19:00",
-        "lat": 13.940892091862167,               
-        "lng": 121.12435286798699
-      },
-      {
-        "name": "Rtm Petshop ",
-        "address": "W4VJ+VP6, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "20:00",
-        "lat": 13.945081816599819,               
-        "lng": 121.13175523075581
-      },
-      {
-        "name": "Summer Pet Accessories ",
-        "address": "St. Dominic Savio Villa Adelina Homes, Barangay San Carlos - Lipa City Rd, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "20:00",
-        "lat": 13.95012684186832,               
-        "lng": 121.14538768162811
-      },
-      {
-        "name": "The Pet Depot Lipa ",
-        "address": "Gen. Luna St, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday"],
-        "time_open": "9:00",
-        "time_close": "20:00",
-        "lat": 13.944263755569324,              
-        "lng": 121.16667908298216
+          "name": "Zoomies Pet Care Servicesc ",
+          "address": "Purok 4, Lipa, 4217 Batangas",
+    "contact" : "0915 968 5942",
+          "days_open": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "time_open": "08:00",
+          "time_close": "18:00",
+          "lat": 13.986116755948721,
+          "lng": 121.16836908606828
       }
-    ],
-    "grooming_services": 
-    [
-      {
-        "name": "Abys Petcare and Pet Grooming Center",
-        "address": "W4RV+66F, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.940829707080082,  
-        "lng": 121.14314358375772
-      },
-      {
-        "name": "Barks N' Purrs Pet Care Services & Café",
-        "address": "President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
-        "days_open": ["Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "9:00",
-        "time_close": "21:00",
-        "lat": 13.983474713397719,   
-        "lng": 121.16816018191322
-      },
-      {
-        "name": "Doggy and Kitten Pet Grooming Services",
-        "address": "Purok 1, Brgy, Blk 15 Lot 12 Villa Africa Subd, Katipunan Rd, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:30",
-        "lat": 13.93921394336523, 
-        "lng": 121.15242644929103
-      },
-      {
-        "name": "Goodboyz Petshop",
-        "address": "President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.944851639301906,  
-        "lng": 121.15423333589214
-      },
-      {
-        "name": "PETNESS FURS",
-        "address": "550 President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.959835868706078,  
-        "lng": 121.14278178134121
-      },
-      {
-        "name": "Animalandia Pet Grooming & Supplies Shop",
-        "address": "W4VM+GC7, President Jose P. Laurel Hwy, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat": 13.952365195515677,   
-        "lng": 121.13533660492456
-      },
-      {
-        "name": "Pets & Co., Lipa ",
-        "address": "Unit 3, AMC Commercial Center, President Jose P. Laurel Hwy, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "09:00",
-        "time_close": "16:00",
-        "lat": 13.941909217224064,   
-        "lng": 121.14670173081711
-      },
-      {
-        "name": "Pawrific Buddies Pet Supplies And Grooming ",
-        "address": "W4RV+FPQ, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "19:00",
-        "lat": 13.941695993534466,   
-        "lng": 121.1444297703144
-      },
-      {
-        "name": "PAWS 'N JAM Pet Supplies Shop and Grooming ",
-        "address": "Purok4, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "09:00",
-        "time_close": "18:00",
-        "lat": 13.986299069130569,   
-        "lng": 121.16813777134632
-      },
-      {
-        "name": "PurrfectTails Café ",
-        "address": "255C+682 The Outlets, LIMA Technology Center, Lipa, Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "17:00",
-        "lat":  14.008616209725679,  
-        "lng": 121.1708380977071
-      },
-      {
-        "name": "Zoomies Pet Care Servicesc ",
-        "address": "Purok 4, Lipa, 4217 Batangas",
-        "days_open": ["Monday", "Tuesday", "Wednesday","Thursday", "Friday","Saturday","Sunday"],
-        "time_open": "08:00",
-        "time_close": "18:00",
-        "lat": 13.986116755948721,   
-        "lng": 121.16836908606828
-      }
-    ]
-  }
-  
+  ]
+}

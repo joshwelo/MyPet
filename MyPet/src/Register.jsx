@@ -10,6 +10,8 @@ function Register() {
     terms: false,
   });
   const [message, setMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [showPolicyModal, setShowPolicyModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, checked, type } = e.target;
@@ -22,14 +24,35 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.terms) {
+      setMessage("You must agree to the privacy policy and terms before registering.");
+      setShowModal(true);
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setMessage("Passwords do not match");
+      setShowModal(true);
       return;
     }
 
     const { email, password } = formData;
     const response = await registerUser(email, password);
-    setMessage(response.message);
+
+    if (response.success) {
+      // Handle successful registration
+    } else {
+      setMessage(response.message);
+      setShowModal(true);
+    }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const closePolicyModal = () => {
+    setShowPolicyModal(false);
   };
 
   return (
@@ -102,14 +125,14 @@ function Register() {
                       />
                       <label className="form-check-label" htmlFor="terms-conditions">
                         I agree to
-                        <a href='/policy'> privacy policy & terms</a>
+                        <button type="button" className="btn btn-link p-0" onClick={() => setShowPolicyModal(true)}>
+                          privacy policy & terms
+                        </button>
                       </label>
                     </div>
                   </div>
                   <button className="btn btn-primary d-grid w-100" type="submit">Sign up</button>
                 </form>
-
-                {message && <p className="text-center">{message}</p>}
 
                 <p className="text-center">
                   <span>Already have an account?</span>
@@ -122,6 +145,78 @@ function Register() {
           </div>
         </div>
       </div>
+
+      {/* Notification Modal */}
+      <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Notification</h5>
+              <button type="button" className="btn-close" onClick={closeModal}></button>
+            </div>
+            <div className="modal-body">
+              <p>{message}</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" onClick={closeModal}>Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {showModal && <div className="modal-backdrop fade show"></div>}
+
+      {/* Privacy Policy Modal */}
+      <div className={`modal fade ${showPolicyModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" style={{ display: showPolicyModal ? 'block' : 'none' }}>
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title">Privacy Policy & Terms</h5>
+        <button type="button" className="btn-close" onClick={closePolicyModal}></button>
+      </div>
+      <div className="modal-body">
+        <p>
+          <strong>Privacy Policy for My Pet: Cross-Platform Pet Management and Assistance Application</strong>
+        </p>
+        <p><strong>1. Introduction</strong><br />
+          This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our web-based app, <em>My Pet: Cross-Platform Pet Management and Assistance Application</em>. By accessing or using our services, you agree to the terms outlined in this policy.
+        </p>
+        <p><strong>2. Information We Collect</strong><br />
+          - <strong>Personal Information</strong>: We may collect personal information such as your name, email address, contact information, and pet details (e.g., pet names, breeds, ages).<br />
+          - <strong>Usage Data</strong>: We collect information on how you interact with our app, including access times, browser type, and device information.<br />
+        </p>
+        <p><strong>3. How We Use Your Information</strong><br />
+          - To provide and maintain the functionality of the app.<br />
+          - To improve our app based on user feedback and interaction.<br />
+          - To communicate with you regarding updates, promotions, and support.<br />
+          - To ensure the security of the app and user data.
+        </p>
+        <p><strong>4. Data Sharing and Disclosure</strong><br />
+          - <strong>Third-Party Services</strong>: We may share information with third-party services for analytics and performance monitoring.<br />
+          - <strong>Legal Requirements</strong>: We may disclose your information to comply with legal obligations or to protect the rights and safety of our users and the public.
+        </p>
+        <p><strong>5. Data Security</strong><br />
+          We implement robust security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no method of transmission over the Internet is 100% secure.
+        </p>
+        <p><strong>6. Your Rights and Choices</strong><br />
+          - <strong>Access and Correction</strong>: You can access and update your personal information through your account settings.<br />
+          - <strong>Data Deletion</strong>: You can request the deletion of your personal data at any time by contacting our support team.<br />
+          - <strong>Opt-Out</strong>: You may opt out of non-essential data collection, such as analytics and promotional communications.
+        </p>
+        <p><strong>7. Changes to This Policy</strong><br />
+          We may update this Privacy Policy from time to time. Any changes will be reflected in this policy, and you will be notified through the app or via email if significant changes are made.
+        </p>
+        <p><strong>8. Contact Us</strong><br />
+          If you have any questions or concerns regarding this privacy policy, please contact us at mypet@gmail.com.
+        </p>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" onClick={closePolicyModal}>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {showPolicyModal && <div className="modal-backdrop fade show"></div>}
     </>
   );
 }

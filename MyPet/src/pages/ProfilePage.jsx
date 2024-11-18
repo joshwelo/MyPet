@@ -52,7 +52,7 @@ const ProfilePage = () => {
       <div className="content-wrapper">
         <div className="container-xxl flex-grow-1 container-p-y">
           <div className="card px-4">
-            <h5 className="card-header">My Pets</h5>
+          <h3 className="card-title text-primary fw-bold mt-4">Pet Profile</h3>
             {loading ? (
               <Loading /> // Use the Loading component here
             ) : (

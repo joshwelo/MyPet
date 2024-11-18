@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import establishmentData from '../jsons/establishments.json';
-import dayjs from 'dayjs';
 import L from 'leaflet';
 import './Establishments.css';
 import { getDistance } from 'geolib'; // For calculating distances
@@ -24,9 +23,7 @@ const EstablishmentsPage = () => {
   const [typeFilter, setTypeFilter] = useState('');
   const [dayFilter, setDayFilter] = useState('');
   const [filteredEstablishments, setFilteredEstablishments] = useState([]);
-  const [address, setAddress] = useState('Fetching address...');
-  const [nearestPetSupply, setNearestPetSupply] = useState(null);
-  const [nearestGroomingService, setNearestGroomingService] = useState(null);
+  const [nearestEstablishment, setNearestEstablishment] = useState(null);
   const [retry, setRetry] = useState(false);
 
   // Reverse geocoding to fetch address
@@ -36,30 +33,10 @@ const EstablishmentsPage = () => {
         `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
       );
       const data = await response.json();
-      setAddress(data.display_name || 'Unknown location');
+      console.log('Address:', data.display_name || 'Unknown location');
     } catch (error) {
       console.error('Error fetching address:', error);
-      setAddress('Unable to fetch address');
     }
-  };
-
-  // Calculate nearest establishments
-  const calculateNearestEstablishments = () => {
-    const petSupplyStores = establishmentData.pet_supplies_stores.map(store => ({
-      ...store,
-      distance: getDistance(userLocation, { latitude: store.lat, longitude: store.lng })
-    }));
-
-    const groomingServices = establishmentData.grooming_services.map(service => ({
-      ...service,
-      distance: getDistance(userLocation, { latitude: service.lat, longitude: service.lng })
-    }));
-
-    const nearestPetSupply = petSupplyStores.reduce((prev, curr) => (prev.distance < curr.distance ? prev : curr));
-    const nearestGroomingService = groomingServices.reduce((prev, curr) => (prev.distance < curr.distance ? prev : curr));
-
-    setNearestPetSupply(nearestPetSupply);
-    setNearestGroomingService(nearestGroomingService);
   };
 
   // Fetch user location
@@ -70,7 +47,6 @@ const EstablishmentsPage = () => {
           const { latitude, longitude } = position.coords;
           setUserLocation({ latitude, longitude });
           fetchAddress(latitude, longitude);
-          calculateNearestEstablishments();
           setLocationError(false);
         },
         (error) => {
@@ -103,9 +79,22 @@ const EstablishmentsPage = () => {
       establishmentsToDisplay = [
         ...establishmentData.pet_supplies_stores,
         ...establishmentData.grooming_services,
+        ...establishmentData.veterinary_clinics,
       ].filter((establishment) => {
         return !dayFilter || establishment.days_open.includes(dayFilter);
       });
+    }
+
+    // Calculate nearest establishment
+    if (establishmentsToDisplay.length > 0) {
+      const nearest = establishmentsToDisplay.reduce((prev, curr) => {
+        const prevDistance = getDistance(userLocation, { latitude: prev.lat, longitude: prev.lng });
+        const currDistance = getDistance(userLocation, { latitude: curr.lat, longitude: curr.lng });
+        return prevDistance < currDistance ? prev : curr;
+      });
+      setNearestEstablishment({ ...nearest, distance: getDistance(userLocation, { latitude: nearest.lat, longitude: nearest.lng }) });
+    } else {
+      setNearestEstablishment(null);
     }
 
     setFilteredEstablishments(establishmentsToDisplay);
@@ -127,6 +116,7 @@ const EstablishmentsPage = () => {
               <option value="">Any</option>
               <option value="pet_supplies_stores">Pet Supplies Store</option>
               <option value="grooming_services">Grooming Services</option>
+              <option value="veterinary_clinics">Veterinary Clinics</option>
             </select>
           </div>
           <div className="col-md-4 mb-2">
@@ -171,30 +161,22 @@ const EstablishmentsPage = () => {
             <Popup>
               <strong>{establishment.name}</strong><br />
               {establishment.address}<br />
+              Contact: {establishment.contact}<br />
               Open: {establishment.time_open} - {establishment.time_close}
             </Popup>
           </Marker>
         ))}
       </MapContainer>
 
-      <div className="user-location">
-        <h3>Your Current Location:</h3>
-        <p>{address}</p>
-
-        {nearestPetSupply && (
-          <div>
-            <h4>Nearest Pet Supply Store:</h4>
-            <p>{nearestPetSupply.name} ({(nearestPetSupply.distance / 1000).toFixed(2)} km away)</p>
-          </div>
-        )}
-
-        {nearestGroomingService && (
-          <div>
-            <h4>Nearest Grooming Service:</h4>
-            <p>{nearestGroomingService.name} ({(nearestGroomingService.distance / 1000).toFixed(2)} km away)</p>
-          </div>
-        )}
-      </div>
+      {nearestEstablishment && (
+        <div className="nearest-establishment mt-4">
+          <h4>Nearest Establishment:</h4>
+          <p><strong>{nearestEstablishment.name}</strong> ({(nearestEstablishment.distance / 1000).toFixed(2)} km away)</p>
+          <p>Address: {nearestEstablishment.address}</p>
+          <p>Contact: {nearestEstablishment.contact}</p>
+          <p>Open: {nearestEstablishment.time_open} - {nearestEstablishment.time_close}</p>
+        </div>
+      )}
     </div>
   );
 };

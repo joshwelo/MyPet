@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { Camera } from 'react-camera-pro';
 
 const AiBreed = () => {
   const [animalType, setAnimalType] = useState('dog'); // Default to 'dog'
   const [image, setImage] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [useCamera, setUseCamera] = useState(false);
+  const cameraRef = useRef(null);
 
   const handleAnimalSelection = (type) => {
     setAnimalType(type);
@@ -15,6 +19,29 @@ const AiBreed = () => {
       const file = e.target.files[0];
       setImage(file);
       setResult(null);
+      setShowModal(false);
+    }
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setUseCamera(false);
+  };
+
+  const handleUseCamera = () => {
+    setUseCamera(true);
+    setShowModal(false);
+  };
+
+  const captureImageFromCamera = () => {
+    if (cameraRef.current) {
+      const capturedImage = cameraRef.current.takePhoto();
+      setImage(capturedImage); // Set the captured image
+      setUseCamera(false); // Close the camera preview
     }
   };
 
@@ -50,7 +77,6 @@ const AiBreed = () => {
       const formData = new FormData();
       formData.append('data', image);
 
-      // Choose the correct endpoint based on the selected animal type
       const endpoint =
         animalType === 'dog'
           ? 'https://www.nyckel.com/v1/functions/dog-breed-identifier/invoke'
@@ -73,51 +99,69 @@ const AiBreed = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="text-center mb-4">Pet Breed Scanner</h2>
+    <div className="container mt-3">
       <div className="card p-4 shadow">
-        <div className="d-flex justify-content-center mb-4">
+        <h3 className="card-title text-primary fw-bold mb-4">Pet Breed Scanner</h3>
+
+        <div className="d-flex justify-content-center mb-4 flex-wrap">
           <button
-            className={`btn ${animalType === 'cat' ? 'btn-primary' : 'btn-outline-primary'} mx-2`}
+            className={`btn ${animalType === 'cat' ? 'btn-primary' : 'btn-outline-primary'} mx-2 my-2`}
             onClick={() => handleAnimalSelection('cat')}
           >
             Cat
           </button>
           <button
-            className={`btn ${animalType === 'dog' ? 'btn-primary' : 'btn-outline-primary'} mx-2`}
+            className={`btn ${animalType === 'dog' ? 'btn-primary' : 'btn-outline-primary'} mx-2 my-2`}
             onClick={() => handleAnimalSelection('dog')}
           >
             Dog
           </button>
         </div>
+
         <div className="text-center mb-4">
-          <label
-            htmlFor="imageUpload"
-            className="d-inline-block border border-secondary rounded"
-            style={{
-              cursor: 'pointer',
-              width: '400px',
-              height: '400px',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundImage: image ? `url(${URL.createObjectURL(image)})` : 'none',
-            }}
-          >
-            {!image && <p>Insert Image</p>}
-          </label>
-          <input
-            id="imageUpload"
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            style={{ display: 'none' }}
-          />
+          <button className="btn btn-secondary" onClick={handleOpenModal}>Insert Image</button>
         </div>
-        <div className="text-center">
+
+        {/* Image holder: Display captured/uploaded image or camera preview */}
+        <div className="text-center mb-4">
+          {useCamera ? (
+            <div style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: '400px' }}>
+              <Camera
+                ref={cameraRef}
+                facingMode="environment"
+                style={{ width: '100%', height: 'auto', borderRadius: '8px' }} // Explicitly set style
+              />
+              <button
+                className="btn btn-success mt-2"
+                onClick={captureImageFromCamera}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 10,
+                }}
+              >
+                Capture Image
+              </button>
+            </div>
+          ) : (
+            image && (
+              <img
+                src={typeof image === 'string' ? image : URL.createObjectURL(image)}
+                alt="Captured or Uploaded"
+                style={{ width: '100%', maxWidth: '400px', height: 'auto', aspectRatio: '1 / 1' }}
+              />
+            )
+          )}
+        </div>
+
+        <div className="text-center mb-4">
           <button className="btn btn-success" onClick={handleSend} disabled={!image || loading}>
             {loading ? 'Scanning...' : 'Scan Breed'}
           </button>
         </div>
+
         {result && (
           <div className="text-center mt-4">
             <h4>Result:</h4>
@@ -126,6 +170,29 @@ const AiBreed = () => {
           </div>
         )}
       </div>
+
+      {/* Modal for choosing file or camera */}
+      {showModal && (
+        <div className="modal show d-block" tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Choose Image Source</h5>
+                <button type="button" className="btn-close" onClick={handleCloseModal}></button>
+              </div>
+              <div className="modal-body text-center">
+                <button className="btn btn-primary mb-3" onClick={handleUseCamera}>Use Camera</button>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="form-control mb-3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

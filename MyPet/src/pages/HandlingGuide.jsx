@@ -38,7 +38,7 @@ const HandlingGuide = () => {
         <div className="col-xxl">
           <div className="card mb-4">
             <div className="card-header d-flex align-items-center">
-              <h3 className="card-title text-primary fw-bold">Handling Guide</h3>
+              <h3 className="card-title text-primary fw-bold">Handling Guide Suggestions</h3>
             </div>
             <div className="card-body">
               <div className="col-xl-12">
@@ -109,20 +109,19 @@ const HandlingGuide = () => {
 
                     {/* Diet Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-diet" role="tabpanel">
-                      <p className="text-muted"><strong>Diet:</strong> {breedData.diet.description}</p>
+                      <p className="text"><strong>Diet:</strong> {breedData.diet.description}</p>
                       <p><strong>Frequency:</strong> {breedData.diet.frequency}</p>
                     </div>
 
                     {/* Grooming Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-groom" role="tabpanel">
-                      <p className="text-muted"><strong>Grooming Frequency:</strong> {breedData.grooming.frequency}</p>
+                      <p className="text"><strong>Grooming Frequency:</strong> {breedData.grooming.frequency}</p>
                       <p>{breedData.grooming.description}</p>
                     </div>
 
                     {/* Environment Section */}
                     <div className="tab-pane fade" id="navs-pills-justified-nature" role="tabpanel">
-                      <p className="text-muted"><strong>Living Space:</strong> {breedData.environment.living_space}</p>
-                      <p><strong>Exercise Needs:</strong> {breedData.environment.exercise_needs}</p>
+                      <p className="text"><strong>Living Space:</strong> {breedData.environment.living_space}</p>
                       <p>{breedData.environment.description}</p>
                     </div>
                   </div>

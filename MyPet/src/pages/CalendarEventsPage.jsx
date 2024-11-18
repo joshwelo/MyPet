@@ -3,7 +3,6 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './calendar.css';
-import { Modal, Button, Form } from 'react-bootstrap';
 import { getDocs, collection, query, where, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from '../firebaseConfig'; 
 import { getAuth, onAuthStateChanged } from "firebase/auth"; 
@@ -11,6 +10,8 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import breedsData from '../jsons/breeds.json';
 import { messaging } from '../firebaseConfig';
 import { onMessage } from "firebase/messaging";
+import { Modal, Button, Form, Row, Col, Card } from 'react-bootstrap';
+
 
 const localizer = momentLocalizer(moment);
 
@@ -128,7 +129,7 @@ const CalendarEventsPage = () => {
   }, [userId]);
 
   const handleShowAddEventModal = () => {
-    setShowPetModal(true);
+    setShowAddEventModal(true);  // Skip pet modal and go directly to Add Event modal
   };
 
   const handlePetSelect = (pet) => {
@@ -136,59 +137,65 @@ const CalendarEventsPage = () => {
     setShowPetModal(false);
     setShowAddEventModal(true);
   };
+  const [loading, setLoading] = useState(false); // Track the loading state
 
   const handleEventSubmit = async () => {
+    if (loading) return; // Prevent multiple submissions
+  
+    setLoading(true); // Start loading
+  
     // Determine event name based on type
     let eventName;
     if (newEvent.type === 'feeding') {
-        eventName = `Feeding - ${selectedPet.name}`;
+      eventName = `Feeding - ${selectedPet.name}`;
     } else if (newEvent.type === 'grooming') {
-        eventName = `Grooming - ${selectedPet.name}`;
+      eventName = `Grooming - ${selectedPet.name}`;
     } else {
-        eventName = newEvent.eventName;  // Use provided name for custom events
+      eventName = newEvent.eventName;  // Use provided name for custom events
     }
-    
+  
     const event = {
-        eventName,
-        description: newEvent.description,
-        date: newEvent.date,
-        time: newEvent.time,
-        petId: selectedPet.id,
-        userId,
+      eventName,
+      description: newEvent.description,
+      date: newEvent.date,
+      time: newEvent.time,
+      userId,
     };
-
+  
     try {
       if (selectedEvent) {
         // Update the existing event
         const eventRef = doc(db, 'calendar', selectedEvent.id);
         await updateDoc(eventRef, event);
-
+  
         // Update local state
-        setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(date + ' ' + time), end: new Date(date + ' ' + time) } : evt));
+        setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) } : evt));
       } else {
         // Add a new event
         const docRef = await addDoc(collection(db, 'calendar'), event);
-        
+  
         // Update local state
         setEvents([...events, {
           id: docRef.id,
           title: eventName,
-          start: new Date(date + ' ' + time),
-          end: new Date(date + ' ' + time),
+          start: new Date(event.date + ' ' + event.time),
+          end: new Date(event.date + ' ' + event.time),
           ...event
         }]);
       }
+  
       setShowNotificationModal(true);
       setShowAddEventModal(false);
       setShowEditEventModal(false);
       setNewEvent({ eventName: '', description: '', date: '', time: '' });
       setSelectedEvent(null);
-
-
     } catch (error) {
       console.error("Error adding/updating event: ", error);
+    } finally {
+      setLoading(false); // End loading, enable the button again
     }
   };
+  
 
   const handleEventClick = (event) => {
     // Populate the form with the selected event details
@@ -201,7 +208,7 @@ const CalendarEventsPage = () => {
     const pet = pets.find(pet => pet.id === event.petId);
     setSelectedPet(pet);
     setSelectedEvent(event);
-    setShowEditEventModal(true);
+    setShowEditEventModal(true); // Show the modal when event is clicked
   };
 
   const handleDeleteEvent = async () => {
@@ -209,7 +216,7 @@ const CalendarEventsPage = () => {
       try {
         const eventRef = doc(db, 'calendar', selectedEvent.id);
         await deleteDoc(eventRef);
-
+  
         // Remove the event from local state
         setEvents(events.filter(evt => evt.id !== selectedEvent.id));
         setShowEditEventModal(false);
@@ -217,6 +224,32 @@ const CalendarEventsPage = () => {
       } catch (error) {
         console.error("Error deleting event: ", error);
       }
+    }
+  };
+  const handleEditEventSubmit = async () => {
+    const { eventName, description, date, time } = newEvent;
+    const event = {
+      eventName,
+      description,
+      date,
+      time,
+      petId: selectedPet.id,
+      userId,
+    };
+  
+    try {
+      // Update the existing event
+      const eventRef = doc(db, 'calendar', selectedEvent.id);
+      await updateDoc(eventRef, event);
+  
+      // Update local state with the edited event
+      setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(date + ' ' + time), end: new Date(date + ' ' + time) } : evt));
+  
+      // Close the modal
+      setShowEditEventModal(false);
+      setSelectedEvent(null);
+    } catch (error) {
+      console.error("Error updating event: ", error);
     }
   };
 
@@ -372,122 +405,109 @@ useEffect(() => {
   });
 }, []);
   return (
-    <div className="content-wrapper">
-      <div className="container-xxl flex-grow-1 container-p-y">
-        <h2 className="text-center">Pet Schedule Calendar</h2>
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-10">
-            <Button variant="primary" onClick={handleShowAddEventModal}>
-              Add Event
+    <div className="container-xxl content-wrapper p-4">
+      <div className="card shadow-sm p-4">
+        <h3 className="card-title text-primary fw-bold mb-4">Pet Calendar</h3>
+            <Calendar
+                localizer={localizer}
+                events={events}
+                startAccessor="start"
+                endAccessor="end"
+                views={['day', 'week', 'month']} // Allow the calendar to switch views
+                defaultView="day" // Set the default view to day
+                style={{ height: 500}}
+                onSelectEvent={handleEventClick}
+            />
+                    <Row className="justify-content-center mb-3">
+          <Col xs="auto">
+            <Button
+              variant="primary"
+              onClick={handleShowAddEventModal}
+              className="mb-2 mt-3 w-100"
+              disabled={loading} // Disable the button when loading
+            >
+              {loading ? 'Adding Event...' : 'Add Event'}
             </Button>
-            <Button variant={feedingEnabled ? "danger" : "success"} className="ms-3" onClick={handleToggleFeedingSchedule}>
+          </Col>
+          <Col xs="auto">
+            <Button variant={feedingEnabled ? "danger" : "success"} className="mb-2 mt-3 w-100" onClick={handleToggleFeedingSchedule}>
               {feedingEnabled ? "Disable Feeding Schedule" : "Enable Feeding Time"}
             </Button>
-            <Button onClick={() => setShowNotificationModal(true)} className="ms-3">
+          </Col>
+          <Col xs="auto">
+            <Button onClick={() => setShowNotificationModal(true)} className="mb-2 mt-3 w-100">
               Toggle Notifications
             </Button>
-            <Calendar
-              localizer={localizer}
-              events={events}
-              startAccessor="start"
-              endAccessor="end"
-              style={{ height: 500, margin: "50px" }}
-              onSelectEvent={handleEventClick}
-            />
-          </div>
-        </div>
+          </Col>
+          </Row>
       </div>
 
-      {/* Pet Selection Modal */}
-      <Modal show={showPetModal} onHide={() => setShowPetModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Select Your Pet</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <ul>
-            {pets.map(pet => (
-              <li key={pet.id} onClick={() => handlePetSelect(pet)} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-                {pet.imageURL && <img src={pet.imageURL} alt={pet.name} className="pet-image" style={{ borderRadius: '50%', width: '50px', height: '50px', marginRight: '10px' }} />}
-                {pet.name}
-              </li>
-            ))}
-          </ul>
-        </Modal.Body>
-      </Modal>
-      
       {/* Notification Modal */}
-      <Modal show={showNotificationModal} onHide={() => setShowNotificationModal(false)}>
+      <Modal show={showNotificationModal} onHide={() => setShowNotificationModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Enable Notifications?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Would you like to enable notifications for upcoming pet events?</p>
-          <Button variant="success" onClick={() => handleNotificationResponse(true)}>Enable</Button>
-          <Button variant="danger" onClick={() => handleNotificationResponse(false)}>Disable</Button>
+          <Button variant="success" onClick={() => handleNotificationResponse(true)} className="w-100 mb-2">Enable</Button>
+          <Button variant="danger" onClick={() => handleNotificationResponse(false)} className="w-100">Disable</Button>
         </Modal.Body>
       </Modal>
 
       {/* Add Event Modal */}
-      <Modal show={showAddEventModal} onHide={() => setShowAddEventModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Event</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            {selectedPet && (
-              <div className="pet-display" style={{ textAlign: 'center' }}>
-                {selectedPet.imageURL && <img src={selectedPet.imageURL} alt={selectedPet.name} className="pet-image-large" style={{ borderRadius: '50%', width: '100px', height: '100px' }} />}
-                <h5>Selected Pet: {selectedPet.name}</h5>
-              </div>
-            )}
-            <Form.Group controlId="eventName">
-              <Form.Label>Event Name</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="description">
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="date">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="time">
-              <Form.Label>Time</Form.Label>
-              <Form.Control
-                type="time"
-                onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
-              />
-            </Form.Group>
-            <Button variant="primary" className="mt-3" onClick={handleEventSubmit}>
-              Save Event
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
+      <Modal show={showAddEventModal} onHide={() => setShowAddEventModal(false)} centered>
+  <Modal.Header closeButton>
+    <Modal.Title>Add Event</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    {/* Add your form fields here */}
+    <div>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Event Name"
+        value={newEvent.eventName}
+        onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
+        disabled={loading} // Disable input while loading
+      />
+      <input
+        type="text"
+        className="form-control mt-2"
+        placeholder="Description"
+        value={newEvent.description}
+        onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+        disabled={loading} // Disable input while loading
+      />
+      <input
+        type="date"
+        className="form-control mt-2"
+        value={newEvent.date}
+        onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+        disabled={loading} // Disable input while loading
+      />
+      <input
+        type="time"
+        className="form-control mt-2"
+        value={newEvent.time}
+        onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
+        disabled={loading} // Disable input while loading
+      />
+    </div>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowAddEventModal(false)} disabled={loading}>Close</Button>
+    <Button variant="primary" onClick={handleEventSubmit} disabled={loading}> {/* Disable Submit button */}
+      {loading ? 'Adding Event...' : 'Submit'}
+    </Button>
+  </Modal.Footer>
+</Modal>
 
-      {/* Edit Event Modal */}
-      <Modal show={showEditEventModal} onHide={() => setShowEditEventModal(false)}>
+      <Modal show={showEditEventModal} onHide={() => setShowEditEventModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Edit Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            {selectedPet && (
-              <div className="pet-display" style={{ textAlign: 'center' }}>
-                {selectedPet.imageURL && <img src={selectedPet.imageURL} alt={selectedPet.name} className="pet-image-large" style={{ borderRadius: '50%', width: '100px', height: '100px' }} />}
-                <h5>Selected Pet: {selectedPet.name}</h5>
-              </div>
-            )}
             <Form.Group controlId="eventName">
               <Form.Label>Event Name</Form.Label>
               <Form.Control
@@ -496,15 +516,16 @@ useEffect(() => {
                 onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
               />
             </Form.Group>
-            <Form.Group controlId="description">
+            <Form.Group controlId="eventDescription" className="mt-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
-                type="text"
+                as="textarea"
+                rows={3}
                 value={newEvent.description}
                 onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
               />
             </Form.Group>
-            <Form.Group controlId="date">
+            <Form.Group controlId="eventDate" className="mt-3">
               <Form.Label>Date</Form.Label>
               <Form.Control
                 type="date"
@@ -512,7 +533,7 @@ useEffect(() => {
                 onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
               />
             </Form.Group>
-            <Form.Group controlId="time">
+            <Form.Group controlId="eventTime" className="mt-3">
               <Form.Label>Time</Form.Label>
               <Form.Control
                 type="time"
@@ -520,71 +541,19 @@ useEffect(() => {
                 onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
               />
             </Form.Group>
-            <Button variant="primary" className="mt-3" onClick={handleEventSubmit}>
-              Update Event
-            </Button>
-            <Button variant="danger" className="mt-3 ml-2" onClick={handleDeleteEvent}>
-              Delete Event
-            </Button>
           </Form>
         </Modal.Body>
-      </Modal>
-
-        {/* Notification Preference Modal */}
-        <Modal show={showNotificationModal} onHide={() => setShowNotificationModal(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Notification Preference</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Would you like to receive notifications for this event?</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={() => handleNotificationResponse(false)}>
-              No
-            </Button>
-            <Button variant="primary" onClick={() => handleNotificationResponse(true)}>
-              Yes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-
-      {/* Feeding Schedule Modal */}
-      <Modal show={showFeedingScheduleModal} onHide={() => setShowFeedingScheduleModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Configure Feeding Schedule</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form.Group controlId="timesPerDay">
-            <Form.Label>Times per Day</Form.Label>
-            <Form.Control
-              as="select"
-              value={feedingSchedule.timesPerDay}
-              onChange={(e) => {
-                const timesPerDay = parseInt(e.target.value);
-                setFeedingSchedule({
-                  timesPerDay,
-                  feedingTimes: Array(timesPerDay).fill("08:00"),
-                });
-              }}
-            >
-              <option value={2}>2 Times</option>
-              <option value={3}>3 Times</option>
-            </Form.Control>
-          </Form.Group>
-          {[...Array(feedingSchedule.timesPerDay)].map((_, index) => (
-            <Form.Group controlId={`feedingTime-${index}`} key={index}>
-              <Form.Label>Feeding Time {index + 1}</Form.Label>
-              <Form.Control
-                type="time"
-                value={feedingSchedule.feedingTimes[index]}
-                onChange={(e) => handleFeedingTimesChange(index, e.target.value)}
-              />
-            </Form.Group>
-          ))}
-          <Button variant="primary" className="mt-3" onClick={handleFeedingScheduleSubmit}>
-            Set Feeding Schedule
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowEditEventModal(false)}>
+            Close
           </Button>
-        </Modal.Body>
+          <Button variant="danger" onClick={handleDeleteEvent}>
+            Delete Event
+          </Button>
+          <Button variant="primary" onClick={handleEditEventSubmit}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
       </Modal>
     </div>
   );

@@ -25,3 +25,49 @@
 
 
 
+#layout-navbar {
+	background: linear-gradient(-45deg, #41126E, #AE6EE8, #701FBC, #696CFF);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Keyframes for typing animation */
+.text-transition {
+  display: inline-block;
+  color: white;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.train-text {
+  display: flex;
+  animation: scrollText 20s linear infinite;
+}
+
+.scrolling-word {
+  margin-right: 200px; /* Adjust spacing between words */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%); /* Start from right */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen to the left */
+  }
+}

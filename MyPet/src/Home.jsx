@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from './authProvider';  // Import the useAuth hook
 import logo from './assets/mypetlogo.png';
@@ -22,6 +22,29 @@ const Home = () => {
     closeSidebar();
   };
 
+  // Text transition effect logic
+  const messages = [
+    'Remember to keep your pet hydrated!',
+    'Regular vet check-ups are key to a healthy pet.',
+    'Exercise your pet daily for physical and mental health.',
+    'Keep your pet’s vaccinations up to date.',
+    'Show your pet love and attention every day.',
+    'Remember to keep your pet hydrated!',
+    'Regular vet check-ups are key to a healthy pet.',
+    'Exercise your pet daily for physical and mental health.',
+    'Keep your pet’s vaccinations up to date.',
+    'Show your pet love and attention every day.',
+    
+  ];
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
+    }, 5000); // Change message every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
@@ -30,9 +53,8 @@ const Home = () => {
           <div className="app-brand demo">
             <Link to="HomePage" className="app-brand-link">
               <img src={logo} alt="logo" height="50px" width="50px" />
-              <span className="app-brand-text demo menu-text fw-bolder ms-2" style={{ fontSize: '16px' }}>My Pet </span>
+              <span className="app-brand-text demo menu-text fw-bolder ms-2" style={{ fontSize: '16px' }}>My Pet</span>
             </Link>
-            {/* Close Sidebar Button */}
             <a href="javascript:void(0);" className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none" onClick={closeSidebar}>
               <i className="bx bx-chevron-left bx-sm align-middle"></i>
             </a>
@@ -57,17 +79,17 @@ const Home = () => {
             <li className={`menu-item ${activeMenu === 'DiagnosePage' ? 'active' : ''}`} role="menuitem" aria-controls="diagnose" aria-selected={activeMenu === 'DiagnosePage'}>
               <Link to="DiagnosePage" className="menu-link" onClick={() => handleMenuClick('DiagnosePage')}>
                 <i className="menu-icon tf-icons bx bxs-heart"></i>
-                <div data-i18n="Analytics">Pet Diagnosis</div>
+                <div data-i18n="Analytics">Health Assessment</div>
               </Link>
             </li>
             <li className={`menu-item ${activeMenu === 'CalendarEventsPage' ? 'active' : ''}`} role="menuitem" aria-controls="calendar" aria-selected={activeMenu === 'CalendarEventsPage'}>
               <Link to="CalendarEventsPage" className="menu-link" onClick={() => handleMenuClick('CalendarEventsPage')}>
                 <i className="menu-icon tf-icons bx bxs-calendar"></i>
-                <div data-i18n="Analytics">Pet Calendar</div>
+                <div data-i18n="Analytics">Calendar</div>
               </Link>
             </li>
             <li className="menu-header small text-uppercase">
-              <span className="menu-header-text">Social and Establishments</span>
+              <span className="menu-header-text">AI and Maps</span>
             </li>
             <li className={`menu-item ${activeMenu === 'AiBreed' ? 'active' : ''}`} role="menuitem" aria-controls="forums" aria-selected={activeMenu === 'AIChat'}>
               <Link to="AiBreed" className="menu-link" onClick={() => handleMenuClick('AiBreed')}>
@@ -82,12 +104,18 @@ const Home = () => {
               </Link>
             </li>
             <li className="menu-header small text-uppercase">
-              <span className="menu-header-text">General Knowledge</span>
+              <span className="menu-header-text">About</span>
             </li>
             <li className={`menu-item ${activeMenu === 'BlogsPage' ? 'active' : ''}`} role="menuitem" aria-controls="blogs" aria-selected={activeMenu === 'BlogsPage'}>
               <Link to="BlogsPage" className="menu-link" onClick={() => handleMenuClick('BlogsPage')}>
                 <i className="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Blogs</div>
+              </Link>
+            </li>
+            <li className={`menu-item ${activeMenu === 'About' ? 'active' : ''}`} role="menuitem" aria-controls="about" aria-selected={activeMenu === 'About'}>
+              <Link to="About" className="menu-link" onClick={() => handleMenuClick('About')}>
+                <i class="menu-icon tf-icons bx bxs-message-dots"></i>
+                <div data-i18n="Basic">About</div>
               </Link>
             </li>
           </ul>
@@ -98,17 +126,26 @@ const Home = () => {
         <div className="layout-page">
           <nav className="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
             <div className="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              {/* Hamburger for Sidenavbar */}
               <a className="nav-item nav-link px-0 me-xl-4" href="javascript:void(0);" onClick={toggleSidebar}>
                 <i className="bx bx-menu bx-sm"></i>
               </a>
             </div>
+                          {/* Display rotating text */}
+                          <b className="text-transition">
+                <div className="train-text">
+                  {messages.map((message, index) => (
+                    <span key={index} className="scrolling-word">
+                      {message}
+                    </span>
+                  ))}
+                </div>
+              </b>
             <div className="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
               <ul className="navbar-nav flex-row align-items-center ms-auto">
                 <li className="nav-item navbar-dropdown dropdown-user dropdown">
                   <a className="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    {/* BoxIcon user circle */}
-                    <i className='bx bxs-user-circle' style={{ fontSize: '2rem' }}></i>
+                    <i className='bx bx-user-circle' style={{ fontSize: '2rem' }}></i>
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
@@ -116,7 +153,6 @@ const Home = () => {
                         <div className="d-flex">
                           <div className="flex-shrink-0 me-3">
                             <div className="avatar">
-                              {/* BoxIcon user circle as fallback avatar */}
                               <i className='bx bxs-user-circle' style={{ fontSize: '2rem' }}></i>
                             </div>
                           </div>

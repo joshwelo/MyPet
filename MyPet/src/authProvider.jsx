@@ -1,9 +1,9 @@
-import { createUserWithEmailAndPassword,sendEmailVerification } from "firebase/auth";
-import { auth, db } from './firebaseConfig'; 
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { auth, db } from './firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useContext, useState, useEffect } from 'react';
- 
+
 export const registerUser = async (email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -26,8 +26,6 @@ export const registerUser = async (email, password) => {
   }
 };
 
-
-
 const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -38,6 +36,8 @@ export function AuthProvider({ children, onUserVerifiedNavigate }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [alertMessage, setAlertMessage] = useState(''); // New state for alert message
+  const [showAlert, setShowAlert] = useState(false); // State to control alert visibility
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
@@ -53,7 +53,6 @@ export function AuthProvider({ children, onUserVerifiedNavigate }) {
       } else {
         setCurrentUser(null);
         setUserLoggedIn(false);
-        alert("Please verify your email before logging in.");
       }
     } else {
       setCurrentUser(null);
@@ -61,6 +60,10 @@ export function AuthProvider({ children, onUserVerifiedNavigate }) {
     }
     setLoading(false);
   }
+
+  const closeAlert = () => {
+    setShowAlert(false);
+  };
 
   const value = {
     currentUser,
@@ -72,8 +75,18 @@ export function AuthProvider({ children, onUserVerifiedNavigate }) {
   };
 
   return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
+    <>
+      {/* Bootstrap Alert at the top of the page */}
+      {showAlert && (
+        <div className="alert alert-warning alert-dismissible fade show fixed-top m-3" role="alert">
+          {alertMessage}
+          <button type="button" className="btn-close" aria-label="Close" onClick={closeAlert}></button>
+        </div>
+      )}
+      
+      <AuthContext.Provider value={value}>
+        {!loading && children}
+      </AuthContext.Provider>
+    </>
   );
 }

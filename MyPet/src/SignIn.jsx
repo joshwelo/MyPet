@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './sneatbootstrap/MyPetLogoFull.png';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from './firebaseConfig';  // Ensure this path matches your file structure
-import { Modal, Form, Button } from 'react-bootstrap';
+import { Modal, Form, Button, Alert } from 'react-bootstrap';
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,6 +11,7 @@ function SignIn() {
   const [forgotEmail, setForgotEmail] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [resetMessage, setResetMessage] = useState('');
+  const [alert, setAlert] = useState(null);  // State for the alert message
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -24,7 +25,10 @@ function SignIn() {
       window.location.href = '/Home';
     } catch (error) {
       console.error(`Error [${error.code}]: ${error.message}`);
-      alert(error.message);
+      setAlert({
+        message: error.message,
+        type: 'danger',  // 'danger' for errors
+      });
     }
   };
 
@@ -33,8 +37,16 @@ function SignIn() {
       await sendPasswordResetEmail(auth, forgotEmail);
       setResetMessage('Password reset email sent! Please check your inbox.');
       setForgotEmail('');
+      setAlert({
+        message: 'Password reset email sent successfully.',
+        type: 'success',  // 'success' for successful message
+      });
     } catch (error) {
       setResetMessage(`Error: ${error.message}`);
+      setAlert({
+        message: `Error: ${error.message}`,
+        type: 'danger',  // 'danger' for errors
+      });
     }
   };
 
@@ -49,6 +61,12 @@ function SignIn() {
                   <img src={logo} height="200px" width="200px" alt="Logo" />
                 </a>
               </div>
+
+              {alert && (
+                <Alert variant={alert.type} onClose={() => setAlert(null)} dismissible>
+                  {alert.message}
+                </Alert>
+              )}
 
               <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
