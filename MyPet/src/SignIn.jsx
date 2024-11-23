@@ -16,7 +16,17 @@ function SignIn() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
+  const errorMessages = {
+    'auth/invalid-email': 'The email address is invalid. Please check and try again.',
+    'auth/user-disabled': 'This account has been disabled. Please contact support.',
+    'auth/user-not-found': 'No account found with this email. Please register.',
+    'auth/wrong-password': 'Incorrect password. Please try again.',
+    'auth/email-already-in-use': 'This email is already in use. Try logging in.',
+    'auth/weak-password': 'The password is too weak. Please use a stronger password.',
+    'auth/network-request-failed': 'Network error. Please check your connection and try again.',
+    default: 'An unexpected error occurred. Please try again later.',
+  };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -24,31 +34,32 @@ function SignIn() {
       // Signed in successfully, redirect to home page
       window.location.href = '/Home';
     } catch (error) {
-      console.error(`Error [${error.code}]: ${error.message}`);
+      const customMessage = errorMessages[error.code] || errorMessages.default;
       setAlert({
-        message: error.message,
-        type: 'danger',  // 'danger' for errors
+        message: customMessage,
+        type: 'danger', // 'danger' for errors
       });
     }
   };
+  
 
   const handleForgotPassword = async () => {
     try {
       await sendPasswordResetEmail(auth, forgotEmail);
-      setResetMessage('Password reset email sent! Please check your inbox.');
-      setForgotEmail('');
       setAlert({
         message: 'Password reset email sent successfully.',
-        type: 'success',  // 'success' for successful message
+        type: 'success', // 'success' for successful message
       });
+      setForgotEmail('');
     } catch (error) {
-      setResetMessage(`Error: ${error.message}`);
+      const customMessage = errorMessages[error.code] || errorMessages.default;
       setAlert({
-        message: `Error: ${error.message}`,
-        type: 'danger',  // 'danger' for errors
+        message: customMessage,
+        type: 'danger', // 'danger' for errors
       });
     }
   };
+  
 
   return (
     <div className="container-xxl">
@@ -103,12 +114,6 @@ function SignIn() {
                     <span className="input-group-text cursor-pointer" onClick={togglePasswordVisibility}>
                       <i className={`bx ${showPassword ? 'bx-show' : 'bx-hide'}`}></i>
                     </span>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="remember-me" />
-                    <label className="form-check-label" htmlFor="remember-me"> Remember Me </label>
                   </div>
                 </div>
                 <div className="mb-3">

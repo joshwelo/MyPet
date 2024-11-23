@@ -3,11 +3,16 @@ import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from './authProvider';  // Import the useAuth hook
 import logo from './assets/mypetlogo.png';
 import './Home.css';  // Import your CSS file for additional styles
+import { Alert } from 'react-bootstrap'; // Import Alert from react-bootstrap
 
 const Home = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [activeMenu, setActiveMenu] = useState('HomePage');
   const { currentUser } = useAuth();  // Get current user from context
+  const [alert, setAlert] = useState(null);  // State for alert
+  const [events, setEvents] = useState([]);  // Store the events
+
+
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -45,9 +50,45 @@ const Home = () => {
   }, []);
 
 
+  // Check for upcoming events every minute
+  useEffect(() => {
+    const checkEvents = () => {
+      const now = new Date();
+
+      events.forEach(event => {
+        const eventDateTime = new Date(`${event.date}T${event.time}:00`); // Combine date and time
+        const fiveMinutesBefore = new Date(eventDateTime.getTime() - 5 * 60 * 1000); // 5 minutes before event
+        const fiveMinutesAfter = new Date(eventDateTime.getTime() + 5 * 60 * 1000); // 5 minutes after event
+
+        // Check if current time is within the 5 minutes before or after the event
+        if (now >= fiveMinutesBefore && now <= fiveMinutesAfter && !event.notified) {
+          // Add the event to the event carousel messages
+          setEventMessages((prevMessages) => [
+            ...prevMessages,
+            `Upcoming event: ${event.eventName} for your pet! Description: ${event.description}.`
+          ]);
+          event.notified = true; // Mark the event as notified
+        }
+      });
+    };
+
+    const interval = setInterval(checkEvents, 5000); // Check every 5 seconds
+    return () => clearInterval(interval);
+  }, [events]);
+
+  // Event handler to close the alert after 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
+        {/* Alert Notification */}
+
         {/* Side bar */}
         <aside id="layout-menu" className={`layout-menu menu-vertical menu bg-menu-theme ${sidebarVisible ? 'visible' : ''}`}>
           <div className="app-brand demo">
@@ -106,15 +147,9 @@ const Home = () => {
             <li className="menu-header small text-uppercase">
               <span className="menu-header-text">About</span>
             </li>
-            <li className={`menu-item ${activeMenu === 'BlogsPage' ? 'active' : ''}`} role="menuitem" aria-controls="blogs" aria-selected={activeMenu === 'BlogsPage'}>
-              <Link to="BlogsPage" className="menu-link" onClick={() => handleMenuClick('BlogsPage')}>
-                <i className="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Blogs</div>
-              </Link>
-            </li>
             <li className={`menu-item ${activeMenu === 'About' ? 'active' : ''}`} role="menuitem" aria-controls="about" aria-selected={activeMenu === 'About'}>
               <Link to="About" className="menu-link" onClick={() => handleMenuClick('About')}>
-                <i class="menu-icon tf-icons bx bxs-message-dots"></i>
+                <i className="menu-icon tf-icons bx bxs-message-dots"></i>
                 <div data-i18n="Basic">About</div>
               </Link>
             </li>
@@ -130,6 +165,11 @@ const Home = () => {
                 <i className="bx bx-menu bx-sm"></i>
               </a>
             </div>
+            {alert && (
+        <Alert variant={alert.type} onClose={() => setAlert(null)} dismissible>
+          {alert.message}
+        </Alert>
+      )}
                           {/* Display rotating text */}
                           <b className="text-transition">
                 <div className="train-text">

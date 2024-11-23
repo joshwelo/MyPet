@@ -5,6 +5,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Loading from './Loading'; // Import the Loading component
+import petImage from '../assets/mypetlogo.png'
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -60,7 +61,7 @@ const ProfilePage = () => {
                 {pets.map((pet) => (
                   <div className="col-md-3 mb-3" key={pet.id}>
                     <Card onClick={() => handlePetClick(pet.id)}>
-                      <Card.Img variant="top" src={pet.image} alt={pet.name} className="w-100" />
+                      <Card.Img variant="top"     src={pet.image || petImage}  alt={pet.name} className="w-100" style={{ height: '200px' }}/>
                       <Card.Body>
                         <Card.Title>{pet.name}</Card.Title>
                         <Card.Text>

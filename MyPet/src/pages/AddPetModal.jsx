@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import Select from "react-select";
 import { db, storage } from '../firebaseConfig';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import petBreedsData from '../jsons/breeds.json';
 import petVaccinationData from '../jsons/vaccines.json';
@@ -23,6 +23,7 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     species: false,
     breed: false
   });
+  const [saving, setSaving] = useState(false); // State to manage button status
 
   // Filter and map breeds based on selected species
   const getBreedsBySpecies = (species) => {
@@ -82,6 +83,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     return isValid;
   };
 
+  const checkDuplicateName = async (name) => {
+    const petsCollectionRef = collection(db, 'pets');
+    const q = query(petsCollectionRef, where("userId", "==", userId), where("name", "==", name));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty; // Returns true if duplicate exists
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -95,27 +103,39 @@ const AddPetModal = ({ show, handleClose, userId }) => {
       return;
     }
 
-    let imageUrl = "";
-    if (petData.imageFile) {
-      const imageRef = ref(storage, `pets/${userId}/${petData.imageFile.name}`);
-      await uploadBytes(imageRef, petData.imageFile);
-      imageUrl = await getDownloadURL(imageRef);
-    }
-
-    const petDataToSave = {
-      ...petData,
-      image: imageUrl,
-      userId
-    };
-
-    delete petDataToSave.imageFile;
+    setSaving(true); // Disable button and show saving status
 
     try {
+      const isDuplicate = await checkDuplicateName(petData.name);
+      if (isDuplicate) {
+        setErrors((prev) => ({ ...prev, name: true }));
+        setSaving(false);
+        return;
+      }
+
+      let imageUrl = "";
+      if (petData.imageFile) {
+        const imageRef = ref(storage, `pets/${userId}/${petData.imageFile.name}`);
+        await uploadBytes(imageRef, petData.imageFile);
+        imageUrl = await getDownloadURL(imageRef);
+      }
+
+      const petDataToSave = {
+        ...petData,
+        image: imageUrl,
+        userId
+      };
+
+      delete petDataToSave.imageFile;
+
       const petsCollectionRef = collection(db, 'pets');
       await addDoc(petsCollectionRef, petDataToSave);
+
       handleClose();
     } catch (error) {
       console.error("Error adding pet: ", error);
+    } finally {
+      setSaving(false); // Re-enable button
     }
   };
 
@@ -144,7 +164,7 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               isInvalid={errors.name}
               required
             />
-            {errors.name && <Form.Control.Feedback type="invalid">Name is required</Form.Control.Feedback>}
+            {errors.name && <Form.Control.Feedback type="invalid">Name is required or already exists</Form.Control.Feedback>}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Species</Form.Label>
@@ -168,7 +188,6 @@ const AddPetModal = ({ show, handleClose, userId }) => {
               onChange={handleBreedChange}
               isClearable
               placeholder="Select breed"
-              isInvalid={errors.breed}
             />
             {errors.breed && <div className="text-danger">Breed is required</div>}
           </Form.Group>
@@ -197,8 +216,12 @@ const AddPetModal = ({ show, handleClose, userId }) => {
           >
             Not sure about the breed? Go to AiBreed
           </Link>
-          <Button variant="primary" className="mt-3" type="submit">
-            Save Pet
+          <Button 
+            variant="primary" 
+            className="mt-3" 
+            type="submit" 
+            disabled={saving}>
+            {saving ? "Saving..." : "Save Pet"}
           </Button>
         </Form>
       </Modal.Body>

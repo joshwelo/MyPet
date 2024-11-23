@@ -18,4 +18,7 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000, // Set the chunk size warning limit to 1000 KB (1 MB)
   },
+  optimizeDeps: {
+    include: ['@pusher/push-notifications-web'],
+  },
 })

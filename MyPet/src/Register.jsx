@@ -10,6 +10,7 @@ function Register() {
     terms: false,
   });
   const [message, setMessage] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [showPolicyModal, setShowPolicyModal] = useState(false);
 
@@ -19,19 +20,40 @@ function Register() {
       ...formData,
       [name]: type === 'checkbox' ? checked : value,
     });
+
+    if (name === 'password') {
+      validatePassword(value);
+    }
+  };
+
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(password)) {
+      setPasswordError(
+        'Password must be at least 8 characters long, include uppercase, lowercase, number, and special character.'
+      );
+    } else {
+      setPasswordError('');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.terms) {
-      setMessage("You must agree to the privacy policy and terms before registering.");
+      setMessage('You must agree to the privacy policy and terms before registering.');
       setShowModal(true);
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setMessage("Passwords do not match");
+      setMessage('Passwords do not match');
+      setShowModal(true);
+      return;
+    }
+
+    if (passwordError) {
+      setMessage('Please ensure your password meets the requirements.');
       setShowModal(true);
       return;
     }
@@ -70,7 +92,9 @@ function Register() {
                 <h4 className="mb-2">Adventure starts here 🚀</h4>
                 <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="email" autoComplete="off" className="form-label">Email</label>
+                    <label htmlFor="email" autoComplete="off" className="form-label">
+                      Email
+                    </label>
                     <input
                       type="email"
                       className="form-control"
@@ -83,7 +107,9 @@ function Register() {
                     />
                   </div>
                   <div className="mb-3 form-password-toggle">
-                    <label className="form-label" htmlFor="password" autoComplete="off">Password</label>
+                    <label className="form-label" htmlFor="password" autoComplete="off">
+                      Password
+                    </label>
                     <div className="input-group input-group-merge">
                       <input
                         type="password"
@@ -96,9 +122,12 @@ function Register() {
                         onChange={handleChange}
                       />
                     </div>
+                    {passwordError && <small className="text-danger">{passwordError}</small>}
                   </div>
                   <div className="mb-3 form-password-toggle">
-                    <label className="form-label" htmlFor="confirmPassword" autoComplete="off">Re-enter Password</label>
+                    <label className="form-label" htmlFor="confirmPassword" autoComplete="off">
+                      Re-enter Password
+                    </label>
                     <div className="input-group input-group-merge">
                       <input
                         type="password"
@@ -131,12 +160,14 @@ function Register() {
                       </label>
                     </div>
                   </div>
-                  <button className="btn btn-primary d-grid w-100" type="submit">Sign up</button>
+                  <button className="btn btn-primary d-grid w-100" type="submit">
+                    Sign up
+                  </button>
                 </form>
 
                 <p className="text-center">
                   <span>Already have an account?</span>
-                  <a href='/'>
+                  <a href="/">
                     <span> Sign in instead</span>
                   </a>
                 </p>
@@ -146,27 +177,39 @@ function Register() {
         </div>
       </div>
 
-      {/* Notification Modal */}
-      <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Notification</h5>
-              <button type="button" className="btn-close" onClick={closeModal}></button>
-            </div>
-            <div className="modal-body">
-              <p>{message}</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" onClick={closeModal}>Close</button>
-            </div>
-          </div>
-        </div>
+{/* Notification Modal */}
+<div
+  className={`modal fade ${showModal ? 'show d-block' : ''}`}
+  tabIndex="-1"
+  role="dialog"
+  style={{ display: showModal ? 'block' : 'none' }}
+>
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title">Notification</h5>
+        <button type="button" className="btn-close" onClick={closeModal}></button>
       </div>
-      {showModal && <div className="modal-backdrop fade show"></div>}
+      <div className="modal-body">
+        <p>{message}</p>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" onClick={closeModal}>
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{showModal && <div className="modal-backdrop fade show"></div>}
 
-      {/* Privacy Policy Modal */}
-      <div className={`modal fade ${showPolicyModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" style={{ display: showPolicyModal ? 'block' : 'none' }}>
+{/* Privacy Policy Modal */}
+<div
+  className={`modal fade ${showPolicyModal ? 'show d-block' : ''}`}
+  tabIndex="-1"
+  role="dialog"
+  style={{ display: showPolicyModal ? 'block' : 'none' }}
+>
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -175,7 +218,7 @@ function Register() {
       </div>
       <div className="modal-body">
         <p>
-          <strong>Privacy Policy for My Pet: Cross-Platform Pet Management and Assistance Application</strong>
+          <strong>Privacy Policy for My Pet: Pet Management and Assistance Application</strong>
         </p>
         <p><strong>1. Introduction</strong><br />
           This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our web-based app, <em>My Pet: Cross-Platform Pet Management and Assistance Application</em>. By accessing or using our services, you agree to the terms outlined in this policy.
@@ -191,7 +234,6 @@ function Register() {
           - To ensure the security of the app and user data.
         </p>
         <p><strong>4. Data Sharing and Disclosure</strong><br />
-          - <strong>Third-Party Services</strong>: We may share information with third-party services for analytics and performance monitoring.<br />
           - <strong>Legal Requirements</strong>: We may disclose your information to comply with legal obligations or to protect the rights and safety of our users and the public.
         </p>
         <p><strong>5. Data Security</strong><br />
@@ -200,7 +242,6 @@ function Register() {
         <p><strong>6. Your Rights and Choices</strong><br />
           - <strong>Access and Correction</strong>: You can access and update your personal information through your account settings.<br />
           - <strong>Data Deletion</strong>: You can request the deletion of your personal data at any time by contacting our support team.<br />
-          - <strong>Opt-Out</strong>: You may opt out of non-essential data collection, such as analytics and promotional communications.
         </p>
         <p><strong>7. Changes to This Policy</strong><br />
           We may update this Privacy Policy from time to time. Any changes will be reflected in this policy, and you will be notified through the app or via email if significant changes are made.
@@ -210,13 +251,14 @@ function Register() {
         </p>
       </div>
       <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" onClick={closePolicyModal}>Close</button>
+        <button type="button" className="btn btn-secondary" onClick={closePolicyModal}>
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-      {showPolicyModal && <div className="modal-backdrop fade show"></div>}
+{showPolicyModal && <div className="modal-backdrop fade show"></div>}
     </>
   );
 }

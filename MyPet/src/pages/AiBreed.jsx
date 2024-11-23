@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { Camera } from 'react-camera-pro';
+import React, { useState } from 'react';
 
 const AiBreed = () => {
   const [animalType, setAnimalType] = useState('dog'); // Default to 'dog'
@@ -7,8 +6,6 @@ const AiBreed = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [useCamera, setUseCamera] = useState(false);
-  const cameraRef = useRef(null);
 
   const handleAnimalSelection = (type) => {
     setAnimalType(type);
@@ -29,20 +26,6 @@ const AiBreed = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setUseCamera(false);
-  };
-
-  const handleUseCamera = () => {
-    setUseCamera(true);
-    setShowModal(false);
-  };
-
-  const captureImageFromCamera = () => {
-    if (cameraRef.current) {
-      const capturedImage = cameraRef.current.takePhoto();
-      setImage(capturedImage); // Set the captured image
-      setUseCamera(false); // Close the camera preview
-    }
   };
 
   const getAccessToken = async () => {
@@ -122,37 +105,14 @@ const AiBreed = () => {
           <button className="btn btn-secondary" onClick={handleOpenModal}>Insert Image</button>
         </div>
 
-        {/* Image holder: Display captured/uploaded image or camera preview */}
+        {/* Image holder: Display uploaded image */}
         <div className="text-center mb-4">
-          {useCamera ? (
-            <div style={{ position: 'relative', width: '100%', height: 'auto', maxWidth: '400px' }}>
-              <Camera
-                ref={cameraRef}
-                facingMode="environment"
-                style={{ width: '100%', height: 'auto', borderRadius: '8px' }} // Explicitly set style
-              />
-              <button
-                className="btn btn-success mt-2"
-                onClick={captureImageFromCamera}
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 10,
-                }}
-              >
-                Capture Image
-              </button>
-            </div>
-          ) : (
-            image && (
-              <img
-                src={typeof image === 'string' ? image : URL.createObjectURL(image)}
-                alt="Captured or Uploaded"
-                style={{ width: '100%', maxWidth: '400px', height: 'auto', aspectRatio: '1 / 1' }}
-              />
-            )
+          {image && (
+            <img
+              src={typeof image === 'string' ? image : URL.createObjectURL(image)}
+              alt="Captured or Uploaded"
+              style={{ width: '100%', maxWidth: '400px', height: 'auto', aspectRatio: '1 / 1' }}
+            />
           )}
         </div>
 
@@ -171,7 +131,7 @@ const AiBreed = () => {
         )}
       </div>
 
-      {/* Modal for choosing file or camera */}
+      {/* Modal for choosing file */}
       {showModal && (
         <div className="modal show d-block" tabIndex="-1">
           <div className="modal-dialog">
@@ -181,7 +141,6 @@ const AiBreed = () => {
                 <button type="button" className="btn-close" onClick={handleCloseModal}></button>
               </div>
               <div className="modal-body text-center">
-                <button className="btn btn-primary mb-3" onClick={handleUseCamera}>Use Camera</button>
                 <input
                   type="file"
                   accept="image/*"

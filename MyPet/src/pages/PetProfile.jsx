@@ -7,6 +7,7 @@ import { Button, Modal, Form, Row, Col, Badge, Container } from 'react-bootstrap
 import breedsData from '../jsons/breeds.json';
 import vaccineData from '../jsons/vaccines.json'; 
 import Select from 'react-select';
+import petImage from '../assets/mypetlogo.png'
 
 const PetProfile = () => {
   const { petId } = useParams();
@@ -16,6 +17,8 @@ const PetProfile = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editData, setEditData] = useState({});
   const [imageFile, setImageFile] = useState(null);
+  const [showVaccineModal, setShowVaccineModal] = useState(false); // For the vaccine suggestion modal
+  const [vaccinationSuggestions, setVaccinationSuggestions] = useState({ required: [], recommended: [] });
 
   const storage = getStorage();
 
@@ -42,6 +45,8 @@ const PetProfile = () => {
 
       setPet({ ...petData, vaccinationHistory, medicalHistory });
       setEditData({ ...petData, vaccinationHistory, medicalHistory });
+      setVaccinationSuggestions(calculateVaccinations(petData.birthday, petData.species));
+
     }
   };
 
@@ -107,7 +112,9 @@ const PetProfile = () => {
   const handleSpeciesChange = (e) => {
     setEditData({ ...editData, species: e.target.value, breed: '' });
   };
-
+  const handleCloseVaccineModal = () => {
+    setShowVaccineModal(false);
+  };
   const handleBreedChange = (selectedOption) => {
     setEditData({ ...editData, breed: selectedOption ? selectedOption.value : '' });
   };
@@ -118,14 +125,32 @@ const PetProfile = () => {
       vaccinationHistory: selectedOptions ? selectedOptions.map(option => option.label) : [],
     });
   };
+  const calculateVaccinations = (birthday, species) => {
+    const age = calculateAge(birthday);
+    const vaccines = vaccineData[species] || [];
 
+    const required = [];
+    const recommended = [];
+
+    vaccines.forEach(vaccine => {
+      if (age >= vaccine.time && vaccine.required) {
+        required.push(vaccine);
+      } else if (age >= vaccine.time && !vaccine.required) {
+        recommended.push(vaccine);
+      }
+    });
+
+    return { required, recommended };
+  };
   const calculateAge = (birthday) => {
     const birthDate = new Date(birthday);
     const ageDiff = Date.now() - birthDate.getTime();
     const ageDate = new Date(ageDiff);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
-
+  const handleShowVaccineModal = () => {
+    setShowVaccineModal(true);
+  };
   // Get vaccination options based on species
   const getVaccinationOptions = (species) => {
     return vaccineData[species] ? vaccineData[species].map(vaccine => ({
@@ -141,8 +166,8 @@ const PetProfile = () => {
           <Row className="w-100">
             <Col xs={12} md={4} className="d-flex justify-content-center mb-3 mb-md-0">
               <img
-                src={pet.image}
-                alt={pet.name}
+    src={pet.image || petImage}  // Use placeholder if no image is available
+    alt={pet.name}
                 className="w-75 rounded-circle"
                 style={{ maxHeight: '200px', objectFit: 'cover' }}
               />
@@ -190,15 +215,22 @@ const PetProfile = () => {
               </div>
             </Col>
           </Row>
-          <div className="mt-4">
-            <Button
-              variant="primary"
-              onClick={() => navigate(`/Home/HandlingGuide/${pet.breed}`)}
-              className="w-100"
-            >
-              View Handling Guide
-            </Button>
-          </div>
+          <div className="d-flex gap-2 mt-5">
+  <Button
+    variant="primary"
+    onClick={() => navigate(`/Home/HandlingGuide/${pet.breed}`)}
+    className="w-100"
+  >
+    View Handling Guide
+  </Button>
+  <Button
+    variant="primary"
+    onClick={handleShowVaccineModal}
+    className="w-100"
+  >
+    View Vaccination Suggestions
+  </Button>
+</div>
         </div>
       </div>
 
@@ -310,9 +342,48 @@ const PetProfile = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+           {/* Vaccination Suggestion Modal */}
+           <Modal show={showVaccineModal} onHide={handleCloseVaccineModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Vaccination Suggestions</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5>Required Vaccines</h5>
+          <ul>
+            {vaccinationSuggestions.required.length > 0 ? (
+              vaccinationSuggestions.required.map((vaccine, index) => (
+                <li key={index}>
+                  <strong>{vaccine.name}</strong> - {vaccine.description}
+                </li>
+              ))
+            ) : (
+              <p>No required vaccines</p>
+            )}
+          </ul>
+
+          <h5>Recommended Vaccines</h5>
+          <ul>
+            {vaccinationSuggestions.recommended.length > 0 ? (
+              vaccinationSuggestions.recommended.map((vaccine, index) => (
+                <li key={index}>
+                  <strong>{vaccine.name}</strong> - {vaccine.description}
+                </li>
+              ))
+            ) : (
+              <p>No recommended vaccines</p>
+            )}
+          </ul>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseVaccineModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   ) : (
-    <div>Loading...</div>
+    <div></div>
   );
 };
 

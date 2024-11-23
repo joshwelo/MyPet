@@ -3,14 +3,14 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './calendar.css';
-import { getDocs, collection, query, where, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
-import { db } from '../firebaseConfig'; 
-import { getAuth, onAuthStateChanged } from "firebase/auth"; 
+import { getDocs, collection, query, where, addDoc, updateDoc, deleteDoc, doc, getDoc } from "firebase/firestore";
+import { db } from '../firebaseConfig';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import breedsData from '../jsons/breeds.json';
-import { messaging } from '../firebaseConfig';
-import { onMessage } from "firebase/messaging";
-import { Modal, Button, Form, Row, Col, Card } from 'react-bootstrap';
+import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
+
+
 
 
 const localizer = momentLocalizer(moment);
@@ -22,7 +22,8 @@ const CalendarEventsPage = () => {
   const [showEditEventModal, setShowEditEventModal] = useState(false);
   const [showFeedingScheduleModal, setShowFeedingScheduleModal] = useState(false);
   const [feedingSchedule, setFeedingSchedule] = useState({ timesPerDay: 2, feedingTimes: ["08:00", "18:00"] });
-  const [showNotificationModal, setShowNotificationModal] = useState(false);  const [selectedPet, setSelectedPet] = useState(null);
+  const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [selectedPet, setSelectedPet] = useState(null);
   const [pets, setPets] = useState([]);
   const [newEvent, setNewEvent] = useState({
     eventName: '',
@@ -33,31 +34,46 @@ const CalendarEventsPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [userId, setUserId] = useState(null);
   const [feedingEnabled, setFeedingEnabled] = useState(false);
-  const [notificationsEnabled, setNotificationsEnabled] = useState(false); // New state for notifications
-  const [isTokenFound, setTokenFound] = useState(false);
-
-
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState({
+    show: false,
+    message: '',
+    variant: 'success', // success, danger, info, etc.
+  });
+  
+  const showAlert = (message, variant = 'success') => {
+    setAlert({
+      show: true,
+      message,
+      variant
+    });
+  
+    // Hide alert after 3 seconds
+    setTimeout(() => setAlert({ ...alert, show: false }), 3000);
+  };
+  
   // Fetch the current user's ID
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUserId(user.uid); 
+        setUserId(user.uid);
       } else {
         console.log("User is not authenticated");
       }
     });
 
-    return () => unsubscribe(); 
+    return () => unsubscribe();
   }, []);
 
+  // Fetch user's notification preference
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUserId(user.uid);
-        
-        // Fetch the user's notification preference
+
         const userDocRef = doc(db, "users", user.uid);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
@@ -76,12 +92,11 @@ const CalendarEventsPage = () => {
           const q = query(collection(db, 'pets'), where('userId', '==', userId));
           const querySnapshot = await getDocs(q);
           const storage = getStorage();
-          
+
           const petList = await Promise.all(querySnapshot.docs.map(async (doc) => {
             const petData = doc.data();
             let imageURL = '';
 
-            // Construct the image path with pet ID as folder name
             if (petData.imagePath) {
               const imageRef = ref(storage, `pets/${doc.id}/${petData.imagePath}`);
               try {
@@ -129,7 +144,7 @@ const CalendarEventsPage = () => {
   }, [userId]);
 
   const handleShowAddEventModal = () => {
-    setShowAddEventModal(true);  // Skip pet modal and go directly to Add Event modal
+    setShowAddEventModal(true);
   };
 
   const handlePetSelect = (pet) => {
@@ -137,21 +152,19 @@ const CalendarEventsPage = () => {
     setShowPetModal(false);
     setShowAddEventModal(true);
   };
-  const [loading, setLoading] = useState(false); // Track the loading state
 
   const handleEventSubmit = async () => {
-    if (loading) return; // Prevent multiple submissions
+    if (loading) return;
   
-    setLoading(true); // Start loading
+    setLoading(true);
   
-    // Determine event name based on type
     let eventName;
     if (newEvent.type === 'feeding') {
       eventName = `Feeding - ${selectedPet.name}`;
     } else if (newEvent.type === 'grooming') {
       eventName = `Grooming - ${selectedPet.name}`;
     } else {
-      eventName = newEvent.eventName;  // Use provided name for custom events
+      eventName = newEvent.eventName;
     }
   
     const event = {
@@ -160,21 +173,19 @@ const CalendarEventsPage = () => {
       date: newEvent.date,
       time: newEvent.time,
       userId,
+      notified: false,
     };
   
     try {
+      let docRef;
+  
       if (selectedEvent) {
-        // Update the existing event
         const eventRef = doc(db, 'calendar', selectedEvent.id);
         await updateDoc(eventRef, event);
   
-        // Update local state
         setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) } : evt));
       } else {
-        // Add a new event
-        const docRef = await addDoc(collection(db, 'calendar'), event);
-  
-        // Update local state
+        docRef = await addDoc(collection(db, 'calendar'), event);
         setEvents([...events, {
           id: docRef.id,
           title: eventName,
@@ -184,21 +195,24 @@ const CalendarEventsPage = () => {
         }]);
       }
   
+      showAlert('Event added successfully!', 'success');  // Show success alert
+  
       setShowNotificationModal(true);
       setShowAddEventModal(false);
       setShowEditEventModal(false);
       setNewEvent({ eventName: '', description: '', date: '', time: '' });
       setSelectedEvent(null);
     } catch (error) {
-      console.error("Error adding/updating event: ", error);
+      showAlert('Error adding/updating event.', 'danger');  // Show error alert
+      console.error('Error adding/updating event:', error);
     } finally {
-      setLoading(false); // End loading, enable the button again
+      setLoading(false);
     }
   };
   
+  
 
   const handleEventClick = (event) => {
-    // Populate the form with the selected event details
     setNewEvent({
       eventName: event.eventName,
       description: event.description,
@@ -208,7 +222,7 @@ const CalendarEventsPage = () => {
     const pet = pets.find(pet => pet.id === event.petId);
     setSelectedPet(pet);
     setSelectedEvent(event);
-    setShowEditEventModal(true); // Show the modal when event is clicked
+    setShowEditEventModal(true);
   };
 
   const handleDeleteEvent = async () => {
@@ -216,8 +230,7 @@ const CalendarEventsPage = () => {
       try {
         const eventRef = doc(db, 'calendar', selectedEvent.id);
         await deleteDoc(eventRef);
-  
-        // Remove the event from local state
+
         setEvents(events.filter(evt => evt.id !== selectedEvent.id));
         setShowEditEventModal(false);
         setSelectedEvent(null);
@@ -226,6 +239,7 @@ const CalendarEventsPage = () => {
       }
     }
   };
+
   const handleEditEventSubmit = async () => {
     const { eventName, description, date, time } = newEvent;
     const event = {
@@ -238,22 +252,42 @@ const CalendarEventsPage = () => {
     };
   
     try {
-      // Update the existing event
       const eventRef = doc(db, 'calendar', selectedEvent.id);
       await updateDoc(eventRef, event);
   
-      // Update local state with the edited event
       setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(date + ' ' + time), end: new Date(date + ' ' + time) } : evt));
   
-      // Close the modal
+      // Send email notification
+      if (notificationsEnabled) {
+        const auth = getAuth();
+        const userEmail = auth.currentUser?.email; // Retrieve email from Firebase Auth
+  
+        if (userEmail) {
+          const emailDetails = {
+            eventName: eventName,
+            description: newEvent.description,
+            date: newEvent.date,
+            time: newEvent.time,
+            petName: selectedPet.name,
+            email: userEmail, // Use the authenticated user's email
+          };
+  
+          await sendEmailNotification(emailDetails);
+        } else {
+          console.error('No authenticated user found');
+        }
+      }
+  
       setShowEditEventModal(false);
       setSelectedEvent(null);
     } catch (error) {
-      console.error("Error updating event: ", error);
+      console.error('Error updating event:', error);
     }
   };
 
   const handleFeedingScheduleSubmit = async () => {
+    setLoading(true); // Set loading to true
+  
     const startDate = moment().startOf('day');
     const endDate = moment().add(30, 'days');
     const newFeedingEvents = [];
@@ -264,27 +298,25 @@ const CalendarEventsPage = () => {
         const formattedTime = time;
   
         const event = {
-          date: formattedDate,                  // e.g., "2024-11-02"
-          description: 'Feeding time',          // Use a default description or make it customizable
-          eventName: 'Feeding',                 // Standardized event name
-          petId: 'pets',                // Reference to the pet's ID
-          time: formattedTime,                  // e.g., "08:00"
-          userId                                // Current user's ID
+          date: formattedDate,
+          description: 'Feeding time',
+          eventName: 'Feeding',
+          petId: 'pets',
+          time: formattedTime,
+          userId
         };
   
         newFeedingEvents.push(event);
       });
     }
   
-    // Save each new feeding event to Firestore
     try {
       for (const event of newFeedingEvents) {
         await addDoc(collection(db, 'calendar'), event);
       }
   
-      // Update the calendar events in state
       setEvents([...events, ...newFeedingEvents.map(event => ({
-        id: event.petId + '-' + event.date + '-' + event.time,  // Generate a unique ID
+        id: event.petId + '-' + event.date + '-' + event.time,
         title: event.eventName,
         start: new Date(event.date + ' ' + event.time),
         end: new Date(event.date + ' ' + event.time),
@@ -292,22 +324,26 @@ const CalendarEventsPage = () => {
       }))]);
   
       setFeedingEnabled(true);
+      showAlert('Feeding schedule enabled successfully!', 'success');
     } catch (error) {
-      console.error("Error saving feeding schedule to Firestore: ", error);
+      showAlert("Error saving feeding schedule to Firestore: ", 'danger');
+      console.error("Error saving feeding schedule: ", error);
     }
   
     setShowFeedingScheduleModal(false);
+    setLoading(false); // Set loading to false after completion
   };
   
+
   const handleDisableFeedingSchedule = async () => {
     const q = query(collection(db, 'calendar'), where('userId', '==', userId), where('eventName', '==', 'Feeding'));
     const querySnapshot = await getDocs(q);
-  
+
     try {
       for (const doc of querySnapshot.docs) {
         await deleteDoc(doc.ref);
       }
-  
+
       setEvents(events.filter(event => event.eventName !== 'Feeding'));
       setFeedingEnabled(false);
     } catch (error) {
@@ -320,126 +356,131 @@ const CalendarEventsPage = () => {
     times[index] = value;
     setFeedingSchedule({ ...feedingSchedule, feedingTimes: times });
   };
-  
-// Check if feeding schedule exists and set button state on component load
-useEffect(() => {
-  const checkFeedingSchedule = async () => {
-    if (userId) {
-      const q = query(collection(db, 'calendar'), where('userId', '==', userId), where('eventName', '==', 'Feeding'));
-      const querySnapshot = await getDocs(q);
 
-      // Disable button if feeding schedule exists, otherwise enable it
-      setFeedingEnabled(!querySnapshot.empty);
-    }
-  };
+  useEffect(() => {
+    const checkFeedingSchedule = async () => {
+      if (userId) {
+        const q = query(collection(db, 'calendar'), where('userId', '==', userId), where('eventName', '==', 'Feeding'));
+        const querySnapshot = await getDocs(q);
 
-  checkFeedingSchedule();
-}, [userId]); // Dependency array includes userId to check after user loads
-
-// Function to toggle feeding schedule based on feedingEnabled state
-const handleToggleFeedingSchedule = () => {
-  if (feedingEnabled) {
-    handleDisableFeedingSchedule();
-  } else {
-    setShowFeedingScheduleModal(true);
-  }
-};
-const handleNotificationResponse = async (response) => {
-  setNotificationsEnabled(response);
-  setShowNotificationModal(false);
-
-  if (userId) {
-    try {
-      const userDocRef = doc(db, "users", userId);
-      await updateDoc(userDocRef, { notificationsEnabled: response });
-      console.log("Notification preference saved.");
-    } catch (error) {
-      console.error("Error saving notification preference: ", error);
-    }
-  }
-};
-
-useEffect(() => {
-  if (notificationsEnabled) {
-    const requestPermission = async () => {
-      try {
-        await Notification.requestPermission();
-        const token = await getToken(messaging, { vapidKey: "BJ19fQAYDKXfyQHaIiMq1kcE81FYhdrOw6mp78-3_mfcGGtt4VaRyd7diDrgXQDq0TuthY5ipM2qR-1qxi3oTRY" });
-        if (token) {
-          console.log("FCM Token:", token);
-          setTokenFound(true);
-          // Save the FCM token to Firestore or use it for notifications
-        }
-      } catch (error) {
-        console.error("Failed to get FCM token:", error);
+        setFeedingEnabled(!querySnapshot.empty);
       }
     };
 
-    requestPermission();
-  }
-}, [notificationsEnabled]);
-useEffect(() => {
-  if (notificationsEnabled) {
-    events.forEach(event => {
-      const eventTime = new Date(event.start).getTime();
-      const now = Date.now();
-      const timeUntilEvent = eventTime - now;
+    checkFeedingSchedule();
+  }, [userId]);
 
-      if (timeUntilEvent > 0 && timeUntilEvent <= 1800000) { // 30 minutes
-        setTimeout(() => {
-          // Send notification
-          new Notification("Upcoming Event", {
-            body: `Event: ${event.eventName} for ${selectedPet.name}`,
-          });
-        }, timeUntilEvent);
+  const handleToggleFeedingSchedule = () => {
+    // Set loading to true when the action starts
+    setLoading(true);
+  
+    if (feedingEnabled) {
+      handleDisableFeedingSchedule().finally(() => {
+        // Set loading to false after the operation completes
+        setLoading(false);
+      });
+    } else {
+      setShowFeedingScheduleModal(true);
+    }
+  };
+  
+
+  const handleNotificationResponse = async (response) => {
+    setNotificationsEnabled(response);
+
+    // Save notification preference in the Firestore
+    if (userId) {
+      try {
+        const userDocRef = doc(db, "users", userId);
+        await updateDoc(userDocRef, { notificationsEnabled: response });
+        console.log("Notification preference saved.");
+      } catch (error) {
+        console.error("Error saving notification preference: ", error);
       }
-    });
-  }
-}, [events, notificationsEnabled]);
-useEffect(() => {
-  onMessage(messaging, (payload) => {
-    console.log("Message received. ", payload);
-    new Notification(payload.notification.title, {
-      body: payload.notification.body,
-    });
-  });
-}, []);
+    }
+
+    if (response) {
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        console.log('Notification permission granted.');
+      }
+    }
+  };
+
+  const sendEmailNotification = async (eventDetails) => {
+    try {
+      const response = await fetch('http://stievaluation.online/email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          msg: `Event Name: ${eventDetails.eventName}\nDescription: ${eventDetails.description}\nDate: ${eventDetails.date}\nTime: ${eventDetails.time}`,
+          name: eventDetails.petName || 'Pet Owner',
+          email: eventDetails.email || 'user@example.com',
+          subject: `New Event Notification: ${eventDetails.eventName}`,
+          sender: 'no-reply@stievaluation.online',
+        }).toString(),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+  
+      console.log('Email notification sent successfully');
+    } catch (error) {
+      console.error('Error sending email notification:', error);
+    }
+  };
+  
+  
   return (
     <div className="container-xxl content-wrapper p-4">
       <div className="card shadow-sm p-4">
         <h3 className="card-title text-primary fw-bold mb-4">Pet Calendar</h3>
-            <Calendar
-                localizer={localizer}
-                events={events}
-                startAccessor="start"
-                endAccessor="end"
-                views={['day', 'week', 'month']} // Allow the calendar to switch views
-                defaultView="day" // Set the default view to day
-                style={{ height: 500}}
-                onSelectEvent={handleEventClick}
-            />
-                    <Row className="justify-content-center mb-3">
+              {/* Show Alert */}
+      {alert.show && (
+        <Alert variant={alert.variant} onClose={() => setAlert({ ...alert, show: false })} dismissible>
+          {alert.message}
+        </Alert>
+      )}
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          views={['day', 'week', 'month']}
+          defaultView="day"
+          style={{ height: 500 }}
+          onSelectEvent={handleEventClick}
+        />
+        <Row className="justify-content-center mb-3">
           <Col xs="auto">
             <Button
               variant="primary"
               onClick={handleShowAddEventModal}
               className="mb-2 mt-3 w-100"
-              disabled={loading} // Disable the button when loading
+              disabled={loading}
             >
               {loading ? 'Adding Event...' : 'Add Event'}
             </Button>
           </Col>
           <Col xs="auto">
-            <Button variant={feedingEnabled ? "danger" : "success"} className="mb-2 mt-3 w-100" onClick={handleToggleFeedingSchedule}>
-              {feedingEnabled ? "Disable Feeding Schedule" : "Enable Feeding Time"}
-            </Button>
+          <Button
+            variant={feedingEnabled ? "danger" : "success"}
+            className="mb-2 mt-3 w-100"
+            onClick={handleToggleFeedingSchedule}
+            disabled={loading} // Disable when loading
+          >
+            {loading ? 'Processing...' : (feedingEnabled ? "Disable Feeding Schedule" : "Enable Feeding Time")}
+          </Button>
           </Col>
           <Col xs="auto">
             <Button onClick={() => setShowNotificationModal(true)} className="mb-2 mt-3 w-100">
               Toggle Notifications
             </Button>
           </Col>
-          </Row>
+        </Row>
       </div>
 
       {/* Notification Modal */}
@@ -456,52 +497,89 @@ useEffect(() => {
 
       {/* Add Event Modal */}
       <Modal show={showAddEventModal} onHide={() => setShowAddEventModal(false)} centered>
-  <Modal.Header closeButton>
-    <Modal.Title>Add Event</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    {/* Add your form fields here */}
-    <div>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Event Name"
-        value={newEvent.eventName}
-        onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
-        disabled={loading} // Disable input while loading
-      />
-      <input
-        type="text"
-        className="form-control mt-2"
-        placeholder="Description"
-        value={newEvent.description}
-        onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-        disabled={loading} // Disable input while loading
-      />
-      <input
-        type="date"
-        className="form-control mt-2"
-        value={newEvent.date}
-        onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-        disabled={loading} // Disable input while loading
-      />
-      <input
-        type="time"
-        className="form-control mt-2"
-        value={newEvent.time}
-        onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
-        disabled={loading} // Disable input while loading
-      />
-    </div>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setShowAddEventModal(false)} disabled={loading}>Close</Button>
-    <Button variant="primary" onClick={handleEventSubmit} disabled={loading}> {/* Disable Submit button */}
-      {loading ? 'Adding Event...' : 'Submit'}
-    </Button>
-  </Modal.Footer>
-</Modal>
-
+        <Modal.Header closeButton>
+          <Modal.Title>Add Event</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Event Name"
+              value={newEvent.eventName}
+              onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
+              disabled={loading}
+            />
+            <input
+              type="text"
+              className="form-control mt-2"
+              placeholder="Description"
+              value={newEvent.description}
+              onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+              disabled={loading}
+            />
+            <input
+              type="date"
+              className="form-control mt-2"
+              value={newEvent.date}
+              onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+              disabled={loading}
+            />
+            <input
+              type="time"
+              className="form-control mt-2"
+              value={newEvent.time}
+              onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
+              disabled={loading}
+            />
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowAddEventModal(false)} disabled={loading}>Close</Button>
+          <Button variant="primary" onClick={handleEventSubmit} disabled={loading}>
+            {loading ? 'Adding Event...' : 'Submit'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      {/* Feeding Schedule Modal */}
+      <Modal show={showFeedingScheduleModal} onHide={() => setShowFeedingScheduleModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Configure Feeding Schedule</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Group controlId="timesPerDay">
+            <Form.Label>Times per Day</Form.Label>
+            <Form.Control
+              as="select"
+              value={feedingSchedule.timesPerDay}
+              onChange={(e) => {
+                const timesPerDay = parseInt(e.target.value);
+                setFeedingSchedule({
+                  timesPerDay,
+                  feedingTimes: Array(timesPerDay).fill("08:00"),
+                });
+              }}
+            >
+              <option value={2}>2 Times</option>
+              <option value={3}>3 Times</option>
+            </Form.Control>
+          </Form.Group>
+          {[...Array(feedingSchedule.timesPerDay)].map((_, index) => (
+            <Form.Group controlId={`feedingTime-${index}`} key={index}>
+              <Form.Label>Feeding Time {index + 1}</Form.Label>
+              <Form.Control
+                type="time"
+                value={feedingSchedule.feedingTimes[index]}
+                onChange={(e) => handleFeedingTimesChange(index, e.target.value)}
+              />
+            </Form.Group>
+          ))}
+          <Button variant="primary" className="mt-3" onClick={handleFeedingScheduleSubmit}>
+            Set Feeding Schedule
+          </Button>
+        </Modal.Body>
+      </Modal>
+      {/* Edit Event Modal */}
       <Modal show={showEditEventModal} onHide={() => setShowEditEventModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Edit Event</Modal.Title>
@@ -555,6 +633,9 @@ useEffect(() => {
           </Button>
         </Modal.Footer>
       </Modal>
+      <script>
+
+      </script>
     </div>
   );
 };

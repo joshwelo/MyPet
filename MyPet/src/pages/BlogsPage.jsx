@@ -4,22 +4,22 @@ import BlogCard from './BlogCard';
 const BlogsPage = () => {
   const blogs = [
     {
-      imgSrc: "../assets/img/illustrations/Dog.jpg",
+      imgSrc: "https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2016/01/tpe-blog-32.jpg",
       title: "How To Tell If Your Dog Is At A Healthy Weight",
       text: "For dogs to lead an active, healthy life it is important for them to maintain a healthy body weight, and as a dog owner it is your responsibility to ensure that they do so. The most important factors to consider when it comes to your pet's weight are the intensity",
       link: "https://www.thepetexpress.co.uk/blog/dogs/how-to-tell-if-your-dog-is-at-a-healthy-weight/"
     },
     {
-      imgSrc: "../assets/img/illustrations/Autumn-DOg.jpg",
+      imgSrc: "https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2013/09/Autumn-DOg.jpg",
       title: "What is Seasonal Canine Illness?",
       text: "Most active dogs love their walks, so going exploring or playing fetch in the woods seems like a great way for your dog to get some exercise. As a dog owner it is important to keep an eye on your pet and be aware that there are environmental dangers out there.",
-      link: "javascript:void(0)"
+      link: "https://www.thepetexpress.co.uk/blog/dogs/seasonal-canine-illness/"
     },
     {
-      imgSrc: "../assets/img/illustrations/cat.jpg",
-      title: "How do I know my cat loves me?",
-      text: "Here are seven subtle signs that your cat loves you and ways your feline can communicate their feelings…",
-      link: "javascript:void(0)"
+      imgSrc: "https://www.thepetexpress.co.uk/blog-admin/wp-content/uploads/2024/08/shutterstock_1934237687-1024x683.jpg",
+      title: "Ways To Ease Your Dog's Separation Anxiety",
+      text: "Dogs with separation anxiety can find the end of summer particularly stressful, as they've grown accustomed to constant company. To help your furry friend adjust to the change, consider these tips for a smoother transition.",
+      link: "https://www.thepetexpress.co.uk/blog/blog-new-products/ways-to-ease-your-dogs-separation-anxiety/"
     }
   ];
 

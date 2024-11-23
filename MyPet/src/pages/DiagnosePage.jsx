@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import diseaseData from "../jsons/disease.json";
+import { Modal, Button } from "react-bootstrap";
+
 
 const DiagnosePage = () => {
   const [activeTab, setActiveTab] = useState("dog"); // Track active tab (dog or cat)
   const [selectedSymptoms, setSelectedSymptoms] = useState([]); // Track selected symptoms
   const [diagnosis, setDiagnosis] = useState([]); // Store diagnosis results
   const [searchTerm, setSearchTerm] = useState(""); // Track search input
+  const [showModal, setShowModal] = useState(true); // Control modal visibility
 
   // Function to flatten the nested structure of diseaseData
   const getAllDiseases = () => {
@@ -62,7 +65,10 @@ const addSymptom = (symptom) => {
   
     setDiagnosis(matchedDiseases);
   };
-
+  const handlePetSelection = (petType) => {
+    setActiveTab(petType);
+    setShowModal(false); // Close modal after selection
+  };
   // Render filtered symptoms based on the search term
   const renderFilteredSymptoms = () => {
     if (searchTerm.trim() === "") {
@@ -113,7 +119,7 @@ const addSymptom = (symptom) => {
         <div className="col-xxl">
           <div className="card mb-4">
             <div className="card-header d-flex align-items-center justify-content-between">
-              <h3 className="card-title text-primary fw-bold">Diagnose Symptoms</h3>
+              <h3 className="card-title text-primary fw-bold">What symptoms your pet shows?</h3>
             </div>
 
             {/* Navbar with attached search bar, dropdown, and button */}
@@ -197,6 +203,19 @@ const addSymptom = (symptom) => {
           </div>
         </div>
       </div>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Select Pet Type</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Button variant="primary" onClick={() => handlePetSelection("dog")} className="w-100 mb-2">
+          Dog
+        </Button>
+        <Button variant="primary" onClick={() => handlePetSelection("cat")} className="w-100">
+          Cat
+        </Button>
+      </Modal.Body>
+    </Modal>
     </div>
   );
 };
