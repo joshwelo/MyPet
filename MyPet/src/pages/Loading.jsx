@@ -4,7 +4,7 @@ import spin from '../assets/Dancing kitty.gif'; // Ensure the correct path to th
 
 const Loading = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='mt-4'>
       <img src={spin} alt="Loading..." style={styles.image} />
     </div>
   );

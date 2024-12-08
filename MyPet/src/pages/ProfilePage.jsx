@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddPetModal from "./AddPetModal";
-import { auth, db } from "../firebaseConfig"; // Adjust the import path as needed
+import { auth, db } from "../firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";

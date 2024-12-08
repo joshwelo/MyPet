@@ -154,10 +154,10 @@ const CalendarEventsPage = () => {
   };
 
   const handleEventSubmit = async () => {
-    if (loading) return;
-  
+    if (loading) return; // Prevent multiple submissions
     setLoading(true);
   
+    // Construct event name
     let eventName;
     if (newEvent.type === 'feeding') {
       eventName = `Feeding - ${selectedPet.name}`;
@@ -177,38 +177,65 @@ const CalendarEventsPage = () => {
     };
   
     try {
+      // Check for duplicate events
+      const q = query(
+        collection(db, 'calendar'),
+        where('userId', '==', userId),
+        where('eventName', '==', eventName),
+        where('date', '==', newEvent.date),
+        where('time', '==', newEvent.time)
+      );
+      const querySnapshot = await getDocs(q);
+  
+      if (!querySnapshot.empty) {
+        showAlert('Duplicate event already exists!', 'danger');
+        setLoading(false);
+        return;
+      }
+  
       let docRef;
   
       if (selectedEvent) {
+        // Update existing event
         const eventRef = doc(db, 'calendar', selectedEvent.id);
         await updateDoc(eventRef, event);
-  
-        setEvents(events.map(evt => evt.id === selectedEvent.id ? { ...evt, ...event, title: eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) } : evt));
+        setEvents(events.map(evt =>
+          evt.id === selectedEvent.id
+            ? { ...evt, ...event, title: eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) }
+            : evt
+        ));
       } else {
+        // Add new event
         docRef = await addDoc(collection(db, 'calendar'), event);
-        setEvents([...events, {
-          id: docRef.id,
-          title: eventName,
-          start: new Date(event.date + ' ' + event.time),
-          end: new Date(event.date + ' ' + event.time),
-          ...event
-        }]);
+        setEvents([
+          ...events,
+          {
+            id: docRef.id,
+            title: eventName,
+            start: new Date(event.date + ' ' + event.time),
+            end: new Date(event.date + ' ' + event.time),
+            ...event,
+          },
+        ]);
       }
   
-      showAlert('Event added successfully!', 'success');  // Show success alert
+      showAlert('Event added successfully!', 'success');
   
-      setShowNotificationModal(true);
+      // Reset modal and state
       setShowAddEventModal(false);
-      setShowEditEventModal(false);
       setNewEvent({ eventName: '', description: '', date: '', time: '' });
       setSelectedEvent(null);
+  
+      // Auto-refresh the page
+      window.location.reload();
     } catch (error) {
-      showAlert('Error adding/updating event.', 'danger');  // Show error alert
+      showAlert('Error adding/updating event.', 'danger');
       console.error('Error adding/updating event:', error);
     } finally {
       setLoading(false);
     }
   };
+  
   
   
 
@@ -286,53 +313,93 @@ const CalendarEventsPage = () => {
   };
 
   const handleFeedingScheduleSubmit = async () => {
-    setLoading(true); // Set loading to true
+    if (loading) return; // Prevent re-triggering while processing
   
-    const startDate = moment().startOf('day');
-    const endDate = moment().add(30, 'days');
-    const newFeedingEvents = [];
-  
-    for (let date = startDate; date.isBefore(endDate); date.add(1, 'days')) {
-      feedingSchedule.feedingTimes.forEach(time => {
-        const formattedDate = date.format('YYYY-MM-DD');
-        const formattedTime = time;
-  
-        const event = {
-          date: formattedDate,
-          description: 'Feeding time',
-          eventName: 'Feeding',
-          petId: 'pets',
-          time: formattedTime,
-          userId
-        };
-  
-        newFeedingEvents.push(event);
-      });
-    }
+    setLoading(true); // Disable the button while processing
   
     try {
+      const startDate = moment().startOf('day');
+      const endDate = moment().add(30, 'days');
+      const existingFeedingEvents = new Set();
+  
+      // Fetch existing feeding events for the user
+      const q = query(
+        collection(db, 'calendar'),
+        where('userId', '==', userId),
+        where('eventName', '==', 'Feeding')
+      );
+      const querySnapshot = await getDocs(q);
+  
+      querySnapshot.forEach((doc) => {
+        const event = doc.data();
+        const uniqueKey = `${event.date}-${event.time}`;
+        existingFeedingEvents.add(uniqueKey); // Store existing feeding events in a Set
+      });
+  
+      const newFeedingEvents = [];
+  
+      // Generate feeding events for 30 days
+      for (let date = startDate; date.isBefore(endDate); date.add(1, 'days')) {
+        feedingSchedule.feedingTimes.forEach((time) => {
+          const formattedDate = date.format('YYYY-MM-DD');
+          const uniqueKey = `${formattedDate}-${time}`;
+  
+          // Add only if event is not already in the existing events
+          if (!existingFeedingEvents.has(uniqueKey)) {
+            const event = {
+              date: formattedDate,
+              description: 'Feeding time',
+              eventName: 'Feeding',
+              time: time,
+              userId: userId,
+            };
+            newFeedingEvents.push(event);
+          }
+        });
+      }
+  
+      // Save new feeding events to Firestore
       for (const event of newFeedingEvents) {
         await addDoc(collection(db, 'calendar'), event);
       }
   
-      setEvents([...events, ...newFeedingEvents.map(event => ({
-        id: event.petId + '-' + event.date + '-' + event.time,
-        title: event.eventName,
-        start: new Date(event.date + ' ' + event.time),
-        end: new Date(event.date + ' ' + event.time),
-        ...event
-      }))]);
+      // Update state with new events
+      setEvents([
+        ...events,
+        ...newFeedingEvents.map((event) => ({
+          id: `${event.date}-${event.time}`,
+          title: event.eventName,
+          start: new Date(event.date + ' ' + event.time),
+          end: new Date(event.date + ' ' + event.time),
+          ...event,
+        })),
+      ]);
   
-      setFeedingEnabled(true);
       showAlert('Feeding schedule enabled successfully!', 'success');
+      setFeedingEnabled(true); // Enable feeding schedule in the UI
+      setShowFeedingScheduleModal(false);
     } catch (error) {
-      showAlert("Error saving feeding schedule to Firestore: ", 'danger');
-      console.error("Error saving feeding schedule: ", error);
+      showAlert('Error saving feeding schedule to Firestore.', 'danger');
+      console.error('Error saving feeding schedule:', error);
+    } finally {
+      setLoading(false); // Re-enable the button after completion
     }
-  
-    setShowFeedingScheduleModal(false);
-    setLoading(false); // Set loading to false after completion
   };
+  
+  const handleToggleFeedingSchedule = () => {
+    if (loading) return; // Prevent multiple clicks
+    setLoading(true);
+  
+    if (feedingEnabled) {
+      handleDisableFeedingSchedule().finally(() => {
+        setLoading(false); // Reset loading state
+      });
+    } else {
+      setShowFeedingScheduleModal(true);
+      setLoading(false); // Reset loading state for modal view
+    }
+  };
+  
   
 
   const handleDisableFeedingSchedule = async () => {
@@ -369,21 +436,6 @@ const CalendarEventsPage = () => {
 
     checkFeedingSchedule();
   }, [userId]);
-
-  const handleToggleFeedingSchedule = () => {
-    // Set loading to true when the action starts
-    setLoading(true);
-  
-    if (feedingEnabled) {
-      handleDisableFeedingSchedule().finally(() => {
-        // Set loading to false after the operation completes
-        setLoading(false);
-      });
-    } else {
-      setShowFeedingScheduleModal(true);
-    }
-  };
-  
 
   const handleNotificationResponse = async (response) => {
     setNotificationsEnabled(response);
@@ -467,13 +519,14 @@ const CalendarEventsPage = () => {
           </Col>
           <Col xs="auto">
           <Button
-            variant={feedingEnabled ? "danger" : "success"}
-            className="mb-2 mt-3 w-100"
-            onClick={handleToggleFeedingSchedule}
-            disabled={loading} // Disable when loading
-          >
-            {loading ? 'Processing...' : (feedingEnabled ? "Disable Feeding Schedule" : "Enable Feeding Time")}
-          </Button>
+  variant={feedingEnabled ? 'danger' : 'success'}
+  className="mb-2 mt-3 w-100"
+  onClick={handleToggleFeedingSchedule}
+  disabled={loading}
+>
+  {loading ? 'Processing...' : feedingEnabled ? 'Disable Feeding Schedule' : 'Enable Feeding Time'}
+</Button>
+
           </Col>
           <Col xs="auto">
             <Button onClick={() => setShowNotificationModal(true)} className="mb-2 mt-3 w-100">
@@ -536,9 +589,13 @@ const CalendarEventsPage = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowAddEventModal(false)} disabled={loading}>Close</Button>
-          <Button variant="primary" onClick={handleEventSubmit} disabled={loading}>
-            {loading ? 'Adding Event...' : 'Submit'}
-          </Button>
+          <Button
+  variant="primary"
+  onClick={handleEventSubmit}
+  disabled={loading || !newEvent.eventName || !newEvent.date || !newEvent.time} // Prevent empty or duplicate submissions
+>
+  {loading ? 'Adding...' : 'Submit'}
+</Button>
         </Modal.Footer>
       </Modal>
       {/* Feeding Schedule Modal */}

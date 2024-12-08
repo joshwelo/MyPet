@@ -1,0 +1,102 @@
+{
+    "dogMilestones": [
+      {
+        "milestone": "Newborn Stage",
+        "months": 0,
+        "description": "Puppies are born blind, deaf, and unable to smell. They spend most of their time sleeping and feeding. Their mother provides all the necessary care, including stimulation to help them eliminate."
+      },
+      {
+        "milestone": "Senses Developing",
+        "months": 0.5,
+        "description": "Between two and four weeks, puppies begin to open their eyes, develop hearing and smell, and start to interact with their littermates and mother."
+      },
+      {
+        "milestone": "First Steps and Teeth",
+        "months": 1,
+        "description": "Puppies begin to walk, wag their tails, bark, and grow their first teeth. They also start eliminating on their own without the mother's stimulation."
+      },
+      {
+        "milestone": "Weaning and Socialization",
+        "months": 2,
+        "description": "Puppies are weaned off their mother's milk and begin eating solid food. They play with their littermates, learning essential social behaviors and rules."
+      },
+      {
+        "milestone": "Transition to New Home",
+        "months": 2,
+        "description": "Around eight weeks, puppies are ready to join their new families. They have a high fear threshold, making it a crucial period for positive exposure to people, animals, and environments."
+      },
+      {
+        "milestone": "Fear Period",
+        "months": 2.5,
+        "description": "Puppies may become wary of new experiences, but this is also a critical time for bonding and creating positive associations with new stimuli and people."
+      },
+      {
+        "milestone": "Pre-Adolescence",
+        "months": 3,
+        "description": "Puppies become more curious and independent. They start to establish their place in the family hierarchy, and their permanent teeth begin to emerge, leading to increased chewing."
+      },
+      {
+        "milestone": "Basic Training",
+        "months": 4,
+        "description": "Puppies are ready for basic training, including house-training and commands like 'sit' and 'stay.' Socialization continues as they explore the world more confidently."
+      },
+      {
+        "milestone": "Teenage Phase",
+        "months": 6,
+        "description": "Puppies reach adolescence, testing boundaries and asserting themselves. Training and consistent boundaries are crucial during this stage."
+      },
+      {
+        "milestone": "Neighborhood Explorer",
+        "months": 9,
+        "description": "Puppies become adventurous, exploring their surroundings during walks. They use scent to learn about their environment and develop leash manners."
+      },
+      {
+        "milestone": "Adulthood Approaching",
+        "months": 12,
+        "description": "Most puppies reach physical and emotional maturity by this age, though some larger breeds may take longer. Their personality and temperament stabilize."
+      },
+      {
+        "milestone": "Full Adulthood",
+        "months": 18,
+        "description": "Dogs are fully mature, with established behavior and temperament. Training and exercise remain important to maintain a healthy and happy life."
+      }
+    ],
+    "catMilestones": [
+        {
+          "milestone": "Newborn Stage",
+          "months": 0,
+          "description": "Kittens are born with their eyes and ears closed. They respond to touch, temperature, and olfactory cues, relying entirely on their mothers for care and nourishment."
+        },
+        {
+          "milestone": "Eyes Open",
+          "months": 1,
+          "description": "Kittens' eyes begin to open, though their vision is still blurry. They start responding to sounds and show curiosity about their surroundings, but they are not yet playing actively."
+        },
+        {
+          "milestone": "Walking and Teething Begin",
+          "months": 1.5,
+          "description": "Kittens take their first steps, showing early motor coordination as they explore their environment. Incisors start emerging, marking the beginning of teething. It's important to gently handle them daily to promote socialization."
+        },
+        {
+          "milestone": "Social Play and Balance",
+          "months": 2,
+          "description": "Kittens become more comfortable moving around and start engaging in social play. Their sense of balance improves, and they typically begin using the litter box while becoming more responsive to sights and sounds."
+        },
+        {
+          "milestone": "Confidence and Interaction",
+          "months": 2.5,
+          "description": "Kittens interact more with humans and other animals. They become confident runners and improve grooming skills. More teeth emerge as they continue developing physically and socially."
+        },
+        {
+          "milestone": "Adult-like Play",
+          "months": 3,
+          "description": "Kittens start to exhibit adult-like play behaviors, engaging with toys and objects. This is a good time to introduce grooming tools and train them for nail trims and ear cleanings through playful interactions."
+        },
+        {
+          "milestone": "Continued Maturation",
+          "months": 4,
+          "description": "Kittens grow in size and weight while their playfulness peaks. Establishing a grooming routine and continued socialization is key to their development. By this stage, they are ready for adoption and more intensive training."
+        }
+      ]
+  }
+  

@@ -49,6 +49,11 @@ const ProfilePage = React.lazy(() => import('./pages/ProfilePage'));
 const HandlingGuide = React.lazy(() => import('./pages/HandlingGuide'));
 const PetProfile = React.lazy(() => import('./pages/PetProfile'));
 const About = React.lazy(() => import('./pages/About'));
+const ForumSubTopic = React.lazy(() => import('./pages/ForumSubTopic'));
+const ForumDiscussion = React.lazy(() => import('./pages/ForumDiscussion'));
+const PetJournalPage = React.lazy(() => import('./pages/PetJournalPage'));
+const PetVaccinationTracker = React.lazy(() => import('./pages/PetVaccinationTracker'));
+const NotificationPage = React.lazy(() => import('./pages/NotificationPage'));
 
 // Protected route to check if user is verified
 function ProtectedRoute({ children }) {
@@ -57,7 +62,6 @@ function ProtectedRoute({ children }) {
   if (loading) return <Spinner />;
 
   if (!currentUser) {
-    // If not logged in, redirect to SignIn
     return <Navigate to="/" replace />;
   }
 
@@ -111,6 +115,11 @@ const router = createBrowserRouter(
             <CalendarEventsPage />
           </Suspense>
         } />
+        <Route path="PetJournalPage" element={
+          <Suspense fallback={<Spinner />}>
+            <PetJournalPage />
+          </Suspense>
+        } />
         <Route path="DiagnosePage" element={
           <Suspense fallback={<Spinner />}>
             <DiagnosePage />
@@ -136,9 +145,25 @@ const router = createBrowserRouter(
             <UserPage />
           </Suspense>
         } />
+        <Route path="ForumSubTopic" element={
+          <Suspense fallback={<Spinner />}>
+            <ForumSubTopic />
+          </Suspense>
+        } />
+        <Route path="ForumDiscussion/:id" element={
+          <Suspense fallback={<Spinner />}>
+            <ForumDiscussion />
+          </Suspense>
+        } />
+
         <Route path="ProfilePage" element={
           <Suspense fallback={<Spinner />}>
             <ProfilePage />
+          </Suspense>
+        } />
+        <Route path="NotificationPage" element={
+          <Suspense fallback={<Spinner />}>
+            <NotificationPage />
           </Suspense>
         } />
         <Route path="HandlingGuide/:breed" element={
@@ -149,6 +174,11 @@ const router = createBrowserRouter(
         <Route path="PetProfile/:petId" element={
           <Suspense fallback={<Spinner />}>
             <PetProfile />
+          </Suspense>
+        } />
+        <Route path="PetVaccinationTracker/:petId" element={
+          <Suspense fallback={<Spinner />}>
+            <PetVaccinationTracker />
           </Suspense>
         } />
       </Route>

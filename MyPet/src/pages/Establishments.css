@@ -27,3 +27,55 @@
 .user-location {
   margin-top: 20px; /* Space above user location display */
 }
+/* Responsive Sidebar for Mobile */
+@media (max-width: 768px) {
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: white;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+  }
+
+  .sidebar-mobile-open {
+    transform: translateX(0);
+  }
+}
+
+/* Leaflet Map Adjustments */
+.establishments-page .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Enhance list group hover */
+.list-group-item-action:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+/* Overlay effect for mobile sidebar */
+@media (max-width: 768px) {
+  .sidebar-mobile-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+
+.scrollable-container {
+  max-height: 300px; /* Adjust the height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ddd; /* Optional: for better visualization */
+  border-radius: 4px; /* Optional: for aesthetics */
+}

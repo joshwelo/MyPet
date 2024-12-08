@@ -4,6 +4,9 @@ import { useAuth } from './authProvider';  // Import the useAuth hook
 import logo from './assets/mypetlogo.png';
 import './Home.css';  // Import your CSS file for additional styles
 import { Alert } from 'react-bootstrap'; // Import Alert from react-bootstrap
+import { db } from './firebaseConfig';
+import { getAuth, onAuthStateChanged } from "firebase/auth";    
+import { query, collection, where, getDocs } from "firebase/firestore";
 
 const Home = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -11,6 +14,9 @@ const Home = () => {
   const { currentUser } = useAuth();  // Get current user from context
   const [alert, setAlert] = useState(null);  // State for alert
   const [events, setEvents] = useState([]);  // Store the events
+  const [notifications, setNotifications] = useState([]);
+  const [userId, setUserId] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
 
 
@@ -26,7 +32,20 @@ const Home = () => {
     setActiveMenu(menuItem);
     closeSidebar();
   };
-
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setUserId(user.uid);
+            fetchNotifications(user.uid);
+        } else {
+            console.log("User is not authenticated");
+            setIsLoading(false);
+        }
+    });
+  
+    return () => unsubscribe();
+  }, []);
   // Text transition effect logic
   const messages = [
     'Remember to keep your pet hydrated!',
@@ -84,6 +103,52 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const fetchNotifications = async (currentUserId) => {
+    try {
+        const q = query(
+            collection(db, 'calendar'),
+            where('userId', '==', currentUserId)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        const fetchedNotifications = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        // Filter for past events considering both date and time
+        const filteredNotifications = fetchedNotifications.filter((notification) => {
+            const eventDateTime = new Date(`${notification.date}T${notification.time}`);
+            const currentDateTime = new Date();
+            
+            // Return true if the event datetime is before or equal to the current datetime
+            return eventDateTime <= currentDateTime;
+        });
+
+        // Sort notifications by date (most recent first)
+        filteredNotifications.sort((a, b) => {
+            const dateA = new Date(`${a.date}T${a.time}`);
+            const dateB = new Date(`${b.date}T${b.time}`);
+            return dateB - dateA;
+        });
+
+        setNotifications(filteredNotifications);
+        setIsLoading(false);
+    } catch (error) {
+        console.error("Error fetching notifications:", error);
+        setIsLoading(false);
+    }
+};
+const formatDateTime = (date, time) => {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+  });
+  return `${formattedDate} at ${time}`;
+};
+
   return (
     <div className="layout-wrapper layout-content-navbar">
       <div className="layout-container">
@@ -119,14 +184,27 @@ const Home = () => {
             </li>
             <li className={`menu-item ${activeMenu === 'DiagnosePage' ? 'active' : ''}`} role="menuitem" aria-controls="diagnose" aria-selected={activeMenu === 'DiagnosePage'}>
               <Link to="DiagnosePage" className="menu-link" onClick={() => handleMenuClick('DiagnosePage')}>
-                <i className="menu-icon tf-icons bx bxs-heart"></i>
-                <div data-i18n="Analytics">Health Assessment</div>
+                <i className='menu-icon tf-icons bx bx-question-mark'></i>
+                <div data-i18n="Analytics">Disease Detection</div>
               </Link>
             </li>
             <li className={`menu-item ${activeMenu === 'CalendarEventsPage' ? 'active' : ''}`} role="menuitem" aria-controls="calendar" aria-selected={activeMenu === 'CalendarEventsPage'}>
               <Link to="CalendarEventsPage" className="menu-link" onClick={() => handleMenuClick('CalendarEventsPage')}>
                 <i className="menu-icon tf-icons bx bxs-calendar"></i>
                 <div data-i18n="Analytics">Calendar</div>
+              </Link>
+            </li>
+            <li className={`menu-item ${activeMenu === 'PetJournalPage' ? 'active' : ''}`} role="menuitem" aria-controls="calendar" aria-selected={activeMenu === 'PetJournalPage'}>
+              <Link to="PetJournalPage" className="menu-link" onClick={() => handleMenuClick('PetJournalPage')}>
+              <i className='menu-icon tf-icons bx bxs-book-heart'></i>
+                <div data-i18n="Analytics">Pet Journal</div>
+              </Link>
+            </li>
+            <li className={`menu-item ${activeMenu === 'ForumSubTopic' ? 'active' : ''}`} role="menuitem"
+            aria-controls="calendar" aria-selected={activeMenu === 'ForumSubTopic'}>
+              <Link to="ForumSubTopic" className="menu-link" onClick={() => handleMenuClick('ForumPage')}>
+                <i className="menu-icon tf-icons bx bxs-message-alt-detail"></i>
+                <div data-i18n="Basic">Forum</div>
               </Link>
             </li>
             <li className="menu-header small text-uppercase">
@@ -170,8 +248,8 @@ const Home = () => {
           {alert.message}
         </Alert>
       )}
-                          {/* Display rotating text */}
-                          <b className="text-transition">
+              {/* Display rotating text */}
+              <b className="text-transition">
                 <div className="train-text">
                   {messages.map((message, index) => (
                     <span key={index} className="scrolling-word">
@@ -207,6 +285,17 @@ const Home = () => {
                       <div className="dropdown-divider"></div>
                     </li>
                     <li>
+                      <Link className="dropdown-item" to="/Home/NotificationPage">
+                      <i className='bx bxs-bell me-2'></i>
+                        <span className="align-middle">Notifications</span>
+                        {notifications.filter(notification => !notification.read).length > 0 && (
+        <span className="badge bg-danger ms-2 rounded-pill">
+            {notifications.filter(notification => !notification.read).length}
+        </span>
+    )}
+                      </Link>
+                    </li>
+                    <li>
                       <Link className="dropdown-item" to="/">
                         <i className="bx bx-power-off me-2"></i>
                         <span className="align-middle">Log Out</span>
@@ -226,3 +315,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+

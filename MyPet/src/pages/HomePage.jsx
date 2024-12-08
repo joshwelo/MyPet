@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Button, Spinner, Carousel } from 'react-bootstrap';
 import { db, auth } from "../firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
-import { Carousel } from "react-bootstrap";
-import diagnose from '../assets/pexels.jpg';
-import ai from '../assets/ai.png';
 
-const Home = () => {
+// Import local images
+import diagnoseImage from '../assets/pexels.jpg';
+import aiImage from '../assets/ai.png';
+
+const HomePage = () => {
   const [userId, setUserId] = useState(null);
   const [pets, setPets] = useState([]);
   const [events, setEvents] = useState([]);
@@ -69,112 +71,196 @@ const Home = () => {
     navigate(`/Home/PetProfile/${petId}`);
   };
 
+  if (loading) {
+    return (
+      <Container className="text-center my-5">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </Container>
+    );
+  }
+
   return (
-    <div className="content-wrapper">
-      <div className="container-xxl flex-grow-1 container-p-y">
-        <div className="row">
-          {/* First Row - My Pets and Is Your Pet Sick */}
-          <div className="col-12 col-md-8 mb-4">
-            <div className="card">
-              <h3 className="card-title text-primary fw-bold mb-0 m-4">My Pets</h3>
-              <div className="card-body">
-                {pets.length === 0 ? (
-                  <div>
-                    <p>No pets found. Please add one!</p>
-                    <Link to="/Home/ProfilePage" className="btn btn-sm btn-outline-primary">Go to Profile Page</Link>
-                  </div>
-                ) : (
-                  <div className="d-flex justify-content-center">
-                    <Carousel className="w-100">
-                      {pets.map((pet) => (
-                        <Carousel.Item key={pet.id}>
-                          <img
-                            className="d-block w-100"
-                            src={pet.image || "../assets/img/placeholder.png"}
-                            alt={pet.name}
-                          />
-                          <Carousel.Caption>
-                            <h5>{pet.name}</h5>
-                            <p>{pet.breed} | {pet.species}</p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      ))}
-                    </Carousel>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+    <Container fluid className="px-4 py-3">
+      {/* Welcome Section */}
+      <Row className="mb-4">
+        <Col>
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title className="h3">
+                Welcome to My Pet Dashboard
+              </Card.Title>
+              <Card.Text>
+                Manage your pet's health, track events, and stay connected with our comprehensive pet care platform.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
 
-          <div className="col-12 col-md-4 mb-4">
-            <div className="card">
-              <img className="card-img-top" src={diagnose} alt="Is your pet sick?" />
-              <div className="card-body">
-                <h5 className="card-title text-primary">Is your pet sick?</h5>
-                <p className="card-text">Pet health is important for their well-being. If your pet shows signs of illness, it's time for a checkup.</p>
-                <Link to="/Home/DiagnosePage" className="btn btn-outline-primary w-100">Go</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          {/* Second Row - Schedule and Check Your Pet's Breed */}
-          <div className="col-12 col-md-8 mb-4">
-            <div className="card scrollable-card">
-              <h5 className="card-header text-primary fw-bold">Upcoming Schedule</h5>
-              <div className="table-responsive">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Time</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {events.length === 0 ? (
-                      <tr><td colSpan="3">No upcoming events found</td></tr>
-                    ) : (
-                      events.map((event) => (
-                        <tr key={event.id}>
-                          <td>{event.start.toLocaleDateString()}</td>
-                          <td>{event.start.toLocaleTimeString()}</td>
-                          <td>{event.title}</td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th><Link to="/Home/CalendarEventsPage" className="btn btn-sm btn-outline-primary">View Calendar</Link></th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-md-4 mb-4">
-            <div className="card">
-              <div className="card-body d-flex flex-column align-items-center justify-content-between">
-                <div className="text-center mb-3">
-                  <h5 className="text-primary">Check your pet's breed</h5>
-                  <p>Knowing your pet's breed can help with care instructions, dietary needs, and grooming requirements.</p>
+      {/* Quick Action Cards */}
+      <Row className="g-3 mb-4">
+        <Col md={4}>
+          <Card className="h-100 hover-lift">
+            <Card.Body>
+              <div className="d-flex align-items-center">
+                <i className='bx bxs-dog me-3 text-primary' style={{fontSize: '3rem'}}></i>
+                <div>
+                  <Card.Title>Manage Pets</Card.Title>
+                  <Card.Text className="text-muted">
+                    View and update your pet's profiles
+                  </Card.Text>
                 </div>
-                <div className="d-flex justify-content-center mb-3">
-                  <img src={ai} alt="Forum" width="60%" />
-                </div>
-                <Link to="/Home/AiBreed" className="btn btn-sm btn-outline-primary w-100">Forums</Link>
               </div>
-            </div>
-          </div>
+              <Button 
+                variant="outline-primary" 
+                className="mt-3 w-100"
+                onClick={() => navigate('/Home/ProfilePage')}
+              >
+                View Pets
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
 
-        </div>
+        <Col md={4}>
+          <Card className="h-100 hover-lift">
+            <Card.Body>
+              <div className="d-flex align-items-center">
+                <i className='bx bxs-calendar me-3 text-success' style={{fontSize: '3rem'}}></i>
+                <div>
+                  <Card.Title>Upcoming Events</Card.Title>
+                  <Card.Text className="text-muted">
+                    {events.length > 0 
+                      ? `Next event: ${events[0].title}` 
+                      : 'No upcoming events'}
+                  </Card.Text>
+                </div>
+              </div>
+              <Button 
+                variant="outline-success" 
+                className="mt-3 w-100"
+                onClick={() => navigate('/Home/CalendarEventsPage')}
+              >
+                View Calendar
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
 
-      </div>
-    </div>
+        <Col md={4}>
+          <Card className="h-100 hover-lift">
+            <Card.Body>
+              <div className="d-flex align-items-center">
+                <i className='bx bx-question-mark me-3 text-warning' style={{fontSize: '3rem'}}></i>
+                <div>
+                  <Card.Title>Health Check</Card.Title>
+                  <Card.Text className="text-muted">
+                    Disease detection and health insights
+                  </Card.Text>
+                </div>
+              </div>
+              <Button 
+                variant="outline-warning" 
+                className="mt-3 w-100"
+                onClick={() => navigate('/Home/DiagnosePage')}
+              >
+                Check Health
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      {/* Pets Overview */}
+      <Row className="mb-4">
+        <Col>
+          <Card>
+            <Card.Header>Your Pets</Card.Header>
+            <Card.Body>
+              {pets.length === 0 ? (
+                <div className="text-center">
+                  <p>You haven't added any pets yet.</p>
+                  <Button 
+                    variant="primary"
+                    onClick={() => navigate('/Home/ProfilePage')}
+                  >
+                    Add a Pet
+                  </Button>
+                </div>
+              ) : (
+                <Row xs={1} md={3} className="g-4">
+                  {pets.map(pet => (
+                    <Col key={pet.id}>
+                      <Card 
+                        className="pet-card hover-lift" 
+                        onClick={() => handlePetClick(pet.id)}
+                      >
+                        <Card.Img 
+                          variant="top" 
+                          src={pet.image} 
+                          className="pet-card-img"
+                        />
+                        <Card.Body>
+                          <Card.Title>{pet.name}</Card.Title>
+                          <Card.Text>
+                            {pet.breed} | {pet.age} years old
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+                </Row>
+              )}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      {/* Feature Showcase Carousel */}
+      <Row>
+        <Col>
+          <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={diagnoseImage}
+                alt="Disease Detection"
+              />
+              <Carousel.Caption>
+                <h3>Advanced Disease Detection</h3>
+                <p>AI-powered health insights for your pet</p>
+                <Button 
+                  variant="light"
+                  onClick={() => navigate('/Home/DiagnosePage')}
+                >
+                  Learn More
+                </Button>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={aiImage}
+                alt="AI Breed Scanner"
+              />
+              <Carousel.Caption>
+                <h3>AI Breed Recognition</h3>
+                <p>Identify and learn about your pet's breed</p>
+                <Button 
+                  variant="light"
+                  onClick={() => navigate('/Home/AiBreed')}
+                >
+                  Try Now
+                </Button>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
-export default Home;
+export default HomePage;

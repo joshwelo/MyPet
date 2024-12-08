@@ -1,28 +1,28 @@
-.home-container {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .header {
-    margin-bottom: 20px;
-  }
-  
-  .carousel .slide {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .section h2 {
-    margin-top: 0;
-  }
-  .scrollable-card .table-responsive {
-    max-height: 300px; /* Adjust this value as needed */
-    overflow-y: auto;  /* Enables vertical scrolling */
-  }
-  
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-  
+.pet-card {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pet-card-img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.carousel-item img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+}
