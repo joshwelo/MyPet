@@ -1,6 +1,10 @@
 // public/firebase-messaging-sw.js
-importScripts('https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/9.1.1/firebase-messaging-compat.js');
+importScripts(
+  'https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js'
+);
+importScripts(
+  'https://www.gstatic.com/firebasejs/9.22.1/firebase-messaging-compat.js'
+);
 
 const firebaseConfig = {
     apiKey: "AIzaSyCE8o7wFc2JCisxepJ_X4DzQhKpx0hPM_o",
@@ -12,19 +16,25 @@ const firebaseConfig = {
     appId: "1:953924048342:web:f286c21449c09b5f3f8077",
     measurementId: "G-Z8QEPL29RY"
 };
-
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log("Received background message ", payload);
+  console.log("Received background message", payload);
 
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: '/mypetlogo-copy.png'
-  };
+  // Check if the notification object exists in the payload
+  const notification = payload.notification;
+  if (notification && notification.title && notification.body) {
+    const notificationTitle = notification.title;
+    const notificationOptions = {
+      body: notification.body,
+      icon: '/mypetlogo-copy.png'
+    };
 
-  self.registration.showNotification(notificationTitle, notificationOptions);
+    self.registration.showNotification(notificationTitle, notificationOptions);
+  } else {
+    console.warn("Notification payload is missing required properties:", payload);
+  }
 });
+

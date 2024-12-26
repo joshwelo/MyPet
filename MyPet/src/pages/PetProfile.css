@@ -1,105 +1,63 @@
 .timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-  }
-  
-  .timeline::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background: #e0e0e0;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-  }
-  
-  .timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 10px 40px;
-    box-sizing: border-box;
-  }
-  
-  .timeline-item-left {
-    left: 0;
-  }
-  
-  .timeline-item-right {
-    left: 50%;
-  }
-  
-  .timeline-content {
-    position: relative;
-    background: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  .timeline-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #007bff;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 15px;
-  }
-  
-  .timeline-item-left .timeline-icon {
-    right: -20px;
-  }
-  
-  .timeline-item-right .timeline-icon {
-    left: -30px;
-  }
-  
-  .timeline-title {
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-  
-  .timeline-description {
-    margin-bottom: 10px;
-  }
-  
-  .timeline-age {
-    font-size: 0.8em;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .timeline::before {
-      left: 30px;
-    }
-  
-    .timeline-item {
-      width: 100%;
-      padding: 10px 10px 10px 70px;
-    }
-  
-    .timeline-item-left,
-    .timeline-item-right {
-      left: 0;
-    }
-  
-    .timeline-icon {
-      left: 0px;
-    }
-  }
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+  gap: 20px;
+}
 
-  .milestone-passed .timeline-content {
-    background-color: #e0ffe0; /* Light green background for passed milestones */
-    border-left: 5px solid #28a745; /* Green border */
-  }
-  
-  .bxs-check-circle {
-    font-size: 1.2em;
-  }
-  
+.timeline-item {
+  flex-shrink: 0;
+  width: 250px; /* Adjust width for each milestone item */
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.timeline-item:hover {
+  transform: scale(1.05);
+}
+
+.timeline-item-left {
+  text-align: left;
+}
+
+.timeline-item-right {
+  text-align: right;
+}
+
+.milestone-passed {
+  background-color: #d4edda;
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+}
+
+.timeline-age {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+.timeline::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

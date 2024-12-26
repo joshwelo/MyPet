@@ -216,11 +216,22 @@ const DiagnosePage = () => {
               {renderFilteredSymptoms()}
             </div>
             <button
-              className="btn btn-primary ms-2"
-              onClick={() => setActiveTab((prev) => (prev === "dog" ? "cat" : "dog"))}
-            >
-              Switch to {activeTab === "dog" ? "Cat" : "Dog"}
-            </button>
+  className="btn btn-primary ms-2"
+  onClick={() => {
+    const newTab = activeTab === "dog" ? "cat" : "dog";
+    setActiveTab(newTab);
+    setSelectedSymptoms([]); // Clear symptoms
+    setDiagnosis([]);        // Clear diagnosis
+    setChat((prevChat) => [
+      ...prevChat,
+      { type: "system", message: `Switched to ${newTab.toUpperCase()} mode. Symptoms cleared.` }
+    ]);
+  }}
+>
+  Switch to {activeTab === "dog" ? "Cat" : "Dog"}
+</button>
+
+
           </div>
         </div>
       </div>

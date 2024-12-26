@@ -114,7 +114,6 @@ const AiBreedScanner = () => {
               </button>
             </div>
           </div>
-
           {/* Image Upload */}
           <div className="mb-4">
             <input 

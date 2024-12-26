@@ -1,10 +1,21 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import { db, auth, storage } from '../firebaseConfig'; // Import Firebase storage
-import { doc, getDoc, collection, addDoc, updateDoc, increment, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { 
+  doc, 
+  getDoc, 
+  collection, 
+  addDoc, 
+  updateDoc, 
+  increment, 
+  query, 
+  where, 
+  onSnapshot, 
+  Timestamp, 
+  arrayUnion 
+} from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'; // Firebase storage methods
 import Loading from './Loading';
-import { arrayUnion } from 'firebase/firestore';
 import { Link, Outlet } from 'react-router-dom';
 
 const subtopics = [
@@ -36,40 +47,60 @@ const ForumDiscussion = () => {
   const [commentUpvoteStates, setCommentUpvoteStates] = useState({});
   const [replyingToUser, setReplyingToUser] = useState(null); // New state to track who we're replying to
   const [topicTitle, setTopicTitle] = useState("");
+  const [activeDiscussionComments, setActiveDiscussionComments] = useState([]);
+  const [expandedDiscussions, setExpandedDiscussions] = useState({});
+  console.log("Current user:", auth.currentUser);
 
   // Fetch username from users collection
+  // Real-time listener for user data
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (auth.currentUser) {
-        const userDocRef = doc(db, "users", auth.currentUser.uid);
-        const userDoc = await getDoc(userDocRef);
-        if (userDoc.exists()) {
-          const userData = userDoc.data();
-          setUsername(userData.username);
-          setProfilePictureUrl(userData.profilePicture || "default-profile.png");
-        }
+    if (!auth.currentUser) return;
+
+    const userDocRef = doc(db, "users", auth.currentUser.uid);
+    const unsubscribe = onSnapshot(userDocRef, (doc) => {
+      if (doc.exists()) {
+        const userData = doc.data();
+        setUsername(userData.username);
+        setProfilePictureUrl(userData.profilePicture || "default-profile.png");
       }
-    };
+    });
 
-    fetchUserData();
+    return () => unsubscribe();
   }, []);
-
   // Fetch discussions from Firestore
-  useEffect(() => {
-    const fetchDiscussions = async () => {
-      const q = query(collection(db, "discussions"), where("topicId", "==", id));
-      const querySnapshot = await getDocs(q);
-      const discussionsList = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setDiscussions(discussionsList);
-      setLoading(false);
-    };
+ // Real-time listener for discussions
+ useEffect(() => {
+  if (!id) return;
 
-    fetchDiscussions();
-  }, [id]);
+  const discussionsQuery = query(
+    collection(db, "discussions"), 
+    where("topicId", "==", id)
+  );
 
+  const unsubscribe = onSnapshot(discussionsQuery, (querySnapshot) => {
+    const discussionsList = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    // Sort discussions by timestamp, most recent first
+    discussionsList.sort((a, b) => b.timestamp.seconds - a.timestamp.seconds);
+
+    setDiscussions(discussionsList);
+    setLoading(false);
+  }, (error) => {
+    console.error("Error fetching discussions: ", error);
+    setLoading(false);
+  });
+
+  return () => unsubscribe();
+}, [id]);
+const toggleComments = (discussionId) => {
+  setExpandedDiscussions(prev => ({
+    ...prev,
+    [discussionId]: !prev[discussionId]
+  }));
+};
 // Handle upvote
 const handleUpvote = async (discussionId) => {
     const userVote = userVotes[discussionId];
@@ -107,7 +138,7 @@ const handleUpvote = async (discussionId) => {
     const topic = subtopics.find((topic) => topic.id === parseInt(id));
     if (topic) {
       setTopicTitle(topic.title);
-      document.title = `${topic.title} - Discussions`; // Set the browser tab title dynamically
+      document.title = `${topic.title} - Discussions`;
     }
   }, [id]);
   // Handle downvote
@@ -207,49 +238,79 @@ const handleCreateDiscussion = async () => {
   };
 
   const handleAddComment = async () => {
-    if (commentText.trim()) {
-      const discussionRef = doc(db, "discussions", currentDiscussionId);
+    if (!commentText.trim() || !currentDiscussionId) return;
   
-      // Determine the comment text, removing the "replying to" prefix if present
-      const cleanCommentText = replyingToUser
-        ? commentText.replace(`replying to ${replyingToUser} - `, '').trim()
-        : commentText;
+    const discussionRef = doc(db, "discussions", currentDiscussionId);
   
-      const newComment = {
-        text: cleanCommentText,
-        author: username,
-        profilePictureUrl: profilePictureUrl || "default-profile.png",
-        userId: auth.currentUser?.uid,
-        timestamp: Timestamp.now(),
-        upvotes: 0,
-        replyingTo: replyingToUser, // Optional: store who the comment is replying to
-      };
+    // Clean comment text if replying to someone
+    const cleanCommentText = replyingToUser
+      ? commentText.replace(`replying to ${replyingToUser} - `, '').trim()
+      : commentText;
   
-      try {
-        // Add the comment to the Firestore database
-        await updateDoc(discussionRef, {
-          comments: arrayUnion(newComment),
+    const newComment = {
+      text: cleanCommentText,
+      author: username,
+      profilePictureUrl: profilePictureUrl || "default-profile.png",
+      userId: auth.currentUser?.uid,
+      timestamp: Timestamp.now(),
+      upvotes: 0,
+      replyingTo: replyingToUser,
+    };
+  
+    try {
+      // First, get the current discussion data to ensure we have the authorId
+      const discussionSnapshot = await getDoc(discussionRef);
+      if (!discussionSnapshot.exists()) {
+        console.error("Discussion not found");
+        return;
+      }
+  
+      const discussionData = discussionSnapshot.data();
+      
+      // Add the comment to the discussion
+      await updateDoc(discussionRef, {
+        comments: arrayUnion(newComment),
+      });
+  
+      // Only create notification if we have both the discussion author ID and current user
+      if (
+        discussionData.authorId && 
+        auth.currentUser?.uid &&
+        discussionData.authorId !== auth.currentUser.uid // Don't notify if commenting on own post
+      ) {
+        // Generate current date and time
+        const now = new Date();
+        const formattedDate = now.toISOString().split('T')[0];
+        const formattedTime = now.toLocaleTimeString('en-US', { 
+          hour: '2-digit', 
+          minute: '2-digit', 
+          hour12: false 
         });
   
-        // Update the local state to include the new comment, triggering a re-render
-        setDiscussions((prevDiscussions) =>
-          prevDiscussions.map((discussion) =>
-            discussion.id === currentDiscussionId
-              ? { ...discussion, comments: [...discussion.comments, newComment] }
-              : discussion
-          )
-        );
-  
-        // Reset comment-related states
-        setCommentText("");
-        setReplyingToUser(null);
-        setShowCommentModal(true);  // This forces the modal to show with updated comments
-  
-      } catch (error) {
-        console.error("Error adding comment: ", error);
+        // Create notification with verified userId
+        await addDoc(collection(db, "calendar"), {
+          date: formattedDate,
+          time: formattedTime,
+          eventName: `New Comment on: ${discussionData.title}`,
+          description: `${username} commented: "${cleanCommentText}"`,
+          userId: discussionData.authorId,
+          notified: false,
+          read: false
+        });
       }
+  
+      // Reset states
+      setCommentText("");
+      setCurrentDiscussionId(null);
+      setReplyingToUser(null);
+  
+    } catch (error) {
+      console.error("Error adding comment: ", error);
+      // Optionally show error to user
+      alert("Failed to add comment. Please try again.");
     }
   };
+
   
   // New method to handle reply
   const handleReply = (commentAuthor) => {
@@ -320,16 +381,37 @@ const handleCreateDiscussion = async () => {
     }
   };
 
+// Modify the real-time comments listener
+useEffect(() => {
+  if (!currentDiscussionId) return;
 
-  const openCommentModal = (discussionId) => {
-    setCurrentDiscussionId(discussionId);
-    
-    // Set active discussion to the specific one
-    const discussion = discussions.find(d => d.id === discussionId);
-    setActiveDiscussion(discussion);
-  
-    setShowCommentModal(true);
-  };
+  const discussionRef = doc(db, "discussions", currentDiscussionId);
+
+  const unsubscribe = onSnapshot(discussionRef, (docSnapshot) => {
+    if (docSnapshot.exists()) {
+      const discussionData = docSnapshot.data();
+      
+      // Update discussions array to reflect latest comments
+      setDiscussions(prevDiscussions => 
+        prevDiscussions.map(discussion => 
+          discussion.id === currentDiscussionId 
+            ? { ...discussion, comments: discussionData.comments || [] }
+            : discussion
+        )
+      );
+
+      // Update active discussion to ensure modal reflects latest data
+      setActiveDiscussion(prevDiscussion => ({
+        ...prevDiscussion,
+        comments: discussionData.comments || []
+      }));
+    }
+  }, (error) => {
+    console.error("Error listening to discussion comments: ", error);
+  });
+
+  return () => unsubscribe();
+}, [currentDiscussionId]);
 
   if (loading) {
     return <Loading />;
@@ -341,88 +423,174 @@ const handleCreateDiscussion = async () => {
         <div className="col-md-8">
           {/* Header with Topic and Create Discussion */}
           <div className="d-flex justify-content-between align-items-center mt-4">
-          <h2 className="text-dark fw-bold">{topicTitle}</h2>
+            <h2 className="text-dark fw-bold">{topicTitle}</h2>
           </div>
-          <button 
-              className="btn btn-primary rounded-pill shadow-sm mb=3" 
+          
+          <div className="mb-3 d-flex gap-3">
+            <button 
+              className="btn btn-primary rounded-pill shadow-sm"
               onClick={() => setShowModal(true)}
             >
-              <i className="bi bi-plus-circle me-2"></i>Create Discussion
+              <i className="bx bx-plus-circle me-2"></i>Create Discussion
             </button>
             <Link to="/Home/ForumSubTopic">
-              <button className="btn btn-secondary rounded-pill shadow-sm mx-3">Go Back</button>
+              <button className="btn btn-secondary rounded-pill shadow-sm">Go Back</button>
             </Link>
+          </div>
+
           {/* Discussion List */}
-          <div className="list-group mt-3">
+          <div className="d-flex flex-column gap-4">
             {discussions.map((discussion) => (
               <div 
                 key={discussion.id} 
-                className="list-group-item list-group-item-action bg-white mb-3 rounded-3 border-0 shadow-sm"
+                className="bg-white rounded-lg shadow-sm p-4"
               >
-                <div className="d-flex w-100">
+                {/* Main Discussion Content */}
+                <div className="d-flex">
                   {/* Voting Section */}
-                  <div 
-                    className="d-flex flex-column align-items-center me-3 p-2 bg-light rounded"
-                    style={{minWidth: '60px'}}
-                  >
+                  <div className="d-flex flex-column align-items-center me-4 bg-light rounded p-2" style={{width: "60px"}}>
                     <button 
-                      className={`btn btn-link text-muted p-0 ${userVotes[discussion.id] === "upvoted" ? "text-success" : ""}`}
+                      className={`btn btn-link p-0 ${userVotes[discussion.id] === "upvoted" ? "text-primary" : "text-secondary"}`}
                       onClick={() => handleUpvote(discussion.id)}
                     >
-                      <i className='bx bxs-upvote'></i>
+                      <i className="bx bxs-up-arrow text-2xl"></i>
                     </button>
                     <span className="my-1 fw-bold">{discussion.upvotes}</span>
                     <button 
-                      className={`btn btn-link text-muted p-0 ${userVotes[discussion.id] === "downvoted" ? "text-danger" : ""}`}
+                      className={`btn btn-link p-0 ${userVotes[discussion.id] === "downvoted" ? "text-danger" : "text-secondary"}`}
                       onClick={() => handleDownvote(discussion.id)}
                     >
-                     <i className='bx bxs-downvote'></i>
+                      <i className="bx bxs-down-arrow text-2xl"></i>
                     </button>
                   </div>
 
                   {/* Discussion Content */}
-                  <div className="flex-grow- mt-3">
-
-                    <small className="text-muted d-flex align-items-center">
-                      {/* Display Profile Picture */}
-                      {discussion.profilePictureUrl && (
-                        <img 
-                          src={discussion.profilePictureUrl} 
-                          alt="Author Profile" 
-                          className="rounded-circle me-2" 
-                          style={{ width: '30px', height: '30px', objectFit: 'cover' }}
-                        />
-                      )}
-                      Posted by {discussion.author} 
-                      {' · '}
-                      {new Date(discussion.timestamp.seconds * 1000).toLocaleDateString()}
-                    </small>
-                    <div className="d-flex justify-content-between align-items-center mt-2">
-                      <h5 className="mb-1 fw-bold">{discussion.title}</h5>
+                  <div className="flex-grow-1">
+                    <div className="d-flex align-items-center text-secondary small">
+                      <img 
+                        src={discussion.profilePictureUrl} 
+                        alt="Author Profile" 
+                        className="rounded-circle me-2" 
+                        style={{width: "32px", height: "32px", objectFit: "cover"}}
+                      />
+                      <span>Posted by {discussion.author}</span>
+                      <span className="mx-2">·</span>
+                      <span>{new Date(discussion.timestamp.seconds * 1000).toLocaleDateString()}</span>
                     </div>
-                    <p className="mb-2">{discussion.content}</p>
+
+                    <h3 className="fs-5 fw-bold mt-2">{discussion.title}</h3>
+                    <p className="mt-2 text-secondary">{discussion.content}</p>
 
                     {discussion.imageUrl && (
                       <img 
                         src={discussion.imageUrl} 
                         alt="Discussion" 
-                        className="img-fluid rounded mb-3"
+                        className="mt-3 rounded img-fluid" 
+                        style={{maxHeight: "384px", objectFit: "cover"}}
                       />
                     )}
 
                     {/* Comments Section */}
-                    <div className="d-flex justify-content-between align-items-center">
-                      <button 
-                        className="btn btn-sm btn-outline-secondary rounded-pill"
-                        onClick={() => openCommentModal(discussion.id)}
-                      >
-                        <i className="bi bi-chat-left me-2"></i>
-                        {discussion.comments.length} Comments
-                      </button>
-                    </div>
-                  </div>
+                    {expandedDiscussions[discussion.id] && (
+                      <div className="mt-4 bg-light rounded p-4">
+                        {/* Comments List */}
+                        <div className="comments-container mb-4">
+                          {discussion.comments.map((comment, index) => {
+                            const voteKey = `${discussion.id}-comment-${index}`;
+                            const isUpvoted = commentUpvoteStates[voteKey];
 
+                            return (
+                              <div key={index} className="d-flex mb-3">
+                                <img
+                                  src={comment.profilePictureUrl}
+                                  alt="Commenter"
+                                  className="rounded-circle me-3"
+                                  style={{width: "32px", height: "32px", objectFit: "cover"}}
+                                />
+                                <div className="flex-grow-1">
+                                  <div className="bg-white p-3 rounded">
+                                    <div className="d-flex justify-content-between align-items-center mb-2">
+                                      <h6 className="mb-0 fw-bold">{comment.author}</h6>
+                                      <small className="text-secondary">
+                                        {new Date(comment.timestamp.seconds * 1000).toLocaleString()}
+                                      </small>
+                                    </div>
+                                    <p className="mb-0">{comment.text}</p>
+                                  </div>
+                                  <div className="d-flex align-items-center mt-2">
+                                    <button
+                                      className={`btn btn-link btn-sm p-0 me-3 ${isUpvoted ? 'text-primary fw-bold' : 'text-secondary'}`}
+                                      onClick={() => handleCommentUpvote(discussion.id, index)}
+                                    >
+                                      <i className="bx bxs-like me-1"></i>
+                                      {comment.upvotes || 0}
+                                    </button>
+                                    <button 
+                                      className="btn btn-link btn-sm text-secondary p-0"
+                                      onClick={() => handleReply(comment.author)}
+                                    >
+                                      <i className="bx bx-reply me-1"></i>
+                                      Reply
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Comment Input */}
+                        <div className="d-flex align-items-center">
+                          <img
+                            src={profilePictureUrl}
+                            alt="Your Profile"
+                            className="rounded-circle me-3"
+                            style={{width: "32px", height: "32px", objectFit: "cover"}}
+                          />
+                          <div className="flex-grow-1 position-relative">
+                          <input
+    type="text"
+    className="form-control rounded-pill pe-5"
+    placeholder="Write a comment..."
+    value={currentDiscussionId === discussion.id ? commentText : ''} // Correctly binds commentText
+    onChange={(e) => {
+        setCurrentDiscussionId(discussion.id);
+        setCommentText(e.target.value);
+    }}
+/>
+                            <button
+                              className="btn btn-link position-absolute end-0 top-50 translate-middle-y text-primary"
+                              onClick={() => {
+                                setCurrentDiscussionId(discussion.id);
+                                handleAddComment();
+                              }}
+                              disabled={!commentText.trim() || currentDiscussionId !== discussion.id}
+                              style={{marginRight: "8px"}}
+                            >
+                              <i className="bx bxs-send"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
                 </div>
+                                    {/* Enhanced Comments Button */}
+                                    <button 
+                      className={`mt-4 btn rounded-pill d-inline-flex align-items-center ${
+                        expandedDiscussions[discussion.id] 
+                          ? "btn-light" 
+                          : "btn-outline-primary"
+                      }`}
+                      onClick={() => toggleComments(discussion.id)}
+                    >
+                      <i className={`bx ${expandedDiscussions[discussion.id] ? 'bx-x' : 'bx-message-rounded'} me-2`}></i>
+                      {expandedDiscussions[discussion.id] ? "Close Comments" : "Open Comments"}
+                      <span className="ms-2 badge bg-secondary rounded-pill">
+                        {discussion.comments.length}
+                      </span>
+                    </button>
               </div>
             ))}
           </div>
@@ -461,6 +629,7 @@ const handleCreateDiscussion = async () => {
                   type="file" 
                   className="form-control mb-3"
                   onChange={handleImageChange} 
+                  placeholder="Insert Image"
                 />
                 {imagePreview && (
                   <img 
@@ -491,145 +660,6 @@ const handleCreateDiscussion = async () => {
           </div>
         </div>
       )}
-
-        {/* Comment Modal */}
-        {showCommentModal && (
-  <div 
-    className="modal fade show" 
-    style={{ 
-      display: 'block', 
-      backgroundColor: 'rgba(0,0,0,0.5)', 
-      zIndex: 1050 
-    }} 
-    tabIndex="-1"
-  >
-    <div className="modal-dialog modal-dialog-centered modal-lg">
-      <div className="modal-content border-0 rounded-3 shadow-sm">
-        <div className="modal-header bg-light py-3 px-4 border-bottom">
-          <div className="d-flex align-items-center">
-            <img 
-              src={activeDiscussion?.profilePictureUrl} 
-              alt="Profile" 
-              className="rounded-circle me-3" 
-              style={{ width: '40px', height: '40px', objectFit: 'cover' }}
-            />
-            <div>
-              <h5 className="mb-0 fw-bold">{activeDiscussion?.title}</h5>
-              <small className="text-muted">{username}</small>
-            </div>
-          </div>
-          <button
-            type="button"
-            className="btn-close"
-            onClick={() => setShowCommentModal(false)}
-          ></button>
-        </div>
-        
-        <div className="modal-body p-0">
-  {/* Comments Container */}
-  <div
-  className="comments-container overflow-auto px-4 pt-3"
-  style={{ maxHeight: '400px' }}
->
-  {activeDiscussion?.comments?.length > 0 ? (
-    activeDiscussion.comments.map((comment, index) => {
-      const voteKey = `${currentDiscussionId}-comment-${index}`;
-      const isUpvoted = commentUpvoteStates[voteKey];
-
-      return (
-        <div key={index} className="d-flex mb-3">
-          <img
-            src={comment.profilePictureUrl}
-            alt="Commenter"
-            className="rounded-circle me-3"
-            style={{ width: '40px', height: '40px', objectFit: 'cover' }}
-          />
-
-          <div className="flex-grow-1">
-            <div
-              className="bg-light p-2 px-3 rounded-4"
-              style={{ display: 'inline-block' }}
-            >
-              <div className="d-flex justify-content-between align-items-center mb-1">
-                <h6 className="mb-0 fw-bold text-dark me-2">
-                  {comment.author}
-                </h6>
-                <small className="text-muted">
-                  {new Date(comment.timestamp.seconds * 1000).toLocaleString()}
-                </small>
-              </div>
-              <p
-                className="mb-0 text-dark"
-                style={{ fontSize: '0.9rem' }}
-              >
-                {comment.text}
-              </p>
-            </div>
-
-            <div className="d-flex align-items-center mt-1">
-              <button
-                className={`btn btn-link btn-sm p-0 me-2 ${isUpvoted ? 'fw-bold text-primary' : 'text-muted'}`}
-                onClick={() => handleCommentUpvote(currentDiscussionId, index)}
-              >
-                <i className="bx bx-upvote"></i> 
-                Upvote ({comment.upvotes || 0})
-              </button>
-              <button 
-                className="btn btn-link btn-sm text-muted p-0"
-                onClick={() => handleReply(comment.author)}
-              >
-                Reply
-              </button>
-            </div>
-          </div>
-        </div>
-      );
-    })
-  ) : (
-    <div className="text-center text-muted py-4">
-      No comments yet. Start the conversation!
-    </div>
-  )}
-</div>
-
-  {/* New Comment Input */}
-  <div className="px-4 py-3 border-top">
-    <div className="d-flex align-items-center">
-      <img
-        src={profilePictureUrl}
-        alt="Your Profile"
-        className="rounded-circle me-3"
-        style={{ width: '40px', height: '40px', objectFit: 'cover' }}
-      />
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control rounded-pill"
-          placeholder="Write a comment..."
-          value={commentText}
-          onChange={(e) => {
-            // Allow manual editing of the comment, including the "replying to" prefix
-            setCommentText(e.target.value);
-          }}
-        />
-        <div className="input-group-append">
-          <button
-            className="btn btn-link text-primary"
-            onClick={handleAddComment}
-            disabled={!commentText.trim()}
-          >
-            <i className="bx bxs-send"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-    </div>
-  </div>
-)}
     </div>
   );
 };

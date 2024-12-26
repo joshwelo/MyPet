@@ -5,7 +5,8 @@ import spin from '../assets/Dancing kitty.gif'; // Ensure the correct path to th
 const Loading = () => {
   return (
     <div style={styles.container} className='mt-4'>
-      <img src={spin} alt="Loading..." style={styles.image} />
+      
+      <lottie-player src="https://lottie.host/84569736-a2ae-4282-863d-ab3501b93565/IdJZZ3flYM.json"  background="##FFFFFF" speed="1" style={{ maxWidth: "300px", height: "auto" }} loop autoplay direction="1" mode="normal"></lottie-player>
     </div>
   );
 };

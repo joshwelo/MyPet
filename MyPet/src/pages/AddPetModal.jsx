@@ -15,19 +15,22 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     species: "",
     breed: "",
     birthday: "",
+    sex: "",
     vaccinationHistory: [],
     medicalHistory: ""
   });
   const [errors, setErrors] = useState({
     name: false,
     species: false,
-    breed: false
+    breed: false,
+    sex: false,
+    birthday: false
   });
-  const [saving, setSaving] = useState(false); // State to manage button status
+  const [saving, setSaving] = useState(false);
 
   // Filter and map breeds based on selected species
   const getBreedsBySpecies = (species) => {
-    if (!species) return []; // Return empty if species is not set
+    if (!species) return [];
     return petBreedsData[species]?.map((breed) => ({
       value: breed.breed,
       label: breed.breed
@@ -50,10 +53,17 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     } else {
       setPetData({ ...petData, [name]: value });
     }
+    // Clear error when field is modified
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: false });
+    }
   };
 
   const handleBreedChange = (selectedOption) => {
     setPetData({ ...petData, breed: selectedOption ? selectedOption.value : "" });
+    if (errors.breed) {
+      setErrors({ ...errors, breed: false });
+    }
   };
 
   const handleVaccinationChange = (selectedOptions) => {
@@ -62,7 +72,13 @@ const AddPetModal = ({ show, handleClose, userId }) => {
 
   const validateForm = () => {
     let isValid = true;
-    const newErrors = { name: false, species: false, breed: false };
+    const newErrors = {
+      name: false,
+      species: false,
+      breed: false,
+      sex: false,
+      birthday: false
+    };
 
     if (!petData.name) {
       newErrors.name = true;
@@ -79,6 +95,16 @@ const AddPetModal = ({ show, handleClose, userId }) => {
       isValid = false;
     }
 
+    if (!petData.sex) {
+      newErrors.sex = true;
+      isValid = false;
+    }
+
+    if (!petData.birthday) {
+      newErrors.birthday = true;
+      isValid = false;
+    }
+
     setErrors(newErrors);
     return isValid;
   };
@@ -87,23 +113,25 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     const petsCollectionRef = collection(db, 'pets');
     const q = query(petsCollectionRef, where("userId", "==", userId), where("name", "==", name));
     const querySnapshot = await getDocs(q);
-    return !querySnapshot.empty; // Returns true if duplicate exists
+    return !querySnapshot.empty;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate form before submitting
-    if (!validateForm()) {
-      return;
-    }
+    console.log("Pet Data Before Submission:", petData);
+    console.log("User ID:", userId);
 
     if (!userId) {
       console.error("User ID is not defined");
       return;
     }
 
-    setSaving(true); // Disable button and show saving status
+    if (!validateForm()) {
+      console.log("Form Validation Failed", errors);
+      return;
+    }
+
+    setSaving(true);
 
     try {
       const isDuplicate = await checkDuplicateName(petData.name);
@@ -135,7 +163,7 @@ const AddPetModal = ({ show, handleClose, userId }) => {
     } catch (error) {
       console.error("Error adding pet: ", error);
     } finally {
-      setSaving(false); // Re-enable button
+      setSaving(false);
     }
   };
 
@@ -192,13 +220,31 @@ const AddPetModal = ({ show, handleClose, userId }) => {
             {errors.breed && <div className="text-danger">Breed is required</div>}
           </Form.Group>
           <Form.Group className="mb-3">
+            <Form.Label>Sex</Form.Label>
+            <Form.Select
+              name="sex"
+              value={petData.sex}
+              onChange={handleChange}
+              isInvalid={errors.sex}
+              required
+            >
+              <option value="">Select sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </Form.Select>
+            {errors.sex && <Form.Control.Feedback type="invalid">Sex is required</Form.Control.Feedback>}
+          </Form.Group>
+          <Form.Group className="mb-3">
             <Form.Label>Birthday</Form.Label>
             <Form.Control
               type="date"
               name="birthday"
               value={petData.birthday}
               onChange={handleChange}
+              isInvalid={errors.birthday}
+              required
             />
+            {errors.birthday && <Form.Control.Feedback type="invalid">Birthday is required</Form.Control.Feedback>}
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Vaccination History</Form.Label>
@@ -220,7 +266,8 @@ const AddPetModal = ({ show, handleClose, userId }) => {
             variant="primary" 
             className="mt-3" 
             type="submit" 
-            disabled={saving}>
+            disabled={saving}
+          >
             {saving ? "Saving..." : "Save Pet"}
           </Button>
         </Form>

@@ -4,6 +4,7 @@ import logo from './sneatbootstrap/MyPetLogoFull.png';
 
 function Register() {
   const [formData, setFormData] = useState({
+    fullName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -58,8 +59,14 @@ function Register() {
       return;
     }
 
-    const { email, password } = formData;
-    const response = await registerUser(email, password);
+    if (!formData.fullName.trim()) {
+      setMessage('Please enter your full name');
+      setShowModal(true);
+      return;
+    }
+
+    const { email, password, fullName } = formData;
+    const response = await registerUser(email, password, fullName);
 
     if (response.success) {
       // Handle successful registration
@@ -92,7 +99,21 @@ function Register() {
                 <h4 className="mb-2">Adventure starts here 🚀</h4>
                 <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="email" autoComplete="off" className="form-label">
+                    <label htmlFor="fullName" className="form-label">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="fullName"
+                      name="fullName"
+                      placeholder="Enter your full name"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">
                       Email
                     </label>
                     <input
@@ -107,7 +128,7 @@ function Register() {
                     />
                   </div>
                   <div className="mb-3 form-password-toggle">
-                    <label className="form-label" htmlFor="password" autoComplete="off">
+                    <label className="form-label" htmlFor="password">
                       Password
                     </label>
                     <div className="input-group input-group-merge">
@@ -125,7 +146,7 @@ function Register() {
                     {passwordError && <small className="text-danger">{passwordError}</small>}
                   </div>
                   <div className="mb-3 form-password-toggle">
-                    <label className="form-label" htmlFor="confirmPassword" autoComplete="off">
+                    <label className="form-label" htmlFor="confirmPassword">
                       Re-enter Password
                     </label>
                     <div className="input-group input-group-merge">

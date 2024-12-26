@@ -350,7 +350,41 @@
           "time_close": "17:00",
           "lat": 13.876458879571803,
           "lng": 121.21099983773605
-      }
+      },
+      {
+        "name": "Highwoods Veterinary Clinic",
+        "address": "V Templo, cor Carma street, Mataas Na Kahoy, 4223 Batangas",
+  "contact" : "0938 874 8464",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "09:00",
+        "time_close": "17:30",
+        "lat": 13.972053578284225,
+        "lng": 121.11475521849697
+         
+    },
+    {
+        "name": "St Patrick Animal Bite Center",
+        "address": "22.Sambat, Lipa-Rosario Road, Padre Garcia, Batangas",
+  "contact" : "09626844678",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "08:00",
+        "time_close": "17:00",
+        "lat": 13.972719907453227, 
+        "lng": 121.11818844597674
+    }
   ],
   "pet_supplies_stores": [
       {
@@ -1049,6 +1083,91 @@
           "lat": 13.95012684186832,
           "lng": 121.14538768162811
       },
+      {
+        "name": "Happy Pet Care- Mataas na Kahoy Branch",
+        "address": "F. Silva, Brgy. 4, Mataas Na Kahoy, 4223 Batangas",
+  "contact" : "09067801741",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "7:00",
+        "time_close": "20:00",
+        "lat": 13.962943320626456, 
+        "lng": 121.11476465318768
+    },
+    {
+        "name": "Ahdy's Mini Aviary and Coops",
+        "address": "X46C+H7 Mataas Na Kahoy, Batangas",
+  "contact" : "0434612142",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "7:00",
+        "time_close": "20:00",
+        "lat": 13.97200683558169,  
+        "lng": 121.11961370793861
+    },
+    {
+        "name": "Mataas na Kahoy Agri-Industrial Corporation",
+        "address": "X467+659, Mataas Na Kahoy, Batangas",
+  "contact" : "x",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "8:00",
+        "time_close": "12:00",
+        "lat": 13.971578912999215,   
+        "lng": 121.11167627002338
+    },
+        {
+        "name": "Furfect Pups",
+        "address": "Purok 2, Sitio, 2455, Lipa, Batangas",
+  "contact" : "09493482195",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "0:00",
+        "time_close": "0:00",
+        "lat": 13.976286017667146,    
+        "lng": 121.1570960536496
+    },
+    {
+        "name": "AICOM Feedmills",
+        "address": "X475+765, Rizal St, Mataas Na Kahoy, Batangas",
+        "contact" : "0437560217",
+        "days_open": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "time_open": "0:00",
+        "time_close": "0:00",
+        "lat": 13.971578912999215,     
+        "lng": 121.10417980088118
+    },
       {
           "name": "The Pet Depot Lipa ",
           "address": "Gen. Luna St, Lipa, Batangas",

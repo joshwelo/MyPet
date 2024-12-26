@@ -1,485 +1,206 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button, Card, Alert, Modal } from 'react-bootstrap';
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { auth, db } from "../firebaseConfig";
 import { 
   collection, 
   query, 
   where, 
   getDocs, 
-  addDoc,
-  deleteDoc,
-  doc, 
-  serverTimestamp, 
   orderBy 
 } from "firebase/firestore";
+import PetHealthAssessment from "./PetHealthAssessment";
 
-
-const PetHealthSurvey = () => {
-  const [formData, setFormData] = useState({
-    petType: '',
-    age: '',
-    generalHealth: {
-      eatingNormally: '',
-      weightChange: '',
-      unusualBehaviors: []
-    },
-    specificSymptoms: {
-      vomitingDiarrhea: '',
-      breathingDifficulty: '',
-      painDiscomfort: ''
-    },
-    physicalChanges: {
-      lumpsOrWounds: '',
-      coatSkinCondition: ''
-    },
-    activityLevel: {
-      energyChange: '',
-      mobility: ''
-    }
-  });
-
-  const [result, setResult] = useState(null);
+const PetHealthJournal = () => {
   const [userId, setUserId] = useState(null);
-  const [pets, setPets] = useState([]);
-  const [selectedPetId, setSelectedPetId] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [showJournalModal, setShowJournalModal] = useState(false);
   const [journalEntries, setJournalEntries] = useState([]);
-
-  const unusualBehaviorOptions = [
-    'Lethargy', 
-    'Aggression', 
-    'Excessive Sleeping', 
-    'Anxiety', 
-    'Confusion'
-  ];
+  const [showAssessment, setShowAssessment] = useState(false);
+  const [chartData, setChartData] = useState([]);
+  const [selectedPet, setSelectedPet] = useState("All");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setUserId(user.uid);
-        fetchPets(user.uid);
+        fetchJournalEntries(user.uid);
       } else {
         setUserId(null);
-        setPets([]);
-        setLoading(false);
+        setJournalEntries([]);
+        setChartData([]);
       }
     });
 
     return () => unsubscribe();
   }, []);
 
-  const fetchPets = async (userId) => {
-    setLoading(true);
-    const q = query(collection(db, "pets"), where("userId", "==", userId));
-    const querySnapshot = await getDocs(q);
-    const petsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    setPets(petsData);
-    setLoading(false);
-  };
-  const fetchJournalEntries = async () => {
-    if (!userId) return;
-
+  const fetchJournalEntries = async (userId) => {
     try {
       const q = query(
-        collection(db, "petHealthSurveys"), 
+        collection(db, "petHealthSurveys"),
         where("userId", "==", userId),
         orderBy("timestamp", "desc")
       );
       const querySnapshot = await getDocs(q);
       const entries = querySnapshot.docs.map((doc) => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
       }));
+
       setJournalEntries(entries);
+      prepareChartData(entries);
     } catch (error) {
       console.error("Error fetching journal entries: ", error);
     }
   };
 
-  // New function to remove a journal entry
-  const removeJournalEntry = async (entryId) => {
-    try {
-      await deleteDoc(doc(db, "petHealthSurveys", entryId));
-      // Remove the entry from local state
-      setJournalEntries(prev => prev.filter(entry => entry.id !== entryId));
-    } catch (error) {
-      console.error("Error removing journal entry: ", error);
-      alert('Failed to remove entry. Please try again.');
-    }
-  };
-    // Open journal entries modal and fetch entries
-    const openJournalModal = () => {
-      fetchJournalEntries();
-      setShowJournalModal(true);
-    };
+  const prepareChartData = (entries) => {
+    const petData = {};
+    entries.forEach((entry) => {
+      if (!petData[entry.petName]) {
+        petData[entry.petName] = [];
+      }
+      petData[entry.petName].push({
+        date: entry.timestamp?.toDate?.() ? entry.timestamp.toDate().toLocaleDateString() : "Unknown",
+        urgencyScore: entry.result.urgencyScore,
+      });
+    });
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const [section, field] = name.split('.');
+    const mergedData = [];
+    Object.entries(petData).forEach(([petName, data]) => {
+      data.forEach((item, index) => {
+        if (!mergedData[index]) mergedData[index] = { date: item.date };
+        mergedData[index][petName] = item.urgencyScore;
+      });
+    });
 
-    if (type === 'checkbox') {
-      setFormData(prev => ({
-        ...prev,
-        [section]: {
-          ...prev[section],
-          [field]: checked 
-            ? [...(prev[section][field] || []), value]
-            : (prev[section][field] || []).filter(item => item !== value)
-        }
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [section]: {
-          ...prev[section],
-          [field]: value
-        }
-      }));
-    }
+    setChartData(mergedData);
   };
 
-  const evaluatePetHealth = () => {
-    let urgencyScore = 0;
+  const filteredEntries =
+  selectedPet === "All"
+    ? journalEntries
+    : journalEntries.filter((entry) => entry.petName === selectedPet);
 
-    // General Health Evaluation
-    if (formData.generalHealth.eatingNormally === 'no') urgencyScore += 2;
-    if (formData.generalHealth.weightChange === 'significant') urgencyScore += 3;
-    if (formData.generalHealth.unusualBehaviors.length > 1) urgencyScore += 2;
-
-    // Specific Symptoms Evaluation
-    if (formData.specificSymptoms.vomitingDiarrhea === 'yes') urgencyScore += 4;
-    if (formData.specificSymptoms.breathingDifficulty === 'yes') urgencyScore += 5;
-    if (formData.specificSymptoms.painDiscomfort === 'yes') urgencyScore += 4;
-
-    // Physical Changes Evaluation
-    if (formData.physicalChanges.lumpsOrWounds === 'yes') urgencyScore += 3;
-    if (formData.physicalChanges.coatSkinCondition === 'severe') urgencyScore += 2;
-
-    // Activity Level Evaluation
-    if (formData.activityLevel.energyChange === 'significant') urgencyScore += 3;
-    if (formData.activityLevel.mobility === 'limited') urgencyScore += 4;
-
-    // Determine recommendation
-    let recommendation = '';
-    if (urgencyScore >= 8) {
-      recommendation = 'CRITICAL: Immediate Veterinary Care Required';
-    } else if (urgencyScore >= 5) {
-      recommendation = 'URGENT: Schedule Veterinary Consultation Soon';
-    } else if (urgencyScore >= 3) {
-      recommendation = 'MODERATE: Monitor Closely and Consider Vet Check';
-    } else {
-      recommendation = 'LOW RISK: Continue Regular Monitoring';
-    }
-
-    return {
-      urgencyScore,
-      recommendation
-    };
-  };
-  const calculateAgeInMonths = (birthdayString) => {
-    const birthday = new Date(birthdayString);
-    const today = new Date();
-    
-    // Calculate difference in months
-    const months = (today.getFullYear() - birthday.getFullYear()) * 12 
-      + (today.getMonth() - birthday.getMonth());
-    
-    return months;
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    // Validate pet selection
-    if (!selectedPetId) {
-      alert('Please select a pet');
-      return;
-    }
-  
-    // Find the selected pet to get its birthday
-    const selectedPet = pets.find(pet => pet.id === selectedPetId);
-    
-    try {
-      // Evaluate pet health
-      const healthResult = evaluatePetHealth();
-  
-      // Calculate age in months
-      const ageInMonths = calculateAgeInMonths(selectedPet.birthday);
-  
-      // Prepare data for Firestore
-      const surveyData = {
-        userId: userId,
-        petId: selectedPetId,
-        petName: selectedPet.name,
-        petType: selectedPet.species,
-        petAge: ageInMonths, // Age in months
-        formData: formData,
-        result: healthResult,
-        timestamp: serverTimestamp()
-      };
-  
-      // Add to Firestore collection
-      const docRef = await addDoc(collection(db, "petHealthSurveys"), surveyData);
-  
-      // Set result state for display
-      setResult(healthResult);
-  
-      console.log("Survey submitted with ID: ", docRef.id);
-    } catch (error) {
-      console.error("Error submitting survey: ", error);
-      alert('Failed to submit survey. Please try again.');
-    }
-  };
+  if (showAssessment) {
+    return <PetHealthAssessment onClose={() => setShowAssessment(false)} />;
+  }
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-3">
       <Card>
-        <Card.Header as="h3" className="text-center">
-          Comprehensive Pet Health Assessment
-          {userId && (
-            <Button 
-              variant="outline-info" 
-              className="float-end"
-              onClick={openJournalModal}
-            >
-              View Journal Entries
-            </Button>
-          )}
+        <Card.Header as="h3" className="">
+        <h3 className="card-title text-primary fw-bold mt-2">Pet Health Journal          
+        </h3>
+        <Button 
+            variant="primary"
+            className=""
+            onClick={() => setShowAssessment(true)}
+          >
+            Add New Assessment
+          </Button>
         </Card.Header>
         <Card.Body>
-          {/* Pet Selection */}
-          {userId && pets.length > 0 && (
-            <Form.Group className="mb-3">
-              <Form.Label>Select Pet</Form.Label>
-              <Form.Select 
-                value={selectedPetId} 
-                onChange={(e) => setSelectedPetId(e.target.value)}
-                required
-              >
-                <option value="">Choose a Pet</option>
-                {pets.map((pet) => (
-                  <option key={pet.id} value={pet.id}>
-                    {pet.name} ({pet.species})
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+          {journalEntries.length === 0 ? (
+            <p className="text-center">No journal entries found.</p>
+          ) : (
+            <>
+              <Row className="mb-4">
+                <Col>
+                  <h4>Pet Health Assesment History</h4>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={chartData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="date" />
+                      <YAxis label={{ value: "Urgency Score", angle: -90, position: "insideLeft" }} />
+                      <Tooltip />
+                      <Legend />
+                      {Object.keys(chartData[0] || {})
+                        .filter((key) => key !== "date")
+                        .map((petName, index) => (
+                          <Line
+                            key={petName}
+                            type="monotone"
+                            dataKey={petName}
+                            name={petName}
+                            stroke={`hsl(${index * 60}, 70%, 50%)`}
+                          />
+                        ))}
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Col>
+              </Row>
+
+<Row className="mb-3">
+<p class="text-muted fs-5">
+  If the urgency score is 8 or higher, the recommendation is: 
+  <span class="text-danger fw-bold"> Critical</span> for immediate veterinary care. 
+  If the score is 5 or higher, it is 
+  <span class="text-warning fw-bold"> Urgent</span> to schedule a veterinary consultation soon. 
+  If the score is 3 or higher, the recommendation is 
+  <span class="text-primary fw-bold"> Moderate</span> to monitor closely and consider a vet check. 
+  If the score is below 3, it is 
+  <span class="text-success fw-bold"> Low Risk</span>, and regular monitoring should continue.
+</p>
+
+</Row>
+
+<Row>
+  <Col>
+    <h4>Detailed Entries</h4>
+    <Col>
+    <select
+      className="form-select mb-3"
+      value={selectedPet}
+      onChange={(e) => setSelectedPet(e.target.value)}
+    >
+      <option value="All">All Pets</option>
+      {Array.from(new Set(journalEntries.map((entry) => entry.petName))).map((petName) => (
+        <option key={petName} value={petName}>
+          {petName}
+        </option>
+      ))}
+    </select>
+  </Col>
+    {filteredEntries.map((entry) => {
+      const colorClass = entry.result.recommendation.includes("CRITICAL")
+        ? "bg-danger text-white"
+        : entry.result.recommendation.includes("URGENT")
+        ? "bg-warning"
+        : entry.result.recommendation.includes("MODERATE")
+        ? "bg-info text-white"
+        : "bg-success text-white";
+
+      return (
+        <Card key={entry.id} className={`mb-3 ${colorClass}`}>
+          <Card.Body>
+            <div className="d-flex justify-content-between">
+              <div>
+                <h5>
+                  {entry.petName} ({entry.petType}) - {entry.result.recommendation}
+                </h5>
+                <p>
+                  Age: {entry.petAge} months
+                  <br />
+                  Urgency Score: {entry.result.urgencyScore}
+                  <br />
+                  Date: {entry.timestamp?.toDate?.() ? entry.timestamp.toDate().toLocaleString() : "Unknown"}
+                </p>
+              </div>
+            </div>
+          </Card.Body>
+        </Card>
+      );
+    })}
+  </Col>
+</Row>
+
+
+            </>
           )}
-
-          {/* Rest of the form remains the same as previous implementation */}
-          <Form onSubmit={handleSubmit}>
-                        {/* General Health Section */}
-                        <h5 className="mt-4 mb-3">General Health</h5>
-            <Form.Group className="mb-3">
-              <Form.Label>Is your pet eating and drinking normally?</Form.Label>
-              <Form.Select 
-                name="generalHealth.eatingNormally" 
-                value={formData.generalHealth.eatingNormally} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Weight Changes</Form.Label>
-              <Form.Select 
-                name="generalHealth.weightChange" 
-                value={formData.generalHealth.weightChange} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="none">No Changes</option>
-                <option value="minor">Minor Changes</option>
-                <option value="significant">Significant Changes</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Unusual Behaviors</Form.Label>
-              {unusualBehaviorOptions.map((behavior) => (
-                <Form.Check 
-                  key={behavior}
-                  type="checkbox"
-                  label={behavior}
-                  name="generalHealth.unusualBehaviors"
-                  value={behavior}
-                  checked={formData.generalHealth.unusualBehaviors.includes(behavior)}
-                  onChange={handleInputChange}
-                />
-              ))}
-            </Form.Group>
-
-            {/* Specific Symptoms Section */}
-            <h5 className="mt-4 mb-3">Specific Symptoms</h5>
-            <Form.Group className="mb-3">
-              <Form.Label>Vomiting or Diarrhea</Form.Label>
-              <Form.Select 
-                name="specificSymptoms.vomitingDiarrhea" 
-                value={formData.specificSymptoms.vomitingDiarrhea} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Breathing Difficulty</Form.Label>
-              <Form.Select 
-                name="specificSymptoms.breathingDifficulty" 
-                value={formData.specificSymptoms.breathingDifficulty} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Signs of Pain or Discomfort</Form.Label>
-              <Form.Select 
-                name="specificSymptoms.painDiscomfort" 
-                value={formData.specificSymptoms.painDiscomfort} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-              </Form.Select>
-            </Form.Group>
-
-            {/* Physical Changes Section */}
-            <h5 className="mt-4 mb-3">Physical Changes</h5>
-            <Form.Group className="mb-3">
-              <Form.Label>Lumps, Bumps, or Wounds</Form.Label>
-              <Form.Select 
-                name="physicalChanges.lumpsOrWounds" 
-                value={formData.physicalChanges.lumpsOrWounds} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Coat and Skin Condition</Form.Label>
-              <Form.Select 
-                name="physicalChanges.coatSkinCondition" 
-                value={formData.physicalChanges.coatSkinCondition} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="normal">Normal</option>
-                <option value="mild">Mild Changes</option>
-                <option value="severe">Severe Changes</option>
-              </Form.Select>
-            </Form.Group>
-
-            {/* Activity Level Section */}
-            <h5 className="mt-4 mb-3">Activity Level</h5>
-            <Form.Group className="mb-3">
-              <Form.Label>Energy Level Changes</Form.Label>
-              <Form.Select 
-                name="activityLevel.energyChange" 
-                value={formData.activityLevel.energyChange} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="none">No Changes</option>
-                <option value="minor">Minor Changes</option>
-                <option value="significant">Significant Changes</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Mobility</Form.Label>
-              <Form.Select 
-                name="activityLevel.mobility" 
-                value={formData.activityLevel.mobility} 
-                onChange={handleInputChange} 
-                required
-              >
-                <option value="normal">Normal</option>
-                <option value="limited">Limited</option>
-              </Form.Select>
-            </Form.Group>
-
-            <Button variant="primary" type="submit" className="w-100 mt-3">
-              Evaluate Pet Health
-            </Button>
-          </Form>
-
-          {result && (
-            <Alert 
-              variant={
-                result.recommendation.includes('CRITICAL') ? 'danger' : 
-                result.recommendation.includes('URGENT') ? 'warning' : 
-                result.recommendation.includes('MODERATE') ? 'info' : 'success'
-              } 
-              className="mt-3"
-            >
-              <Alert.Heading>Health Assessment Result</Alert.Heading>
-              <p>{result.recommendation}</p>
-              <hr />
-              <p className="mb-0">
-                Urgency Score: {result.urgencyScore}
-                <br />
-                Please consult with a veterinarian for professional medical advice.
-              </p>
-            </Alert>
-          )}
-                    {/* Journal Entries Modal */}
-                    <Modal 
-            show={showJournalModal} 
-            onHide={() => setShowJournalModal(false)}
-            size="lg"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Pet Health Journal Entries</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {journalEntries.length === 0 ? (
-                <p>No journal entries found.</p>
-              ) : (
-                journalEntries.map((entry) => (
-                  <Card key={entry.id} className="mb-3">
-                    <Card.Body>
-                      <div className="d-flex justify-content-between">
-                        <div>
-                          <h5>
-                            {entry.petName} {entry.petType} (Age: {entry.petAge} months) - {entry.result.recommendation}
-                          </h5>
-                          <p>
-                            Urgency Score: {entry.result.urgencyScore}
-                            <br />
-                            Date: {entry.timestamp?.toDate()?.toLocaleString() || 'Unknown'}
-                          </p>
-                        </div>
-                        <Button 
-                          variant="danger" 
-                          size="sm"
-                          onClick={() => removeJournalEntry(entry.id)}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                ))
-              )}
-            </Modal.Body>
-          </Modal>
         </Card.Body>
       </Card>
     </Container>
   );
 };
 
-export default PetHealthSurvey;
+export default PetHealthJournal;

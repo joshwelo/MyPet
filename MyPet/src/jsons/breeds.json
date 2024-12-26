@@ -2629,6 +2629,25 @@
           }
         },
         {
+  "breed": "Siamese",
+  "description": "The Siamese is a sleek, vocal, and affectionate breed known for its striking blue almond-shaped eyes, short coat, and distinctive color points. They are intelligent and social, often forming strong bonds with their human companions.",
+  "cluster": "Short-Haired Breeds",
+  "health_concerns": ["Respiratory issues", "Dental disease", "Progressive retinal atrophy"],
+  "diet": {
+    "frequency": "Twice a day",
+    "description": "A balanced diet rich in protein and low in carbohydrates is essential for maintaining the Siamese's lean, muscular physique and energy levels."
+  },
+  "grooming": {
+    "frequency": "Low",
+    "description": "The Siamese's short coat requires minimal grooming, usually a weekly brush to remove loose hair and maintain a glossy appearance."
+  },
+  "environment": {
+    "living_space": "Moderate to large spaces",
+    "exercise_needs": "High",
+    "description": "Siamese cats are highly active and thrive in spaces with plenty of opportunities for climbing, exploring, and playing. Interactive toys and companionship are essential for their well-being."
+  }
+},
+        {
           "breed": "Bengal",
           "description": "The Bengal cat is a wild-looking, energetic breed known for its beautifully spotted or marbled coat and lively personality. These cats are adventurous and thrive on physical and mental stimulation.",
           "cluster": "Short-Haired Breeds",
@@ -2837,6 +2856,26 @@
               "description": "Exotic Shorthairs are content with cozy, indoor environments where they can relax and enjoy quiet moments with their humans."
             }
           },
+          {
+  "breed": "Persian",
+  "description": "The Persian cat is a gentle and dignified breed, known for its luxurious long fur and sweet demeanor. These cats thrive in quiet households and form deep bonds with their owners.",
+  "cluster": "Long-Haired Breeds",
+  "health_concerns": ["Respiratory issues", "Eye problems", "Polycystic kidney disease (PKD)"],
+  "diet": {
+    "frequency": "Twice a day",
+    "description": "A balanced diet with high-quality proteins and fats supports their health, with wet food aiding in hydration and promoting urinary health."
+  },
+  "grooming": {
+    "frequency": "High",
+    "description": "Daily brushing is essential to prevent matting and reduce shedding, along with regular eye cleaning to address tear stains."
+  },
+  "environment": {
+    "living_space": "Moderate to large spaces",
+    "exercise_needs": "Low to moderate",
+    "description": "Persians prefer calm indoor settings where they can lounge comfortably. Providing cozy spots and light play opportunities keeps them content."
+  }
+},
+
           {
             "breed": "Havana Brown",
             "description": "The Havana Brown is an elegant and striking breed, with its rich chocolate-colored coat and bright green eyes. These cats are friendly, curious, and love being the center of attention in their family.",

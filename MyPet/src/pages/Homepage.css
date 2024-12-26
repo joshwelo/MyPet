@@ -26,3 +26,15 @@
   background-color: rgba(0,0,0,0.5);
   border-radius: 10px;
 }
+
+
+.custom-carousel {
+  max-height: 400px; /* Set the fixed height */
+  overflow: hidden; /* Ensures no content overflows */
+}
+
+.custom-carousel img,
+.custom-carousel video {
+  height: 100%; /* Ensures the media fits within the container */
+  object-fit: cover; /* Maintains aspect ratio and fills the container */
+}

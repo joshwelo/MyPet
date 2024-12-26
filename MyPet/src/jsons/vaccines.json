@@ -1,199 +1,246 @@
 {
-    "dogs": [
-      {
-        "type": "Core",
-        "name": "Rabies Vaccine",
-        "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law.",
-        "required": true,
-        "age": 3,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Distemper Vaccine",
-        "description": "Protects against the canine distemper virus, a serious disease affecting the respiratory, gastrointestinal, and nervous systems.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Adenovirus Type 1 (CAV-1)",
-        "description": "Protects against canine hepatitis, which affects the liver.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Adenovirus Type 2 (CAV-2)",
-        "description": "Often combined with CAV-1 to provide protection against respiratory infections.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Parvovirus Vaccine",
-        "description": "Protects against canine parvovirus, a highly contagious and potentially deadly gastrointestinal disease.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Parainfluenza Virus",
-        "description": "Usually included in combination vaccines; protects against a respiratory virus causing kennel cough.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Leptospirosis Vaccine",
-        "description": "Protects against Leptospira bacteria, which can cause liver and kidney damage and can be transmitted to humans.",
-        "required": false,
-        "age": 3,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Bordetella Bronchiseptica Vaccine",
-        "description": "Commonly recommended for dogs frequently in contact with other dogs (e.g., boarding, dog parks); helps prevent kennel cough.",
-        "required": false,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Lyme Disease Vaccine",
-        "description": "Protects against Borrelia burgdorferi, transmitted by ticks; recommended for dogs in high-risk areas.",
-        "required": false,
-        "age": 4,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Canine Influenza Vaccine",
-        "description": "Protects against strains of canine flu that cause respiratory illness.",
-        "required": false,
-        "age": 6,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Coronavirus Vaccine",
-        "description": "Protects against canine coronavirus (different from COVID-19); typically less recommended due to low severity.",
-        "required": false,
-        "age": 6,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Canine Herpesvirus Vaccine",
-        "description": "Used in specific breeding scenarios to prevent neonatal death.",
-        "required": false,
-        "age": 1,
-        "frequency": 12
-      },
-      {
-        "type": "Combination",
-        "name": "DHPP/DAPP",
-        "description": "A common combination vaccine that covers Distemper, Hepatitis, Parvovirus, and Parainfluenza.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Combination",
-        "name": "DA2PP",
-        "description": "Another typical combination vaccine covering Distemper, Adenovirus Type 2, Parvovirus, and Parainfluenza.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      }
-    ],
-    "cats": [
-      {
-        "type": "Core",
-        "name": "Rabies Vaccine",
-        "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law.",
-        "required": true,
-        "age": 3,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Feline Herpesvirus (FHV-1) Vaccine",
-        "description": "Protects against feline viral rhinotracheitis, a major cause of upper respiratory infections.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Feline Calicivirus (FCV) Vaccine",
-        "description": "Protects against calicivirus, which causes respiratory illness and oral disease.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Core",
-        "name": "Feline Panleukopenia Virus (FPV) Vaccine",
-        "description": "Also known as the feline distemper vaccine; protects against a highly contagious and potentially fatal disease affecting the immune system and gastrointestinal tract.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Feline Leukemia Virus (FeLV) Vaccine",
-        "description": "Recommended for cats that go outdoors or live with other cats; protects against a virus that can cause immunosuppression and cancer.",
-        "required": false,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Feline Immunodeficiency Virus (FIV) Vaccine",
-        "description": "Protects against FIV, which causes immunosuppression; typically recommended for cats with a higher risk of exposure.",
-        "required": false,
-        "age": 3,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Chlamydia Felis Vaccine",
-        "description": "Protects against Chlamydia felis, which can cause conjunctivitis and respiratory issues.",
-        "required": false,
-        "age": 2,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Bordetella Bronchiseptica Vaccine",
-        "description": "Recommended for cats in multi-cat environments or those frequently exposed to other cats; helps prevent respiratory infection.",
-        "required": false,
-        "age": 4,
-        "frequency": 12
-      },
-      {
-        "type": "Non-Core",
-        "name": "Feline Infectious Peritonitis (FIP) Vaccine",
-        "description": "Controversial and less commonly administered; protects against a virus that can cause a fatal immune response in cats.",
-        "required": false,
-        "age": 6,
-        "frequency": 12
-      },
-      {
-        "type": "Combination",
-        "name": "FVRCP",
-        "description": "A common combination vaccine that covers Feline Viral Rhinotracheitis, Calicivirus, and Panleukopenia.",
-        "required": true,
-        "age": 2,
-        "frequency": 12
-      }
-    ]
-  }
-  
+  "dogs": [
+    {
+      "type": "Core",
+      "name": "Rabies Vaccine",
+      "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law.",
+      "required": true,
+      "age": 3,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Annual booster recommended"
+    },
+    {
+      "type": "Core",
+      "name": "Distemper Vaccine",
+      "description": "Protects against the canine distemper virus, a serious disease affecting the respiratory, gastrointestinal, and nervous systems.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Adenovirus Type 1 (CAV-1)",
+      "description": "Protects against canine hepatitis, which affects the liver.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Part of initial puppy vaccination series, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Adenovirus Type 2 (CAV-2)",
+      "description": "Often combined with CAV-1 to provide protection against respiratory infections.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Part of initial puppy vaccination series, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Parvovirus Vaccine",
+      "description": "Protects against canine parvovirus, a highly contagious and potentially deadly gastrointestinal disease.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Parainfluenza Virus",
+      "description": "Usually included in combination vaccines; protects against a respiratory virus causing kennel cough.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Part of initial puppy vaccination series, then annual booster"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Leptospirosis Vaccine",
+      "description": "Protects against Leptospira bacteria, which can cause liver and kidney damage and can be transmitted to humans.",
+      "required": false,
+      "age": 3,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Initial two-dose series, then annual booster"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Bordetella Bronchiseptica Vaccine",
+      "description": "Commonly recommended for dogs frequently in contact with other dogs (e.g., boarding, dog parks); helps prevent kennel cough.",
+      "required": false,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Can be annual or semi-annual depending on exposure risk"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Lyme Disease Vaccine",
+      "description": "Protects against Borrelia burgdorferi, transmitted by ticks; recommended for dogs in high-risk areas.",
+      "required": false,
+      "age": 4,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Initial two-dose series, then annual booster"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Canine Influenza Vaccine",
+      "description": "Protects against strains of canine flu that cause respiratory illness.",
+      "required": false,
+      "age": 6,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Initial two-dose series, then annual booster"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Coronavirus Vaccine",
+      "description": "Protects against canine coronavirus (different from COVID-19); typically less recommended due to low severity.",
+      "required": false,
+      "age": 6,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Optional, consult with veterinarian"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Canine Herpesvirus Vaccine",
+      "description": "Used in specific breeding scenarios to prevent neonatal death.",
+      "required": false,
+      "age": 1,
+      "frequency": 12,
+      "recommended_weeks": 4,
+      "recommended_reschedule": "Specific to breeding females, consult veterinarian"
+    },
+    {
+      "type": "Combination",
+      "name": "DHPP/DAPP",
+      "description": "A common combination vaccine that covers Distemper, Hepatitis, Parvovirus, and Parainfluenza.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Combination",
+      "name": "DA2PP",
+      "description": "Another typical combination vaccine covering Distemper, Adenovirus Type 2, Parvovirus, and Parainfluenza.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    }
+  ],
+  "cats": [
+    {
+      "type": "Core",
+      "name": "Rabies Vaccine",
+      "description": "Protects against the rabies virus, which is fatal and can be transmitted to humans. Typically required by law.",
+      "required": true,
+      "age": 3,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Annual booster recommended"
+    },
+    {
+      "type": "Core",
+      "name": "Feline Herpesvirus (FHV-1) Vaccine",
+      "description": "Protects against feline viral rhinotracheitis, a major cause of upper respiratory infections.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Feline Calicivirus (FCV) Vaccine",
+      "description": "Protects against calicivirus, which causes respiratory illness and oral disease.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Core",
+      "name": "Feline Panleukopenia Virus (FPV) Vaccine",
+      "description": "Also known as the feline distemper vaccine; protects against a highly contagious and potentially fatal disease affecting the immune system and gastrointestinal tract.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Feline Leukemia Virus (FeLV) Vaccine",
+      "description": "Recommended for cats that go outdoors or live with other cats; protects against a virus that can cause immunosuppression and cancer.",
+      "required": false,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Initial two-dose series, then annual booster for at-risk cats"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Feline Immunodeficiency Virus (FIV) Vaccine",
+      "description": "Protects against FIV, which causes immunosuppression; typically recommended for cats with a higher risk of exposure.",
+      "required": false,
+      "age": 3,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Initial two-dose series, consult veterinarian for follow-up"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Chlamydia Felis Vaccine",
+      "description": "Protects against Chlamydia felis, which can cause conjunctivitis and respiratory issues.",
+      "required": false,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Initial two-dose series, then annual booster if recommended"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Bordetella Bronchiseptica Vaccine",
+      "description": "Recommended for cats in multi-cat environments or those frequently exposed to other cats; helps prevent respiratory infection.",
+      "required": false,
+      "age": 4,
+      "frequency": 12,
+      "recommended_weeks": 8,
+      "recommended_reschedule": "Annual booster for high-risk cats"
+    },
+    {
+      "type": "Non-Core",
+      "name": "Feline Infectious Peritonitis (FIP) Vaccine",
+      "description": "Controversial and less commonly administered; protects against a virus that can cause a fatal immune response in cats.",
+      "required": false,
+      "age": 6,
+      "frequency": 12,
+      "recommended_weeks": 12,
+      "recommended_reschedule": "Limited efficacy, consult veterinarian"
+    },
+    {
+      "type": "Combination",
+      "name": "FVRCP",
+      "description": "A common combination vaccine that covers Feline Viral Rhinotracheitis, Calicivirus, and Panleukopenia.",
+      "required": true,
+      "age": 2,
+      "frequency": 12,
+      "recommended_weeks": 6,
+      "recommended_reschedule": "Initial series at 6, 10, and 14 weeks, then annual booster"
+    }
+  ]
+}

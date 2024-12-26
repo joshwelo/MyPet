@@ -3,8 +3,8 @@
       "Viral Infections": [
         {
           "name": "Rabies (Hydrophobia)",
-          "species": "dog",
-          "description": "Rabies is a fatal viral disease that can affect any mammal. Canine rabies is a zoonotic concern due to the close relationship between dogs and humans. Vaccination is commonly required by law.",
+          "species": "dogs",
+          "description": "Rabies is a fatal viral disease that can affect any mammal. Canine rabies is a zoonotic concern due to the close relationship between dog and humans. Vaccination is commonly required by law.",
           "causes": ["Bite from an infected animal", "Exposure to saliva from an infected animal"],
           "symptoms": [
             "Aggression",
@@ -24,7 +24,7 @@
         },
         {
           "name": "Canine Parvovirus",
-          "species": "dog",
+          "species": "dogs",
           "description": "A highly contagious virus affecting the gastrointestinal tract, especially in puppies.",
           "causes": [
             "Contact with infected feces",
@@ -38,18 +38,18 @@
             "Dehydration"
           ],
           "treatment": {
-            "Supportive Care": "Provide intravenous fluids to maintain hydration and administer medications to control vomiting and diarrhea. Isolation is important to prevent transmission.",
+            "Supportive Care": "Provide intravenous fluids to maintain hydration and administer medicatsions to control vomiting and diarrhea. Isolation is important to prevent transmission.",
             "See Veterinarian": "Immediate veterinary intervention is essential for aggressive supportive care and monitoring."
           },
           "prevention": [
             "Regular vaccination",
-            "Avoiding contact with infected dogs",
+            "Avoiding contact with infected dog",
             "Disinfecting areas that could be contaminated"
           ]
         },
         {
           "name": "Canine Coronavirus",
-          "species": "dog",
+          "species": "dogs",
           "description": "A usually asymptomatic or mild gastrointestinal disease. More severe in puppies.",
           "causes": ["Contact with contaminated feces"],
           "symptoms": [
@@ -58,7 +58,7 @@
             "Decreased appetite"
           ],
           "treatment": {
-            "Supportive Care": "Provide hydration and nutritional support, ensuring that the dog rests and is monitored for worsening symptoms.",
+            "Supportive Care": "Provide hydration and nutritional support, ensuring that the dogs rests and is monitored for worsening symptoms.",
             "See Veterinarian": "Consult a veterinarian if symptoms do not improve or worsen."
           },
           "prevention": [
@@ -70,7 +70,7 @@
       "Bacterial Infections": [
         {
           "name": "Brucellosis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A sexually transmitted disease causing uveitis, abortion, and orchitis.",
           "causes": ["Transmission through mating", "Contact with infected materials"],
           "symptoms": [
@@ -83,7 +83,7 @@
             "See Veterinarian": "Consult a veterinarian for accurate diagnosis and comprehensive treatment involving antibiotics."
           },
           "prevention": [
-            "Screening dogs before breeding",
+            "Screening dog before breeding",
             "Maintaining a clean environment"
           ]
         }
@@ -91,8 +91,8 @@
       "Fungal Infections": [
         {
           "name": "Blastomycosis",
-          "species": "dog",
-          "description": "A fungal infection affecting the eyes, brain, lungs, skin, or bones. More common in dogs than humans.",
+          "species": "dogs",
+          "description": "A fungal infection affecting the eyes, brain, lungs, skin, or bones. More common in dog than humans.",
           "causes": ["Inhalation of spores from contaminated soil"],
           "symptoms": [
             "Cough",
@@ -101,8 +101,8 @@
             "Skin lesions"
           ],
           "treatment": {
-            "Supportive Care": "Administer supportive therapy as needed and monitor the dog for systemic complications.",
-            "See Veterinarian": "Seek veterinary diagnosis and treatment, potentially involving antifungal medication."
+            "Supportive Care": "Administer supportive therapy as needed and monitor the dogs for systemic complicatsions.",
+            "See Veterinarian": "Seek veterinary diagnosis and treatment, potentially involving antifungal medicatsion."
           },
           "prevention": [
             "Avoiding exposure to contaminated environments",
@@ -115,19 +115,19 @@
       "Skeletal and Muscular Disorders": [
         {
           "name": "Osteoarthritis",
-          "species": "dog",
-          "description": "A common condition in dogs characterized by progressive deterioration of articular cartilage in the joints, causing pain and lameness.",
+          "species": "dogs",
+          "description": "A common condition in dog characterized by progressive deterioration of articular cartilage in the joints, causing pain and lameness.",
           "causes": ["Degeneration of joint cartilage", "Aging", "Trauma"],
           "symptoms": ["Pain", "Lameness", "Joint stiffness"],
           "treatment": {
-            "Supportive Care": "Administer pain management medications such as NSAIDs and provide joint supplements. Physical therapy and controlled exercise can help maintain joint function.",
-            "See Veterinarian": "Consult a veterinarian for customized pain relief and treatment plans including medications or surgical options."
+            "Supportive Care": "Administer pain management medicatsions such as NSAIDs and provide joint supplements. Physical therapy and controlled exercise can help maintain joint function.",
+            "See Veterinarian": "Consult a veterinarian for customized pain relief and treatment plans including medicatsions or surgical options."
           },
           "prevention": ["Maintaining healthy weight", "Regular exercise", "Joint supplements as advised by a veterinarian"]
         },
         {
           "name": "Hip Dysplasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "An inherited disease characterized by abnormal development of the acetabulum and head of the femur, common in large breeds.",
           "causes": ["Genetic predisposition"],
           "symptoms": ["Hind limb lameness", "Decreased range of motion", "Difficulty rising"],
@@ -139,7 +139,7 @@
         },
         {
           "name": "Elbow Dysplasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A hereditary condition involving various issues in the elbow joint, common in large breeds.",
           "causes": ["Hereditary factors"],
           "symptoms": ["Lameness in the front legs", "Painful and swollen elbow joints"],
@@ -151,7 +151,7 @@
         },
         {
           "name": "Luxating Patella",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the kneecap displaces from its normal position, more common in smaller breeds.",
           "causes": ["Genetic predisposition", "Trauma"],
           "symptoms": ["Skipping gait", "Intermittent lameness"],
@@ -163,9 +163,9 @@
         },
         {
           "name": "Osteochondritis Dissecans (OCD)",
-          "species": "dog",
+          "species": "dogs",
           "description": "Separation of immature articular cartilage from underlying bone, commonly seen in the stifle, elbow, shoulder, and hock.",
-          "causes": ["Abnormal endochondral ossification"],
+          "causes": ["Abnormal endochondral ossificatsion"],
           "symptoms": ["Lameness", "Joint pain"],
           "treatment": {
             "Supportive Care": "Restrict activity and provide joint support supplements as recommended.",
@@ -175,8 +175,8 @@
         },
         {
           "name": "Panosteitis",
-          "species": "dog",
-          "description": "A disease causing pain and shifting leg lameness in medium and large breed dogs, affecting the long bones.",
+          "species": "dogs",
+          "description": "A disease causing pain and shifting leg lameness in medium and large breed dog, affecting the long bones.",
           "causes": ["Unknown"],
           "symptoms": ["Lameness that shifts from leg to leg", "Pain on palpation"],
           "treatment": {
@@ -187,7 +187,7 @@
         },
         {
           "name": "Legg–Calvé–Perthes Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "Also known as Perthes disease, it is characterized by a deformity of the femoral head causing hip pain, primarily in small-breed puppies.",
           "causes": ["Genetic predisposition"],
           "symptoms": ["Lameness", "Pain in the hip joint"],
@@ -199,19 +199,19 @@
         },
         {
           "name": "Intervertebral Disk Disease (IVDD)",
-          "species": "dog",
+          "species": "dogs",
           "description": "Degeneration and protrusion of intervertebral disks causing spinal cord compression, commonly seen in breeds like Dachshunds and Basset Hounds.",
           "causes": ["Disk degeneration"],
           "symptoms": ["Back pain", "Hind limb weakness", "Paralysis"],
           "treatment": {
-            "Supportive Care": "Rest and pain management medications. Use of a back brace may help.",
+            "Supportive Care": "Rest and pain management medicatsions. Use of a back brace may help.",
             "See Veterinarian": "Consult a veterinarian for diagnosis, and if necessary, discuss surgical options such as disk removal or decompression."
           },
           "prevention": ["Avoiding high-impact activities", "Maintaining a healthy weight"]
         },
         {
           "name": "Craniomandibular Osteopathy",
-          "species": "dog",
+          "species": "dogs",
           "description": "A hereditary disease affecting the mandible and skull, mainly in West Highland White Terriers.",
           "causes": ["Genetic predisposition"],
           "symptoms": ["Pain upon opening the mouth", "Swelling of jaw muscles"],
@@ -223,7 +223,7 @@
         },
         {
           "name": "Hypertrophic Osteopathy",
-          "species": "dog",
+          "species": "dogs",
           "description": "A bone disease secondary to lung disease, characterized by new bone formation on the long bones.",
           "causes": ["Underlying lung disease"],
           "symptoms": ["Swelling of limbs", "Lameness"],
@@ -235,8 +235,8 @@
         },
         {
           "name": "Hypertrophic Osteodystrophy",
-          "species": "dog",
-          "description": "A bone disease affecting rapidly growing large breed dogs, causing pain and swelling of the metaphysis.",
+          "species": "dogs",
+          "description": "A bone disease affecting rapidly growing large breed dog, causing pain and swelling of the metaphysis.",
           "causes": ["Unknown, potentially nutritional or genetic factors"],
           "symptoms": ["Limb swelling", "Pain", "Fever", "Loss of appetite"],
           "treatment": {
@@ -247,19 +247,19 @@
         },
         {
           "name": "Spondylosis",
-          "species": "dog",
+          "species": "dogs",
           "description": "Also known as spondylosis deformans, characterized by osteophyte growth on the vertebrae, usually asymptomatic.",
           "causes": ["Aging"],
           "symptoms": ["Typically asymptomatic", "Possible back stiffness"],
           "treatment": {
-            "Supportive Care": "Provide gentle exercise and ensure the dog remains active but not overworked.",
+            "Supportive Care": "Provide gentle exercise and ensure the dogs remains active but not overworked.",
             "See Veterinarian": "Consult a veterinarian if symptoms progress or cause discomfort."
           },
           "prevention": ["Regular exercise to maintain spinal health"]
         },
         {
-          "name": "Masticatory Muscle Myositis (MMM)",
-          "species": "dog",
+          "name": "Masticatsory Muscle Myositis (MMM)",
+          "species": "dogs",
           "description": "An inflammatory disease affecting jaw muscles, causing swelling and difficulty opening the mouth.",
           "causes": ["Autoimmune response"],
           "symptoms": ["Swelling of jaw muscles", "Pain on opening mouth", "Jaw muscle atrophy"],
@@ -273,8 +273,8 @@
       "Platelet Disorders": [
         {
           "name": "von Willebrand Disease",
-          "species": "dog",
-          "description": "A common inherited disease in dogs caused by a deficiency of the von Willebrand factor, which plays a crucial role in blood clotting.",
+          "species": "dogs",
+          "description": "A common inherited disease in dog caused by a deficiency of the von Willebrand factor, which plays a crucial role in blood clotting.",
           "causes": ["Genetic deficiency of von Willebrand factor"],
           "symptoms": [
             "Spontaneous bleeding",
@@ -283,13 +283,13 @@
           ],
           "treatment": {
             "Supportive Care": "Administering clotting aids, avoiding trauma, and limiting activities that could lead to injuries.",
-            "See Veterinarian": "Critical for diagnosis, managing bleeding episodes, and prescribing medications like desmopressin when necessary."
+            "See Veterinarian": "Critical for diagnosis, managing bleeding episodes, and prescribing medicatsions like desmopressin when necessary."
           },
           "prevention": ["Genetic screening before breeding", "Monitoring known carriers for bleeding tendencies"]
         },
         {
           "name": "Thrombocytopenia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition characterized by a low platelet count, leading to spontaneous or prolonged bleeding.",
           "causes": [
             "Rickettsial infections such as ehrlichiosis",
@@ -302,18 +302,18 @@
           ],
           "treatment": {
             "Supportive Care": "Maintaining hydration, managing underlying causes, and providing a stress-free environment.",
-            "See Veterinarian": "Essential for accurate diagnosis and determining the appropriate treatment, including potential medications or transfusions."
+            "See Veterinarian": "Essential for accurate diagnosis and determining the appropriate treatment, including potential medicatsions or transfusions."
           },
           "prevention": ["Routine check-ups to monitor platelet levels", "Prompt treatment of underlying conditions"]
         },
         {
           "name": "Thrombocytosis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition characterized by an excess of platelets. It may be physiologic, reactive, or due to a primary bone marrow disorder.",
           "causes": [
             "Exercise (physiologic)",
             "Reactive to conditions such as cancer or blood loss",
-            "Certain medications",
+            "Certain medicatsions",
             "Primary bone marrow disorder (rare)"
           ],
           "symptoms": [
@@ -321,14 +321,14 @@
             "May present with improper blood clotting if platelets do not function normally"
           ],
           "treatment": {
-            "Supportive Care": "Monitoring platelet function and ensuring the dog remains hydrated and healthy.",
+            "Supportive Care": "Monitoring platelet function and ensuring the dogs remains hydrated and healthy.",
             "See Veterinarian": "Necessary to evaluate platelet levels and identify any underlying conditions that need treatment."
           },
           "prevention": ["Regular health monitoring", "Managing underlying diseases proactively"]
         },
         {
           "name": "Hemolytic Anemia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A regenerative type of anemia where red blood cells are destroyed. The most significant type is immune-mediated hemolytic anemia (IMHA).",
           "causes": [
             "Primary immune-mediated response",
@@ -348,15 +348,15 @@
             "Supportive Care": "Providing fluids, maintaining a warm and comfortable environment, and ensuring proper nutrition.",
             "See Veterinarian": "Critical for diagnosing the type and cause of anemia, initiating appropriate treatments like immunosuppressive therapy or blood transfusions."
           },
-          "prevention": ["Regular health check-ups", "Vaccination and medication monitoring", "Immediate attention to signs of pica or anemia"]
+          "prevention": ["Regular health check-ups", "Vaccination and medicatsion monitoring", "Immediate attention to signs of pica or anemia"]
         }
       ],
       
       "Heart Diseases": [
         {
           "name": "Degenerative (Myxomatous) Mitral Valve Disease",
-          "species": "dog",
-          "description": "A common cause of congestive heart failure in dogs, especially small, older dogs. The valve leaflets become thickened and nodular, leading to regurgitation and volume overload of the left side of the heart.",
+          "species": "dogs",
+          "description": "A common cause of congestive heart failure in dog, especially small, older dog. The valve leaflets become thickened and nodular, leading to regurgitation and volume overload of the left side of the heart.",
           "causes": [
             "Genetic predisposition",
             "Age-related degeneration"
@@ -375,7 +375,7 @@
         },
         {
           "name": "Dilated Cardiomyopathy (DCM)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A disease of the heart muscle resulting in decreased contractility and dilation of the left ventricle and atrium, commonly leading to congestive heart failure.",
           "causes": [
             "Genetic factors",
@@ -391,12 +391,12 @@
           "prevention": "Ensure a balanced diet rich in essential nutrients and regular cardiac health check-ups.",
           "treatment": {
             "Supportive Care": "Provide a calm environment and manage diet",
-            "See Veterinarian": "Essential for specific medication and monitoring"
+            "See Veterinarian": "Essential for specific medicatsion and monitoring"
           }
         },
         {
           "name": "Congestive Heart Failure (CHF)",
-          "species": "dog",
+          "species": "dogs",
           "description": "Result of severe heart disease leading to fluid build-up in the lungs, around the lungs, or in the abdomen. Can be caused by mitral valve disease, DCM, congenital heart defects, or other conditions.",
           "causes": [
             "Underlying heart conditions",
@@ -417,7 +417,7 @@
         },
         {
           "name": "Sick Sinus Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition marked by sinoatrial node dysfunction, resulting in fainting and abnormal heart rhythms.",
           "causes": [
             "Genetic predisposition",
@@ -436,7 +436,7 @@
         },
         {
           "name": "Subvalvular Aortic Stenosis (SAS)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A congenital condition where the left ventricular outflow tract is obstructed, leading to a heart murmur and exercise intolerance.",
           "causes": [
             "Congenital defect",
@@ -458,7 +458,7 @@
       "Nervous System": [
         {
           "name": "Syringomyelia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where a fluid-filled sac develops in the spinal cord, often due to a Chiari I malformation, where an underdeveloped occipital bone affects spinal fluid circulation.",
           "causes": [
             "Chiari I malformation",
@@ -472,12 +472,12 @@
           "prevention": "Breeding practices that screen for Chiari malformation can help reduce the incidence.",
           "treatment": {
             "Supportive Care": "Manage pain and reduce stress",
-            "See Veterinarian": "May require surgical intervention or medication to reduce fluid accumulation"
+            "See Veterinarian": "May require surgical intervention or medicatsion to reduce fluid accumulation"
           }
         },
         {
           "name": "Epilepsy",
-          "species": "dog",
+          "species": "dogs",
           "description": "A disorder characterized by recurring seizures that can be idiopathic (inherited) or secondary to head trauma or CNS infections.",
           "causes": [
             "Genetic predisposition",
@@ -492,12 +492,12 @@
           "prevention": "Regular health checks and avoidance of head trauma can help manage risk.",
           "treatment": {
             "Supportive Care": "Maintain a safe environment during seizures",
-            "See Veterinarian": "Antiepileptic medication such as Phenobarbital"
+            "See Veterinarian": "Antiepileptic medicatsion such as Phenobarbital"
           }
         },
         {
           "name": "Rage Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A rare inherited seizure disorder marked by explosive aggression and focal neurological symptoms, linked to seizures in the temporal lobe.",
           "causes": [
             "Genetic predisposition"
@@ -514,7 +514,7 @@
         },
         {
           "name": "Cerebellar Hypoplasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "An underdevelopment of the cerebellum, most commonly due to an in utero infection with canine herpesvirus.",
           "causes": [
             "Canine herpesvirus infection",
@@ -525,7 +525,7 @@
             "Tremors",
             "Balance issues"
           ],
-          "prevention": "Avoid exposure of pregnant dogs to the herpesvirus.",
+          "prevention": "Avoid exposure of pregnant dog to the herpesvirus.",
           "treatment": {
             "Supportive Care": "Symptom management and physical therapy",
             "See Veterinarian": "Consult for tailored treatment and supportive care"
@@ -533,7 +533,7 @@
         },
         {
           "name": "Polyneuropathy",
-          "species": "dog",
+          "species": "dogs",
           "description": "A group of peripheral nerve disorders involving multiple nerves, often breed-related, affecting motor function.",
           "causes": [
             "Genetic predisposition",
@@ -547,13 +547,13 @@
           "prevention": "Genetic screening and maintaining overall nerve health.",
           "treatment": {
             "Supportive Care": "Physical therapy to maintain muscle function",
-            "See Veterinarian": "Medication and supportive care for underlying conditions"
+            "See Veterinarian": "Medicatsion and supportive care for underlying conditions"
           }
         },
         {
           "name": "Canine Cognitive Dysfunction",
-          "species": "dog",
-          "description": "A progressive condition similar to Alzheimer's disease in humans, affecting older dogs.",
+          "species": "dogs",
+          "description": "A progressive condition similar to Alzheimer's disease in humans, affecting older dog.",
           "causes": [
             "Age-related brain changes"
           ],
@@ -565,12 +565,12 @@
           "prevention": "Mental stimulation and a healthy diet may slow progression.",
           "treatment": {
             "Supportive Care": "Cognitive training and environmental enrichment",
-            "See Veterinarian": "Medications to manage symptoms"
+            "See Veterinarian": "Medicatsions to manage symptoms"
           }
         },
         {
           "name": "Scotty Cramp",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition in Scottish Terriers causing leg spasms due to serotonin metabolism disorder.",
           "causes": [
             "Serotonin metabolism deficiency"
@@ -582,13 +582,13 @@
           "prevention": "Breeding programs to avoid genetic carriers.",
           "treatment": {
             "Supportive Care": "Reduce stress and manage exercise",
-            "See Veterinarian": "Medication may be recommended for severe cases"
+            "See Veterinarian": "Medicatsion may be recommended for severe cases"
           }
         },
         {
           "name": "Cauda Equina Syndrome",
-          "species": "dog",
-          "description": "Compression of the cauda equina due to narrowing of the lumbosacral vertebral canal, often seen in German Shepherd Dogs.",
+          "species": "dogs",
+          "description": "Compression of the cauda equina due to narrowing of the lumbosacral vertebral canal, often seen in German Shepherd dog.",
           "causes": [
             "Narrowing of vertebral canal",
             "Degenerative changes"
@@ -606,7 +606,7 @@
         },
         {
           "name": "Tick Paralysis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A disease caused by a neurotoxin in the saliva of female ticks, leading to progressive paralysis.",
           "causes": [
             "Neurotoxin from tick saliva"
@@ -624,7 +624,7 @@
         },
         {
           "name": "Dancing Dobermann Disease",
-          "species": "dog",
+          "species": "dogs",
           "description": "A myopathy affecting the gastrocnemius muscle, characterized by flexing of one rear leg while standing.",
           "causes": [
             "Genetic predisposition"
@@ -641,7 +641,7 @@
         },
         {
           "name": "Granulomatous Meningoencephalitis (GME)",
-          "species": "dog",
+          "species": "dogs",
           "description": "An inflammatory disease of the central nervous system, often affecting young and middle-aged female toy breeds.",
           "causes": [
             "Immune-mediated factors"
@@ -659,7 +659,7 @@
         },
         {
           "name": "Facial Nerve Paralysis",
-          "species": "dog",
+          "species": "dogs",
           "description": "Paralysis of the facial nerve, often due to trauma or otitis media, leading to an inability to blink or facial drooping.",
           "causes": [
             "Trauma",
@@ -679,7 +679,7 @@
         },
         {
           "name": "Laryngeal Paralysis",
-          "species": "dog",
+          "species": "dogs",
           "description": "Paralysis of the larynx, leading to changes in voice and breathing difficulty, commonly seen in older large breeds.",
           "causes": [
             "Congenital",
@@ -697,8 +697,8 @@
           }
         },
         {
-          "name": "White Dog Shaker Syndrome",
-          "species": "dog",
+          "name": "White dogs Shaker Syndrome",
+          "species": "dogs",
           "description": "A syndrome causing full body tremors, most common in small white breeds such as Maltese and Poodles.",
           "causes": [
             "Unknown, possibly immune-mediated"
@@ -710,13 +710,13 @@
           ],
           "prevention": "Regular veterinary care and monitoring for symptoms.",
           "treatment": {
-            "Supportive Care": "Keep dog calm and avoid stress",
+            "Supportive Care": "Keep dogs calm and avoid stress",
             "See Veterinarian": "Corticosteroids and antiepileptic drugs"
           }
         },
         {
           "name": "Wobbler Disease",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition involving cervical vertebrae instability, leading to weakness and an unsteady gait.",
           "causes": [
             "Genetic predisposition",
@@ -735,7 +735,7 @@
         },
         {
           "name": "Cerebellar Abiotrophy",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition caused by the degeneration of Purkinje cells in the cerebellum, leading to progressive ataxia.",
           "causes": [
             "Genetic mutation"
@@ -754,7 +754,7 @@
       "Eyes":  [
         {
           "name": "Progressive Retinal Atrophy (PRA)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A genetic disease of the retina causing progressive vision loss that eventually leads to blindness. It occurs in both eyes and is commonly seen in certain breeds.",
           "causes": [
             "Genetic predisposition"
@@ -766,19 +766,19 @@
           ],
           "prevention": "Genetic screening in breeding programs.",
           "treatment": {
-            "Supportive Care": "Adapt the environment to assist the dog's mobility and comfort",
+            "Supportive Care": "Adapt the environment to assist the dogs's mobility and comfort",
             "See Veterinarian": "Genetic counseling and regular eye check-ups"
           }
         },
         {
           "name": "Retinal Dysplasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "An eye disease characterized by folds or rosettes in the retinal tissue. It is typically non-progressive and can be caused by genetics, viral infections, drugs, or vitamin A deficiency.",
           "causes": [
             "Genetic predisposition",
             "Viral infections",
             "Vitamin A deficiency",
-            "Certain medications"
+            "Certain medicatsions"
           ],
           "symptoms": [
             "Vision impairment",
@@ -792,7 +792,7 @@
         },
         {
           "name": "Sudden Acquired Retinal Degeneration (SARD)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition causing sudden and permanent blindness. The cause is unknown but may involve autoimmune disease, toxins, or Cushing's disease.",
           "causes": [
             "Unknown (possibly autoimmune, toxins, or Cushing's disease)"
@@ -810,7 +810,7 @@
         },
         {
           "name": "Retinal Detachment",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the retina separates from the underlying tissue, potentially caused by genetic disorders, trauma, inflammation, or cancer.",
           "causes": [
             "Genetic disorders (e.g., Collie eye anomaly)",
@@ -831,7 +831,7 @@
         },
         {
           "name": "Ectropion",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the eyelid folds outward, commonly affecting the lower lid. It is seen in breeds like the Cocker Spaniel, St. Bernard, Bloodhound, and Basset Hound.",
           "causes": [
             "Genetic predisposition",
@@ -845,13 +845,13 @@
           ],
           "prevention": "Regular eye check-ups, especially for predisposed breeds.",
           "treatment": {
-            "Supportive Care": "Lubricating eye drops to reduce irritation",
+            "Supportive Care": "Lubricatsing eye drops to reduce irritation",
             "See Veterinarian": "Surgical correction in severe cases"
           }
         },
         {
           "name": "Entropion",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the eyelid folds inward, causing the eyelashes or hair to rub on the eye. It is common in breeds like the Chow Chow, Shar Pei, St. Bernard, and Cocker Spaniel.",
           "causes": [
             "Genetic predisposition",
@@ -865,13 +865,13 @@
           ],
           "prevention": "Regular eye health monitoring, especially for affected breeds.",
           "treatment": {
-            "Supportive Care": "Lubricating eye drops",
+            "Supportive Care": "Lubricatsing eye drops",
             "See Veterinarian": "Surgical correction for severe cases"
           }
         },
         {
           "name": "Distichia",
-          "species": "dog",
+          "species": "dogs",
           "description": "An abnormal growth of eyelashes from the meibomian gland or other spots on the eyelid. It may lead to eye irritation, squinting, and inflammation.",
           "causes": [
             "Congenital",
@@ -890,7 +890,7 @@
         },
         {
           "name": "Chalazion",
-          "species": "dog",
+          "species": "dogs",
           "description": "A granuloma that forms in the eyelid due to blocked secretion of the meibomian gland. It can cause inflammation in the eyelid.",
           "causes": [
             "Blocked meibomian gland secretion",
@@ -909,7 +909,7 @@
         },
         {
           "name": "Trichiasis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where hair grows in the wrong direction, often causing irritation to the eye. It commonly occurs in the lateral upper eyelid of breeds like the English Cocker Spaniel.",
           "causes": [
             "Genetic predisposition",
@@ -922,14 +922,14 @@
           ],
           "prevention": "Monitoring eye health, especially in predisposed breeds.",
           "treatment": {
-            "Supportive Care": "Lubricating eye drops",
+            "Supportive Care": "Lubricatsing eye drops",
             "See Veterinarian": "Surgical removal or adjustment of hair growth"
           }
         },
         {
-          "name": "Cataracts",
-          "species": "dog",
-          "description": "An opacity in the lens of the eye, often due to genetic predisposition or diabetes mellitus. Cataracts can result in partial or total vision loss.",
+          "name": "catsaracts",
+          "species": "dogs",
+          "description": "An opacity in the lens of the eye, often due to genetic predisposition or diabetes mellitus. catsaracts can result in partial or total vision loss.",
           "causes": [
             "Genetic predisposition",
             "Diabetes mellitus",
@@ -943,12 +943,12 @@
           "prevention": "Manage diabetes and regular eye check-ups.",
           "treatment": {
             "Supportive Care": "None for reversal",
-            "See Veterinarian": "Surgical removal of cataracts"
+            "See Veterinarian": "Surgical removal of catsaracts"
           }
         },
         {
           "name": "Lens Luxation",
-          "species": "dog",
+          "species": "dogs",
           "description": "A displacement of the lens from its normal position, which can affect vision. Terrier breeds are especially predisposed.",
           "causes": [
             "Genetic predisposition",
@@ -967,8 +967,8 @@
         },
         {
           "name": "Nuclear Sclerosis",
-          "species": "dog",
-          "description": "A common age-related change where the center of the lens becomes hazy. It has little effect on vision and is often confused with cataracts.",
+          "species": "dogs",
+          "description": "A common age-related change where the center of the lens becomes hazy. It has little effect on vision and is often confused with catsaracts.",
           "causes": [
             "Aging"
           ],
@@ -976,7 +976,7 @@
             "Bluish-grey haze in the center of the lens",
             "Minimal vision impairment"
           ],
-          "prevention": "No specific prevention, but regular eye exams help distinguish from cataracts.",
+          "prevention": "No specific prevention, but regular eye exams help distinguish from catsaracts.",
           "treatment": {
             "Supportive Care": "None required",
             "See Veterinarian": "No treatment necessary for vision management"
@@ -984,8 +984,8 @@
         },
         {
           "name": "Collie Eye Anomaly (CEA)",
-          "species": "dog",
-          "description": "A congenital, inherited, bilateral eye disease involving the retina, choroid, and sclera. It can cause blindness or remain mild. Common in breeds like the Collie, Shetland Sheepdog, and Australian Shepherd.",
+          "species": "dogs",
+          "description": "A congenital, inherited, bilateral eye disease involving the retina, choroid, and sclera. It can cause blindness or remain mild. Common in breeds like the Collie, Shetland Sheepdogs, and Australian Shepherd.",
           "causes": [
             "Genetic mutation"
           ],
@@ -1002,8 +1002,8 @@
         },
         {
           "name": "Cherry Eye",
-          "species": "dog",
-          "description": "A condition where the gland of the third eyelid prolapses and becomes visible. Common in various breeds of dogs.",
+          "species": "dogs",
+          "description": "A condition where the gland of the third eyelid prolapses and becomes visible. Common in various breeds of dog.",
           "causes": [
             "Weak connective tissue",
             "Genetic predisposition"
@@ -1012,7 +1012,7 @@
             "Visible third eyelid",
             "Redness and swelling around the eye"
           ],
-          "prevention": "No prevention, but early detection can help prevent complications.",
+          "prevention": "No prevention, but early detection can help prevent complicatsions.",
           "treatment": {
             "Supportive Care": "No specific home treatment",
             "See Veterinarian": "Surgical correction or re-positioning of the gland"
@@ -1020,7 +1020,7 @@
         },
         {
           "name": "Canine Glaucoma",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition characterized by increased pressure within the eye, potentially caused by abnormal drainage, lens luxation, uveitis, or cancer. Common in breeds like the Cocker Spaniel and Poodle.",
           "causes": [
             "Abnormal eye drainage",
@@ -1036,13 +1036,13 @@
           ],
           "prevention": "Routine eye exams for early detection, especially in predisposed breeds.",
           "treatment": {
-            "Supportive Care": "Medication to reduce intraocular pressure",
-            "See Veterinarian": "Surgical treatment or lifelong medication to manage pressure"
+            "Supportive Care": "Medicatsion to reduce intraocular pressure",
+            "See Veterinarian": "Surgical treatment or lifelong medicatsion to manage pressure"
           }
         },
         {
           "name": "Ocular Melanosis (OM)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition marked by an increase in melanocytes (pigment cells) in the iris, sclera, and surrounding structures. It is most commonly found in Cairn Terriers.",
           "causes": [
             "Genetic factors"
@@ -1053,18 +1053,18 @@
           ],
           "prevention": "Regular eye health monitoring, especially in predisposed breeds.",
           "treatment": {
-            "Supportive Care": "None required unless complications arise",
+            "Supportive Care": "None required unless complicatsions arise",
             "See Veterinarian": "Monitoring for signs of glaucoma or other eye issues"
           }
         },
         {
           "name": "Keratoconjunctivitis Sicca (Dry Eye)",
-          "species": "dog",
-          "description": "A condition where the dog’s eyes do not produce enough tears, leading to dryness and irritation. It can result in corneal ulcers and other complications.",
+          "species": "dogs",
+          "description": "A condition where the dogs’s eyes do not produce enough tears, leading to dryness and irritation. It can result in corneal ulcers and other complicatsions.",
           "causes": [
             "Immune-mediated disease",
             "Genetic predisposition",
-            "Medication side effects"
+            "Medicatsion side effects"
           ],
           "symptoms": [
             "Redness",
@@ -1074,13 +1074,13 @@
           ],
           "prevention": "Regular monitoring for early signs in predisposed breeds.",
           "treatment": {
-            "Supportive Care": "Lubricating eye drops and tear stimulants",
-            "See Veterinarian": "Medications or surgery in severe cases"
+            "Supportive Care": "Lubricatsing eye drops and tear stimulants",
+            "See Veterinarian": "Medicatsions or surgery in severe cases"
           }
         },
         {
           "name": "Vogt–Koyanagi–Harada Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A syndrome characterized by uveitis (inflammation of the inner eye), poliosis (whitening of hair), and vitiligo (loss of pigment in the skin).",
           "causes": [
             "Immune-mediated inflammation"
@@ -1092,14 +1092,14 @@
           ],
           "prevention": "No known prevention, but early detection may help manage symptoms.",
           "treatment": {
-            "Supportive Care": "Steroid medications to manage inflammation",
+            "Supportive Care": "Steroid medicatsions to manage inflammation",
             "See Veterinarian": "Long-term immunosuppressive therapy"
           }
         },
         {
           "name": "Conjunctivitis",
-          "species": "dog",
-          "description": "Inflammation of the conjunctiva, often caused by mechanical irritation, allergies, or infections. It is common in dogs with conditions like entropion or trichiasis.",
+          "species": "dogs",
+          "description": "Inflammation of the conjunctiva, often caused by mechanical irritation, allergies, or infections. It is common in dog with conditions like entropion or trichiasis.",
           "causes": [
             "Mechanical irritation",
             "Allergies",
@@ -1113,13 +1113,13 @@
           ],
           "prevention": "Proper eye care and management of underlying conditions.",
           "treatment": {
-            "Supportive Care": "Cleaning the eye and using lubricating drops",
-            "See Veterinarian": "Antibiotics or anti-inflammatory medication for infections"
+            "Supportive Care": "Cleaning the eye and using lubricatsing drops",
+            "See Veterinarian": "Antibiotics or anti-inflammatory medicatsion for infections"
           }
         },
         {
           "name": "Eye Proptosis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the eye is displaced forward and trapped by the eyelids, often resulting from trauma. Common in brachycephalic (short-nosed) breeds.",
           "causes": [
             "Head trauma",
@@ -1132,13 +1132,13 @@
           ],
           "prevention": "Avoiding trauma to the face and eyes.",
           "treatment": {
-            "Supportive Care": "Keep the eye moist with lubricating drops",
+            "Supportive Care": "Keep the eye moist with lubricatsing drops",
             "See Veterinarian": "Emergency repositioning and potential surgery"
           }
         },
         {
           "name": "Horner's Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A syndrome caused by damage to the sympathetic innervation of the eye, leading to signs such as a sunken eye, small pupil, and drooping eyelid.",
           "causes": [
             "Trauma",
@@ -1160,7 +1160,7 @@
         },
         {
           "name": "Optic Neuritis",
-          "species": "dog",
+          "species": "dogs",
           "description": "Inflammation of the optic nerves, often caused by granulomatous meningoencephalitis or infections.",
           "causes": [
             "Granulomatous meningoencephalitis",
@@ -1171,15 +1171,15 @@
             "Pain",
             "Inflammation in the eye"
           ],
-          "prevention": "None specific, but early diagnosis can help manage complications.",
+          "prevention": "None specific, but early diagnosis can help manage complicatsions.",
           "treatment": {
-            "Supportive Care": "Steroid or anti-inflammatory medications",
+            "Supportive Care": "Steroid or anti-inflammatory medicatsions",
             "See Veterinarian": "Treatment for the underlying cause"
           }
         },
         {
           "name": "Persistent Pupillary Membrane",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition involving remnants of fetal tissue that persist as strands across the pupil, sometimes obstructing vision.",
           "causes": [
             "Developmental abnormality"
@@ -1198,8 +1198,8 @@
       "Ears": [
         {
           "name": "Ear Infection",
-          "species": "dog",
-          "description": "A common condition in dogs, especially in breeds with hanging ears like Beagles or narrow ear canals like Cocker Spaniels. It can be caused by allergies, ear parasites, and hypothyroidism.",
+          "species": "dogs",
+          "description": "A common condition in dog, especially in breeds with hanging ears like Beagles or narrow ear canals like Cocker Spaniels. It can be caused by allergies, ear parasites, and hypothyroidism.",
           "causes": [
             "Allergies",
             "Ear parasites",
@@ -1221,8 +1221,8 @@
         },
         {
           "name": "Deafness",
-          "species": "dog",
-          "description": "Deafness in dogs can be acquired or congenital. Acquired deafness is often due to chronic ear infections, certain medications, or age-related cochlea changes. Congenital deafness is sometimes genetic, especially in dogs with merle or white coats.",
+          "species": "dogs",
+          "description": "Deafness in dog can be acquired or congenital. Acquired deafness is often due to chronic ear infections, certain medicatsions, or age-related cochlea changes. Congenital deafness is sometimes genetic, especially in dog with merle or white coats.",
           "causes": [
             "Chronic ear infections",
             "Age-related cochlear changes",
@@ -1234,16 +1234,16 @@
             "Difficulty waking up",
             "Excessive barking or other vocalizations"
           ],
-          "prevention": "Early detection and treatment of ear infections, and avoiding exposure to toxins or certain medications.",
+          "prevention": "Early detection and treatment of ear infections, and avoiding exposure to toxins or certain medicatsions.",
           "treatment": {
-            "Supportive Care": "Use of visual or tactile communication",
+            "Supportive Care": "Use of visual or tactile communicatsion",
             "See Veterinarian": "Diagnostic tests to confirm the cause and manage symptoms"
           }
         },
         {
           "name": "Fly Strike Dermatitis",
-          "species": "dog",
-          "description": "A skin condition that occurs on the ears of dogs, caused by bites from the stable fly (Stomoxys calcitrans). It is most common on the tip and folds of the ear.",
+          "species": "dogs",
+          "description": "A skin condition that occurs on the ears of dog, caused by bites from the stable fly (Stomoxys calcitrans). It is most common on the tip and folds of the ear.",
           "causes": [
             "Bites from stable flies",
             "Environmental exposure to flies"
@@ -1263,8 +1263,8 @@
       "Skin":[
         {
           "name": "Atopy",
-          "species": "dog",
-          "description": "An allergy to substances that are inhaled or absorbed through the skin, often leading to itching. Affects up to 10% of dogs, especially in breeds like Labrador Retrievers, Golden Retrievers, and Shih Tzus.",
+          "species": "dogs",
+          "description": "An allergy to substances that are inhaled or absorbed through the skin, often leading to itching. Affects up to 10% of dog, especially in breeds like Labrador Retrievers, Golden Retrievers, and Shih Tzus.",
           "causes": [
             "Inhaled allergens",
             "Absorbed allergens through skin"
@@ -1281,8 +1281,8 @@
         },
         {
           "name": "Flea Allergy Dermatitis",
-          "species": "dog",
-          "description": "The most common skin disease in dogs in the U.S., caused by sensitivity to flea saliva. It leads to intense itching and inflammation.",
+          "species": "dogs",
+          "description": "The most common skin disease in dog in the U.S., caused by sensitivity to flea saliva. It leads to intense itching and inflammation.",
           "causes": [
             "Flea saliva"
           ],
@@ -1293,14 +1293,14 @@
           ],
           "prevention": "Flea control treatments and keeping the environment free from fleas.",
           "treatment": {
-            "Supportive Care": "Flea treatments, anti-itch medication",
+            "Supportive Care": "Flea treatments, anti-itch medicatsion",
             "See Veterinarian": "Prescription flea preventatives and topical steroids"
           }
         },
         {
           "name": "Food Allergy",
-          "species": "dog",
-          "description": "A common cause of itching in dogs, often affecting the face, paws, and underside. Diagnosed by eliminating potential allergens with a hypoallergenic diet.",
+          "species": "dogs",
+          "description": "A common cause of itching in dog, often affecting the face, paws, and underside. Diagnosed by eliminating potential allergens with a hypoallergenic diet.",
           "causes": [
             "Food ingredients (e.g., proteins, grains)"
           ],
@@ -1317,7 +1317,7 @@
         },
         {
           "name": "Follicular Dysplasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A genetic disorder causing hair loss (alopecia) due to abnormal hair follicle structure.",
           "causes": [
             "Genetic mutation"
@@ -1330,12 +1330,12 @@
           "prevention": "Genetic screening in breeding programs.",
           "treatment": {
             "Supportive Care": "Topical treatments to manage symptoms",
-            "See Veterinarian": "Medications to reduce inflammation and promote skin health"
+            "See Veterinarian": "Medicatsions to reduce inflammation and promote skin health"
           }
         },
         {
           "name": "Dermoid Sinus",
-          "species": "dog",
+          "species": "dogs",
           "description": "A genetic skin condition that appears as lumps along the dorsal midline, caused by a congenital defect.",
           "causes": [
             "Genetic, autosomal inheritance"
@@ -1344,7 +1344,7 @@
             "Lumps on the dorsal midline",
             "Possible discharge or infection from the sinuses"
           ],
-          "prevention": "Avoid breeding affected dogs.",
+          "prevention": "Avoid breeding affected dog.",
           "treatment": {
             "Supportive Care": "Monitor for infection",
             "See Veterinarian": "Surgical removal of the sinus tract"
@@ -1352,7 +1352,7 @@
         },
         {
           "name": "Lick Granuloma",
-          "species": "dog",
+          "species": "dogs",
           "description": "A skin condition caused by excessive licking of the lower leg, resulting in a thickened, firm, oval plaque.",
           "causes": [
             "Excessive licking due to anxiety, boredom, or irritation"
@@ -1365,12 +1365,12 @@
           "prevention": "Address underlying causes of licking (e.g., anxiety, boredom).",
           "treatment": {
             "Supportive Care": "Bandaging the area, topical treatments to soothe the skin",
-            "See Veterinarian": "Anti-anxiety medications or corticosteroids, antibiotics if infected"
+            "See Veterinarian": "Anti-anxiety medicatsions or corticosteroids, antibiotics if infected"
           }
         },
         {
           "name": "Pemphigus",
-          "species": "dog",
+          "species": "dogs",
           "description": "An uncommon autoimmune skin disease that causes skin erosions and crusting, with pemphigus foliaceus being the most common form.",
           "causes": [
             "Autoimmune response"
@@ -1382,13 +1382,13 @@
           ],
           "prevention": "No known prevention for autoimmune diseases.",
           "treatment": {
-            "Supportive Care": "Immunosuppressive medications (e.g., corticosteroids)",
-            "See Veterinarian": "Long-term medication to control autoimmune response"
+            "Supportive Care": "Immunosuppressive medicatsions (e.g., corticosteroids)",
+            "See Veterinarian": "Long-term medicatsion to control autoimmune response"
           }
         },
         {
           "name": "Sebaceous Adenitis",
-          "species": "dog",
+          "species": "dogs",
           "description": "An uncommon autoimmune skin disease, primarily affecting Akitas and Standard Poodles, that leads to inflammation of the sebaceous glands and hair loss.",
           "causes": [
             "Autoimmune response"
@@ -1400,13 +1400,13 @@
           ],
           "prevention": "No known prevention.",
           "treatment": {
-            "Supportive Care": "Medicated shampoos and oils",
-            "See Veterinarian": "Immunosuppressive medications and antibiotics for infections"
+            "Supportive Care": "Medicatsed shampoos and oils",
+            "See Veterinarian": "Immunosuppressive medicatsions and antibiotics for infections"
           }
         },
         {
           "name": "Dermal Fragility Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A rare genetic condition causing increased skin elasticity and poor wound healing.",
           "causes": [
             "Genetic mutation"
@@ -1424,8 +1424,8 @@
         },
         {
           "name": "Discoid Lupus Erythematosus",
-          "species": "dog",
-          "description": "An autoimmune skin disease that primarily affects the nose, causing scaling and loss of pigment. It does not progress to systemic lupus erythematosus in dogs.",
+          "species": "dogs",
+          "description": "An autoimmune skin disease that primarily affects the nose, causing scaling and loss of pigment. It does not progress to systemic lupus erythematosus in dog.",
           "causes": [
             "Autoimmune response"
           ],
@@ -1436,12 +1436,12 @@
           "prevention": "Limit sun exposure, as UV rays may exacerbate symptoms.",
           "treatment": {
             "Supportive Care": "Topical treatments to manage skin lesions",
-            "See Veterinarian": "Immunosuppressive medications and sun protection"
+            "See Veterinarian": "Immunosuppressive medicatsions and sun protection"
           }
         },
         {
           "name": "Juvenile Cellulitis",
-          "species": "dog",
+          "species": "dogs",
           "description": "Also known as puppy strangles, this disease affects puppies and is thought to have a hereditary link to the immune system.",
           "causes": [
             "Immune system disorder, possibly hereditary"
@@ -1453,7 +1453,7 @@
           ],
           "prevention": "No known prevention.",
           "treatment": {
-            "Supportive Care": "Anti-inflammatory medications",
+            "Supportive Care": "Anti-inflammatory medicatsions",
             "See Veterinarian": "Corticosteroids and antibiotics if secondary infection occurs"
           }
         }        
@@ -1461,8 +1461,8 @@
       "Endocrine diseases": [
         {
           "name": "Diabetes Mellitus",
-          "species": "dog",
-          "description": "Type 1 diabetes in dogs is caused by a lack of insulin production due to the destruction of pancreatic beta cells. It can be caused by autoimmune diseases or severe pancreatitis.",
+          "species": "dogs",
+          "description": "Type 1 diabetes in dog is caused by a lack of insulin production due to the destruction of pancreatic beta cells. It can be caused by autoimmune diseases or severe pancreatitis.",
           "causes": [
             "Autoimmune disease",
             "Severe pancreatitis"
@@ -1470,7 +1470,7 @@
           "symptoms": [
             "Weight loss",
             "Increased drinking and urination",
-            "Cataracts"
+            "catsaracts"
           ],
           "prevention": "There is no preventive method; however, proper management of underlying causes can help control diabetes.",
           "treatment": {
@@ -1480,8 +1480,8 @@
         },
         {
           "name": "Hypothyroidism",
-          "species": "dog",
-          "description": "The most common endocrine disorder in dogs, caused by autoimmune destruction or atrophy of the thyroid gland. It leads to insufficient production of thyroid hormones.",
+          "species": "dogs",
+          "description": "The most common endocrine disorder in dog, caused by autoimmune destruction or atrophy of the thyroid gland. It leads to insufficient production of thyroid hormones.",
           "causes": [
             "Autoimmune destruction (lymphocytic thyroiditis)",
             "Idiopathic atrophy of the thyroid gland"
@@ -1500,7 +1500,7 @@
         },
         {
           "name": "Hyperthyroidism",
-          "species": "dog",
+          "species": "dogs",
           "description": "A rare condition caused by thyroid carcinoma (malignant tumor), leading to overproduction of thyroid hormones.",
           "causes": [
             "Thyroid carcinoma"
@@ -1518,7 +1518,7 @@
         },
         {
           "name": "Hypoadrenocorticism (Addison's Disease)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A rare endocrine disorder caused by the destruction of the adrenal glands, leading to a reduction in glucocorticoids and mineralocorticoids.",
           "causes": [
             "Autoimmune destruction of adrenal tissue",
@@ -1532,7 +1532,7 @@
             "Shivering",
             "Weight loss"
           ],
-          "prevention": "Prevention involves gradual tapering off steroid medications to avoid adrenal suppression.",
+          "prevention": "Prevention involves gradual tapering off steroid medicatsions to avoid adrenal suppression.",
           "treatment": {
             "Mineralocorticoid Therapy": "Daily pills or monthly injections",
             "Glucocorticoid Supplementation": "Oral prednisone"
@@ -1540,8 +1540,8 @@
         },
         {
           "name": "Cushing's Syndrome",
-          "species": "dog",
-          "description": "A condition caused by excessive cortisol production, often due to a pituitary tumor. It can also result from the overuse of steroid medications.",
+          "species": "dogs",
+          "description": "A condition caused by excessive cortisol production, often due to a pituitary tumor. It can also result from the overuse of steroid medicatsions.",
           "causes": [
             "Pituitary tumor",
             "Adrenal tumor",
@@ -1556,13 +1556,13 @@
           ],
           "prevention": "Avoid excessive use of steroids and manage tumors early.",
           "treatment": {
-            "Medications": "Mitotane, trilostane, ketoconazole, or selegiline",
+            "Medicatsions": "Mitotane, trilostane, ketoconazole, or selegiline",
             "Surgery": "In cases of adrenal tumors"
           }
         },
         {
           "name": "Diabetes Insipidus",
-          "species": "dog",
+          "species": "dogs",
           "description": "A rare condition characterized by excessive thirst and urination due to a lack of antidiuretic hormone (ADH) or the kidneys' inability to respond to it.",
           "causes": [
             "Central diabetes insipidus (lack of ADH production)",
@@ -1579,12 +1579,12 @@
         },
         {
           "name": "Acromegaly",
-          "species": "dog",
-          "description": "A hormonal condition caused by overproduction of growth hormone, typically in unspayed females or those on progesterone-based medications.",
+          "species": "dogs",
+          "description": "A hormonal condition caused by overproduction of growth hormone, typically in unspayed females or those on progesterone-based medicatsions.",
           "causes": [
             "Excessive growth hormone secretion",
             "Somatotroph adenoma",
-            "Use of progesterone medications"
+            "Use of progesterone medicatsions"
           ],
           "symptoms": [
             "Overgrowth of gums",
@@ -1603,7 +1603,7 @@
       "Gastrointestinal Diseases": [
         {
           "name": "Megaesophagus",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition characterized by low motility and dilation of the esophagus, often leading to regurgitation.",
           "causes": [
             "Idiopathic",
@@ -1619,12 +1619,12 @@
           "prevention": "No definitive prevention, but early diagnosis may help in management.",
           "treatment": {
             "Dietary changes": "Small, frequent meals, often in an upright position",
-            "Medications": "Prokinetic drugs, antibiotics for secondary infections"
+            "Medicatsions": "Prokinetic drugs, antibiotics for secondary infections"
           }
         },
         {
           "name": "Gastric Dilatation Volvulus (Bloat)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A life-threatening condition where the stomach becomes distended with air and may twist upon itself.",
           "causes": [
             "Deep-chested breed predisposition",
@@ -1646,7 +1646,7 @@
         },
         {
           "name": "Foreign Body Obstruction",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where an object becomes lodged in the gastrointestinal tract, often causing a blockage.",
           "causes": [
             "Swallowing large objects",
@@ -1666,7 +1666,7 @@
         },
         {
           "name": "Anal Fistulae",
-          "species": "dog",
+          "species": "dogs",
           "description": "Chronic draining tracts around the anus, most common in German Shepherds.",
           "causes": [
             "Unknown, possibly autoimmune"
@@ -1684,7 +1684,7 @@
         },
         {
           "name": "Exocrine Pancreatic Insufficiency",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the pancreas fails to produce adequate digestive enzymes, leading to malabsorption.",
           "causes": [
             "Chronic pancreatitis",
@@ -1703,8 +1703,8 @@
         },
         {
           "name": "Pancreatitis",
-          "species": "dog",
-          "description": "Inflammation of the pancreas, most common in overweight, middle-aged dogs.",
+          "species": "dogs",
+          "description": "Inflammation of the pancreas, most common in overweight, middle-aged dog.",
           "causes": [
             "Obesity",
             "Hyperlipidemia",
@@ -1720,12 +1720,12 @@
           "prevention": "Maintaining a healthy weight and avoiding fatty foods.",
           "treatment": {
             "Hospitalization": "IV fluids and pain management",
-            "Dietary modification": "Low-fat diet once the acute phase is over"
+            "Dietary modificatsion": "Low-fat diet once the acute phase is over"
           }
         },
         {
           "name": "Inflammatory Bowel Disease (IBD)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A group of disorders characterized by inflammation in the gastrointestinal tract.",
           "causes": [
             "Idiopathic"
@@ -1739,12 +1739,12 @@
           "treatment": {
             "Corticosteroids": "To reduce inflammation",
             "Immunosuppressive drugs": "In severe cases",
-            "Dietary modification": "Specialized diets"
+            "Dietary modificatsion": "Specialized diets"
           }
         },
         {
           "name": "Bilious Vomiting Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "Vomiting caused by bile-induced inflammation of the stomach.",
           "causes": [
             "Bile reflux",
@@ -1762,7 +1762,7 @@
         },
         {
           "name": "Intussusception",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where one part of the intestine telescopes into another, leading to obstruction.",
           "causes": [
             "Intestinal infections",
@@ -1780,7 +1780,7 @@
         },
         {
           "name": "Lymphangiectasia",
-          "species": "dog",
+          "species": "dogs",
           "description": "A disease of the intestine characterized by chronic diarrhea and protein loss.",
           "causes": [
             "Idiopathic",
@@ -1799,7 +1799,7 @@
         },
         {
           "name": "Hemorrhagic Gastroenteritis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A sudden onset of vomiting and bloody diarrhea, often life-threatening.",
           "causes": [
             "Infections",
@@ -1818,7 +1818,7 @@
         },
         {
           "name": "Gallbladder Mucocele",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where the gallbladder becomes filled with mucus and bile, leading to obstruction.",
           "causes": [
             "Genetic predisposition in certain breeds",
@@ -1832,14 +1832,14 @@
           "prevention": "No known prevention.",
           "treatment": {
             "Surgical removal of the gallbladder": "In severe cases",
-            "Supportive care": "With medication for bile flow"
+            "Supportive care": "With medicatsion for bile flow"
           }
         }     
       ],
       "Kidney Diseases": [
         {
           "name": "Fanconi Syndrome",
-          "species": "dog",
+          "species": "dogs",
           "description": "A type of renal tubule disease commonly found in Basenjis, characterized by the inability to concentrate urine and the presence of glucose, protein, and amino acids in the urine.",
           "causes": [
             "Genetic predisposition in Basenjis"
@@ -1854,12 +1854,12 @@
           "treatment": {
             "Phosphate supplementation": "To correct deficiencies",
             "Potassium supplementation": "For hypokalemia",
-            "Medications": "For protein loss"
+            "Medicatsions": "For protein loss"
           }
         },
         {
           "name": "Kidney Failure",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition defined by the loss of about 75% of kidney function, leading to azotemia and low specific gravity of urine. It can be acute or chronic.",
           "causes": [
             "Acute kidney injury (e.g., blood supply loss, hypercalcemia, toxins)",
@@ -1881,7 +1881,7 @@
         },
         {
           "name": "Glomerulonephritis",
-          "species": "dog",
+          "species": "dogs",
           "description": "A condition where immune complexes deposit in the glomeruli of the kidneys, leading to protein leakage into the urine. It may result from various infections or diseases.",
           "causes": [
             "Cancer",
@@ -1906,8 +1906,8 @@
         },
         {
           "name": "Familial Renal Disease",
-          "species": "dog",
-          "description": "A rare cause of kidney failure in young dogs, most often related to breed-specific inherited conditions.",
+          "species": "dogs",
+          "description": "A rare cause of kidney failure in young dog, most often related to breed-specific inherited conditions.",
           "causes": [
             "Breed-related genetic factors"
           ],
@@ -1924,10 +1924,10 @@
         },
         {
           "name": "Samoyed Hereditary Glomerulopathy (SHG)",
-          "species": "dog",
+          "species": "dogs",
           "description": "A hereditary noninflammatory renal disease affecting the glomeruli in Samoyeds. It is a model for hereditary nephritis in humans.",
           "causes": [
-            "Inherited genetic condition in Samoyed dogs"
+            "Inherited genetic condition in Samoyed dog"
           ],
           "symptoms": [
             "Protein in urine",
@@ -1944,8 +1944,8 @@
       "Urinary Bladder Diseases": [
         {
           "name": "Bladder Stones (Uroliths)",
-          "species": "dog",
-          "description": "Bladder stones are formed in the urinary bladder and can vary in size and number. They are commonly caused by infections, dietary factors, and genetics. Common types include struvite, calcium oxalate, urate, cystine, calcium phosphate, and silicate stones.",
+          "species": "dogs",
+          "description": "Bladder stones are formed in the urinary bladder and can vary in size and number. They are commonly caused by infections, dietary factors, and genetics. Common types include struvite, calcium oxalate, urate, cystine, calcium phosphate, and silicatse stones.",
           "causes": [
             "Urinary tract infections",
             "Dietary influences",
@@ -1966,8 +1966,8 @@
         },
         {
           "name": "Urinary Tract Infection (Cystitis)",
-          "species": "dog",
-          "description": "Urinary tract infection, or cystitis, is a common condition in dogs, usually caused by bacterial infections. It is characterized by inflammation of the bladder.",
+          "species": "dogs",
+          "description": "Urinary tract infection, or cystitis, is a common condition in dog, usually caused by bacterial infections. It is characterized by inflammation of the bladder.",
           "causes": [
             "Bacterial infections (e.g., E. coli, Staphylococcus spp., Proteus mirabilis)",
             "Urinary retention",
@@ -1984,16 +1984,16 @@
           "prevention": "Maintaining proper hydration, regular urinalysis, and prompt treatment of infections.",
           "treatment": {
             "Antibiotics": "Based on urine culture results",
-            "Anti-inflammatory medications": "To reduce bladder inflammation",
+            "Anti-inflammatory medicatsions": "To reduce bladder inflammation",
             "Increased water intake": "To flush out bacteria"
           }
         },
         {
           "name": "Urinary Incontinence",
-          "species": "dog",
-          "description": "Urinary incontinence refers to the leakage of urine, usually due to a weak urethral sphincter in adult dogs or congenital conditions like ectopic ureters in puppies.",
+          "species": "dogs",
+          "description": "Urinary incontinence refers to the leakage of urine, usually due to a weak urethral sphincter in adult dog or congenital conditions like ectopic ureters in puppies.",
           "causes": [
-            "Incompetent urethral sphincter (in adult dogs)",
+            "Incompetent urethral sphincter (in adult dog)",
             "Ectopic ureter (in puppies)",
             "Hormonal imbalances (lack of estrogen in spayed females)"
           ],
@@ -2002,7 +2002,7 @@
             "Wet bedding or floors",
             "Frequent licking of the genital area"
           ],
-          "prevention": "Spaying dogs with a risk of incontinence, early detection, and hormone replacement therapy.",
+          "prevention": "Spaying dog with a risk of incontinence, early detection, and hormone replacement therapy.",
           "treatment": {
             "Estrogen replacement": "For spayed females",
             "Phenylpropanolamine": "To strengthen the urethral sphincter",
@@ -2013,8 +2013,8 @@
       "Reproductive Diseases": [
         {
           "name": "Prostate Disease",
-          "species": "dog",
-          "description": "Prostate disease in dogs includes benign prostatic hyperplasia (BPH), prostatitis (infection of the prostate), cancer, and cysts and abscesses. BPH is the most common, found in older intact dogs. Prostatitis is often associated with BPH and is caused by bacterial infections.",
+          "species": "dogs",
+          "description": "Prostate disease in dog includes benign prostatic hyperplasia (BPH), prostatitis (infection of the prostate), cancer, and cysts and abscesses. BPH is the most common, found in older intact dog. Prostatitis is often associated with BPH and is caused by bacterial infections.",
           "causes": [
             "Benign prostatic hyperplasia (BPH)",
             "Prostatitis (bacterial infection)",
@@ -2023,7 +2023,7 @@
           ],
           "symptoms": [
             "Blood in the urine",
-            "Straining to urinate or defecate",
+            "Straining to urinate or defecatse",
             "Painful urination",
             "Enlarged prostate (detected by rectal examination)"
           ],
@@ -2036,8 +2036,8 @@
         },
         {
           "name": "Cryptorchidism",
-          "species": "dog",
-          "description": "Cryptorchidism is when one testicle remains undescended, either in the abdomen or inguinal canal, past the normal stage of development. It is often a sex-limited autosomal recessive trait in dogs.",
+          "species": "dogs",
+          "description": "Cryptorchidism is when one testicle remains undescended, either in the abdomen or inguinal canal, past the normal stage of development. It is often a sex-limited autosomal recessive trait in dog.",
           "causes": [
             "Genetic predisposition",
             "Sex-limited autosomal recessive trait"
@@ -2046,15 +2046,15 @@
             "One testicle is absent from the scrotum",
             "Palpable testicle in the inguinal area or abdomen"
           ],
-          "prevention": "Genetic screening and early neutering in affected dogs.",
+          "prevention": "Genetic screening and early neutering in affected dog.",
           "treatment": {
             "Surgical removal": "Orchiectomy of the undescended testicle"
           }
         },
         {
           "name": "False Pregnancy (Pseudocyesis)",
-          "species": "dog",
-          "description": "False pregnancy is a common condition in intact female dogs, where they exhibit signs of pregnancy despite not being pregnant. This condition often resolves on its own but may require treatment in severe cases.",
+          "species": "dogs",
+          "description": "False pregnancy is a common condition in intact female dog, where they exhibit signs of pregnancy despite not being pregnant. This condition often resolves on its own but may require treatment in severe cases.",
           "causes": [
             "Hormonal imbalances (prolactin and progesterone)",
             "Occurs in intact females after a heat cycle"
@@ -2073,8 +2073,8 @@
         },
         {
           "name": "Pyometra",
-          "species": "dog",
-          "description": "Pyometra is a potentially fatal infection of the uterus that primarily affects unspayed female dogs. The condition typically occurs after the estrus cycle and is characterized by the accumulation of pus in the uterus.",
+          "species": "dogs",
+          "description": "Pyometra is a potentially fatal infection of the uterus that primarily affects unspayed female dog. The condition typically occurs after the estrus cycle and is characterized by the accumulation of pus in the uterus.",
           "causes": [
             "Bacterial infection (commonly E. coli)",
             "Hormonal changes after estrus"
@@ -2094,7 +2094,7 @@
         },
         {
           "name": "Umbilical Hernia",
-          "species": "dog",
+          "species": "dogs",
           "description": "An umbilical hernia occurs when the umbilical ring of the abdominal wall does not close properly, leading to a protrusion of abdominal contents. It is common and often seen in puppies.",
           "causes": [
             "Genetic predisposition",
@@ -2110,7 +2110,7 @@
         },
         {
           "name": "Inguinal Hernia",
-          "species": "dog",
+          "species": "dogs",
           "description": "Inguinal hernia is the protrusion of abdominal contents through the inguinal canal. It may occur as a congenital condition or as a result of injury or strain.",
           "causes": [
             "Genetic predisposition",
@@ -2130,7 +2130,7 @@
       "Cancers":[
         {
           "name": "Canine Transmissible Venereal Tumor",
-          "species": "dog",
+          "species": "dogs",
           "description": "A tumor of the external genitalia, spread by sexual contact. More common in hot and humid climates.",
           "causes": [
             "Sexual contact"
@@ -2138,7 +2138,7 @@
           "symptoms": [
             "External genital tumors"
           ],
-          "prevention": "Avoiding unprotected sexual contact between dogs.",
+          "prevention": "Avoiding unprotected sexual contact between dog.",
           "treatment": {
             "Supportive Care": "Surgical removal of tumors",
             "See Veterinarian": "Chemotherapy or radiation therapy may be necessary"
@@ -2146,7 +2146,7 @@
         },
         {
           "name": "Hemangiosarcoma",
-          "species": "dog",
+          "species": "dogs",
           "description": "An aggressive tumor that most often affects the heart, spleen, skin, subcutaneous tissues, and liver.",
           "causes": [
             "Genetic predisposition",
@@ -2166,8 +2166,8 @@
         },
         {
           "name": "Osteosarcoma",
-          "species": "dog",
-          "description": "An aggressive bone tumor that commonly spreads to the lungs. More common in large and giant breed dogs.",
+          "species": "dogs",
+          "description": "An aggressive bone tumor that commonly spreads to the lungs. More common in large and giant breed dog.",
           "causes": [
             "Genetic factors",
             "Trauma or injury"
@@ -2186,8 +2186,8 @@
         },
         {
           "name": "Histiocytoma",
-          "species": "dog",
-          "description": "A benign skin tumor more frequent in young dogs (<4 years), often regresses without treatment.",
+          "species": "dogs",
+          "description": "A benign skin tumor more frequent in young dog (<4 years), often regresses without treatment.",
           "causes": [
             "Unknown"
           ],
@@ -2203,8 +2203,8 @@
         },
         {
           "name": "Malignant Histiocytosis (Histiocytic Sarcoma)",
-          "species": "dog",
-          "description": "An aggressive cancer found primarily in certain breeds like Bernese Mountain Dogs, Rottweilers, Golden Retrievers, and Flat-Coated Retrievers. It infiltrates various organs.",
+          "species": "dogs",
+          "description": "An aggressive cancer found primarily in certain breeds like Bernese Mountain dog, Rottweilers, Golden Retrievers, and Flat-Coated Retrievers. It infiltrates various organs.",
           "causes": [
             "Genetic predisposition"
           ],
@@ -2222,7 +2222,7 @@
         },
         {
           "name": "Mast Cell Tumor",
-          "species": "dog",
+          "species": "dogs",
           "description": "A tumor that usually occurs in the skin but can also spread to the liver, spleen, or bone marrow.",
           "causes": [
             "Unknown"
@@ -2233,14 +2233,14 @@
           ],
           "prevention": "Regular skin checks and early detection.",
           "treatment": {
-            "Supportive Care": "Manage secondary infections or complications",
+            "Supportive Care": "Manage secondary infections or complicatsions",
             "See Veterinarian": "Surgical removal, chemotherapy"
           }
         },
         {
           "name": "Lymphoma",
-          "species": "dog",
-          "description": "A malignant cancer affecting the lymphatic system. The most common form in dogs is multicentric, involving the lymph nodes.",
+          "species": "dogs",
+          "description": "A malignant cancer affecting the lymphatic system. The most common form in dog is multicentric, involving the lymph nodes.",
           "causes": [
             "Unknown"
           ],
@@ -2258,7 +2258,7 @@
         },
         {
           "name": "Fibrosarcoma",
-          "species": "dog",
+          "species": "dogs",
           "description": "A malignant tumor most commonly found in the mouth, less commonly in the skin, subcutis, and bones.",
           "causes": [
             "Genetic predisposition",
@@ -2281,7 +2281,7 @@
         [
           {
             "name": "Pica",
-            "species": "dog",
+            "species": "dogs",
             "description": "Pica is an appetite for, or the behavior of eating, non-nutritive substances like sand, coal, soil, chalk, or paper. It can be dangerous and may lead to poisoning or gastrointestinal obstruction.",
             "causes": [
               "Immune-mediated hemolytic anemia",
@@ -2298,13 +2298,13 @@
             "prevention": "Ensure a balanced diet, provide stimulation, and prevent access to harmful substances.",
             "treatment": {
               "Supportive Care": "Ensure proper hydration and monitor for any signs of poisoning or blockage.",
-              "See Veterinarian": "Test for anemia, gastrointestinal obstructions, or poisoning; treat with dietary adjustments, medication, or behavioral therapy."
+              "See Veterinarian": "Test for anemia, gastrointestinal obstructions, or poisoning; treat with dietary adjustments, medicatsion, or behavioral therapy."
             }
           },
           {
             "name": "Coprophagia",
-            "species": "dog",
-            "description": "Coprophagia is the ingestion of feces, either its own or another dog’s. It may be caused by medical conditions or behavioral issues and can lead to infections or internal parasites.",
+            "species": "dogs",
+            "description": "Coprophagia is the ingestion of feces, either its own or another dogs’s. It may be caused by medical conditions or behavioral issues and can lead to infections or internal parasites.",
             "causes": [
               "Exocrine pancreatic insufficiency",
               "Overfeeding",
@@ -2320,7 +2320,7 @@
             "prevention": "Provide proper nutrition, eliminate access to feces, and address any behavioral issues.",
             "treatment": {
               "Supportive Care": "Ensure proper hydration and treat any gastrointestinal upset.",
-              "See Veterinarian": "Behavioral modification therapy, feces taste alteration, and possible medical treatments for underlying conditions."
+              "See Veterinarian": "Behavioral modificatsion therapy, feces taste alteration, and possible medical treatments for underlying conditions."
             }
           }
         ]        
@@ -2330,7 +2330,7 @@
       "Environmental": [
         {
           "name": "Sensitivity to Anesthesia",
-          "species": "dog",
+          "species": "dogs",
           "description": "Sighthounds are most commonly documented for having anesthetic concerns, especially with ultra-short-acting thiobarbiturates like thiopental. They often experience prolonged recovery times after anesthesia.",
           "causes": [
             "Breed-specific sensitivity (common in sighthounds)",
@@ -2348,8 +2348,8 @@
         },
         {
           "name": "Heat Stroke",
-          "species": "dog",
-          "description": "Heat stroke is a dangerous condition that can occur in dogs, especially in flat-faced or giant breeds, due to high temperatures, lack of water, or strenuous exercise. It can cause vomiting, diarrhea, collapse, and difficulty breathing.",
+          "species": "dogs",
+          "description": "Heat stroke is a dangerous condition that can occur in dog, especially in flat-faced or giant breeds, due to high temperatures, lack of water, or strenuous exercise. It can cause vomiting, diarrhea, collapse, and difficulty breathing.",
           "causes": [
             "High ambient temperature",
             "Strenuous exercise",
@@ -2365,13 +2365,13 @@
           ],
           "prevention": "Ensure access to fresh water, avoid excessive exercise in hot weather, and provide shade or cool environments for susceptible breeds.",
           "treatment": {
-            "Supportive Care": "Cool the dog using wet towels, fans, and intravenous fluid therapy.",
-            "See Veterinarian": "Immediate cooling interventions, controlled water intake, and monitoring for complications like gastric dilatation volvulus (bloat)."
+            "Supportive Care": "Cool the dogs using wet towels, fans, and intravenous fluid therapy.",
+            "See Veterinarian": "Immediate cooling interventions, controlled water intake, and monitoring for complicatsions like gastric dilatation volvulus (bloat)."
           }
         },
         {
           "name": "Foxtail and Sandbur Penetration",
-          "species": "dog",
+          "species": "dogs",
           "description": "Foxtails and sandburs can penetrate the skin or mouth lining, migrating through tissues and causing abscesses and draining tracts.",
           "causes": [
             "Exposure to foxtails or sandburs",
@@ -2394,8 +2394,8 @@
       "Poison and Overdoses": [
         {
           "name": "Acetaminophen Poisoning",
-          "species": "dog",
-          "description": "Acetaminophen (paracetamol, Tylenol) can cause liver damage in dogs. The toxic dose is 150 mg/kg.",
+          "species": "dogs",
+          "description": "Acetaminophen (paracetamol, Tylenol) can cause liver damage in dog. The toxic dose is 150 mg/kg.",
           "causes": [
             "Ingestion of acetaminophen"
           ],
@@ -2405,7 +2405,7 @@
             "Lethargy",
             "Difficulty breathing"
           ],
-          "prevention": "Keep acetaminophen out of reach of pets, and avoid giving dogs human medications.",
+          "prevention": "Keep acetaminophen out of reach of pets, and avoid giving dog human medicatsions.",
           "treatment": {
             "Supportive Care": "Activated charcoal may be used to limit absorption.",
             "See Veterinarian": "Immediate veterinary care for antidote treatment and liver support."
@@ -2413,8 +2413,8 @@
         },
         {
           "name": "Ibuprofen Poisoning",
-          "species": "dog",
-          "description": "Ibuprofen (Advil) can cause gastrointestinal irritation, stomach ulcers, and kidney damage in dogs.",
+          "species": "dogs",
+          "description": "Ibuprofen (Advil) can cause gastrointestinal irritation, stomach ulcers, and kidney damage in dog.",
           "causes": [
             "Ingestion of ibuprofen"
           ],
@@ -2424,16 +2424,16 @@
             "Kidney failure",
             "Vomiting"
           ],
-          "prevention": "Avoid giving ibuprofen to dogs and keep it out of their reach.",
+          "prevention": "Avoid giving ibuprofen to dog and keep it out of their reach.",
           "treatment": {
-            "Supportive Care": "Administering fluids and anti-ulcer medications.",
+            "Supportive Care": "Administering fluids and anti-ulcer medicatsions.",
             "See Veterinarian": "Immediate care to address kidney function and gastrointestinal symptoms."
           }
         },
         {
           "name": "Naproxen Poisoning",
-          "species": "dog",
-          "description": "Naproxen (Aleve) has a long half-life in dogs and can cause gastrointestinal irritation, anemia, melena, and vomiting.",
+          "species": "dogs",
+          "description": "Naproxen (Aleve) has a long half-life in dog and can cause gastrointestinal irritation, anemia, melena, and vomiting.",
           "causes": [
             "Ingestion of naproxen"
           ],
@@ -2451,8 +2451,8 @@
         },
         {
           "name": "Antifreeze Poisoning",
-          "species": "dog",
-          "description": "Antifreeze is very dangerous to dogs, causing central nervous system depression and acute kidney injury. Treatment is most effective within eight hours of ingestion.",
+          "species": "dogs",
+          "description": "Antifreeze is very dangerous to dog, causing central nervous system depression and acute kidney injury. Treatment is most effective within eight hours of ingestion.",
           "causes": [
             "Ingestion of antifreeze (ethylene glycol)"
           ],
@@ -2470,7 +2470,7 @@
         },
         {
           "name": "Rodenticide Poisoning",
-          "species": "dog",
+          "species": "dogs",
           "description": "Rodenticide poisoning commonly occurs from ingestion of anticoagulant rodenticides. It leads to excessive bleeding. Other types may cause hypercalcemia or CNS signs.",
           "causes": [
             "Ingestion of mouse or rat poison (e.g., brodifacoum, bromadiolone, cholecalciferol, bromethalin)"
@@ -2489,8 +2489,8 @@
         },
         {
           "name": "Insecticide Poisoning",
-          "species": "dog",
-          "description": "Insecticides used for flea and tick prevention may contain organophosphates or carbamates, which can cause toxicity in dogs.",
+          "species": "dogs",
+          "description": "Insecticides used for flea and tick prevention may contain organophosphates or carbamates, which can cause toxicity in dog.",
           "causes": [
             "Exposure to insecticides containing organophosphates or carbamates"
           ],
@@ -2504,13 +2504,13 @@
           "prevention": "Use pet-safe insecticides and follow label instructions carefully.",
           "treatment": {
             "Supportive Care": "Administer fluids and atropine to counteract toxicity.",
-            "See Veterinarian": "Veterinary care to manage symptoms and prevent fatal complications."
+            "See Veterinarian": "Veterinary care to manage symptoms and prevent fatal complicatsions."
           }
         },
         {
           "name": "Chocolate Poisoning",
-          "species": "dog",
-          "description": "Chocolate contains theobromine and caffeine, which are toxic to dogs. Baker's chocolate is the most dangerous form.",
+          "species": "dogs",
+          "description": "Chocolate contains theobromine and caffeine, which are toxic to dog. Baker's chocolate is the most dangerous form.",
           "causes": [
             "Ingestion of chocolate (especially dark, semi-sweet, or baker's chocolate)"
           ],
@@ -2521,7 +2521,7 @@
             "Seizures",
             "Heart problems"
           ],
-          "prevention": "Keep chocolate and cocoa products out of reach of dogs.",
+          "prevention": "Keep chocolate and cocoa products out of reach of dog.",
           "treatment": {
             "Supportive Care": "Activated charcoal to limit absorption and intravenous fluids.",
             "See Veterinarian": "Immediate care for severe symptoms such as seizures or heart arrhythmias."
@@ -2529,7 +2529,7 @@
         },
         {
           "name": "Lead Poisoning",
-          "species": "dog",
+          "species": "dogs",
           "description": "Lead poisoning occurs from ingestion of lead-based paint or objects containing lead. It causes neurological symptoms and gastrointestinal upset.",
           "causes": [
             "Ingestion of lead-based paint or lead objects"
@@ -2549,8 +2549,8 @@
         },
         {
           "name": "Grape and Raisin Poisoning",
-          "species": "dog",
-          "description": "Grapes and raisins can cause kidney failure in dogs. The exact toxic compound is unknown.",
+          "species": "dogs",
+          "description": "Grapes and raisins can cause kidney failure in dog. The exact toxic compound is unknown.",
           "causes": [
             "Ingestion of grapes or raisins"
           ],
@@ -2560,7 +2560,7 @@
             "Loss of appetite",
             "Kidney failure"
           ],
-          "prevention": "Avoid giving grapes or raisins to dogs and keep them out of reach.",
+          "prevention": "Avoid giving grapes or raisins to dog and keep them out of reach.",
           "treatment": {
             "Supportive Care": "Intravenous fluids and monitoring of kidney function.",
             "See Veterinarian": "Immediate veterinary care to address potential kidney damage."
@@ -2568,8 +2568,8 @@
         },
         {
           "name": "Garlic, Onion, and Chive Poisoning",
-          "species": "dog",
-          "description": "Garlic, onions, and chives cause hemolytic anemia in dogs, leading to the destruction of red blood cells.",
+          "species": "dogs",
+          "description": "Garlic, onions, and chives cause hemolytic anemia in dog, leading to the destruction of red blood cells.",
           "causes": [
             "Ingestion of raw, cooked, or powdered garlic, onions, or chives"
           ],
@@ -2580,7 +2580,7 @@
             "Pale gums",
             "Jaundice"
           ],
-          "prevention": "Avoid feeding garlic, onions, or chives to dogs in any form.",
+          "prevention": "Avoid feeding garlic, onions, or chives to dog in any form.",
           "treatment": {
             "Supportive Care": "Fluid therapy and blood transfusions if necessary.",
             "See Veterinarian": "Immediate treatment to address hemolytic anemia and red blood cell destruction."
@@ -2593,8 +2593,8 @@
         [
           {
             "name": "Vestibular Disease",
-            "species": "dog",
-            "description": "Vestibular disease is an uncommon condition in older dogs, often idiopathic, but it can be caused by otitis interna, tumors, or encephalitis. It affects the dog's balance and coordination.",
+            "species": "dogs",
+            "description": "Vestibular disease is an uncommon condition in older dog, often idiopathic, but it can be caused by otitis interna, tumors, or encephalitis. It affects the dogs's balance and coordination.",
             "causes": [
               "Otitis interna (inner ear infection)",
               "Tumors",
@@ -2610,13 +2610,13 @@
             ],
             "prevention": "There is no clear prevention for idiopathic vestibular disease. Early detection and treatment of ear infections and tumors may help reduce risk.",
             "treatment": {
-              "Supportive Care": "Provide supportive care and monitor the dog's condition. Most cases resolve within a few days to a few weeks.",
+              "Supportive Care": "Provide supportive care and monitor the dogs's condition. Most cases resolve within a few days to a few weeks.",
               "See Veterinarian": "Veterinary consultation may be required for diagnosis and management of any underlying causes such as infections or tumors."
             }
           },
           {
             "name": "Molera (Open Fontanelle)",
-            "species": "dog",
+            "species": "dogs",
             "description": "Molera is a condition found in toy breeds like Chihuahuas, characterized by a soft spot on the skull. It may be associated with hydrocephalus or be a normal finding in certain breeds.",
             "causes": [
               "Congenital condition in toy breeds",
@@ -2633,8 +2633,8 @@
           },
           {
             "name": "Anal Gland Problems",
-            "species": "dog",
-            "description": "Anal gland issues are common in dogs and may involve impaction, infection, or abscessation. These glands are normally emptied during defecation.",
+            "species": "dogs",
+            "description": "Anal gland issues are common in dog and may involve impaction, infection, or abscessation. These glands are normally emptied during defecatsion.",
             "causes": [
               "Impaction",
               "Infection",
@@ -2653,7 +2653,7 @@
           },
           {
             "name": "Shar Pei Fever",
-            "species": "dog",
+            "species": "dogs",
             "description": "Shar Pei fever is a condition in Shar Peis characterized by recurring fever and swelling of the hocks, which can lead to renal and liver failure.",
             "causes": [
               "Genetic predisposition in Shar Pei breed"
@@ -2663,16 +2663,16 @@
               "Swelling of the hocks",
               "Possible renal and liver failure"
             ],
-            "prevention": "There is no clear prevention, but responsible breeding practices can help reduce the occurrence in Shar Pei dogs.",
+            "prevention": "There is no clear prevention, but responsible breeding practices can help reduce the occurrence in Shar Pei dog.",
             "treatment": {
-              "Supportive Care": "Anti-inflammatory medications may help manage fever and swelling.",
+              "Supportive Care": "Anti-inflammatory medicatsions may help manage fever and swelling.",
               "See Veterinarian": "Veterinary intervention is crucial, as renal and liver failure can be life-threatening."
             }
           },
           {
             "name": "Liver Failure",
-            "species": "dog",
-            "description": "Liver failure in dogs can result from bacterial or viral infections, toxins, cancer, copper storage diseases, or may be idiopathic.",
+            "species": "dogs",
+            "description": "Liver failure in dog can result from bacterial or viral infections, toxins, cancer, copper storage diseases, or may be idiopathic.",
             "causes": [
               "Bacterial or viral infections",
               "Toxic insult",
@@ -2689,13 +2689,13 @@
             "prevention": "Avoid exposure to toxins and ensure proper veterinary care for infections and liver diseases.",
             "treatment": {
               "Supportive Care": "Provide supportive care, such as hydration and nutrition.",
-              "See Veterinarian": "A veterinarian may recommend medications, surgery, or other treatments depending on the underlying cause."
+              "See Veterinarian": "A veterinarian may recommend medicatsions, surgery, or other treatments depending on the underlying cause."
             }
           },
           {
             "name": "Dental Disease",
-            "species": "dog",
-            "description": "Dental disease, especially gingivitis and periodontitis, is common in dogs and can lead to tooth loss if untreated.",
+            "species": "dogs",
+            "description": "Dental disease, especially gingivitis and periodontitis, is common in dog and can lead to tooth loss if untreated.",
             "causes": [
               "Poor oral hygiene",
               "Accumulation of plaque and tartar"
@@ -2713,7 +2713,7 @@
           },
           {
             "name": "Portosystemic Shunt",
-            "species": "dog",
+            "species": "dogs",
             "description": "A portosystemic shunt is a bypass of the liver's circulatory system and can be either congenital or acquired.",
             "causes": [
               "Congenital defect",
@@ -2727,20 +2727,20 @@
             ],
             "prevention": "Genetic screening in breeds at risk can help identify congenital cases.",
             "treatment": {
-              "Supportive Care": "Medications to manage symptoms and prevent complications.",
+              "Supportive Care": "Medicatsions to manage symptoms and prevent complicatsions.",
               "See Veterinarian": "Surgical correction is often recommended for congenital cases."
             }
           },
           {
             "name": "Perineal Hernia",
-            "species": "dog",
+            "species": "dogs",
             "description": "A perineal hernia is a condition in which abdominal contents protrude through the pelvic diaphragm, causing swelling near the anus.",
             "causes": [
               "Weakness in the pelvic diaphragm muscles"
             ],
             "symptoms": [
               "Swelling near the anus",
-              "Difficulty defecating"
+              "Difficulty defecatsing"
             ],
             "prevention": "Early intervention and surgical repair can prevent worsening of the condition.",
             "treatment": {
@@ -2750,1010 +2750,5 @@
           }
         ]        
       ]
-    },
-    "Cats":{
-      "Cats":[
-      {
-        "name": "Aggressive Fibromatosis",
-        "species": "cat",
-        "description": "Aggressive fibromatosis is a rare condition in cats characterized by the development of fibrous tissue tumors that can invade surrounding tissues.",
-        "causes": [
-          "Genetic predisposition",
-          "Injury or trauma"
-        ],
-        "symptoms": [
-          "Lumps or masses under the skin",
-          "Pain or tenderness in the affected area"
-        ],
-        "prevention": "There is no known prevention, but early detection can help manage the condition.",
-        "treatment": {
-          "Supportive Care": "Pain management and monitoring of the tumor size.",
-          "See Veterinarian": "Surgical removal of the tumor or other treatments like radiation therapy may be necessary."
-        }
-      },
-      {
-        "name": "Aspergillosis",
-        "species": "cat",
-        "description": "Aspergillosis is a fungal infection caused by the Aspergillus species, affecting the nasal cavity or sinuses of cats.",
-        "causes": [
-          "Exposure to Aspergillus spores",
-          "Immunosuppressed state in the cat"
-        ],
-        "symptoms": [
-          "Nasal discharge",
-          "Sneezing",
-          "Loss of appetite",
-          "Difficulty breathing"
-        ],
-        "prevention": "Reducing exposure to damp environments and fungal spores may help reduce risk.",
-        "treatment": {
-          "Supportive Care": "Antifungal medications to treat the infection.",
-          "See Veterinarian": "Diagnosis and appropriate antifungal therapy are crucial."
-        }
-      },
-      {
-        "name": "Avian Influenza in Cats",
-        "species": "cat",
-        "description": "Avian influenza is a viral infection that can affect cats, often acquired by exposure to infected birds.",
-        "causes": [
-          "Contact with infected birds or their droppings"
-        ],
-        "symptoms": [
-          "Fever",
-          "Respiratory distress",
-          "Coughing",
-          "Loss of appetite"
-        ],
-        "prevention": "Avoiding exposure to infected birds and maintaining good hygiene can help prevent infection.",
-        "treatment": {
-          "Supportive Care": "Rest and fluid therapy to manage symptoms.",
-          "See Veterinarian": "Antiviral medications may be prescribed if caught early."
-        }
-      },
-      {
-        "name": "Bladder Cancer",
-        "species": "cat",
-        "description": "Bladder cancer, also known as transitional cell carcinoma, is a malignant tumor affecting the urinary bladder of cats.",
-        "causes": [
-          "Genetic factors",
-          "Environmental toxins"
-        ],
-        "symptoms": [
-          "Frequent urination",
-          "Blood in the urine",
-          "Pain while urinating"
-        ],
-        "prevention": "Minimizing exposure to toxins and ensuring a healthy diet can reduce risk.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms such as pain and blood in the urine.",
-          "See Veterinarian": "Surgical removal or chemotherapy may be needed for treatment."
-        }
-      },
-      {
-        "name": "Bone Cancer",
-        "species": "cat",
-        "description": "Bone cancer in cats is most often osteosarcoma, a malignant tumor that typically affects the limbs.",
-        "causes": [
-          "Genetic predisposition",
-          "Trauma or injury to the bones"
-        ],
-        "symptoms": [
-          "Limping",
-          "Pain in the affected limb",
-          "Swelling around the bones"
-        ],
-        "prevention": "There is no specific prevention, but early detection and treatment are important.",
-        "treatment": {
-          "Supportive Care": "Pain management and anti-inflammatory medications.",
-          "See Veterinarian": "Surgical removal of the tumor, followed by chemotherapy or radiation."
-        }
-      },
-      {
-        "name": "Cancer",
-        "species": "cat",
-        "description": "Cancer in cats can manifest in various forms such as lymphoma, mammary tumors, and squamous cell carcinoma.",
-        "causes": [
-          "Genetic predisposition",
-          "Environmental factors"
-        ],
-        "symptoms": [
-          "Unexplained weight loss",
-          "Loss of appetite",
-          "Lumps or masses under the skin"
-        ],
-        "prevention": "Minimizing exposure to carcinogens and regular vet checkups can help detect cancer early.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms like pain and weight loss.",
-          "See Veterinarian": "Surgical removal, chemotherapy, or radiation depending on the type of cancer."
-        }
-      },
-      {
-        "name": "Cat Worm Infections",
-        "species": "cat",
-        "description": "Cat worm infections, such as roundworms, hookworms, and tapeworms, are common parasitic infections in cats.",
-        "causes": [
-          "Ingestion of infected fleas or rodents",
-          "Exposure to contaminated environments"
-        ],
-        "symptoms": [
-          "Vomiting",
-          "Diarrhea",
-          "Weight loss",
-          "Visible worms in the stool or vomit"
-        ],
-        "prevention": "Regular deworming and flea control are important for prevention.",
-        "treatment": {
-          "Supportive Care": "Ensure hydration and proper nutrition.",
-          "See Veterinarian": "Deworming medications to eliminate the parasites."
-        }
-      },
-      {
-        "name": "Cat Flu (Upper Respiratory Infection)",
-        "species": "cat",
-        "description": "Cat flu is an upper respiratory infection caused by various viruses and bacteria, such as Bordetella bronchiseptica and Chlamydophila felis.",
-        "causes": [
-          "Bordetella bronchiseptica",
-          "Chlamydophila felis",
-          "Feline calicivirus",
-          "Feline viral rhinotracheitis (FVR)"
-        ],
-        "symptoms": [
-          "Sneezing",
-          "Nasal discharge",
-          "Fever",
-          "Loss of appetite"
-        ],
-        "prevention": "Vaccination and good hygiene can reduce the risk of cat flu.",
-        "treatment": {
-          "Supportive Care": "Hydration, nutrition, and symptom management.",
-          "See Veterinarian": "Antiviral medications or antibiotics may be needed for secondary infections."
-        }
-      },
-      {
-        "name": "Cat-Scratch Disease",
-        "species": "cat",
-        "description": "Cat-scratch disease is a bacterial infection caused by *Bartonella henselae*, usually transmitted through a scratch or bite from an infected cat.",
-        "causes": [
-          "Bartonella henselae infection"
-        ],
-        "symptoms": [
-          "Swollen lymph nodes",
-          "Fever",
-          "Fatigue"
-        ],
-        "prevention": "Preventing bites and scratches from cats, especially kittens, can reduce risk.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms such as fever and swelling.",
-          "See Veterinarian": "Antibiotics are typically required for treatment."
-        }
-      },
-      {
-        "name": "Cat Skin Disorders",
-        "species": "cat",
-        "description": "Cat skin disorders encompass a range of conditions, including dermatitis, fungal infections, and allergies.",
-        "causes": [
-          "Fungal infections",
-          "Allergic reactions",
-          "Parasites (e.g., fleas)"
-        ],
-        "symptoms": [
-          "Itching",
-          "Hair loss",
-          "Redness or swelling of the skin"
-        ],
-        "prevention": "Regular grooming and flea prevention can help maintain healthy skin.",
-        "treatment": {
-          "Supportive Care": "Topical treatments and symptom relief.",
-          "See Veterinarian": "Veterinary examination to identify the underlying cause and appropriate treatment."
-        }
-      },
-      {
-        "name": "Central Retinal Degeneration",
-        "species": "cat",
-        "description": "Central retinal degeneration is a condition affecting the retina of cats, leading to vision loss, particularly in older cats.",
-        "causes": [
-          "Age-related degeneration",
-          "Genetic predisposition"
-        ],
-        "symptoms": [
-          "Loss of vision",
-          "Dilated pupils",
-          "Difficulty seeing in low light"
-        ],
-        "prevention": "There is no known prevention, but regular eye exams may detect early signs.",
-        "treatment": {
-          "Supportive Care": "Provide a safe environment for the cat to navigate.",
-          "See Veterinarian": "No cure, but management of the condition may be possible."
-        }
-      },
-      {
-        "name": "Chronic Kidney Disease",
-        "species": "cat",
-        "description": "Chronic kidney disease is a common condition in older cats, where the kidneys gradually lose function.",
-        "causes": [
-          "Age",
-          "Genetic factors",
-          "High blood pressure"
-        ],
-        "symptoms": [
-          "Increased thirst and urination",
-          "Loss of appetite",
-          "Weight loss"
-        ],
-        "prevention": "Regular veterinary checkups and early detection of kidney issues can help manage the condition.",
-        "treatment": {
-          "Supportive Care": "Fluid therapy and specialized diets.",
-          "See Veterinarian": "Medication to manage symptoms and slow disease progression."
-        }
-      },
-      {
-        "name": "Fading Kitten Syndrome",
-        "species": "cat",
-        "description": "Fading kitten syndrome is a broad term for neonatal decline and death in kittens, often caused by infections, congenital malformations, or environmental and nutritional deficits.",
-        "causes": [
-          "Infection",
-          "Congenital malformations",
-          "Environmental or nutritional deficits",
-          "Neonatal isoerythrolysis"
-        ],
-        "symptoms": [
-          "Weakness or lethargy",
-          "Failure to gain weight",
-          "Cold body temperature",
-          "Dehydration"
-        ],
-        "prevention": "Providing proper care, warmth, and nutrition to neonatal kittens can help prevent this condition.",
-        "treatment": {
-          "Supportive Care": "Keep kittens warm, hydrated, and properly fed.",
-          "See Veterinarian": "Treat underlying infections or malformations as needed."
-        }
-      },
-      {
-        "name": "Feline Acne",
-        "species": "cat",
-        "description": "Feline acne is a condition where blackheads or pimples appear on a cat's chin, often due to clogged hair follicles.",
-        "causes": [
-          "Excessive oil production",
-          "Poor grooming",
-          "Bacterial infection"
-        ],
-        "symptoms": [
-          "Blackheads on the chin",
-          "Redness or swelling around the chin",
-          "Pimples or pustules"
-        ],
-        "prevention": "Regular grooming and cleaning of the chin area can help prevent feline acne.",
-        "treatment": {
-          "Supportive Care": "Gentle cleaning of the chin with non-irritating cleansers.",
-          "See Veterinarian": "Topical antibiotics or other treatments for infection may be prescribed."
-        }
-      },
-      {
-        "name": "Feline Asthma",
-        "species": "cat",
-        "description": "Feline asthma is a respiratory condition where inflammation and narrowing of the airways lead to difficulty breathing, often triggered by allergens.",
-        "causes": [
-          "Allergens (e.g., dust, pollen, smoke)",
-          "Infections",
-          "Genetic predisposition"
-        ],
-        "symptoms": [
-          "Coughing",
-          "Wheezing",
-          "Labored breathing",
-          "Open-mouthed breathing"
-        ],
-        "prevention": "Avoiding allergens and controlling environmental factors can reduce asthma flare-ups.",
-        "treatment": {
-          "Supportive Care": "Control symptoms with bronchodilators and corticosteroids.",
-          "See Veterinarian": "Inhalers or systemic medications may be prescribed."
-        }
-      },
-      {
-        "name": "Feline Cognitive Dysfunction",
-        "species": "cat",
-        "description": "Feline cognitive dysfunction is similar to dementia in humans, with cognitive decline in older cats affecting their behavior and functioning.",
-        "causes": [
-          "Age-related changes in the brain",
-          "Loss of neurons and brain plasticity"
-        ],
-        "symptoms": [
-          "Disorientation",
-          "Increased vocalization",
-          "Litter box issues",
-          "Sleep disturbances"
-        ],
-        "prevention": "Mental stimulation and proper diet may help slow the progression of cognitive dysfunction.",
-        "treatment": {
-          "Supportive Care": "Provide a consistent routine and environmental enrichment.",
-          "See Veterinarian": "Medications like selegiline may help manage symptoms."
-        }
-      },
-      {
-        "name": "Feline Coronavirus",
-        "species": "cat",
-        "description": "Feline coronavirus is a viral infection that can cause mild gastrointestinal signs, but may also lead to the more serious condition known as feline infectious peritonitis (FIP).",
-        "causes": [
-          "Infection with feline coronavirus (FCoV)"
-        ],
-        "symptoms": [
-          "Vomiting",
-          "Diarrhea",
-          "Loss of appetite",
-          "Fever"
-        ],
-        "prevention": "Good hygiene and minimizing exposure to infected cats can help prevent infection.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms with hydration and nutrition.",
-          "See Veterinarian": "FIP may require antiviral medications, but treatment is generally limited."
-        }
-      },
-      {
-        "name": "Feline Cystitis",
-        "species": "cat",
-        "description": "Feline cystitis is inflammation of the bladder, often caused by infections, stress, or other underlying conditions.",
-        "causes": [
-          "Urinary tract infection (UTI)",
-          "Stress or environmental changes",
-          "Bladder stones"
-        ],
-        "symptoms": [
-          "Frequent urination",
-          "Blood in the urine",
-          "Painful urination"
-        ],
-        "prevention": "Providing a stress-free environment and proper hydration can help prevent cystitis.",
-        "treatment": {
-          "Supportive Care": "Encourage water intake and reduce stress.",
-          "See Veterinarian": "Antibiotics or medications to reduce inflammation may be prescribed."
-        }
-      },
-      {
-        "name": "Feline Cutaneous Asthenia",
-        "species": "cat",
-        "description": "Feline cutaneous asthenia is a rare genetic disorder causing the skin to be excessively fragile and prone to tearing.",
-        "causes": [
-          "Genetic mutation affecting collagen production"
-        ],
-        "symptoms": [
-          "Fragile, easily torn skin",
-          "Bruising",
-          "Hyperelasticity of the skin"
-        ],
-        "prevention": "This is a congenital condition, and prevention is not possible.",
-        "treatment": {
-          "Supportive Care": "Provide wound care and avoid skin trauma.",
-          "See Veterinarian": "Careful handling to prevent injury and management of any skin tears."
-        }
-      },
-      {
-        "name": "Feline Distemper",
-        "species": "cat",
-        "description": "Feline distemper, caused by the feline parvovirus, is a highly contagious and often fatal viral disease affecting young cats.",
-        "causes": [
-          "Infection with feline parvovirus"
-        ],
-        "symptoms": [
-          "Vomiting",
-          "Diarrhea",
-          "Fever",
-          "Loss of appetite"
-        ],
-        "prevention": "Vaccination is the most effective way to prevent feline distemper.",
-        "treatment": {
-          "Supportive Care": "Provide hydration and nutritional support.",
-          "See Veterinarian": "Antiviral medications and supportive care are used to treat infected cats."
-        }
-      },
-      {
-        "name": "Feline Foamy Virus",
-        "species": "cat",
-        "description": "Feline foamy virus is a retrovirus that can cause chronic, mild respiratory symptoms and affect the immune system.",
-        "causes": [
-          "Infection with feline foamy virus"
-        ],
-        "symptoms": [
-          "Chronic cough",
-          "Respiratory distress",
-          "Mild fever"
-        ],
-        "prevention": "No vaccine or specific prevention, but minimizing exposure to infected cats may reduce risk.",
-        "treatment": {
-          "Supportive Care": "Manage respiratory symptoms and monitor overall health.",
-          "See Veterinarian": "No specific antiviral treatment, but supportive care can help manage symptoms."
-        }
-      },
-      {
-        "name": "Feline Hepatic Lipidosis",
-        "species": "cat",
-        "description": "Feline hepatic lipidosis, also known as fatty liver disease, occurs when there is excessive fat accumulation in the liver, typically due to rapid weight loss or anorexia.",
-        "causes": [
-          "Obesity",
-          "Rapid weight loss",
-          "Inadequate nutrition"
-        ],
-        "symptoms": [
-          "Loss of appetite",
-          "Weight loss",
-          "Yellowing of the eyes or gums (jaundice)"
-        ],
-        "prevention": "Prevent obesity and encourage healthy, consistent feeding habits.",
-        "treatment": {
-          "Supportive Care": "Provide a high-quality diet and ensure adequate nutrition.",
-          "See Veterinarian": "Tube feeding and medications to support liver function."
-        }
-      },
-      {
-        "name": "Feline Hyperadrenocorticism",
-        "species": "cat",
-        "description": "Feline hyperadrenocorticism, also known as Cushing's disease, occurs when the adrenal glands produce excessive cortisol, leading to various systemic issues.",
-        "causes": [
-          "Pituitary tumors",
-          "Adrenal gland tumors"
-        ],
-        "symptoms": [
-          "Increased thirst and urination",
-          "Increased appetite",
-          "Hair loss"
-        ],
-        "prevention": "No known prevention, but early diagnosis can help manage the condition.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms through medications.",
-          "See Veterinarian": "Surgical removal of tumors or medications to control cortisol production."
-        }
-      },
-      {
-        "name": "Feline Hyperaldosteronism",
-        "species": "cat",
-        "description": "Feline hyperaldosteronism is a condition where the adrenal glands produce too much aldosterone, leading to high blood pressure and electrolyte imbalances.",
-        "causes": [
-          "Adrenal tumors",
-          "Hyperplasia of the adrenal glands"
-        ],
-        "symptoms": [
-          "Increased thirst and urination",
-          "Weakness",
-          "Elevated blood pressure"
-        ],
-        "prevention": "There is no known prevention, but early detection and treatment can manage symptoms.",
-        "treatment": {
-          "Supportive Care": "Medications to control blood pressure and electrolyte balance.",
-          "See Veterinarian": "Surgical removal of tumors or medications to control aldosterone production."
-        }
-      },
-      {
-        "name": "Feline Hyperesthesia Syndrome",
-        "species": "cat",
-        "description": "Feline hyperesthesia syndrome is a neurological disorder causing abnormal behaviors such as self-mutilation and excessive grooming.",
-        "causes": [
-          "Neurological disorder",
-          "Stress or anxiety"
-        ],
-        "symptoms": [
-          "Sudden episodes of hyperactivity",
-          "Excessive grooming",
-          "Self-mutilation"
-        ],
-        "prevention": "Stress reduction techniques and providing a calm environment may help.",
-        "treatment": {
-          "Supportive Care": "Provide a calm environment and ensure the cat is mentally stimulated.",
-          "See Veterinarian": "Medications like antidepressants or anti-anxiety drugs may be prescribed."
-        }
-      },
-      {
-        "name": "Feline Hyperthyroidism",
-        "species": "cat",
-        "description": "Feline hyperthyroidism is a common endocrine disorder where the thyroid gland produces excessive thyroid hormone, leading to increased metabolism.",
-        "causes": [
-          "Benign tumors of the thyroid gland"
-        ],
-        "symptoms": [
-          "Weight loss despite increased appetite",
-          "Increased thirst and urination",
-          "Vomiting"
-        ],
-        "prevention": "No known prevention, but early detection and treatment can help.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms with a special diet and medications.",
-          "See Veterinarian": "Surgical removal of the thyroid tumor or radioactive iodine treatment."
-        }
-      },
-      {
-        "name": "Feline Hypoadrenocorticism",
-        "species": "cat",
-        "description": "Feline hypoadrenocorticism, also known as Addison's disease, occurs when the adrenal glands do not produce enough cortisol and aldosterone.",
-        "causes": [
-          "Immune-mediated destruction of the adrenal glands"
-        ],
-        "symptoms": [
-          "Lethargy",
-          "Vomiting",
-          "Diarrhea",
-          "Loss of appetite"
-        ],
-        "prevention": "No known prevention, but early diagnosis can help with management.",
-        "treatment": {
-          "Supportive Care": "Provide hormone replacement therapy.",
-          "See Veterinarian": "Glucocorticoid and mineralocorticoid replacement therapy."
-        }
-      },
-      {
-        "name": "Feline Immunodeficiency Virus",
-        "species": "cat",
-        "description": "Feline immunodeficiency virus (FIV) is a viral infection that weakens a cat's immune system, making it more susceptible to infections.",
-        "causes": [
-          "Transmission through bites or wounds"
-        ],
-        "symptoms": [
-          "Chronic infections",
-          "Lymphadenopathy",
-          "Weight loss"
-        ],
-        "prevention": "Limit exposure to FIV-infected cats and vaccination (where available).",
-        "treatment": {
-          "Supportive Care": "Manage secondary infections and provide antiviral medications.",
-          "See Veterinarian": "Antibiotics for secondary infections and immune support."
-        }
-      },
-      {
-        "name": "Feline Infectious Anemia",
-        "species": "cat",
-        "description": "Feline infectious anemia is caused by a blood parasite that destroys red blood cells, leading to anemia.",
-        "causes": [
-          "Infection with the parasite Mycoplasma haemofelis",
-          "Flea infestations",
-          "Bite wounds"
-        ],
-        "symptoms": [
-          "Pale gums",
-          "Weakness",
-          "Fever",
-          "Loss of appetite"
-        ],
-        "prevention": "Preventing flea infestations and limiting exposure to infected animals can help.",
-        "treatment": {
-          "Supportive Care": "Provide fluids and monitor for signs of anemia.",
-          "See Veterinarian": "Antibiotics like doxycycline may be prescribed to treat the infection."
-        }
-      },
-      {
-        "name": "Feline Infectious Peritonitis",
-        "species": "cat",
-        "description": "Feline infectious peritonitis (FIP) is a viral disease caused by certain strains of feline coronavirus, leading to systemic inflammation.",
-        "causes": [
-          "Feline coronavirus (FCoV)"
-        ],
-        "symptoms": [
-          "Fever",
-          "Weight loss",
-          "Abdominal distention",
-          "Jaundice"
-        ],
-        "prevention": "No vaccine for FIP is 100% effective, but reducing exposure to infected cats can reduce risk.",
-        "treatment": {
-          "Supportive Care": "Provide nutritional support and manage symptoms.",
-          "See Veterinarian": "Antiviral drugs like GS-441524 may be used to treat FIP in some cases."
-        }
-      },
-      {
-        "name": "Feline Leprosy Syndrome",
-        "species": "cat",
-        "description": "Feline leprosy syndrome is caused by the bacterium *Mycobacterium lepraemurium*, resulting in granulomatous skin lesions.",
-        "causes": [
-          "Infection with *Mycobacterium lepraemurium*"
-        ],
-        "symptoms": [
-          "Nodular skin lesions",
-          "Ulcerated skin",
-          "Fever"
-        ],
-        "prevention": "Minimizing exposure to infected rodents and improving hygiene can help reduce the risk.",
-        "treatment": {
-          "Supportive Care": "Monitor skin lesions and provide proper wound care.",
-          "See Veterinarian": "Antibiotics like rifampicin may be used for treatment."
-        }
-      },
-      {
-        "name": "Feline Leptospirosis",
-        "species": "cat",
-        "description": "Feline leptospirosis is a bacterial infection caused by *Leptospira* species, affecting the kidneys and liver.",
-        "causes": [
-          "Infection with *Leptospira* bacteria"
-        ],
-        "symptoms": [
-          "Fever",
-          "Vomiting",
-          "Abdominal pain",
-          "Jaundice"
-        ],
-        "prevention": "Vaccination can help prevent leptospirosis, especially in areas with high exposure.",
-        "treatment": {
-          "Supportive Care": "Provide fluids and electrolytes to support kidney function.",
-          "See Veterinarian": "Antibiotics like doxycycline may be prescribed."
-        }
-      },
-      {
-        "name": "Feline Leukemia Virus",
-        "species": "cat",
-        "description": "Feline leukemia virus (FeLV) is a retrovirus that weakens the immune system and increases the risk of cancer in cats.",
-        "causes": [
-          "Exposure to FeLV-infected cats through saliva, nasal secretions, or bite wounds"
-        ],
-        "symptoms": [
-          "Loss of appetite",
-          "Weight loss",
-          "Fever",
-          "Lymphadenopathy"
-        ],
-        "prevention": "Vaccination is the most effective way to prevent FeLV infection.",
-        "treatment": {
-          "Supportive Care": "Monitor for secondary infections and provide supportive nutrition.",
-          "See Veterinarian": "There is no cure, but antiviral drugs may help manage symptoms."
-        }
-      },
-      {
-        "name": "Feline Lower Urinary Tract Disease",
-        "species": "cat",
-        "description": "Feline lower urinary tract disease (FLUTD) is a term for a variety of urinary problems in cats, including cystitis and urethral obstruction.",
-        "causes": [
-          "Urinary tract infections",
-          "Bladder stones",
-          "Stress or anxiety"
-        ],
-        "symptoms": [
-          "Frequent urination",
-          "Blood in the urine",
-          "Straining to urinate"
-        ],
-        "prevention": "Providing fresh water, stress reduction, and a proper diet can help prevent FLUTD.",
-        "treatment": {
-          "Supportive Care": "Ensure proper hydration and manage stress.",
-          "See Veterinarian": "Antibiotics or surgery may be necessary for certain underlying causes."
-        }
-      },
-      {
-        "name": "Feline Lymphoma",
-        "species": "cat",
-        "description": "Feline lymphoma is a cancer of the lymphoid tissue, commonly affecting the gastrointestinal tract and lymph nodes.",
-        "causes": [
-          "Chronic viral infections, such as FeLV or FIV"
-        ],
-        "symptoms": [
-          "Weight loss",
-          "Vomiting",
-          "Diarrhea",
-          "Lymphadenopathy"
-        ],
-        "prevention": "No specific prevention, but reducing exposure to viral infections may lower risk.",
-        "treatment": {
-          "Supportive Care": "Provide supportive care and manage symptoms of the disease.",
-          "See Veterinarian": "Chemotherapy or radiation therapy may be used for treatment."
-        }
-      },
-      {
-        "name": "Feline Odontoclastic Resorptive Lesion",
-        "species": "cat",
-        "description": "Feline odontoclastic resorptive lesions (FORLs) are painful dental conditions where the tooth structure is resorbed by the body.",
-        "causes": [
-          "Unknown, but may be related to dental disease or immune-mediated response"
-        ],
-        "symptoms": [
-          "Painful or sensitive mouth",
-          "Drooling",
-          "Difficulty eating"
-        ],
-        "prevention": "Regular dental checkups and good oral hygiene can help prevent FORLs.",
-        "treatment": {
-          "Supportive Care": "Maintain oral hygiene and avoid triggering pain.",
-          "See Veterinarian": "Tooth extraction or other dental treatments may be required."
-        }
-      },
-      {
-        "name": "Feline Panleukopenia",
-        "species": "cat",
-        "description": "Feline panleukopenia is a highly contagious viral disease that affects the gastrointestinal, immune, and nervous systems of cats.",
-        "causes": [
-          "Infection with feline parvovirus"
-        ],
-        "symptoms": [
-          "Vomiting",
-          "Diarrhea",
-          "Dehydration",
-          "Fever"
-        ],
-        "prevention": "Vaccination is highly effective in preventing feline panleukopenia.",
-        "treatment": {
-          "Supportive Care": "Provide fluids and electrolytes to combat dehydration.",
-          "See Veterinarian": "Antiviral drugs and antibiotics may be used to prevent secondary infections."
-        }
-      },
-      {
-        "name": "Feline Sarcoma Virus",
-        "species": "cat",
-        "description": "Feline sarcoma virus is a retrovirus that causes tumors, often linked with vaccination in previously infected cats.",
-        "causes": [
-          "Infection with feline sarcoma virus (FeSV)"
-        ],
-        "symptoms": [
-          "Visible tumors",
-          "Lameness",
-          "Pain at the site of the tumor"
-        ],
-        "prevention": "Vaccination with an inactivated vaccine can reduce the risk of infection.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms and pain.",
-          "See Veterinarian": "Surgical removal of tumors or chemotherapy may be used for treatment."
-        }
-      },
-      {
-        "name": "Feline Spongiform Encephalopathy",
-        "species": "cat",
-        "description": "Feline spongiform encephalopathy is a prion disease that causes neurological degeneration and is related to mad cow disease.",
-        "causes": [
-          "Infection with prions"
-        ],
-        "symptoms": [
-          "Ataxia",
-          "Behavioral changes",
-          "Seizures"
-        ],
-        "prevention": "Avoid feeding cats raw meat that could be contaminated with prions.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms and ensure the cat's comfort.",
-          "See Veterinarian": "There is no cure for prion diseases."
-        }
-      },
-      {
-        "name": "Feline Viral Enteritis",
-        "species": "cat",
-        "description": "Feline viral enteritis, caused by feline calicivirus or feline parvovirus, leads to inflammation of the intestines and gastrointestinal distress.",
-        "causes": [
-          "Feline calicivirus",
-          "Feline parvovirus"
-        ],
-        "symptoms": [
-          "Vomiting",
-          "Diarrhea",
-          "Loss of appetite"
-        ],
-        "prevention": "Vaccination can prevent most viral enteritis infections in cats.",
-        "treatment": {
-          "Supportive Care": "Hydration and nutritional support are essential.",
-          "See Veterinarian": "Antibiotics and antiviral treatments may be prescribed."
-        }
-      },
-      {
-        "name": "Hypertrophic Cardiomyopathy",
-        "species": "cat",
-        "description": "Hypertrophic cardiomyopathy (HCM) is a heart disease in cats that causes thickening of the heart muscles, reducing the heart's ability to pump blood.",
-        "causes": [
-          "Genetics (inherited in some breeds)",
-          "Secondary to hyperthyroidism or high blood pressure"
-        ],
-        "symptoms": [
-          "Difficulty breathing",
-          "Lethargy",
-          "Weakness",
-          "Heart murmur"
-        ],
-        "prevention": "There is no known prevention, but early detection and management can improve the cat's quality of life.",
-        "treatment": {
-          "Supportive Care": "Provide comfortable rest and manage heart failure symptoms.",
-          "See Veterinarian": "Medications like beta-blockers or calcium channel blockers may be prescribed."
-        }
-      },
-      {
-        "name": "Leishmaniasis",
-        "species": "cat",
-        "description": "Leishmaniasis is a parasitic disease caused by *Leishmania* species, transmitted by sandflies, affecting the skin, organs, and immune system.",
-        "causes": [
-          "Infection by *Leishmania* parasites via sandfly bites"
-        ],
-        "symptoms": [
-          "Skin lesions",
-          "Weight loss",
-          "Lymphadenopathy",
-          "Kidney failure"
-        ],
-        "prevention": "Avoid exposure to sandflies, especially in endemic areas.",
-        "treatment": {
-          "Supportive Care": "Ensure hydration and manage kidney function.",
-          "See Veterinarian": "Antiprotozoal medications like miltefosine or allopurinol may be used."
-        }
-      },
-      {
-        "name": "Luxating Patella",
-        "species": "cat",
-        "description": "A luxating patella occurs when the kneecap (patella) slips out of its normal position, leading to joint instability and pain.",
-        "causes": [
-          "Genetic predisposition",
-          "Injury or trauma to the knee"
-        ],
-        "symptoms": [
-          "Limping or lameness",
-          "Pain or stiffness in the leg",
-          "Knee instability"
-        ],
-        "prevention": "There is no surefire way to prevent luxating patella, but maintaining a healthy weight can help.",
-        "treatment": {
-          "Supportive Care": "Limit activity and provide pain relief.",
-          "See Veterinarian": "Surgery may be required to correct the luxation."
-        }
-      },
-      {
-        "name": "Lyme Disease",
-        "species": "cat",
-        "description": "Lyme disease is a tick-borne illness caused by *Borrelia* bacteria, typically affecting joints and the heart.",
-        "causes": [
-          "Bites from infected ticks"
-        ],
-        "symptoms": [
-          "Limping",
-          "Fever",
-          "Loss of appetite",
-          "Swollen lymph nodes"
-        ],
-        "prevention": "Use tick preventatives and avoid areas with heavy tick infestations.",
-        "treatment": {
-          "Supportive Care": "Provide pain relief and manage inflammation.",
-          "See Veterinarian": "Antibiotics like doxycycline may be used to treat Lyme disease."
-        }
-      },
-      {
-        "name": "Lymphocytopenia",
-        "species": "cat",
-        "description": "Lymphocytopenia is a condition where there is an abnormally low number of lymphocytes (a type of white blood cell) in the blood.",
-        "causes": [
-          "Viral infections (e.g., FIV, FeLV)",
-          "Immunosuppressive drugs",
-          "Chronic stress or illness"
-        ],
-        "symptoms": [
-          "Weak immune response",
-          "Frequent infections"
-        ],
-        "prevention": "Maintain a healthy immune system and limit exposure to infections.",
-        "treatment": {
-          "Supportive Care": "Provide immune system support and manage underlying causes.",
-          "See Veterinarian": "Treatment involves addressing the underlying cause of the lymphocytopenia."
-        }
-      },
-      {
-        "name": "Mastocytoma",
-        "species": "cat",
-        "description": "Mastocytoma is a type of tumor formed from mast cells, which can be benign or malignant, affecting skin or internal organs.",
-        "causes": [
-          "Genetic predisposition",
-          "Possible environmental factors"
-        ],
-        "symptoms": [
-          "Lumps or masses on the skin",
-          "Fever",
-          "Vomiting",
-          "Loss of appetite"
-        ],
-        "prevention": "No known prevention, but early detection and treatment can improve outcomes.",
-        "treatment": {
-          "Supportive Care": "Monitor for changes in the tumor's size and symptoms.",
-          "See Veterinarian": "Surgical removal of the tumor or chemotherapy may be needed."
-        }
-      },
-      {
-        "name": "Miliary Dermatitis",
-        "species": "cat",
-        "description": "Miliary dermatitis is a skin condition in cats characterized by scabs, lesions, and itching, often due to allergies or parasites.",
-        "causes": [
-          "Flea infestations",
-          "Food allergies",
-          "Environmental allergens"
-        ],
-        "symptoms": [
-          "Itching",
-          "Hair loss",
-          "Scabs and crusts on the skin"
-        ],
-        "prevention": "Use flea preventatives and address allergies to prevent flare-ups.",
-        "treatment": {
-          "Supportive Care": "Provide anti-itch medications and improve skin hygiene.",
-          "See Veterinarian": "Corticosteroids, antihistamines, or antibiotics may be prescribed."
-        }
-      },
-      {
-        "name": "Otitis Externa in Animals",
-        "species": "cat",
-        "description": "Otitis externa is an infection or inflammation of the outer ear canal, commonly caused by bacteria, yeast, or parasites.",
-        "causes": [
-          "Bacterial or fungal infections",
-          "Ear mites",
-          "Allergies"
-        ],
-        "symptoms": [
-          "Scratching at the ears",
-          "Ear discharge",
-          "Redness or swelling of the ear canal"
-        ],
-        "prevention": "Regular ear cleaning and proper hygiene can help prevent infections.",
-        "treatment": {
-          "Supportive Care": "Clean the ears and apply topical treatments.",
-          "See Veterinarian": "Antibiotic or antifungal medications may be prescribed."
-        }
-      },
-      {
-        "name": "Paragonimus",
-        "species": "cat",
-        "description": "Paragonimiasis is caused by *Paragonimus* lung flukes, leading to respiratory issues and organ damage.",
-        "causes": [
-          "Consumption of raw freshwater crustaceans"
-        ],
-        "symptoms": [
-          "Coughing",
-          "Fever",
-          "Difficulty breathing"
-        ],
-        "prevention": "Avoid feeding raw freshwater crustaceans to cats.",
-        "treatment": {
-          "Supportive Care": "Provide respiratory support and manage symptoms.",
-          "See Veterinarian": "Anthelmintic drugs like praziquantel may be used."
-        }
-      },
-      {
-        "name": "Polyneuropathy in Dogs and Cats",
-        "species": "cat",
-        "description": "Polyneuropathy is a condition affecting multiple peripheral nerves, causing weakness, paralysis, and sensory loss.",
-        "causes": [
-          "Genetic disorders",
-          "Infections or toxins",
-          "Metabolic conditions like diabetes"
-        ],
-        "symptoms": [
-          "Weakness in the limbs",
-          "Loss of coordination",
-          "Muscle wasting"
-        ],
-        "prevention": "Early detection and management of underlying conditions can help.",
-        "treatment": {
-          "Supportive Care": "Provide physical therapy and manage symptoms.",
-          "See Veterinarian": "Treatment depends on the underlying cause and may involve medications."
-        }
-      },
-      {
-        "name": "Portosystemic Shunt",
-        "species": "cat",
-        "description": "A portosystemic shunt is a vascular condition where blood bypasses the liver, leading to a buildup of toxins in the bloodstream.",
-        "causes": [
-          "Congenital defects in the blood vessels"
-        ],
-        "symptoms": [
-          "Stunted growth",
-          "Poor appetite",
-          "Vomiting",
-          "Seizures"
-        ],
-        "prevention": "No known prevention, but surgical correction may improve the condition.",
-        "treatment": {
-          "Supportive Care": "Manage symptoms and ensure proper nutrition.",
-          "See Veterinarian": "Surgery to close the shunt is typically required."
-        }
-      },
-      {
-        "name": "Protothecosis",
-        "species": "cat",
-        "description": "Protothecosis is a rare infection caused by *Prototheca* algae, often affecting the skin, eyes, and internal organs.",
-        "causes": [
-          "Exposure to contaminated water or soil"
-        ],
-        "symptoms": [
-          "Skin lesions",
-          "Eye infections",
-          "Fever",
-          "Abdominal pain"
-        ],
-        "prevention": "Avoid exposure to contaminated environments and improve hygiene.",
-        "treatment": {
-          "Supportive Care": "Treat secondary infections and manage symptoms.",
-          "See Veterinarian": "Antifungal medications may be required."
-        }
-      }
-      ]  
-    }     
+    }  
 }  

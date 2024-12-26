@@ -61,11 +61,17 @@ const ProfilePage = () => {
                 {pets.map((pet) => (
                   <div className="col-md-3 mb-3" key={pet.id}>
                     <Card onClick={() => handlePetClick(pet.id)}>
-                      <Card.Img variant="top"     src={pet.image || petImage}  alt={pet.name} className="w-100" style={{ height: '200px' }}/>
+                    <Card.Img
+  variant="top"
+  src={pet.image || petImage}
+  alt={pet.name}
+  className="w-100"
+  style={{ objectFit: 'cover', height: '200px', width: '100%' }}
+/>
+
                       <Card.Body>
                         <Card.Title>{pet.name}</Card.Title>
                         <Card.Text>
-                          <strong>Age:</strong> {pet.birthday ? calculateAge(pet.birthday) : "N/A"}<br />
                           <strong>Breed:</strong> {pet.breed}
                         </Card.Text>
                       </Card.Body>

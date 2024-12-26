@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Spinner, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap';
+import { Link, useNavigate } from "react-router-dom";
 import { db, auth } from "../firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { Link, useNavigate } from "react-router-dom";
+import aiImage from '../assets/aibreed.mp4';
+import pet from '../assets/running.jpg';
 
-// Import local images
-import diagnoseImage from '../assets/pexels.jpg';
-import aiImage from '../assets/ai.png';
 
 const HomePage = () => {
   const [userId, setUserId] = useState(null);
   const [pets, setPets] = useState([]);
-  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -20,7 +18,6 @@ const HomePage = () => {
       if (user) {
         setUserId(user.uid);
         fetchPets(user.uid);
-        fetchEvents(user.uid); 
       } else {
         setUserId(null);
         setPets([]);
@@ -45,28 +42,6 @@ const HomePage = () => {
     }
   };
 
-  const fetchEvents = async (userId) => {
-    setLoading(true);
-    try {
-      const q = query(collection(db, 'calendar'), where('userId', '==', userId));
-      const querySnapshot = await getDocs(q);
-      const eventList = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        title: doc.data().eventName,
-        start: new Date(doc.data().date + ' ' + doc.data().time),
-        end: new Date(doc.data().date + ' ' + doc.data().time),
-        ...doc.data()
-      }));
-
-      const sortedEvents = eventList.sort((a, b) => a.start - b.start).slice(0, 5);
-      setEvents(sortedEvents);
-    } catch (error) {
-      console.error("Error fetching events: ", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handlePetClick = (petId) => {
     navigate(`/Home/PetProfile/${petId}`);
   };
@@ -84,94 +59,127 @@ const HomePage = () => {
   return (
     <Container fluid className="px-4 py-3">
       {/* Welcome Section */}
-      <Row className="mb-4">
-        <Col>
-          <Card className="shadow-sm">
-            <Card.Body>
-              <Card.Title className="h3">
-                Welcome to My Pet Dashboard
-              </Card.Title>
-              <Card.Text>
-                Manage your pet's health, track events, and stay connected with our comprehensive pet care platform.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+<Row className="mb-4">
+  <Col  className='px-2 '>
+    <Card className="shadow-sm px-3 ">
+    <Card className="shadow-sm position-relative text-white mt-3 mb-3">
+  <Card.Img
+    src={pet}
+    alt="Pet image"
+    className="img-fluid"
+    style={{
+      height: "300px",
+      maxWidth: "100%",
+      objectFit: "cover",
+    }}
+  />
+  <Card.ImgOverlay className="d-flex flex-column justify-content-center text-center">
+  <Card.Title style={{ fontSize: "1.8rem", fontWeight: "bold", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+  <h1 style={{ margin: "0", color: "#fff" }}>Welcome to My Pet</h1>
+</Card.Title>
+<Card.Text style={{ fontSize: "1rem", lineHeight: "1.5", color: "#f8f9fa", textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)" }}>
+  Manage your pet's health, track events, and stay connected with our comprehensive pet care platform.
+</Card.Text>
 
-      {/* Quick Action Cards */}
-      <Row className="g-3 mb-4">
-        <Col md={4}>
-          <Card className="h-100 hover-lift">
-            <Card.Body>
-              <div className="d-flex align-items-center">
-                <i className='bx bxs-dog me-3 text-primary' style={{fontSize: '3rem'}}></i>
-                <div>
-                  <Card.Title>Manage Pets</Card.Title>
-                  <Card.Text className="text-muted">
-                    View and update your pet's profiles
-                  </Card.Text>
-                </div>
-              </div>
-              <Button 
-                variant="outline-primary" 
-                className="mt-3 w-100"
-                onClick={() => navigate('/Home/ProfilePage')}
-              >
-                View Pets
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
+  </Card.ImgOverlay>
+</Card>
 
-        <Col md={4}>
-          <Card className="h-100 hover-lift">
-            <Card.Body>
-              <div className="d-flex align-items-center">
-                <i className='bx bxs-calendar me-3 text-success' style={{fontSize: '3rem'}}></i>
-                <div>
-                  <Card.Title>Upcoming Events</Card.Title>
-                  <Card.Text className="text-muted">
-                    {events.length > 0 
-                      ? `Next event: ${events[0].title}` 
-                      : 'No upcoming events'}
-                  </Card.Text>
-                </div>
-              </div>
-              <Button 
-                variant="outline-success" 
-                className="mt-3 w-100"
-                onClick={() => navigate('/Home/CalendarEventsPage')}
-              >
-                View Calendar
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
+      {/* Features Grid */}
+<Row className="g-3 mb-4">
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/DiagnosePage" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-primary-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <lottie-player src="https://lottie.host/dc858c9d-e8af-4ebd-bd9a-7cd693d30615/389NKeOKHw.json" background="##FFFFFF" speed="1" style={{ width: "250px", height: "100px" }} loop autoplay direction="1" mode="normal"></lottie-player>
+          <Card.Title className="h5">Disease Diagnosis</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Health assessment for your pets
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
 
-        <Col md={4}>
-          <Card className="h-100 hover-lift">
-            <Card.Body>
-              <div className="d-flex align-items-center">
-                <i className='bx bx-question-mark me-3 text-warning' style={{fontSize: '3rem'}}></i>
-                <div>
-                  <Card.Title>Health Check</Card.Title>
-                  <Card.Text className="text-muted">
-                    Disease detection and health insights
-                  </Card.Text>
-                </div>
-              </div>
-              <Button 
-                variant="outline-warning" 
-                className="mt-3 w-100"
-                onClick={() => navigate('/Home/DiagnosePage')}
-              >
-                Check Health
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/CalendarEventsPage" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-success-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <lottie-player src="https://lottie.host/c55ba999-6227-4d8d-a72b-486bd2fdd5ec/yR4MZeYJx0.json" background="##FFFFFF" speed="1" style={{ width: "250px", height: "100px" }} loop autoplay direction="1" mode="normal"></lottie-player>
+          <Card.Title className="h5">Calendar Events</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Manage and track your pet's important dates
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
+
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/PetJournalPage" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-info-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <lottie-player src="https://lottie.host/84569736-a2ae-4282-863d-ab3501b93565/IdJZZ3flYM.json"  background="##FFFFFF" speed="1" style={{ width: "250px", height: "100px" }} loop autoplay direction="1" mode="normal"></lottie-player>
+          <Card.Title className="h5">Pet Journal</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Track your pet's health and memories
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
+
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/ForumSubTopic" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-warning-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <lottie-player src="https://lottie.host/92d83079-d2bf-4ee3-8735-06b8fd4495f0/rbsbpNuUu6.json"   background="##FFFFFF" speed="1" style={{ width: "250px", height: "100px" }} loop autoplay direction="1" mode="normal"></lottie-player>
+          <Card.Title className="h5">Pet Forum</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Connect with other pet owners
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/AiBreed" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-danger-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="d-block w-100"
+            src={aiImage}
+            alt="AI Breed Scanner"
+          />
+          <Card.Title className="h5">Ai Breed Scanner</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Determine the breed of your pet
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
+  <Col xs={6} md={4} lg={2}>
+    <Link to="/Home/EstablishmentsPage" className="text-decoration-none">
+      <Card className="text-center h-100 hover-lift bg-danger-soft">
+        <Card.Body className="d-flex flex-column align-items-center justify-content-center">
+        <lottie-player src="https://lottie.host/d13c7ec9-f9af-4119-8f5c-ad998fd79097/qtD4mvw3lP.json"   background="##FFFFFF" speed="1" style={{ width: "250px", height: "100px" }} loop autoplay direction="1" mode="normal"></lottie-player>
+          <Card.Title className="h5">Pet Establishments</Card.Title>
+          <Card.Text className="text-muted text-center d-none d-md-block">
+            Find nearby pet establishments
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
+  </Col>
+</Row>
+    </Card>
+  </Col>
+</Row>
+
 
       {/* Pets Overview */}
       <Row className="mb-4">
@@ -215,48 +223,6 @@ const HomePage = () => {
               )}
             </Card.Body>
           </Card>
-        </Col>
-      </Row>
-
-      {/* Feature Showcase Carousel */}
-      <Row>
-        <Col>
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={diagnoseImage}
-                alt="Disease Detection"
-              />
-              <Carousel.Caption>
-                <h3>Advanced Disease Detection</h3>
-                <p>AI-powered health insights for your pet</p>
-                <Button 
-                  variant="light"
-                  onClick={() => navigate('/Home/DiagnosePage')}
-                >
-                  Learn More
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={aiImage}
-                alt="AI Breed Scanner"
-              />
-              <Carousel.Caption>
-                <h3>AI Breed Recognition</h3>
-                <p>Identify and learn about your pet's breed</p>
-                <Button 
-                  variant="light"
-                  onClick={() => navigate('/Home/AiBreed')}
-                >
-                  Try Now
-                </Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
         </Col>
       </Row>
     </Container>

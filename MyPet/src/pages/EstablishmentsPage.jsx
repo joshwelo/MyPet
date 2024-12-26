@@ -140,7 +140,7 @@ const EstablishmentsPage = () => {
         <button 
           className="btn btn-light" 
           onClick={() => setIsFilterModalOpen(true)}
-        >
+        ><i className='bx bxs-location-plus'></i>
           <i className="bi bi-filter"></i>
         </button>
       </div>
@@ -154,7 +154,7 @@ const EstablishmentsPage = () => {
         <div className="modal-dialog modal-fullscreen">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Filter Establishments</h5>
+              <h5 className="modal-title">Find Establishments</h5>
               <button 
                 type="button" 
                 className="btn-close" 
@@ -265,15 +265,7 @@ const EstablishmentsPage = () => {
         </div>
       </div>
 
-      {/* Location Error Alert */}
-      {locationError && (
-        <div className="alert alert-danger d-flex justify-content-between align-items-center m-2">
-          <span>Unable to fetch location. Please enable location services.</span>
-          <button className="btn btn-secondary btn-sm" onClick={handleRetry}>
-            Retry
-          </button>
-        </div>
-      )}
+
 
       <div className="row g-0 flex-grow-1 overflow-hidden">
         {/* Desktop Sidebar */}

@@ -9,12 +9,16 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 import { Alert } from 'react-bootstrap';
-
-
-
-
 const localizer = momentLocalizer(moment);
-
+const EVENT_TYPES = [
+  'Feeding', 
+  'Grooming', 
+  'Vet Visit', 
+  'Training', 
+  'Medication', 
+  'Vaccination', 
+  'Other'
+];
 const CalendarEventsPage = () => {
   const [events, setEvents] = useState([]);
   const [showPetModal, setShowPetModal] = useState(false);
@@ -22,15 +26,17 @@ const CalendarEventsPage = () => {
   const [showEditEventModal, setShowEditEventModal] = useState(false);
   const [showFeedingScheduleModal, setShowFeedingScheduleModal] = useState(false);
   const [feedingSchedule, setFeedingSchedule] = useState({ timesPerDay: 2, feedingTimes: ["08:00", "18:00"] });
-  const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [selectedPet, setSelectedPet] = useState(null);
   const [pets, setPets] = useState([]);
   const [newEvent, setNewEvent] = useState({
     eventName: '',
     description: '',
     date: '',
-    time: ''
+    time: '',
+    petId: null,
+    type: ''
   });
+  const [showPetSelectionModal, setShowPetSelectionModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [userId, setUserId] = useState(null);
   const [feedingEnabled, setFeedingEnabled] = useState(false);
@@ -144,7 +150,20 @@ const CalendarEventsPage = () => {
   }, [userId]);
 
   const handleShowAddEventModal = () => {
-    setShowAddEventModal(true);
+    // If no pets exist, show an alert
+    if (pets.length === 0) {
+      showAlert('Please add a pet first', 'warning');
+      return;
+    }
+
+    // If only one pet, auto-select it
+    if (pets.length === 1) {
+      setSelectedPet(pets[0]);
+      setShowAddEventModal(true);
+    } else {
+      // If multiple pets, show pet selection modal
+      setShowPetSelectionModal(true);
+    }
   };
 
   const handlePetSelect = (pet) => {
@@ -154,25 +173,21 @@ const CalendarEventsPage = () => {
   };
 
   const handleEventSubmit = async () => {
-    if (loading) return; // Prevent multiple submissions
+    if (loading) return;
     setLoading(true);
   
-    // Construct event name
-    let eventName;
-    if (newEvent.type === 'feeding') {
-      eventName = `Feeding - ${selectedPet.name}`;
-    } else if (newEvent.type === 'grooming') {
-      eventName = `Grooming - ${selectedPet.name}`;
-    } else {
-      eventName = newEvent.eventName;
-    }
-  
     const event = {
-      eventName,
-      description: newEvent.description,
+      eventName: newEvent.type ? 
+        `${newEvent.type} - ${selectedPet.name}` : 
+        newEvent.eventName,
+      description: newEvent.type ? 
+        `Scheduled ${newEvent.type} for ${selectedPet.name}` : 
+        newEvent.description,
       date: newEvent.date,
       time: newEvent.time,
       userId,
+      petId: selectedPet.id,
+      type: newEvent.type,
       notified: false,
     };
   
@@ -181,7 +196,7 @@ const CalendarEventsPage = () => {
       const q = query(
         collection(db, 'calendar'),
         where('userId', '==', userId),
-        where('eventName', '==', eventName),
+        where('eventName', '==', event.eventName),
         where('date', '==', newEvent.date),
         where('time', '==', newEvent.time)
       );
@@ -201,7 +216,7 @@ const CalendarEventsPage = () => {
         await updateDoc(eventRef, event);
         setEvents(events.map(evt =>
           evt.id === selectedEvent.id
-            ? { ...evt, ...event, title: eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) }
+            ? { ...evt, ...event, title: event.eventName, start: new Date(event.date + ' ' + event.time), end: new Date(event.date + ' ' + event.time) }
             : evt
         ));
       } else {
@@ -211,7 +226,7 @@ const CalendarEventsPage = () => {
           ...events,
           {
             id: docRef.id,
-            title: eventName,
+            title: event.eventName,
             start: new Date(event.date + ' ' + event.time),
             end: new Date(event.date + ' ' + event.time),
             ...event,
@@ -223,7 +238,14 @@ const CalendarEventsPage = () => {
   
       // Reset modal and state
       setShowAddEventModal(false);
-      setNewEvent({ eventName: '', description: '', date: '', time: '' });
+      setNewEvent({ 
+        eventName: '', 
+        description: '', 
+        date: '', 
+        time: '', 
+        petId: null, 
+        type: '' 
+      });
       setSelectedEvent(null);
   
       // Auto-refresh the page
@@ -235,7 +257,6 @@ const CalendarEventsPage = () => {
       setLoading(false);
     }
   };
-  
   
   
 
@@ -436,54 +457,6 @@ const CalendarEventsPage = () => {
 
     checkFeedingSchedule();
   }, [userId]);
-
-  const handleNotificationResponse = async (response) => {
-    setNotificationsEnabled(response);
-
-    // Save notification preference in the Firestore
-    if (userId) {
-      try {
-        const userDocRef = doc(db, "users", userId);
-        await updateDoc(userDocRef, { notificationsEnabled: response });
-        console.log("Notification preference saved.");
-      } catch (error) {
-        console.error("Error saving notification preference: ", error);
-      }
-    }
-
-    if (response) {
-      const permission = await Notification.requestPermission();
-      if (permission === 'granted') {
-        console.log('Notification permission granted.');
-      }
-    }
-  };
-
-  const sendEmailNotification = async (eventDetails) => {
-    try {
-      const response = await fetch('http://stievaluation.online/email.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          msg: `Event Name: ${eventDetails.eventName}\nDescription: ${eventDetails.description}\nDate: ${eventDetails.date}\nTime: ${eventDetails.time}`,
-          name: eventDetails.petName || 'Pet Owner',
-          email: eventDetails.email || 'user@example.com',
-          subject: `New Event Notification: ${eventDetails.eventName}`,
-          sender: 'no-reply@stievaluation.online',
-        }).toString(),
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to send email');
-      }
-  
-      console.log('Email notification sent successfully');
-    } catch (error) {
-      console.error('Error sending email notification:', error);
-    }
-  };
   
   
   return (
@@ -528,76 +501,161 @@ const CalendarEventsPage = () => {
 </Button>
 
           </Col>
-          <Col xs="auto">
-            <Button onClick={() => setShowNotificationModal(true)} className="mb-2 mt-3 w-100">
-              Toggle Notifications
-            </Button>
-          </Col>
         </Row>
       </div>
 
-      {/* Notification Modal */}
-      <Modal show={showNotificationModal} onHide={() => setShowNotificationModal(false)} centered>
+      {/* Add Event Modal */}
+      <Modal show={showAddEventModal} onHide={() => setShowAddEventModal(false)} centered>
+    <Modal.Header closeButton>
+      <Modal.Title>Add Event for {selectedPet?.name}</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <Form>
+        <Form.Group controlId="eventType" className="mb-3">
+          <Form.Label>Event Type</Form.Label>
+          <Form.Control
+            as="select"
+            value={newEvent.type}
+            onChange={(e) => {
+              const selectedType = e.target.value;
+              setNewEvent({ 
+                ...newEvent, 
+                type: selectedType,
+                // If 'Other' is selected, clear the previous eventName
+                ...(selectedType !== 'Other' ? { eventName: '' } : {})
+              });
+            }}
+          >
+            <option value="">Select Event Type</option>
+            {EVENT_TYPES.map(type => (
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </Form.Control>
+        </Form.Group>
+
+        {newEvent.type === 'Other' && (
+          <Form.Group controlId="customEventName" className="mb-3">
+            <Form.Label>Custom Event Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter custom event name"
+              value={newEvent.eventName}
+              onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
+            />
+          </Form.Group>
+        )}
+
+        <Form.Group controlId="eventDescription" className="mb-3">
+          <Form.Label>Description (Optional)</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            value={newEvent.description}
+            onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+            placeholder="Additional details (optional)"
+          />
+        </Form.Group>
+
+        <Form.Group controlId="eventDate" className="mb-3">
+          <Form.Label>Date</Form.Label>
+          <Form.Control
+            type="date"
+            value={newEvent.date}
+            onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="eventTime" className="mb-3">
+          <Form.Label>Time</Form.Label>
+          <Form.Control
+            type="time"
+            value={newEvent.time}
+            onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
+            required
+          />
+        </Form.Group>
+      </Form>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button 
+        variant="secondary" 
+        onClick={() => setShowAddEventModal(false)} 
+        disabled={loading}
+      >
+        Close
+      </Button>
+      <Button
+        variant="primary"
+        onClick={handleEventSubmit}
+        disabled={
+          loading || 
+          !newEvent.type || 
+          (newEvent.type === 'Other' && !newEvent.eventName) || 
+          !newEvent.date || 
+          !newEvent.time
+        }
+      >
+        {loading ? 'Adding...' : 'Submit'}
+      </Button>
+    </Modal.Footer>
+  </Modal>
+     {/* Pet Selection Modal */}
+     <Modal show={showPetSelectionModal} onHide={() => setShowPetSelectionModal(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Enable Notifications?</Modal.Title>
+          <Modal.Title>Select a Pet</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Would you like to enable notifications for upcoming pet events?</p>
-          <Button variant="success" onClick={() => handleNotificationResponse(true)} className="w-100 mb-2">Enable</Button>
-          <Button variant="danger" onClick={() => handleNotificationResponse(false)} className="w-100">Disable</Button>
+          <Row xs={1} md={2} className="g-4">
+            {pets.map((pet) => (
+              <Col key={pet.id}>
+                <div 
+                  className="card pet-selection-card cursor-pointer" 
+                  onClick={() => handlePetSelect(pet)}
+                  style={{ 
+                    border: '1px solid #ddd', 
+                    borderRadius: '8px', 
+                    padding: '10px', 
+                    textAlign: 'center',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  {pet.image ? (
+                    <img 
+                      src={pet.image} 
+                      alt={pet.name} 
+                      className="card-img-top" 
+                      style={{ 
+                        width: '100px', 
+                        height: '100px', 
+                        objectFit: 'cover', 
+                        borderRadius: '50%',
+                        margin: '0 auto 10px'
+                      }} 
+                    />
+                  ) : (
+                    <div 
+                      className="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" 
+                      style={{ 
+                        width: '100px', 
+                        height: '100px', 
+                        margin: '0 auto 10px'
+                      }}
+                    >
+                      {pet.name.charAt(0)}
+                    </div>
+                  )}
+                  <h5 className="card-title">{pet.name}</h5>
+                  <p className="card-text text-muted">
+                    {pet.breed || 'Pet'} | {pet.age ? `${pet.age} years old` : ''}
+                  </p>
+                </div>
+              </Col>
+            ))}
+          </Row>
         </Modal.Body>
       </Modal>
 
-      {/* Add Event Modal */}
-      <Modal show={showAddEventModal} onHide={() => setShowAddEventModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Add Event</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Event Name"
-              value={newEvent.eventName}
-              onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
-              disabled={loading}
-            />
-            <input
-              type="text"
-              className="form-control mt-2"
-              placeholder="Description"
-              value={newEvent.description}
-              onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-              disabled={loading}
-            />
-            <input
-              type="date"
-              className="form-control mt-2"
-              value={newEvent.date}
-              onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-              disabled={loading}
-            />
-            <input
-              type="time"
-              className="form-control mt-2"
-              value={newEvent.time}
-              onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
-              disabled={loading}
-            />
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowAddEventModal(false)} disabled={loading}>Close</Button>
-          <Button
-  variant="primary"
-  onClick={handleEventSubmit}
-  disabled={loading || !newEvent.eventName || !newEvent.date || !newEvent.time} // Prevent empty or duplicate submissions
->
-  {loading ? 'Adding...' : 'Submit'}
-</Button>
-        </Modal.Footer>
-      </Modal>
       {/* Feeding Schedule Modal */}
       <Modal show={showFeedingScheduleModal} onHide={() => setShowFeedingScheduleModal(false)}>
         <Modal.Header closeButton>
@@ -638,58 +696,97 @@ const CalendarEventsPage = () => {
       </Modal>
       {/* Edit Event Modal */}
       <Modal show={showEditEventModal} onHide={() => setShowEditEventModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Event</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="eventName">
-              <Form.Label>Event Name</Form.Label>
-              <Form.Control
-                type="text"
-                value={newEvent.eventName}
-                onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="eventDescription" className="mt-3">
-              <Form.Label>Description</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                value={newEvent.description}
-                onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="eventDate" className="mt-3">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                value={newEvent.date}
-                onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group controlId="eventTime" className="mt-3">
-              <Form.Label>Time</Form.Label>
-              <Form.Control
-                type="time"
-                value={newEvent.time}
-                onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowEditEventModal(false)}>
-            Close
-          </Button>
-          <Button variant="danger" onClick={handleDeleteEvent}>
-            Delete Event
-          </Button>
-          <Button variant="primary" onClick={handleEditEventSubmit}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+    <Modal.Header closeButton>
+      <Modal.Title>Edit Event for {selectedPet?.name}</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <Form>
+        <Form.Group controlId="eventType" className="mb-3">
+          <Form.Label>Event Type</Form.Label>
+          <Form.Control
+            as="select"
+            value={newEvent.type}
+            onChange={(e) => {
+              const selectedType = e.target.value;
+              setNewEvent({ 
+                ...newEvent, 
+                type: selectedType,
+                ...(selectedType !== 'Other' ? { eventName: '' } : {})
+              });
+            }}
+          >
+            <option value="">Select Event Type</option>
+            {EVENT_TYPES.map(type => (
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </Form.Control>
+        </Form.Group>
+
+        {newEvent.type === 'Other' && (
+          <Form.Group controlId="customEventName" className="mb-3">
+            <Form.Label>Custom Event Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter custom event name"
+              value={newEvent.eventName}
+              onChange={(e) => setNewEvent({ ...newEvent, eventName: e.target.value })}
+            />
+          </Form.Group>
+        )}
+
+        <Form.Group controlId="eventDescription" className="mb-3">
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            value={newEvent.description}
+            onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
+            placeholder="Additional details (optional)"
+          />
+        </Form.Group>
+
+        <Form.Group controlId="eventDate" className="mb-3">
+          <Form.Label>Date</Form.Label>
+          <Form.Control
+            type="date"
+            value={newEvent.date}
+            onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="eventTime" className="mb-3">
+          <Form.Label>Time</Form.Label>
+          <Form.Control
+            type="time"
+            value={newEvent.time}
+            onChange={(e) => setNewEvent({ ...newEvent, time: e.target.value })}
+            required
+          />
+        </Form.Group>
+      </Form>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={() => setShowEditEventModal(false)}>
+        Close
+      </Button>
+      <Button variant="danger" onClick={handleDeleteEvent}>
+        Delete Event
+      </Button>
+      <Button 
+        variant="primary" 
+        onClick={handleEditEventSubmit}
+        disabled={
+          !newEvent.type || 
+          (newEvent.type === 'Other' && !newEvent.eventName) || 
+          !newEvent.date || 
+          !newEvent.time
+        }
+      >
+        Save Changes
+      </Button>
+    </Modal.Footer>
+  </Modal>
       <script>
 
       </script>

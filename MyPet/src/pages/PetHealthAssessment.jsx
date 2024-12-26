@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button, Card, Alert, Modal } from 'react-bootstrap';
+import { Container, Form, Button, Card, Alert } from 'react-bootstrap';
 import { auth, db } from "../firebaseConfig";
 import { 
   collection, 
@@ -7,14 +7,10 @@ import {
   where, 
   getDocs, 
   addDoc,
-  deleteDoc,
-  doc, 
-  serverTimestamp, 
-  orderBy 
+  serverTimestamp 
 } from "firebase/firestore";
 
-
-const PetHealthSurvey = () => {
+const PetHealthAssessment = ({ onClose }) => {
   const [formData, setFormData] = useState({
     petType: '',
     age: '',
@@ -42,9 +38,6 @@ const PetHealthSurvey = () => {
   const [userId, setUserId] = useState(null);
   const [pets, setPets] = useState([]);
   const [selectedPetId, setSelectedPetId] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [showJournalModal, setShowJournalModal] = useState(false);
-  const [journalEntries, setJournalEntries] = useState([]);
 
   const unusualBehaviorOptions = [
     'Lethargy', 
@@ -62,7 +55,6 @@ const PetHealthSurvey = () => {
       } else {
         setUserId(null);
         setPets([]);
-        setLoading(false);
       }
     });
 
@@ -70,49 +62,11 @@ const PetHealthSurvey = () => {
   }, []);
 
   const fetchPets = async (userId) => {
-    setLoading(true);
     const q = query(collection(db, "pets"), where("userId", "==", userId));
     const querySnapshot = await getDocs(q);
     const petsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     setPets(petsData);
-    setLoading(false);
   };
-  const fetchJournalEntries = async () => {
-    if (!userId) return;
-
-    try {
-      const q = query(
-        collection(db, "petHealthSurveys"), 
-        where("userId", "==", userId),
-        orderBy("timestamp", "desc")
-      );
-      const querySnapshot = await getDocs(q);
-      const entries = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setJournalEntries(entries);
-    } catch (error) {
-      console.error("Error fetching journal entries: ", error);
-    }
-  };
-
-  // New function to remove a journal entry
-  const removeJournalEntry = async (entryId) => {
-    try {
-      await deleteDoc(doc(db, "petHealthSurveys", entryId));
-      // Remove the entry from local state
-      setJournalEntries(prev => prev.filter(entry => entry.id !== entryId));
-    } catch (error) {
-      console.error("Error removing journal entry: ", error);
-      alert('Failed to remove entry. Please try again.');
-    }
-  };
-    // Open journal entries modal and fetch entries
-    const openJournalModal = () => {
-      fetchJournalEntries();
-      setShowJournalModal(true);
-    };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -142,25 +96,21 @@ const PetHealthSurvey = () => {
   const evaluatePetHealth = () => {
     let urgencyScore = 0;
 
-    // General Health Evaluation
+    // Similar evaluation logic as before
     if (formData.generalHealth.eatingNormally === 'no') urgencyScore += 2;
     if (formData.generalHealth.weightChange === 'significant') urgencyScore += 3;
     if (formData.generalHealth.unusualBehaviors.length > 1) urgencyScore += 2;
 
-    // Specific Symptoms Evaluation
     if (formData.specificSymptoms.vomitingDiarrhea === 'yes') urgencyScore += 4;
     if (formData.specificSymptoms.breathingDifficulty === 'yes') urgencyScore += 5;
     if (formData.specificSymptoms.painDiscomfort === 'yes') urgencyScore += 4;
 
-    // Physical Changes Evaluation
     if (formData.physicalChanges.lumpsOrWounds === 'yes') urgencyScore += 3;
     if (formData.physicalChanges.coatSkinCondition === 'severe') urgencyScore += 2;
 
-    // Activity Level Evaluation
     if (formData.activityLevel.energyChange === 'significant') urgencyScore += 3;
     if (formData.activityLevel.mobility === 'limited') urgencyScore += 4;
 
-    // Determine recommendation
     let recommendation = '';
     if (urgencyScore >= 8) {
       recommendation = 'CRITICAL: Immediate Veterinary Care Required';
@@ -172,59 +122,74 @@ const PetHealthSurvey = () => {
       recommendation = 'LOW RISK: Continue Regular Monitoring';
     }
 
-    return {
-      urgencyScore,
-      recommendation
-    };
+    return { urgencyScore, recommendation };
   };
+
   const calculateAgeInMonths = (birthdayString) => {
     const birthday = new Date(birthdayString);
     const today = new Date();
     
-    // Calculate difference in months
     const months = (today.getFullYear() - birthday.getFullYear()) * 12 
       + (today.getMonth() - birthday.getMonth());
     
     return months;
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Validate pet selection
     if (!selectedPetId) {
       alert('Please select a pet');
       return;
     }
   
-    // Find the selected pet to get its birthday
-    const selectedPet = pets.find(pet => pet.id === selectedPetId);
-    
-    try {
-      // Evaluate pet health
-      const healthResult = evaluatePetHealth();
+    const selectedPet = pets.find((pet) => pet.id === selectedPetId);
   
-      // Calculate age in months
+    try {
+      // Get today's date in a comparable format
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Normalize time to start of the day
+  
+      const q = query(
+        collection(db, "petHealthSurveys"),
+        where("userId", "==", userId),
+        where("petId", "==", selectedPetId)
+      );
+  
+      const querySnapshot = await getDocs(q);
+  
+      // Check if any survey was submitted today
+      const existingEntry = querySnapshot.docs.find((doc) => {
+        const surveyDate = doc.data().timestamp?.toDate(); // Convert Firestore timestamp
+        return (
+          surveyDate &&
+          surveyDate.getFullYear() === today.getFullYear() &&
+          surveyDate.getMonth() === today.getMonth() &&
+          surveyDate.getDate() === today.getDate()
+        );
+      });
+  
+      if (existingEntry) {
+        alert('An evaluation has already been submitted for this pet today.');
+        return;
+      }
+  
+      const healthResult = evaluatePetHealth();
       const ageInMonths = calculateAgeInMonths(selectedPet.birthday);
   
-      // Prepare data for Firestore
       const surveyData = {
         userId: userId,
         petId: selectedPetId,
         petName: selectedPet.name,
         petType: selectedPet.species,
-        petAge: ageInMonths, // Age in months
+        petAge: ageInMonths,
         formData: formData,
         result: healthResult,
-        timestamp: serverTimestamp()
+        timestamp: serverTimestamp(),
       };
   
-      // Add to Firestore collection
-      const docRef = await addDoc(collection(db, "petHealthSurveys"), surveyData);
-  
-      // Set result state for display
+      await addDoc(collection(db, "petHealthSurveys"), surveyData);
       setResult(healthResult);
-  
-      console.log("Survey submitted with ID: ", docRef.id);
     } catch (error) {
       console.error("Error submitting survey: ", error);
       alert('Failed to submit survey. Please try again.');
@@ -236,15 +201,13 @@ const PetHealthSurvey = () => {
       <Card>
         <Card.Header as="h3" className="text-center">
           Comprehensive Pet Health Assessment
-          {userId && (
-            <Button 
-              variant="outline-info" 
-              className="float-end"
-              onClick={openJournalModal}
-            >
-              View Journal Entries
-            </Button>
-          )}
+          <Button 
+            variant="outline-secondary" 
+            className="float-end"
+            onClick={onClose}
+          >
+            Back to Journal
+          </Button>
         </Card.Header>
         <Card.Body>
           {/* Pet Selection */}
@@ -266,8 +229,7 @@ const PetHealthSurvey = () => {
             </Form.Group>
           )}
 
-          {/* Rest of the form remains the same as previous implementation */}
-          <Form onSubmit={handleSubmit}>
+<Form onSubmit={handleSubmit}>
                         {/* General Health Section */}
                         <h5 className="mt-4 mb-3">General Health</h5>
             <Form.Group className="mb-3">
@@ -435,51 +397,23 @@ const PetHealthSurvey = () => {
               </p>
             </Alert>
           )}
-                    {/* Journal Entries Modal */}
-                    <Modal 
-            show={showJournalModal} 
-            onHide={() => setShowJournalModal(false)}
-            size="lg"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Pet Health Journal Entries</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {journalEntries.length === 0 ? (
-                <p>No journal entries found.</p>
-              ) : (
-                journalEntries.map((entry) => (
-                  <Card key={entry.id} className="mb-3">
-                    <Card.Body>
-                      <div className="d-flex justify-content-between">
-                        <div>
-                          <h5>
-                            {entry.petName} {entry.petType} (Age: {entry.petAge} months) - {entry.result.recommendation}
-                          </h5>
-                          <p>
-                            Urgency Score: {entry.result.urgencyScore}
-                            <br />
-                            Date: {entry.timestamp?.toDate()?.toLocaleString() || 'Unknown'}
-                          </p>
-                        </div>
-                        <Button 
-                          variant="danger" 
-                          size="sm"
-                          onClick={() => removeJournalEntry(entry.id)}
-                        >
-                          Remove
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                ))
-              )}
-            </Modal.Body>
-          </Modal>
+        </Card.Body>
+      </Card>
+      <Card className="p-3">
+        <Card.Body>
+          <Card.Text className="text-justify">
+            This evaluation logic assesses a pet's health urgency based on form data, with score weights and thresholds designed to prioritize symptoms and conditions based on their potential severity. For general health, a pet not eating normally adds <strong>2 points</strong>, as it could indicate illness, stress, or gastrointestinal problems. Significant weight changes, which may signal chronic illness or malnutrition, add <strong>3 points</strong>, while multiple unusual behaviors, potentially pointing to systemic or neurological issues, add <strong>2 points</strong>. Specific symptoms like persistent vomiting or diarrhea, which can lead to dehydration and signify serious conditions, add <strong>4 points</strong>. Breathing difficulty, being potentially life-threatening, adds the highest weight of <strong>5 points</strong>, and observed pain or discomfort, indicative of injury or internal problems, adds <strong>4 points</strong>.
+          </Card.Text>
+          <Card.Text className="text-justify">
+            Physical changes such as visible lumps or wounds, which may indicate infection or trauma, add <strong>3 points</strong>, while severe coat or skin conditions, often linked to parasites or allergies, add <strong>2 points</strong>. Activity level issues like significant energy changes, possibly indicating systemic illness, add <strong>3 points</strong>, and limited mobility, which could stem from injury or neurological problems, adds <strong>4 points</strong>.
+          </Card.Text>
+          <Card.Text className="font-weight-bold">
+            The recommendation thresholds are as follows: a score of 8 or more indicates critical symptoms requiring immediate veterinary attention, 5 to 7 points suggests urgent care, 3 to 4 points implies moderate issues needing close monitoring, and less than 3 points denotes low risk where regular observation suffices. The weights (ranging from 2 to 5 points) correlate with the potential severity and urgency of each condition, ensuring critical symptoms like breathing difficulty are prioritized, while the thresholds guide appropriate actions based on the cumulative score.
+          </Card.Text>
         </Card.Body>
       </Card>
     </Container>
   );
 };
 
-export default PetHealthSurvey;
+export default PetHealthAssessment;
