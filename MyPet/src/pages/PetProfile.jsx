@@ -7,7 +7,7 @@
   import breedsData from '../jsons/breeds.json';
   import vaccineData from '../jsons/vaccines.json'; 
   import milestoneData from '../jsons/milestones.json';
-  import diseaseData from '../jsons/disease.json';
+  import diseaseData from '../jsons/diseases.json';
   import Select from 'react-select';
   import petImage from '../assets/mypetlogo.png';
 import './PetProfile.css'
@@ -26,7 +26,6 @@ import './PetProfile.css'
     const [selectedDisease, setSelectedDisease] = useState(null);
     const [diseaseCategory, setDiseaseCategory] = useState('');
     const [diseaseSubCategory, setDiseaseSubCategory] = useState('');
-    const [filteredDiseases, setFilteredDiseases] = useState(null);
 
     const storage = getStorage();
 
@@ -77,24 +76,7 @@ import './PetProfile.css'
   const getDiseaseCategories = () => {
     return Object.keys(diseaseData);
   };
-  const searchDiseases = (query) => {
-    const matches = [];
-    Object.keys(diseaseData).forEach((category) => {
-      Object.keys(diseaseData[category]).forEach((subCategory) => {
-        const diseases = diseaseData[category][subCategory];
-        diseases.forEach((disease) => {
-          if (disease.name.toLowerCase().includes(query)) {
-            matches.push({
-              value: disease.name,
-              label: disease.name,
-              data: disease,
-            });
-          }
-        });
-      });
-    });
-    return matches;
-  };
+
   // Function to get disease subcategories
   const getDiseaseSubCategories = (category) => {
     return category ? Object.keys(diseaseData[category]) : [];
@@ -468,27 +450,6 @@ import './PetProfile.css'
           </Card.Body>
         </Card>
       </div>
-              <div className="col-12 col-md-6">
-              <Card className="h-100 shadow-sm">
-                <Card.Body>
-                  <h6 className="card-title d-flex align-items-center">
-                    <i className='me-2 bx bxs-body'></i> Physical Characteristics
-                  </h6>
-                  <p className="mb-0">{pet.physicalCharacteristics || 'No physical characteristics added'}</p>
-                </Card.Body>
-              </Card>
-            </div>
-
-            <div className="col-12 col-md-6">
-              <Card className="h-100 shadow-sm">
-                <Card.Body>
-                  <h6 className="card-title d-flex align-items-center">
-                    <i className='me-2 bx bxs-heart'></i> Emotional Characteristics
-                  </h6>
-                  <p className="mb-0">{pet.emotionalCharacteristics || 'No emotional characteristics added'}</p>
-                </Card.Body>
-              </Card>
-            </div>
             </div>
 
 
@@ -625,29 +586,6 @@ import './PetProfile.css'
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3">
-              <Form.Label>Physical Characteristics</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="physicalCharacteristics"
-                value={editData.physicalCharacteristics || ''}
-                onChange={handleEditChange}
-                placeholder="Describe your pet's physical characteristics (color, size, markings, etc.)"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Emotional Characteristics</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="emotionalCharacteristics"
-                value={editData.emotionalCharacteristics || ''}
-                onChange={handleEditChange}
-                placeholder="Describe your pet's personality, behavior, and emotional traits"
-              />
-            </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -681,81 +619,94 @@ import './PetProfile.css'
 
 
 
- <Modal show={showMedicalModal} onHide={() => setShowMedicalModal(false)} size="lg">
-      <Modal.Header closeButton>
-        <Modal.Title>Add Medical Condition</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>Category</Form.Label>
-            <Form.Select
-              value={diseaseCategory}
-              onChange={(e) => {
-                setDiseaseCategory(e.target.value);
-                setDiseaseSubCategory('');
-                setSelectedDisease(null);
-              }}
-            >
-              <option value="">Select Category</option>
-              {getDiseaseCategories().map(category => (
-                <option key={category} value={category}>{category}</option>
-              ))}
-            </Form.Select>
-          </Form.Group>
-
-          {diseaseCategory && (
-            <Form.Group className="mb-3">
-              <Form.Label>Subcategory</Form.Label>
-              <Form.Select
-                value={diseaseSubCategory}
-                onChange={(e) => {
-                  setDiseaseSubCategory(e.target.value);
-                  setSelectedDisease(null);
-                }}
-              >
-                <option value="">Select Subcategory</option>
-                {getDiseaseSubCategories(diseaseCategory).map(subcat => (
-                  <option key={subcat} value={subcat}>{subcat}</option>
-                ))}
-              </Form.Select>
-            </Form.Group>
-          )}
-
-          {diseaseSubCategory && (
-            <Form.Group className="mb-3">
-              <Form.Label>Condition</Form.Label>
-              <Select
-                value={selectedDisease}
-                onChange={setSelectedDisease}
-                options={getDiseases(diseaseCategory, diseaseSubCategory)}
-                isDisabled={!diseaseCategory || !diseaseSubCategory}
-                placeholder="Select condition..."
-              />
-            </Form.Group>
-          )}
-
-{selectedDisease && (
-    <div className="mt-3 border-top pt-3">
-      <h6 className="fw-bold">Condition Details:</h6>
-      <p><strong>Description:</strong> {selectedDisease.data.description}</p>
-    </div>
-  )}
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={() => setShowMedicalModal(false)}>
-          Cancel
-        </Button>
-        <Button 
-          variant="primary" 
-          onClick={handleAddMedicalHistory}
-          disabled={!selectedDisease}
+        <Modal show={showMedicalModal} onHide={() => setShowMedicalModal(false)} size="lg">
+  <Modal.Header closeButton>
+    <Modal.Title>Add Medical Condition</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Form>
+      {/* Existing Fields */}
+      <Form.Group className="mb-3">
+        <Form.Label>Category</Form.Label>
+        <Form.Select
+          value={diseaseCategory}
+          onChange={(e) => {
+            setDiseaseCategory(e.target.value);
+            setDiseaseSubCategory('');
+            setSelectedDisease(null);
+          }}
         >
-          Add Condition
-        </Button>
-      </Modal.Footer>
-    </Modal>
+          <option value="">Select Category</option>
+          {getDiseaseCategories().map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </Form.Select>
+      </Form.Group>
+
+      {diseaseCategory && (
+        <Form.Group className="mb-3">
+          <Form.Label>Subcategory</Form.Label>
+          <Form.Select
+            value={diseaseSubCategory}
+            onChange={(e) => {
+              setDiseaseSubCategory(e.target.value);
+              setSelectedDisease(null);
+            }}
+          >
+            <option value="">Select Subcategory</option>
+            {getDiseaseSubCategories(diseaseCategory).map(subcat => (
+              <option key={subcat} value={subcat}>{subcat}</option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+      )}
+
+      {diseaseSubCategory && (
+        <Form.Group className="mb-3">
+          <Form.Label>Condition</Form.Label>
+          <Select
+            value={selectedDisease}
+            onChange={setSelectedDisease}
+            options={getDiseases(diseaseCategory, diseaseSubCategory)}
+            isDisabled={!diseaseCategory || !diseaseSubCategory}
+            placeholder="Select condition..."
+          />
+        </Form.Group>
+      )}
+
+      {/* New Custom Condition Field */}
+      <Form.Group className="mb-3">
+        <Form.Label>Or Add a Custom Condition</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter custom condition"
+          onChange={(e) => setSelectedDisease({ value: e.target.value, label: e.target.value })}
+        />
+      </Form.Group>
+
+      {/* Condition Details Preview */}
+      {selectedDisease && selectedDisease.data && (
+        <div className="mt-3 border-top pt-3">
+          <h6 className="fw-bold">Condition Details:</h6>
+          <p><strong>Description:</strong> {selectedDisease.data.description}</p>
+        </div>
+      )}
+    </Form>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowMedicalModal(false)}>
+      Cancel
+    </Button>
+    <Button
+      variant="primary"
+      onClick={handleAddMedicalHistory}
+      disabled={!selectedDisease || !selectedDisease.value}
+    >
+      Add Condition
+    </Button>
+  </Modal.Footer>
+</Modal>
+
       </Container>
     ) : (
       <div></div>

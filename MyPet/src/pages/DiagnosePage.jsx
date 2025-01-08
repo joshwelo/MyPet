@@ -132,7 +132,7 @@ const DiagnosePage = () => {
       <div className="card shadow-lg">
         <div className="card-header bg-primary text-white text-center">
           <h5 className="mb-0">Pet Disease Diagnosis Chat</h5>
-          <small>{activeTab === "dog" ? "🐶 Dog" : "🐱 Cat"} Mode</small>
+          <small>{activeTab === " " ? "🐶 Dog" : "🐱 Cat"} Mode</small>
         </div>
         <div className="card-body p-3" style={{ height: "400px", overflowY: "auto" }}>
           {chat.map((entry, index) => (

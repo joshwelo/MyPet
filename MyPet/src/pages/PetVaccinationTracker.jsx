@@ -59,6 +59,11 @@ const PetVaccinationTracker = () => {
           const relevantVaccinations = speciesVaccines.filter(
             vaccine => petAgeMonths >= (vaccine.age || 0)
           );
+                  // Filter out vaccines that are already in vaccination history
+                  const administeredVaccines = new Set(petData.vaccinationHistory || []);
+                  const availableVaccinations = speciesVaccines.filter(
+                    vaccine => !administeredVaccines.has(vaccine.name) && petAgeMonths >= (vaccine.age || 0)
+                  );
 
           const vaccinationHistory = petData.vaccinationHistory || [];
           const upcoming = relevantVaccinations.filter(
@@ -97,49 +102,110 @@ const PetVaccinationTracker = () => {
 
       const handleVaccinationSchedule = (vaccination) => {
         if (vaccination && vaccination.name) {
-          setCurrentVaccine(vaccination);
-          
-          // Find the vaccine details from vaccineData
+          // Get the latest vaccination date and vaccine details
           const vaccineDetails = vaccineData[pet.species]?.find(
             v => v.name.toLowerCase() === vaccination.name.toLowerCase()
           );
-          
-          // Get the latest vaccination date (either from reschedule history or administration)
           const latestDate = getLatestVaccinationDate(vaccination.name);
-          
-          // Calculate the next recommended date
-          const nextDate = calculateNextVaccinationDate(
-            latestDate,
-            vaccineDetails?.recommended_reschedule || 'annual'
-          );
-          
-          // Set event details
-          setEventName(`${pet.name} - ${vaccination.name} Vaccination`);
-          setEventDate(nextDate);
-          setEventTime('09:00'); // Default time
-          
-          // Get current reschedule count
-          const currentRescheduleCount = reschedulingInfo[vaccination.name] || 0;
-          
-          // Create description with history information
-          let historyText = '';
-          if (latestDate) {
-            historyText = `Last vaccination: ${latestDate}\n`;
-            if (currentRescheduleCount > 0) {
-              historyText += `Rescheduled ${currentRescheduleCount} time(s)\n`;
-            }
+      
+          if (!latestDate) {
+            // If there's no previous date, allow scheduling
+            setCurrentVaccine(vaccination);
+            setupSchedulingModal(vaccination, latestDate, vaccineDetails);
+            return;
           }
+      
+          // Check if the vaccine is due for rescheduling
+          const isDue = isVaccinationDue(latestDate, vaccineDetails?.recommended_reschedule);
           
-          setEventDescription(
-            `${vaccination.description || ''}\n\n` +
-            `Recommended Schedule: ${vaccineDetails?.recommended_reschedule}\n\n` +
-            `${historyText}`
-          );
-          
-          setShowModal(true);
-        } else {
-          console.error("Invalid vaccination data", vaccination);
+          if (!isDue) {
+            setAlertMessage(`${vaccination.name} is not yet due for rescheduling based on the recommended schedule`);
+            setShowAlert(true);
+            return;
+          }
+      
+          setCurrentVaccine(vaccination);
+          setupSchedulingModal(vaccination, latestDate, vaccineDetails);
         }
+      };
+      
+      // New helper function to check if a vaccination is due
+      const isVaccinationDue = (lastDate, recommendedSchedule) => {
+        if (!lastDate || !recommendedSchedule) return true;
+      
+        const lastVaccinationDate = new Date(lastDate);
+        const today = new Date();
+        const scheduleText = recommendedSchedule.toLowerCase();
+        
+        // Calculate the minimum interval based on the schedule
+        let minimumInterval;
+        if (scheduleText.includes('semi-annual')) {
+          minimumInterval = 6 * 30; // Approximately 6 months in days
+        } else if (scheduleText.includes('series')) {
+          if (scheduleText.includes('two-dose')) {
+            minimumInterval = 21; // 3 weeks for two-dose series
+          } else if (scheduleText.includes('6, 10, and 14 weeks')) {
+            minimumInterval = 28; // 4 weeks for puppy/kitten series
+          } else {
+            minimumInterval = 28; // Default series interval
+          }
+        } else {
+          minimumInterval = 365; // Default annual schedule
+        }
+      
+        // Calculate days since last vaccination
+        const daysSinceLastVaccination = Math.floor(
+          (today - lastVaccinationDate) / (1000 * 60 * 60 * 24)
+        );
+      
+        return daysSinceLastVaccination >= minimumInterval;
+      };
+      
+      // Helper function to set up the scheduling modal
+      const setupSchedulingModal = (vaccination, latestDate, vaccineDetails) => {
+        // Calculate next recommended date
+        const nextDate = calculateNextVaccinationDate(
+          latestDate,
+          vaccineDetails?.recommended_reschedule || 'annual'
+        );
+        
+        setEventName(`${pet.name} - ${vaccination.name} Vaccination`);
+        setEventDate(nextDate);
+        setEventTime('09:00');
+        
+        const currentRescheduleCount = reschedulingInfo[vaccination.name] || 0;
+        let historyText = '';
+        if (latestDate) {
+          historyText = `Last vaccination: ${latestDate}\n`;
+          if (currentRescheduleCount > 0) {
+            historyText += `Rescheduled ${currentRescheduleCount} time(s)\n`;
+          }
+        }
+        
+        setEventDescription(
+          `${vaccination.description || ''}\n\n` +
+          `Recommended Schedule: ${vaccineDetails?.recommended_reschedule}\n\n` +
+          `${historyText}`
+        );
+        
+        setShowModal(true);
+      };
+      
+      // Update the UI to show when the next vaccination is due
+      const getNextDueDate = (vaccineName) => {
+        const latestDate = getLatestVaccinationDate(vaccineName);
+        const vaccineDetails = vaccineData[pet.species]?.find(
+          v => v.name.toLowerCase() === vaccineName.toLowerCase()
+        );
+        
+        if (!latestDate) return 'Not previously administered';
+        
+        const nextDueDate = new Date(calculateNextVaccinationDate(
+          latestDate,
+          vaccineDetails?.recommended_reschedule || 'annual'
+        ));
+        
+        return nextDueDate.toLocaleDateString();
       };
     
     
@@ -467,151 +533,171 @@ const PetVaccinationTracker = () => {
       </div>
 
       <div className="row">
-        {/* Vaccination Information Section */}
-        <div className="col-md-6 mb-4">
-          <div className="card h-100"       style={{
-        maxHeight: "400px", // Use a string with units
-        overflowY: "auto",  // camelCase for "overflow-y"
-        paddingRight: "10px", // camelCase for "padding-right"
-        scrollbarWidth: "thin" // camelCase for "scrollbar-width"
-      }}>
-            <div className="card-header d-flex align-items-center">
-              <i className="bx bx-injection me-2 text-primary"></i>
-              <h5 className="card-title mb-0">Recommended Vaccine</h5>
-            </div>
-            <div className="card-body">
-              <h6 className="card-subtitle mb-3 text-muted">Core Vaccinations</h6>
-              <p className="card-text text-muted small">Core vaccines for dogs are those that every dog should receive, regardless of their lifestyle, location, or breed. These vaccines protect against diseases that are: prevalent, highly contagious, and potentially severe or fatal.</p>
-              {vaccinations
-                .filter(v => v.type === "Core")
-                .map((vaccination, index) => (
-                  <div key={index} className="card mb-2 bg-light">
-                    <div className="card-body d-flex justify-content-between align-items-center">
-                      <div>
-                        <h6 className="card-title mb-1">{vaccination.name}</h6>
-                        <p className="card-text text-muted small">{vaccination.description}</p>
-                        <p className="card-text text-muted small">Recommended age to administer: {vaccination.recommended_weeks} weeks</p>
-                        <p className="card-text text-muted small">
-                      Recommended Re-schedule: Every {vaccination.recommended_reschedule}
-                    </p>
-                      </div>
-                      <button 
-                        onClick={() => handleVaccinationSchedule(vaccination)}
-                        className="btn btn-primary btn-sm"
-                      >
-                        Schedule
-                      </button>
-                    </div>
-                  </div>
-                ))}
-                <h6 className="card-subtitle mb-3 mt-3 text-muted">Non-Core Vaccinations</h6>
-                <p className="card-text text-muted small">A non-core vaccine for dogs is a vaccine that's recommended based on a dog's risk of exposure to a disease, rather than being recommended for all dogs. Non-core vaccines are also called lifestyle vaccines.</p>
-              {vaccinations
-                .filter(v => v.type === "Non-Core")
-                .map((vaccination, index) => (
-                  <div key={index} className="card mb-2 bg-light">
-                    <div className="card-body d-flex justify-content-between align-items-center">
-                      <div>
-                        <h6 className="card-title mb-1">{vaccination.name}</h6>
-                        <p className="card-text text-muted small">{vaccination.description}</p>
-                        <p className="card-text text-muted small">Recommended age to administer: {vaccination.recommended_weeks} weeks</p>
-                        <p className="card-text text-muted small">
-                      Recommended Re-schedule: Every {vaccination.recommended_reschedule}
-                    </p>
-                      </div>
-                      <button 
-                        onClick={() => handleVaccinationSchedule(vaccination)}
-                        className="btn btn-primary btn-sm"
-                      >
-                        Schedule
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            <h6 className="card-subtitle mb-3 mt-3 text-muted">Combination Vaccinations</h6>
-            <p className="card-text text-muted small">A combination vaccine for dogs is a single product that protects against multiple diseases or strains of infectious agents that cause the same disease. This reduces the number of injections required to prevent some diseases. </p>
-
-              {vaccinations
-                .filter(v => v.type === "Combination")
-                .map((vaccination, index) => (
-                  <div key={index} className="card mb-2 bg-light">
-                    <div className="card-body d-flex justify-content-between align-items-center">
-                      <div>
-                        <h6 className="card-title mb-1">{vaccination.name}</h6>
-                        <p className="card-text text-muted small">{vaccination.description}</p>
-                        <p className="card-text text-muted small">Recommended age to administer: {vaccination.recommended_weeks} weeks</p>
-                        <p className="card-text text-muted small">
-                      Recommended Re-schedule: Every {vaccination.recommended_reschedule}
-                    </p>
-                      </div>
-                      <button 
-                        onClick={() => handleVaccinationSchedule(vaccination)}
-                        className="btn btn-primary btn-sm"
-                      >
-                        Schedule
-                      </button>
-                    </div>
-                  </div>
-                ))}
-            </div>
+  {/* Recommended Vaccinations Section */}
+  <div className="col-md-6 mb-4">
+    <div className="card h-100" style={{
+      maxHeight: "400px",
+      overflowY: "auto",
+      paddingRight: "10px",
+      scrollbarWidth: "thin"
+    }}>
+      <div className="card-header d-flex align-items-center">
+        <i className="bx bx-injection me-2 text-primary"></i>
+        <h5 className="card-title mb-0">Recommended Vaccines</h5>
+      </div>
+      <div className="card-body">
+        {vaccinations.length === 0 ? (
+          <div className="text-center text-muted py-4">
+            <i className="bx bx-check-circle mb-2" style={{fontSize: '2rem'}}></i>
+            <p>All recommended vaccines have been administered!</p>
           </div>
-        </div>
-
-{/* Upcoming Vaccinations Section */}
-<div className="col-md-6 mb-4">
-  <div className="card h-100" style={{
-    maxHeight: "400px",
-    overflowY: "auto",
-    paddingRight: "10px",
-    scrollbarWidth: "thin"
-  }}>
-    <div className="card-header d-flex align-items-center">
-      <i className="bx bx-calendar me-2 text-success"></i>
-      <h5 className="card-title mb-0">Re-Schedule Vaccinations</h5>
-    </div>
-    <div className="card-body">
-      {!pet.vaccinationHistory || pet.vaccinationHistory.length === 0 ? (
-        <div className="text-center text-muted">
-          <i className="bx bx-info-circle mb-2 text-warning" style={{fontSize: '2rem'}}></i>
-          <p>No administered vaccinations found</p>
-        </div>
-      ) : (
-        pet.vaccinationHistory.map((history, index) => {
-          // Find the corresponding vaccine in the vaccineData
-          const vaccine = vaccineData[pet.species]?.find(
-            v => v.name.toLowerCase() === history.toLowerCase()
-          );
-
-          return (
-            <div key={index} className="card mb-2 bg-light">
-              <div className="card-body d-flex justify-content-between align-items-center">
-                <div>
-                  <h6 className="card-title mb-1">{history}</h6>
-                  {vaccine && vaccine.frequency && (
-                    <p className="card-text text-muted small">
-                      Recommended Re-schedule: Every {vaccine.recommended_reschedule}
-                    </p>
-                  )}
+        ) : (
+          <>
+            {['Core', 'Non-Core', 'Combination'].map((vaccineType) => {
+              const filteredVaccines = vaccinations.filter(v => 
+                v.type === vaccineType && 
+                !pet.vaccinationHistory?.includes(v.name)
+              );
+              
+              return filteredVaccines.length > 0 && (
+                <div key={vaccineType} className="mb-4">
+                  <h6 className="card-subtitle mb-3 text-muted">{vaccineType} Vaccinations</h6>
+                  <p className="card-text text-muted small">
+                    {vaccineType === 'Core' && 
+                      "Core vaccines are essential vaccinations that every pet should receive, regardless of lifestyle or location."}
+                    {vaccineType === 'Non-Core' && 
+                      "Non-core vaccines are recommended based on your pet's specific risk factors and lifestyle."}
+                    {vaccineType === 'Combination' && 
+                      "Combination vaccines protect against multiple diseases in a single dose, reducing the number of injections needed."}
+                  </p>
+                  {filteredVaccines.map((vaccination, index) => (
+                    <div key={index} className="card mb-2 bg-light">
+                      <div className="card-body">
+                        <div className="d-flex justify-content-between align-items-start">
+                          <div className="flex-grow-1">
+                            <h6 className="card-title mb-2">{vaccination.name}</h6>
+                            <p className="card-text text-muted small mb-2">{vaccination.description}</p>
+                            <div className="d-flex flex-wrap gap-3">
+                              <p className="card-text text-muted small mb-0">
+                                <i className="bx bx-time-five me-1"></i>
+                                Age: {vaccination.recommended_weeks} weeks
+                              </p>
+                              <p className="card-text text-muted small mb-0">
+                                <i className="bx bx-repeat me-1"></i>
+                                Schedule: {vaccination.recommended_reschedule}
+                              </p>
+                            </div>
+                          </div>
+                          <button 
+                            onClick={() => handleVaccinationSchedule(vaccination)}
+                            className="btn btn-primary btn-sm ms-3"
+                          >
+                            <i className="bx bx-calendar-plus me-1"></i>
+                            Schedule
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <button 
-                  onClick={() => handleVaccinationSchedule({
-                    name: history,
-                    description: vaccine?.description,
-                    frequency: vaccine?.frequency
-                  })}
-                  className="btn btn-success btn-sm"
-                >
-                  Re-Schedule
-                </button>
-              </div>
-            </div>
-          );
-        })
-      )}
+              );
+            })}
+          </>
+        )}
+      </div>
     </div>
   </div>
-</div>
+
+  {/* Re-Schedule Vaccinations Section */}
+      {/* Re-Schedule Vaccinations Section */}
+      <div className="col-md-6 mb-4">
+        <div className="card h-100" style={{
+          maxHeight: "400px",
+          overflowY: "auto",
+          paddingRight: "10px",
+          scrollbarWidth: "thin"
+        }}>
+          <div className="card-header d-flex align-items-center">
+            <i className="bx bx-calendar me-2 text-success"></i>
+            <h5 className="card-title mb-0">Re-Schedule Vaccinations</h5>
+          </div>
+          <div className="card-body">
+            {!pet.vaccinationHistory || pet.vaccinationHistory.length === 0 ? (
+              <div className="text-center text-muted py-4">
+                <i className="bx bx-info-circle mb-2 text-warning" style={{fontSize: '2rem'}}></i>
+                <p>No administered vaccinations found</p>
+                <p className="small">Add vaccinations through the history section below</p>
+              </div>
+            ) : (
+              pet.vaccinationHistory.map((history, index) => {
+                const vaccine = vaccineData[pet.species]?.find(
+                  v => v.name.toLowerCase() === history.toLowerCase()
+                );
+                
+                const lastAdministered = pet.vaccinationDates?.[history];
+                const isDue = isVaccinationDue(
+                  getLatestVaccinationDate(history),
+                  vaccine?.recommended_reschedule
+                );
+                const nextDueDate = getNextDueDate(history);
+
+                return (
+                  <div key={index} className="card mb-2 bg-light">
+                    <div className="card-body">
+                      <div className="d-flex justify-content-between align-items-start">
+                        <div className="flex-grow-1">
+                          <div className="d-flex align-items-center mb-2">
+                            <h6 className="card-title mb-0">{history}</h6>
+                            {isDue ? (
+                              <span className="badge bg-warning-subtle text-warning ms-2">
+                                Due for renewal
+                              </span>
+                            ) : (
+                              <span className="badge bg-success-subtle text-success ms-2">
+                                Up to date
+                              </span>
+                            )}
+                          </div>
+                          {lastAdministered && (
+                            <p className="card-text text-muted small mb-2">
+                              <i className="bx bx-calendar-check me-1"></i>
+                              Last administered: {lastAdministered}
+                            </p>
+                          )}
+                          <p className="card-text text-muted small mb-2">
+                            <i className="bx bx-calendar-alt me-1"></i>
+                            Next due: {nextDueDate}
+                          </p>
+                          {vaccine && vaccine.recommended_reschedule && (
+                            <p className="card-text text-muted small mb-0">
+                              <i className="bx bx-repeat me-1"></i>
+                              Schedule: {vaccine.recommended_reschedule}
+                            </p>
+                          )}
+                        </div>
+                        <button 
+                          onClick={() => handleVaccinationSchedule({
+                            name: history,
+                            description: vaccine?.description,
+                            recommended_reschedule: vaccine?.recommended_reschedule
+                          })}
+                          className={`btn ${isDue ? 'btn-success' : 'btn-secondary'} btn-sm ms-3`}
+                          disabled={!isDue}
+                          title={!isDue ? 'Not yet due for rescheduling' : 'Schedule vaccination'}
+                        >
+                          <i className="bx bx-calendar-plus me-1"></i>
+                          Re-Schedule
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
       </div>
+</div>
 
 {/* Vaccination History */}
 <div className="row mt-4">

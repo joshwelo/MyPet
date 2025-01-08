@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AddPetModal from "./AddPetModal";
 import { auth, db } from "../firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Loading from './Loading'; // Import the Loading component
-import petImage from '../assets/mypetlogo.png'
+import AddPetModal from "./AddPetModal";
+import Loading from './Loading';
 
 const ProfilePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,66 +36,115 @@ const ProfilePage = () => {
     setLoading(false);
   };
 
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => {
-    setShowModal(false);
-    if (userId) fetchPets(userId);
-  };
-
-  const handlePetClick = (petId) => {
-    navigate(`/Home/PetProfile/${petId}`);
+  const calculateAge = (birthday) => {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    
+    const months = (today.getMonth() + 12 - birthDate.getMonth()) % 12;
+    
+    if (age === 0) {
+      return `${months} months`;
+    }
+    return `${age} years ${months} months`;
   };
 
   return (
-    <>
-      <div className="content-wrapper">
-        <div className="container-xxl flex-grow-1 container-p-y">
-          <div className="card px-4">
-          <h3 className="card-title text-primary fw-bold mt-4">Pet Profile</h3>
-            {loading ? (
-              <Loading /> // Use the Loading component here
-            ) : (
-              <div className="row">
-                {pets.map((pet) => (
-                  <div className="col-md-3 mb-3" key={pet.id}>
-                    <Card onClick={() => handlePetClick(pet.id)}>
-                    <Card.Img
-  variant="top"
-  src={pet.image || petImage}
-  alt={pet.name}
-  className="w-100"
-  style={{ objectFit: 'cover', height: '200px', width: '100%' }}
-/>
-
-                      <Card.Body>
-                        <Card.Title>{pet.name}</Card.Title>
-                        <Card.Text>
-                          <strong>Breed:</strong> {pet.breed}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            )}
-            <div className="d-grid gap-2 col-lg-6 mx-auto" style={{ paddingTop: "10px", paddingBottom: "10px" }}>
-              <Button className="btn btn-primary btn-lg" type="button" onClick={handleShowModal}>
-                Add Pet
-              </Button>
-            </div>
+    <div className="container-fluid bg-light py-4">
+      <div className="container">
+        <div className="row mb-4">
+          <div className="col">
+            <h2 className="display-6 text-primary">
+              <i className="bx bx-paw me-2"></i>My Pets
+            </h2>
+          </div>
+          <div className="col-auto">
+            <button 
+              className="btn btn-primary d-flex align-items-center"
+              onClick={() => setShowModal(true)}
+            >
+              <i className="bx bx-plus-circle me-2"></i>
+              Add New Pet
+            </button>
           </div>
         </div>
-      </div>
-      {userId && <AddPetModal show={showModal} handleClose={handleCloseModal} userId={userId} />}
-    </>
-  );
-};
 
-const calculateAge = (birthday) => {
-  const birthDate = new Date(birthday);
-  const ageDiffMs = Date.now() - birthDate.getTime();
-  const ageDate = new Date(ageDiffMs);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="row g-4">
+            {pets.map((pet) => (
+              <div className="col-12 col-md-6 col-lg-4" key={pet.id}>
+                <div className="card h-100 shadow-sm hover-shadow transition-all" 
+                     onClick={() => navigate(`/Home/PetProfile/${pet.id}`)}
+                     style={{ cursor: 'pointer' }}>
+                  <div className="position-relative">
+                    <img
+                      src={pet.image}
+                      className="card-img-top"
+                      alt={pet.name}
+                      style={{ height: '240px', objectFit: 'cover' }}
+                    />
+                    <div className="position-absolute top-0 end-0 m-2">
+                      <span className="badge bg-primary">
+                        <i className={`bx ${pet.sex === 'male' ? 'bx-male' : 'bx-female'} me-1`}></i>
+                        {pet.sex}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="card-body">
+                    <h5 className="card-title mb-3 d-flex justify-content-between align-items-center">
+                      <span>{pet.name}</span>
+                      <small className="text-muted">
+                        <i className="bx bx-calendar me-1"></i>
+                        {calculateAge(pet.birthday)}
+                      </small>
+                    </h5>
+                    
+                    <div className="pet-details">
+                      <p className="mb-2">
+                        <i className="bx bx-purchase-tag me-2"></i>
+                        <span className="fw-bold">Breed:</span> {pet.breed}
+                      </p>
+                      {pet.emotionalCharacteristics && (
+                        <p className="mb-0">
+                          <i className="bx bx-heart me-2"></i>
+                          <span className="fw-bold">Characteristics:</span> {pet.emotionalCharacteristics}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div className="card-footer bg-transparent">
+                    <button 
+                      className="btn btn-outline-primary w-100"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/Home/PetProfile/${pet.id}`);
+                      }}
+                    >
+                      <i className="bx bx-show me-2"></i>View Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      
+      {userId && <AddPetModal show={showModal} handleClose={() => {
+        setShowModal(false);
+        if (userId) fetchPets(userId);
+      }} userId={userId} />}
+    </div>
+  );
 };
 
 export default ProfilePage;
